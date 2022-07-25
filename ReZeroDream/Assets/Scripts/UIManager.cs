@@ -28,6 +28,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    [HideInInspector]
+    public TypeEffect textEffect;
+
 
     [Header("Dialogue")]
     [SerializeField] private GameObject dialogueImage;
@@ -35,12 +38,27 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueTalkText;
     [SerializeField] private Image dialoguePortraitImg;
 
+    [Header("Story - Cat")]
+    [SerializeField] private TMP_InputField catNameInput;
+    [SerializeField] public GameObject catNameImage;
+    [SerializeField] public string catName = "";
+    [SerializeField] private TextMeshProUGUI catText;
+
+    private void Start()
+    {
+        textEffect = dialogueTalkText.GetComponent<TypeEffect>();
+
+        catNameImage.SetActive(false);
+        catName = catNameInput.GetComponent<TMP_InputField>().text;
+    }
+
+
     public void SetActiveDialogueImage(bool active) { dialogueImage.SetActive(active); }
 
     public void UpdateDialogeText(string name, string talk)
     {
+        textEffect.SetMsg(talk);
         dialogueObjectNameText.text = name;
-        dialogueTalkText.text = talk;
     }
 
     public void UpdateDialoguePortraitImg(Sprite portrait)
@@ -51,9 +69,37 @@ public class UIManager : MonoBehaviour
 
 
 
+    public void SetActiveCatNameImage(bool active) { catNameImage.SetActive(active); }
+    public void UpdateCatName(ObjData cat) { cat.name = catName; }
 
+    public void OnValueChanedEvent(string str)
+    {
+        catText.text += " ";
+    }
+    public void OnEndEdit(string str)
+    {
+        int leng = catText.text.Length;
 
-
-
+        if (catText.text[leng - 2] == '>' && catText.text[leng - 3] == 'u')
+        {
+            string temp = catText.text.Substring(0, leng - 5);
+            for (int i = 0; i < temp.Length; i++)
+            {
+                if (temp[i] == '<')
+                {
+                    if (temp[i + 1] == 'u')
+                    {
+                        catName += temp.Substring(0, temp.Length - 4);
+                        catName += temp.Substring(temp.Length - 1);
+                    }
+                    break;
+                }
+            }
+        }
+        else
+        {
+            catName = catText.text;
+        }
+    }
 
 }

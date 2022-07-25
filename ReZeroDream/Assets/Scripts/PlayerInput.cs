@@ -11,6 +11,7 @@ public class PlayerInput : MonoBehaviour
     public bool jump { get; private set; }    
     public bool lift { get; private set; }
     public bool Lclick { get; private set; }
+    public bool enter { get; private set; }
     public GameObject scanObject { get; private set; }
 
     void Update()
@@ -30,6 +31,7 @@ public class PlayerInput : MonoBehaviour
         jump = Input.GetButtonDown("Jump");
         lift = Input.GetButtonDown("Lift");
         Lclick = Input.GetMouseButtonDown(0);
+        enter = Input.GetMouseButtonDown(1);// Input.GetButtonDown("Enter");
         scanObject = Ray();
 
     }
