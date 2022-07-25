@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
     //property
+
+    //키보드 입력 & 물체 입력
     public float move { get; private set; }
     public float rotate { get; private set; }
     public bool run { get; private set; }
@@ -12,7 +14,7 @@ public class PlayerInput : MonoBehaviour
     public bool lift { get; private set; }
     public bool Lclick { get; private set; }
     public bool enter { get; private set; }
-    public GameObject scanObject { get; private set; }
+    public GameObject scanObject { get; private set; } 
 
     void Update()
     {
@@ -31,7 +33,7 @@ public class PlayerInput : MonoBehaviour
         jump = Input.GetButtonDown("Jump");
         lift = Input.GetButtonDown("Lift");
         Lclick = Input.GetMouseButtonDown(0);
-        enter = Input.GetMouseButtonDown(1);// Input.GetButtonDown("Enter");
+        enter =  Input.GetButtonDown("Enter");
         scanObject = Ray();
 
     }
@@ -49,14 +51,6 @@ public class PlayerInput : MonoBehaviour
             }   
         }
         return null;
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (Application.isPlaying)
-        {
-            Gizmos.DrawWireSphere(transform.position, transform.localScale.x / 1.5f);
-        }
     }
 
 }

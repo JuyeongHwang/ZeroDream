@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerState playerState;
 
     private float animSpeed = 0.0f;
-    public bool isJumping = false;
+    bool isJumping = false;
 
     private void Start()
     {
