@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
 
     [HideInInspector]
     public TypeEffect textEffect;
-
+    public bool isQuest;
 
     [Header("Dialogue")]
     [SerializeField] private GameObject dialogueImage;
@@ -44,14 +44,50 @@ public class UIManager : MonoBehaviour
     [SerializeField] public string catName = "";
     [SerializeField] private TextMeshProUGUI catText;
 
+    [Header("Quest")]
+    [SerializeField] private Image[] questStateArr;
+    [SerializeField] private GameObject questImage;
+    [SerializeField] private TextMeshProUGUI questNameText;
+    [SerializeField] private GameObject questWindowImage;
+    [SerializeField] private TextMeshProUGUI questWindowNameText;
+    [SerializeField] private TextMeshProUGUI questWindowDescriptText;
+    [SerializeField] private TextMeshProUGUI questWindowContentText;
+    [SerializeField] private TextMeshProUGUI questWindowRewardText;
+
+    private QuestManager questManager;
+
     private void Start()
     {
         textEffect = dialogueTalkText.GetComponent<TypeEffect>();
 
         catNameImage.SetActive(false);
         catName = catNameInput.GetComponent<TMP_InputField>().text;
+
+        questManager = FindObjectOfType<QuestManager>();
+        SetFirstQuestUI(); //퀘스트UI초기화 (원래는 대화 끝날 때만 불리니까)
     }
 
+    private void SetFirstQuestUI()
+    {
+        isQuest = false;
+        questImage.SetActive(true);
+        questWindowImage.SetActive(false);
+        questNameText.text = "???와 대화하기";
+        questWindowNameText.text = "???와 대화하기";
+        questWindowDescriptText.text = "???에게 대화를 걸어 이곳에 대한 정보를 얻어보자.";
+        questWindowContentText.text = "???와 대화하기";
+        questWindowRewardText.text = " ";
+    }
+
+    //여기서 만들고 DialogueManager에서 호출 (CheckQuest에서 npcId > questId)
+    public void SetQuestUI(int npcId)
+    {
+        questNameText.text = questManager.CheckQuest(npcId);
+        questWindowNameText.text = questManager.CheckQuest(npcId);
+        questWindowDescriptText.text = questManager.qwDescript;
+        questWindowContentText.text = questManager.qwContent;
+        questWindowRewardText.text = questManager.qwReward;
+    }
 
     public void SetActiveDialogueImage(bool active) { dialogueImage.SetActive(active); }
 

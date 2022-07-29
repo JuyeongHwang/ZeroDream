@@ -53,7 +53,7 @@ public class DialogueManager : MonoBehaviour
             isAction = false;
             talkIndex = 0;
 
-            questManager.CheckQuest(id);
+            UIManager.instance.SetQuestUI(id);
             UIManager.instance.SetActiveDialogueImage(isAction);
             return;
         }
