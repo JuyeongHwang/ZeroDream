@@ -81,6 +81,7 @@ public class PlayerInteraction : MonoBehaviour
 
             if (playerInput.scanObject)
             {
+                playerInput.scanObject.transform.LookAt(transform);
                 //Debug.Log("Click : " + playerInput.scanObject.name);
                 dialogueManager.Action(playerInput.scanObject);
             }

@@ -9,11 +9,14 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 5f;
     public float rotateSpeed = 120f;
     public float jumpSpeed = 3f;
+    public int jumpCount = 0;
 
     private PlayerInput playerInput;
     private Rigidbody playerRigidbody;
     private Animator playerAnimator;
     private PlayerState playerState;
+
+    private AudioSource playerAudio;
 
     private float animSpeed = 0.0f;
     bool isJumping = false;
@@ -24,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         playerAnimator = GetComponent<Animator>();
 
+        playerAudio = GetComponent<AudioSource>();
         //움직임 제어 체크
         playerState = GetComponent<PlayerState>(); 
     }
@@ -88,6 +92,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerInput.jump && !isJumping)
         {
+            //jumpCount++;
+
             isJumping = true;
         }
 
@@ -95,13 +101,17 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 moveDistance = transform.up * jumpSpeed * Time.deltaTime;
             playerRigidbody.MovePosition(playerRigidbody.position + moveDistance / 2.0f);
+
+            playerAudio.Play(); //착지
         }
+
     }
 
 
     private void OnCollisionEnter(Collision collision)
     {
         isJumping = false;
+        jumpCount = 0;
     }
 
 }
