@@ -6,7 +6,7 @@ public class FollowCamera : MonoBehaviour
 {
     private Transform lookTarget;
     private Transform target;
-    public Vector3 cameraOffset;
+    public Vector3 cameraOffset = new Vector3(0, 3, -7);
 
 
     public float moveSmoothSpeed = 0.25f;

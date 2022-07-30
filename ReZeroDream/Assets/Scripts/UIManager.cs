@@ -32,6 +32,10 @@ public class UIManager : MonoBehaviour
     public TypeEffect textEffect;
     public bool isQuest;
 
+    [Header("Player")]
+    [SerializeField] private Image playerClickImage;
+
+
     [Header("Dialogue")]
     [SerializeField] private GameObject dialogueImage;
     [SerializeField] private TextMeshProUGUI dialogueObjectNameText;
@@ -66,6 +70,12 @@ public class UIManager : MonoBehaviour
         questManager = FindObjectOfType<QuestManager>();
         SetFirstQuestUI(); //퀘스트UI초기화 (원래는 대화 끝날 때만 불리니까)
     }
+
+    public void SetPlayerClickImage(bool isActive)
+    {
+        playerClickImage.gameObject.SetActive(isActive);
+    }
+
 
     private void SetFirstQuestUI()
     {

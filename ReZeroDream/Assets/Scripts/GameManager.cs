@@ -35,4 +35,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.R))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
+    }
 }

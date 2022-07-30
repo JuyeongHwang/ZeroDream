@@ -38,11 +38,12 @@ public class PlayerInput : MonoBehaviour
 
     }
 
+    RaycastHit Hit;
     GameObject Ray()
     {
         float maxDistance = 1.5f;
-        RaycastHit Hit;
-        if(Physics.SphereCast(transform.position, transform.localScale.x/1.5f,
+
+        if(Physics.SphereCast(transform.position, transform.localScale.x/2.5f,
             transform.forward, out Hit, maxDistance))
         {
             if(Hit.transform.tag == "RayObject")
@@ -51,6 +52,23 @@ public class PlayerInput : MonoBehaviour
             }   
         }
         return null;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (Application.isPlaying)
+        {
+
+            if (scanObject)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawRay(transform.position, transform.forward * Hit.distance);
+                Gizmos.DrawWireSphere(transform.position + transform.forward * Hit.distance, transform.localScale.x / 1.5f);
+
+            }
+
+
+        }
     }
 
 }
