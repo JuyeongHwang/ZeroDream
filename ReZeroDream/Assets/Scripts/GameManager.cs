@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     public bool[] belongEmotions = new bool[3] { false, false, false };
     public bool[] spawnEmotions = new bool[3] { true, false, false };
 
+    public enum PlayState { PLAY, SETTING};
+    public PlayState playState = PlayState.SETTING;
     private void Awake()
     {
         // 씬에 싱글톤 오브젝트가 된 다른 GameManager 오브젝트가 있다면

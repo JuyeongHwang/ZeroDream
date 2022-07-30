@@ -82,11 +82,20 @@ public class UIManager : MonoBehaviour
     public void OnSettings()
     {
         settingObj.SetActive(true);
+        ChangeSettingMode();
     }
-
     public void OffSettings()
     {
         settingObj.SetActive(false);
+        ChangePlayMode();
+    }
+    public void ChangePlayMode()
+    {
+        GameManager.instance.playState = GameManager.PlayState.PLAY;
+    }
+    public void ChangeSettingMode()
+    {
+        GameManager.instance.playState = GameManager.PlayState.SETTING;
     }
 
     public void SetPlayerClickImage(bool isActive)

@@ -18,7 +18,9 @@ public class RotateCamera : MonoBehaviour
     }
     private void Update()
     {
+        if (GameManager.instance.playState == GameManager.PlayState.SETTING) return;
         
+
         if (Input.GetMouseButton(0))
         {
             fc.enabled = false;
