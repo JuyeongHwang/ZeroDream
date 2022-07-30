@@ -40,6 +40,10 @@ public class QuestImplementation : MonoBehaviour
 
             SetCatName();
         }
+        if(questManager.questId == 40)
+        {
+            EndHuiStory();
+        }
     }
 
 
@@ -62,4 +66,20 @@ public class QuestImplementation : MonoBehaviour
         playerState.missionStart = true;
     }
 
+
+    void focusingCat()
+    {
+        //change color
+        //camera focusing & rotation
+    }
+    void focusingFlower()
+    {
+        //camera focusing & rotation
+    }
+
+    void EndHuiStory()
+    {
+        print("³¡");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+    }
 }

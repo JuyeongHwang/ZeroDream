@@ -36,17 +36,19 @@ public class RotateCamera : MonoBehaviour
         {
             fc.enabled = true;
 
+            if (Input.GetKey(KeyCode.T))
+            {
+                rotation = true;
+            }
+            else
+            {
+                rotation = false;
+            }
+            rotate();
+
         }
 
-        if (Input.GetKey(KeyCode.T))
-        {
-            rotation = true;
-        }
-        else
-        {
-            rotation = false;
-        }
-        rotate();
+
     }
 
     bool rotation = true;

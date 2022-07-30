@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
             // 자신을 파괴
             Destroy(gameObject);
         }
+        //DontDestroyOnLoad(gameObject);
     }
 
     private void Start()

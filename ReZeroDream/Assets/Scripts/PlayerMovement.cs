@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerState playerState;
 
     private AudioSource playerAudio;
+    public AudioClip jumpEndSound;
+    public AudioClip jumpStartSound;
 
     private float animSpeed = 0.0f;
     bool isJumping = false;
@@ -93,25 +95,35 @@ public class PlayerMovement : MonoBehaviour
         if (playerInput.jump && !isJumping)
         {
             //jumpCount++;
-
             isJumping = true;
+            playerAudio.clip = jumpStartSound;
+            playerAudio.Play(); //점프
         }
 
         if (isJumping)
         {
             Vector3 moveDistance = transform.up * jumpSpeed * Time.deltaTime;
             playerRigidbody.MovePosition(playerRigidbody.position + moveDistance / 2.0f);
+            
+            //왜 되는거지..?
 
-            playerAudio.Play(); //착지
         }
+
 
     }
 
 
     private void OnCollisionEnter(Collision collision)
     {
-        isJumping = false;
-        jumpCount = 0;
+        if (isJumping)
+        {
+            isJumping = false;
+            jumpCount = 0;
+
+            playerAudio.clip = jumpEndSound;
+            playerAudio.Play(); //착지
+        }
+
     }
 
 }

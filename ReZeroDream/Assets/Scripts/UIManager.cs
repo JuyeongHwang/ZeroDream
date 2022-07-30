@@ -32,6 +32,10 @@ public class UIManager : MonoBehaviour
     public TypeEffect textEffect;
     //public bool isQuest;
 
+    [Header("Settings")]
+    [SerializeField] private GameObject settingObj;
+
+
     [Header("Player")]
     [SerializeField] private Image playerClickImage;
     [SerializeField] private Image playerLiftImage;
@@ -74,6 +78,17 @@ public class UIManager : MonoBehaviour
         SetFirstQuestUI(); //퀘스트UI초기화 (원래는 대화 끝날 때만 불리니까)
     }
 
+
+    public void OnSettings()
+    {
+        settingObj.SetActive(true);
+    }
+
+    public void OffSettings()
+    {
+        settingObj.SetActive(false);
+    }
+
     public void SetPlayerClickImage(bool isActive)
     {
         playerClickImage.gameObject.SetActive(isActive);
@@ -90,8 +105,8 @@ public class UIManager : MonoBehaviour
         questImage.gameObject.SetActive(true);
         questWindowImage.gameObject.SetActive(false);
 
-        qwOnButton.SetActive(true);
-        qwOffButton.SetActive(false);
+        //qwOnButton.SetActive(true);
+        //qwOffButton.SetActive(false);
 
         questNameText.text = "???와 대화하기";
         questWindowNameText.text = "???와 대화하기";

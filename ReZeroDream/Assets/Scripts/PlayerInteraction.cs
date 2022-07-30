@@ -59,10 +59,8 @@ public class PlayerInteraction : MonoBehaviour
             Debug.Log("Enter");
             if (UIManager.instance.catName != "")
             {
-                Debug.Log(UIManager.instance.catName);
-                //UIManager.instance.UpdateCatName(playerInput.scanObject.GetComponent<ObjData>());
-                
-                
+                //고양이를 find해서 넘기는게 더 나을듯..
+                UIManager.instance.UpdateCatName(playerInput.scanObject.GetComponent<ObjData>());
                 UIManager.instance.SetActiveCatNameImage(false);
 
                 dialogueManager.Action(playerInput.scanObject);
