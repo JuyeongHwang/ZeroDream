@@ -38,6 +38,18 @@ public class PlayerState : MonoBehaviour
         cantClick = (UIManager.instance.catNameImage.activeSelf || UIManager.instance.textEffect.isAnim || lifting);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Fall")
+        {
+            print("Reset");
+
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            Camera.main.transform.position = new Vector3(-2, 10, 2);
+            gameObject.transform.position = new Vector3(-2, 10, 2);
+            //GameManager.instance.ResetPlayerPosition();
+        }
+    }
 
     public void SetGoal(string _g)
     {

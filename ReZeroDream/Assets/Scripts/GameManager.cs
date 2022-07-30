@@ -40,11 +40,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        print("game start");
+    }
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.R))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
+    }
+
+    public void ResetPlayerPosition()
+    {
+        GetComponent<PlayerState>().gameObject.transform.position = new Vector3(-2, 5, 2);
+
     }
 }
