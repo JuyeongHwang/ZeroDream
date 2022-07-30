@@ -34,9 +34,8 @@ public class QuestImplementation : MonoBehaviour
         }
         if (questManager.questId == 20 && questManager.questAcitonIndex == 1 && dialogueManager.talkIndex == 4)
         {
-            if (UIManager.instance.catName != "") return;
-            if (UIManager.instance.catNameImage.activeSelf) return;
-            if (UIManager.instance.textEffect.isAnim) return;
+            //if (UIManager.instance.catName != "") return;
+            if (UIManager.instance.catNameWindow.isActive()) return;
 
             SetCatName();
         }
@@ -61,7 +60,7 @@ public class QuestImplementation : MonoBehaviour
     void SetCatName()
     {
         Debug.Log("고양이 이름 짓기 활성화");
-        UIManager.instance.SetActiveCatNameImage(true);
+        UIManager.instance.OnOffCatNameWindow(true);
         playerState.SetGoal("고양이 이름 짓기");
         playerState.missionStart = true;
     }

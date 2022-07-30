@@ -31,7 +31,7 @@ public class DialogueManager : MonoBehaviour
         questManager = FindObjectOfType<QuestManager>();
 
         isAction = false;
-        UIManager.instance.SetActiveDialogueImage(false);
+        UIManager.instance.OnOffDialogueWindow(false);
     }
 
     public void Action(GameObject _scan)
@@ -53,16 +53,16 @@ public class DialogueManager : MonoBehaviour
             isAction = false;
             talkIndex = 0;
 
-            UIManager.instance.SetQuestUI(id);
-            UIManager.instance.SetActiveDialogueImage(isAction);
+            UIManager.instance.UpdateQuestUI(id);
+            UIManager.instance.OnOffDialogueWindow(isAction);
             return;
         }
 
         isAction = true;
         talkIndex++;
-        UIManager.instance.SetActiveDialogueImage(isAction);
+        UIManager.instance.OnOffDialogueWindow(isAction);
         UIManager.instance.UpdateDialogeText(name, talkData.Split(':')[0]);
-        UIManager.instance.UpdateDialoguePortraitImg(talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1])));
+        UIManager.instance.UpdateDialoguePortraitImage(talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1])));
     }
 
 

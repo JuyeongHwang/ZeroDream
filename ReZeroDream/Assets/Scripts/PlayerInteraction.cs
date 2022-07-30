@@ -29,7 +29,7 @@ public class PlayerInteraction : MonoBehaviour
         
 
 
-        Enter();
+        //Enter();
 
 
 
@@ -52,25 +52,25 @@ public class PlayerInteraction : MonoBehaviour
         liftedItem = null;
     }
 
-    void Enter()
-    {
-        if(playerInput.enter)
-        {
-            Debug.Log("Enter");
-            if (UIManager.instance.catName != "")
-            {
-                //고양이를 find해서 넘기는게 더 나을듯..
-                UIManager.instance.UpdateCatName(playerInput.scanObject.GetComponent<ObjData>());
-                UIManager.instance.SetActiveCatNameImage(false);
+    //void Enter()
+    //{
+    //    if(playerInput.enter)
+    //    {
+    //        Debug.Log("Enter");
+    //        if (UIManager.instance.catName != "")
+    //        {
+    //            //고양이를 find해서 넘기는게 더 나을듯..
 
-                dialogueManager.Action(playerInput.scanObject);
-            }
+    //        }
 
-        }
-    }
+    //    }
+    //}
+
     void Click()
     {
+
         clickUI();
+        if (GameManager.instance.playState == GameManager.PlayState.SETTING) return;
 
         if (playerState.cantClick) return;
 
@@ -95,11 +95,17 @@ public class PlayerInteraction : MonoBehaviour
 
     void clickUI()
     {
-        UIManager.instance.SetPlayerClickImage(((playerInput.scanObject) ? true : false));
+        
+        UIManager.instance.OnOffPlayerClickImage(((playerInput.scanObject) ? true : false));
         if(playerState.cantClick || playerState.conversation)
         {
-            UIManager.instance.SetPlayerClickImage(false);
+            UIManager.instance.OnOffPlayerClickImage(false);
         }
+        if (GameManager.instance.playState == GameManager.PlayState.SETTING)
+        {
+            UIManager.instance.OnOffPlayerClickImage(false);
+        }
+
     }
 
     void Lift()
@@ -122,7 +128,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void liftUI()
     {
-        UIManager.instance.SetPlayerLiftImage(canLift && !isLifting);
+        UIManager.instance.OnOffPlayerLiftImage(canLift && !isLifting);
     }
 
 

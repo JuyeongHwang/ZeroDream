@@ -35,7 +35,7 @@ public class PlayerState : MonoBehaviour
     {
         conversation = dialogue.isAction;
         lifting = playerInteraction.isLifting;
-        cantClick = (UIManager.instance.catNameImage.activeSelf || UIManager.instance.textEffect.isAnim || lifting);
+        cantClick = (UIManager.instance.catNameWindow.isActive() || lifting); // || UIManager.instance.textEffect.isAnim
     }
 
     private void OnTriggerEnter(Collider other)
