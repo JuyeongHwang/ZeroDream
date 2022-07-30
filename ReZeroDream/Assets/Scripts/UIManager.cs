@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
 
     [HideInInspector]
     public TypeEffect textEffect;
-    public bool isQuest;
+    //public bool isQuest;
 
     [Header("Player")]
     [SerializeField] private Image playerClickImage;
@@ -51,13 +51,15 @@ public class UIManager : MonoBehaviour
 
     [Header("Quest")]
     [SerializeField] private Image[] questStateArr;
-    [SerializeField] private GameObject questImage;
+    [SerializeField] private Image questImage;
     [SerializeField] private TextMeshProUGUI questNameText;
-    [SerializeField] private GameObject questWindowImage;
+    [SerializeField] private Image questWindowImage;
     [SerializeField] private TextMeshProUGUI questWindowNameText;
     [SerializeField] private TextMeshProUGUI questWindowDescriptText;
     [SerializeField] private TextMeshProUGUI questWindowContentText;
     [SerializeField] private TextMeshProUGUI questWindowRewardText;
+    [SerializeField] private GameObject qwOnButton;
+    [SerializeField] private GameObject qwOffButton;
 
     private QuestManager questManager;
 
@@ -84,9 +86,13 @@ public class UIManager : MonoBehaviour
 
     private void SetFirstQuestUI()
     {
-        isQuest = false;
-        questImage.SetActive(true);
-        questWindowImage.SetActive(false);
+        //isQuest = false;
+        questImage.gameObject.SetActive(true);
+        questWindowImage.gameObject.SetActive(false);
+
+        qwOnButton.SetActive(true);
+        qwOffButton.SetActive(false);
+
         questNameText.text = "???와 대화하기";
         questWindowNameText.text = "???와 대화하기";
         questWindowDescriptText.text = "???에게 대화를 걸어 이곳에 대한 정보를 얻어보자.";
@@ -103,6 +109,22 @@ public class UIManager : MonoBehaviour
         questWindowDescriptText.text = questManager.qwDescript;
         questWindowContentText.text = questManager.qwContent;
         questWindowRewardText.text = questManager.qwReward;
+    }
+
+    public void OnQuestWindow()
+    {
+        qwOnButton.SetActive(false);
+        questImage.gameObject.SetActive(false);
+        questWindowImage.gameObject.SetActive(true);
+        qwOffButton.SetActive(true);
+    }
+
+    public void OffQuestWindow()
+    {
+        questWindowImage.gameObject.SetActive(false);
+        questImage.gameObject.SetActive(true);
+        qwOnButton.SetActive(true);
+        qwOffButton.SetActive(false);
     }
 
     public void SetActiveDialogueImage(bool active) { dialogueImage.SetActive(active); }
