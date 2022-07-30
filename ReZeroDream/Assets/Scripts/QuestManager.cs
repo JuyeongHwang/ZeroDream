@@ -49,6 +49,8 @@ public class QuestManager : MonoBehaviour
         questList = new Dictionary<int, QuestData>(); //초기화
         GenerateQuestData();
 
+        //해피 발견시 ->
+        CheckQuest(0);
     }
 
     void Update()

@@ -14,6 +14,5 @@ public class PlayerUI : MonoBehaviour
 
     void Update()
     {
-        UIManager.instance.SetPlayerClickImage( (playerInput.scanObject ? true : false)  );
-    }
+        }
 }

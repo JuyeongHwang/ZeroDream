@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Player")]
     [SerializeField] private Image playerClickImage;
+    [SerializeField] private Image playerLiftImage;
 
 
     [Header("Dialogue")]
@@ -75,6 +76,10 @@ public class UIManager : MonoBehaviour
     {
         playerClickImage.gameObject.SetActive(isActive);
     }
+    public void SetPlayerLiftImage(bool isActive)
+    {
+        playerLiftImage.gameObject.SetActive(isActive);
+    }
 
 
     private void SetFirstQuestUI()
@@ -92,7 +97,8 @@ public class UIManager : MonoBehaviour
     //여기서 만들고 DialogueManager에서 호출 (CheckQuest에서 npcId > questId)
     public void SetQuestUI(int npcId)
     {
-        questNameText.text = questManager.CheckQuest(npcId);
+        //questNameText.text = questManager.CheckQuest(npcId);
+        
         questWindowNameText.text = questManager.CheckQuest(npcId);
         questWindowDescriptText.text = questManager.qwDescript;
         questWindowContentText.text = questManager.qwContent;
@@ -116,7 +122,7 @@ public class UIManager : MonoBehaviour
 
 
     public void SetActiveCatNameImage(bool active) { catNameImage.SetActive(active); }
-    public void UpdateCatName(ObjData cat) { cat.name = catName; }
+    public void UpdateCatName(ObjData cat) { cat._name = catName; }
 
     public void OnValueChanedEvent(string str)
     {

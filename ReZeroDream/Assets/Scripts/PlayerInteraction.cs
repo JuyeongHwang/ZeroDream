@@ -26,7 +26,12 @@ public class PlayerInteraction : MonoBehaviour
     {
 
         Click();
+        
+
+
         Enter();
+
+
 
         Lift();
         playerAnimator.SetBool("isLift", isLifting);
@@ -55,42 +60,53 @@ public class PlayerInteraction : MonoBehaviour
             if (UIManager.instance.catName != "")
             {
                 Debug.Log(UIManager.instance.catName);
-                UIManager.instance.UpdateCatName(playerInput.scanObject.GetComponent<ObjData>());
+                //UIManager.instance.UpdateCatName(playerInput.scanObject.GetComponent<ObjData>());
+                
+                
                 UIManager.instance.SetActiveCatNameImage(false);
+
+                dialogueManager.Action(playerInput.scanObject);
             }
 
         }
     }
     void Click()
     {
+        clickUI();
+
         if (playerState.cantClick) return;
 
         if (playerInput.Lclick)
         {
+            if (!playerInput.scanObject) return;
 
-            //if (playerState.missionStart && !playerState.missionComplete)
-            //{
-            //    Debug.Log(playerState.goal);
-            //    return;
-            //}
-            //else if (playerState.missionStart && playerState.missionComplete)
-            //{
-            //    playerState.SetMission(false, false);
-            //}
-
-
-            if (playerInput.scanObject)
+            if (playerInput.scanObject.name == "NPC_Cat")
             {
-                playerInput.scanObject.transform.LookAt(transform);
-                //Debug.Log("Click : " + playerInput.scanObject.name);
-                dialogueManager.Action(playerInput.scanObject);
+                if (GameManager.instance.spawnEmotions[0] && !GameManager.instance.belongEmotions[0])
+                {
+                    return;
+                }
             }
+
+            if(playerInput.scanObject.GetComponent<ObjData>().isNpc)
+                playerInput.scanObject.transform.LookAt(transform);
+    
+            dialogueManager.Action(playerInput.scanObject);
         }
     }
 
+    void clickUI()
+    {
+        UIManager.instance.SetPlayerClickImage(((playerInput.scanObject) ? true : false));
+        if(playerState.cantClick || playerState.conversation)
+        {
+            UIManager.instance.SetPlayerClickImage(false);
+        }
+    }
 
     void Lift()
     {
+        liftUI();
         if (!canLift) return;
 
         if (playerInput.lift && !isLifting)
@@ -106,10 +122,17 @@ public class PlayerInteraction : MonoBehaviour
 
     }
 
+    void liftUI()
+    {
+        UIManager.instance.SetPlayerLiftImage(canLift && !isLifting);
+    }
+
+
     IEnumerator WaitLifting()
     {
         yield return new WaitForSeconds(3.0f);
         isLifting = false;
+        canLift = false;
     }
 
     

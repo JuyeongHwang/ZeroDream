@@ -23,8 +23,12 @@ public class GameManager : MonoBehaviour
 
     private static GameManager m_instance; // 싱글톤이 할당될 static 변수
 
-    private int score = 0; // 현재 게임 점수
     public bool isGameover { get; private set; } // 게임 오버 상태
+
+    // 게임 감정 상태
+    //0 : HUI, 1 : ENJOY, 2 : WANT, ...
+    public bool[] belongEmotions = new bool[3] { false, false, false };
+    public bool[] spawnEmotions = new bool[3] { true, false, false };
 
     private void Awake()
     {

@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour
     public void Action(GameObject _scan)
     {
         ObjData objData = _scan.GetComponent<ObjData>();
-        Talk(objData.id, objData.isNpc, objData.name);
+        Talk(objData.id, objData.isNpc, objData._name);
 
     }
 
