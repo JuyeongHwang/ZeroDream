@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.40959483, g: 0.17112042, b: 0.4430612, a: 1}
+  m_IndirectSpecularColor: {r: 0.40967217, g: 0.17110264, b: 0.44374394, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4899,9 +4899,17 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2070141432, guid: 7340936ca1fe0c14e88d905904049120, type: 3}
+      propertyPath: grassStep
+      value: 
+      objectReference: {fileID: 8300000, guid: 24105f22932aaaa49b16db30ee9d6f95, type: 3}
+    - target: {fileID: 2070141432, guid: 7340936ca1fe0c14e88d905904049120, type: 3}
       propertyPath: jumpSpeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 2070141432, guid: 7340936ca1fe0c14e88d905904049120, type: 3}
+      propertyPath: waterStep
+      value: 
+      objectReference: {fileID: 8300000, guid: 90b7884443bdf504c82323ec8dedce7b, type: 3}
     - target: {fileID: 2070141432, guid: 7340936ca1fe0c14e88d905904049120, type: 3}
       propertyPath: jumpEndSound
       value: 
@@ -6357,7 +6365,7 @@ GameObject:
   - component: {fileID: 1579994861}
   - component: {fileID: 1579994860}
   - component: {fileID: 1579994859}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -19,9 +19,14 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource playerAudio;
     public AudioClip jumpEndSound;
     public AudioClip jumpStartSound;
+    public AudioClip grassStep;
+    public AudioClip waterStep;
+    public AudioClip NoneSound;
 
     private float animSpeed = 0.0f;
     bool isJumping = false;
+    bool isMoving = false;
+    bool isstepSE = false;
 
     private void Start()
     {
@@ -45,8 +50,10 @@ public class PlayerMovement : MonoBehaviour
 
         Move();
         Rotate();
+        SoundEffect();
         playerAnimator.SetFloat("Move", animSpeed);
 
+        isMoving = playerInput.move != 0;
 
     }
 
@@ -54,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerState.conversation || playerState.lifting)
         {
-            
             return;
         }
 
@@ -121,9 +127,29 @@ public class PlayerMovement : MonoBehaviour
             jumpCount = 0;
 
             playerAudio.clip = jumpEndSound;
-            playerAudio.Play(); //착지
+            playerAudio.Play(); //착지ㄴ
         }
 
+    }
+
+    //1. Move 함수 안에 SE 넣기
+    //2. Move 함수 밖에 SE 제어하는 함수 따로 만들기
+    public void SoundEffect()
+    {
+        if(isMoving && !isstepSE) //isstemp 이 false일 때 돌려라
+        {
+            playerAudio.clip = grassStep;
+            playerAudio.loop = true;
+            playerAudio.Play();
+            isstepSE = true;
+        }
+        if(!isMoving && isstepSE)
+        {
+            playerAudio.clip = NoneSound;
+            playerAudio.loop = false;
+            isstepSE = false;
+
+        }
     }
 
 }
