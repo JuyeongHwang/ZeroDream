@@ -34,10 +34,16 @@ public class PlayerState : MonoBehaviour
     private void Update()
     {
         conversation = dialogue.isAction;
-        lifting = playerInteraction.isLifting;
+        
+        print("수정수정");
+        //catnamewindow면 mouseOver상태
         cantClick = (UIManager.instance.catNameWindow.isActive() || lifting); // || UIManager.instance.textEffect.isAnim
     }
 
+    public void SetLifting(bool lift)
+    {
+        lifting = lift;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Fall")

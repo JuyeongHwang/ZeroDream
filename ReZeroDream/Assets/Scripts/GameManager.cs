@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
     public bool[] belongEmotions = new bool[3] { false, false, false };
     public bool[] spawnEmotions = new bool[3] { true, false, false };
 
+    public enum MouseState { BASIC,MOUSEOVER, DIALOGUE, CAMERA};
+    public MouseState mouseState = MouseState.BASIC;
+
     public enum PlayState { PLAY, SETTING};
     public PlayState playState = PlayState.SETTING;
     private void Awake()

@@ -10,8 +10,8 @@ public class PlayerInteraction : MonoBehaviour
     private PlayerInput playerInput;
     private DialogueManager dialogueManager;
 
-    [HideInInspector]public bool isLifting = false;
-    private bool canLift = false;
+    enum LiftState { ReadyLift, StartLift, EndLift};
+    LiftState liftState = LiftState.EndLift;
     public GameObject liftedItem { get; private set; }
 
     void Start()
@@ -24,47 +24,11 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-
-        Click();
         
-
-
-        //Enter();
-
-
-
+        Click();
         Lift();
-        playerAnimator.SetBool("isLift", isLifting);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Item")
-        {
-            canLift = true;
-            liftedItem = other.gameObject;
-        }
 
     }
-    private void OnTriggerExit(Collider other)
-    {
-        canLift = false;
-        liftedItem = null;
-    }
-
-    //void Enter()
-    //{
-    //    if(playerInput.enter)
-    //    {
-    //        Debug.Log("Enter");
-    //        if (UIManager.instance.catName != "")
-    //        {
-    //            //고양이를 find해서 넘기는게 더 나을듯..
-
-    //        }
-
-    //    }
-    //}
 
     void Click()
     {
@@ -108,35 +72,51 @@ public class PlayerInteraction : MonoBehaviour
 
     }
 
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Item" && liftState == LiftState.EndLift)
+        {
+            liftState = LiftState.ReadyLift;
+            liftedItem = other.gameObject;
+        }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        liftState = LiftState.EndLift;
+        liftedItem = null;
+    }
+
     void Lift()
     {
         liftUI();
-        if (!canLift) return;
+        playerState.SetLifting(liftState == LiftState.StartLift ? true : false);
+        playerAnimator.SetBool("isLift", liftState == LiftState.StartLift ? true : false);
 
-        if (playerInput.lift && !isLifting)
+        if (liftState == LiftState.ReadyLift)
         {
-            isLifting = true;
-            playerState.CheckLiftedItem(liftedItem);
+            if (playerInput.lift)
+            {
+                liftState = LiftState.StartLift;
+                playerState.CheckLiftedItem(liftedItem);
+                StartCoroutine(WaitLifting());
+            }
         }
-
-        if (isLifting)
-        {
-            StartCoroutine(WaitLifting());
-        }
-
     }
 
     void liftUI()
     {
-        UIManager.instance.OnOffPlayerLiftImage(canLift && !isLifting);
+        UIManager.instance.OnOffPlayerLiftImage(liftState == LiftState.ReadyLift ? true : false);
     }
 
 
     IEnumerator WaitLifting()
     {
         yield return new WaitForSeconds(3.0f);
-        isLifting = false;
-        canLift = false;
+
+        liftState = LiftState.EndLift;
     }
 
     
