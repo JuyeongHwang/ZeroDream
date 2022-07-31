@@ -14,19 +14,19 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput playerInput;
     private Rigidbody playerRigidbody;
     private Animator playerAnimator;
-    private PlayerState playerState;
 
-    private AudioSource playerAudio;
+    public AudioSource jumpAudio;
+    public AudioSource playerAudio;
     public AudioClip jumpEndSound;
     public AudioClip jumpStartSound;
+    public AudioClip concreteStep;
     public AudioClip grassStep;
     public AudioClip waterStep;
-    public AudioClip NoneSound;
 
     private float animSpeed = 0.0f;
-    bool isJumping = false;
-    bool isMoving = false;
-    bool isstepSE = false;
+
+    enum MoveState { IDLE, WALK, RUN, JUMPSTART, JUMPEND };
+    [SerializeField] MoveState moveState = MoveState.IDLE;
 
     private void Start()
     {
@@ -36,8 +36,6 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
 
         playerAudio = GetComponent<AudioSource>();
-        //움직임 제어 체크
-        playerState = GetComponent<PlayerState>(); 
     }
 
     private void FixedUpdate()
@@ -53,7 +51,6 @@ public class PlayerMovement : MonoBehaviour
         SoundEffect();
         playerAnimator.SetFloat("Move", animSpeed);
 
-        isMoving = playerInput.move != 0;
 
     }
 
@@ -66,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Jump();
-        playerAnimator.SetBool("isJump", isJumping);
+        playerAnimator.SetBool("isJump", moveState == MoveState.JUMPSTART);
     }
 
 
@@ -76,16 +73,29 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveDistance = Vector3.zero;
         if (playerInput.run && playerInput.move == 1.0f)
         {
+            if (moveState != MoveState.JUMPSTART) moveState = MoveState.RUN;
+
             moveDistance = playerInput.move * transform.forward * runSpeed * Time.deltaTime;
             animSpeed = 2.0f;
         }
-        else 
+        else
         {
+
             moveDistance = playerInput.move * transform.forward * moveSpeed * Time.deltaTime;
             animSpeed = playerInput.move;
+            if (moveDistance == Vector3.zero)
+            {
+                if (moveState != MoveState.JUMPSTART) moveState = MoveState.IDLE;
+            }
+            else
+            {
+                if (moveState != MoveState.JUMPSTART) moveState = MoveState.WALK;
+            }
         }
 
         playerRigidbody.MovePosition(playerRigidbody.position + moveDistance);
+
+
 
     }
 
@@ -99,17 +109,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (playerInput.jump && !isJumping)
+        if (playerInput.jump && moveState != MoveState.JUMPSTART)
         {
-            //jumpCount++;
-            isJumping = true;
-            playerAudio.clip = jumpStartSound;
-            playerAudio.Play();
+            moveState = MoveState.JUMPSTART;
+            jumpAudio.clip = jumpStartSound;
+            jumpAudio.Play();
         }
 
-        if (isJumping)
+        if (moveState == MoveState.JUMPSTART)
         {
-
             Vector3 moveDistance = transform.up * jumpSpeed * Time.deltaTime;
             playerRigidbody.MovePosition(playerRigidbody.position + moveDistance / 2.0f);
         }
@@ -118,13 +126,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (isJumping)
+        if (moveState == MoveState.JUMPSTART)
         {
-            isJumping = false;
+            moveState = MoveState.JUMPEND;
             jumpCount = 0;
+            jumpAudio.clip = jumpEndSound;
+            jumpAudio.Play();
+            moveState = MoveState.IDLE;
 
-            playerAudio.clip = jumpEndSound;
-            playerAudio.Play();
         }
 
     }
@@ -133,20 +142,40 @@ public class PlayerMovement : MonoBehaviour
     //2. Move 함수 밖에 SE 제어하는 함수 따로 만들기
     public void SoundEffect()
     {
-        if(isMoving && !isstepSE) //isstemp 이 false일 때 돌려라
-        {
-            playerAudio.clip = grassStep;
-            playerAudio.loop = true;
-            playerAudio.Play();
-            isstepSE = true;
-        }
-        if(!isMoving && isstepSE)
-        {
-            playerAudio.clip = NoneSound;
-            playerAudio.loop = false;
-            isstepSE = false;
+        //1.4, 2.5
 
+        if (moveState == MoveState.RUN)
+        {
+            if (!playerAudio.isPlaying)
+            {
+                playerAudio.clip = concreteStep;
+                playerAudio.loop = true;
+                playerAudio.Play();
+            }
+            if (playerAudio.pitch != 1.4f)
+            {
+                playerAudio.pitch = 1.4f;
+            }
         }
+        if (moveState == MoveState.WALK)
+        {
+
+            if (!playerAudio.isPlaying)
+            {
+                playerAudio.clip = concreteStep;
+                playerAudio.loop = true;
+                playerAudio.Play();
+            }
+            if (playerAudio.pitch != 0.8f)
+            {
+                playerAudio.pitch = 0.8f;
+            }
+        }
+        if (moveState == MoveState.IDLE || moveState == MoveState.JUMPSTART)
+        {
+            playerAudio.Stop();
+        }
+
     }
 
 }
