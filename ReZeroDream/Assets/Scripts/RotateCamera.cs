@@ -13,13 +13,15 @@ public class RotateCamera : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("수정 필요");
         fc = GetComponent<FollowCamera>();
         fc.enabled = true;
     }
     private void Update()
     {
-        if (GameManager.instance.playState == GameManager.PlayState.SETTING) return;
-        
+        //Debug.Log("수정");
+        //if (GameManager.instance.playState == GameManager.PlayState.SETTING) return;
+
 
         //if (Input.GetMouseButton(0))
         //{

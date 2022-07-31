@@ -33,12 +33,19 @@ public class GameManager : MonoBehaviour
     //public enum MouseState { BASIC,MOUSEOVER, DIALOGUE, CAMERA};
     //public MouseState mouseState = MouseState.BASIC;
 
-    public enum PlayState { PLAY, SETTING, DIALOGUE};
-    public PlayState playState = PlayState.PLAY;
+    //public enum GameMode { STORY,PLAY, SETTING, DIALOGUE };
+    //public GameMode gameMode = GameMode.PLAY;
+
+    //public enum PlayState { PLAY, SETTING, DIALOGUE};
+    //public PlayState playState = PlayState.PLAY;
     
-    
-    public enum UserState { MOVE, INTERACTION };
-    public UserState userState = UserState.MOVE;
+    //public enum UserState { MOVE, INTERACTION };
+    //public UserState userState = UserState.MOVE;
+
+    enum GameState { STORY, PLAY, SETTING, DIALOGUE};
+    [SerializeField] GameState gameState = GameState.PLAY;
+    enum UserState { MOVE, INTERACTION, HEAR};
+    [SerializeField] UserState userState = UserState.MOVE;
 
     private void Awake()
     {
@@ -56,49 +63,6 @@ public class GameManager : MonoBehaviour
         print("game start");
     }
 
-    public void SetPlayStateToPlay()
-    {
-        playState = PlayState.PLAY;
-    }
-    public void SetPlayStateToSetting()
-    {
-        playState = PlayState.SETTING;
-    }
-    public void SetPlayStateDialogue()
-    {
-        playState = PlayState.DIALOGUE;
-    }
-    public bool IsPlayStatePlay()
-    {
-        return (playState == PlayState.PLAY);
-    }
-    public bool IsPlayStateSetting()
-    {
-        return (playState == PlayState.SETTING);
-    }
-    public bool IsPlayStateDialogue()
-    {
-        return (playState == PlayState.DIALOGUE);
-    }
-
-    public void SetUserStateMove()
-    {
-        userState = UserState.MOVE;
-    }
-    public void SetUserStateInteraction()
-    {
-        userState = UserState.INTERACTION;
-    }
-
-    public bool IsUserMoveMode()
-    {
-        return (userState == UserState.MOVE);
-    }
-    public bool IsUserInteractionMode()
-    {
-        return (userState == UserState.INTERACTION);
-    }
-
     private void Update()
     {
         if (Input.GetKey(KeyCode.R))
@@ -106,5 +70,82 @@ public class GameManager : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
     }
+
+
+    public void SetGameStateToStory()
+    {
+        gameState = SetState(GameState.STORY);
+    }
+    public void SetGameStateToPlay()
+    {
+        gameState = SetState(GameState.PLAY);
+    }
+    public void SetGameStateToDialogue()
+    {
+        gameState = SetState(GameState.DIALOGUE);
+    }
+    public void SetGameStateToSetting()
+    {
+        gameState = SetState(GameState.SETTING);
+    }
+    public bool IsGameStateStory()
+    {
+        return IsGameState(GameState.STORY);
+    }
+    public bool IsGameStatePlay()
+    {
+        return IsGameState(GameState.PLAY);
+    }
+    public bool IsGameStateDialogue()
+    {
+        return IsGameState(GameState.DIALOGUE);
+    }
+    public bool IsGameStateSetting()
+    {
+        return IsGameState(GameState.SETTING);
+    }
+
+    public void SetUserStateToMove()
+    {
+        userState = SetState(UserState.MOVE);
+    }
+    public void SetUserStateToInteration()
+    {
+        userState = SetState(UserState.INTERACTION);
+    }
+    public void SetUserStateToHear()
+    {
+        userState = SetState(UserState.HEAR);
+    }
+    public bool IsUserStateMove()
+    {
+        return IsUserState(UserState.MOVE);
+    }
+    public bool IsUserStateInteraction()
+    {
+        return IsUserState(UserState.INTERACTION);
+    }
+    public bool IsUserStateHear()
+    {
+        return IsUserState(UserState.HEAR);
+    }
+
+
+   
+
+    T SetState<T>(T state){
+        return state;
+    }
+
+    bool IsGameState(GameState gs)
+    {
+        return (gameState == gs);
+    }
+
+    bool IsUserState(UserState gs)
+    {
+        return (userState == gs);
+    }
+
 
 }

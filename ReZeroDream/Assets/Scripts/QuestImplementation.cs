@@ -29,15 +29,13 @@ public class QuestImplementation : MonoBehaviour
     {
         if (questManager.questId == 20 && questManager.questAcitonIndex == 1 && dialogueManager.talkIndex == 0)
         {
-            if (playerState.missionStart) return;
             SpawnHuiEmotion();
         }
         if (questManager.questId == 20 && questManager.questAcitonIndex == 1 && dialogueManager.talkIndex == 4)
         {
-            //if (UIManager.instance.catName != "") return;
             if (UIManager.instance.catNameWindow.isActive()) return;
-
             SetCatName();
+            GameManager.instance.SetGameStateToStory();
         }
         if(questManager.questId == 40)
         {
@@ -48,10 +46,9 @@ public class QuestImplementation : MonoBehaviour
 
     void SpawnHuiEmotion()
     {
-        Debug.Log("spawn hui emotion");
-        playerState.SetGoal("희 감정 구슬 줍기");
-        playerState.missionStart = true;
+        if (GameManager.instance.spawnEmotions[0]) return;
 
+        Debug.Log("spawn hui emotion");
         Instantiate(EmotionPrefabs, new Vector3(-10, 5, 3), Quaternion.identity);
         GameManager.instance.spawnEmotions[0] = true;
 
@@ -61,8 +58,6 @@ public class QuestImplementation : MonoBehaviour
     {
         Debug.Log("고양이 이름 짓기 활성화");
         UIManager.instance.OnOffCatNameWindow(true);
-        playerState.SetGoal("고양이 이름 짓기");
-        playerState.missionStart = true;
     }
 
 

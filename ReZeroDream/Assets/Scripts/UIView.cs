@@ -93,7 +93,10 @@ public class UIView : MonoBehaviour
     public string changeKoreanText(string text)
     {
         string inputText = getTextMeshPro();
+
         int leng = inputText.Length;
+
+        if(leng < 3) return inputText;
 
         if (inputText[leng - 2] == '>' && inputText[leng - 3] == 'u')
         {

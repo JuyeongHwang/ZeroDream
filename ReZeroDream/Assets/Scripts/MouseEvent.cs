@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class MouseEvent : MonoBehaviour
 {
- 
-    public void OnMousePointExit()
-    {
-        Debug.Log("exit");
-        
-        GameManager.instance.playState = GameManager.PlayState.PLAY;
-    }
-
     public void OnMousePointEnter()
     {
-        Debug.Log("enter");
-        GameManager.instance.playState = GameManager.PlayState.SETTING;
+        GameManager.instance.SetGameStateToSetting();
+        if (GameManager.instance.IsGameStatePlay())
+        {
+
+        }
     }
 
-
+    public void OnMousePointExit()
+    {
+        if (GameManager.instance.IsGameStateSetting())
+        {
+            GameManager.instance.SetGameStateToPlay();
+        }
+    }
 }

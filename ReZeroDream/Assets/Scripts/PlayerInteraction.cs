@@ -16,6 +16,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("수정 필요");
         playerState = GetComponent<PlayerState>();
         playerInput = GetComponent<PlayerInput>();
         dialogueManager = FindObjectOfType<DialogueManager>();
@@ -24,36 +25,32 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
+
         Click();
         Lift();
     }
 
     void Click()
     {
-
         clickUI();
-        if (GameManager.instance.playState == GameManager.PlayState.SETTING) return;
-
-        if (playerState.cantClick) return;
-
-        //if (GameManager.instance.IsUserMoveMode()) return;
 
         if (playerInput.Lclick)
         {
             if (!playerInput.scanObject) return;
-
+            if (GameManager.instance.IsGameStateStory() || GameManager.instance.IsGameStateSetting()) return;
             if (playerInput.scanObject.name == "NPC_Cat")
             {
-                if (GameManager.instance.spawnEmotions[0] && !GameManager.instance.belongEmotions[0])
-                {
-                    return;
-                }
+                if (GameManager.instance.spawnEmotions[0] && !GameManager.instance.belongEmotions[0]) return;
             }
 
-            if(playerInput.scanObject.GetComponent<ObjData>().isNpc)
-                playerInput.scanObject.transform.LookAt(transform);
-    
-            dialogueManager.Action(playerInput.scanObject);
+            if (!GameManager.instance.IsUserStateHear())
+            {
+                if (playerInput.scanObject.GetComponent<ObjData>().isNpc)
+                    playerInput.scanObject.transform.LookAt(transform);
+
+                dialogueManager.Action(playerInput.scanObject);
+            }
+
         }
     }
 
@@ -61,11 +58,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         
         UIManager.instance.OnOffPlayerClickImage(((playerInput.scanObject) ? true : false));
-        if(playerState.cantClick || playerState.conversation)
-        {
-            UIManager.instance.OnOffPlayerClickImage(false);
-        }
-        if (GameManager.instance.playState == GameManager.PlayState.SETTING)
+        if(!GameManager.instance.IsGameStatePlay() || !GameManager.instance.IsUserStateMove())
         {
             UIManager.instance.OnOffPlayerClickImage(false);
         }
@@ -92,13 +85,13 @@ public class PlayerInteraction : MonoBehaviour
     void Lift()
     {
         liftUI();
-        playerState.SetLifting(liftState == LiftState.StartLift ? true : false);
         playerAnimator.SetBool("isLift", liftState == LiftState.StartLift ? true : false);
 
         if (liftState == LiftState.ReadyLift)
         {
             if (playerInput.lift)
             {
+                GameManager.instance.SetUserStateToInteration();
                 liftState = LiftState.StartLift;
                 playerState.CheckLiftedItem(liftedItem);
                 StartCoroutine(WaitLifting());
@@ -115,7 +108,7 @@ public class PlayerInteraction : MonoBehaviour
     IEnumerator WaitLifting()
     {
         yield return new WaitForSeconds(3.0f);
-
+        GameManager.instance.SetUserStateToMove();
         liftState = LiftState.EndLift;
     }
 

@@ -13,14 +13,8 @@ public class PlayerState : MonoBehaviour
     };
 
 
-
-    public bool conversation { get; private set; }
-    public bool lifting { get; private set; }
-    public bool cantClick { get; private set; }
-
     public string goal ="";
-    public bool missionStart = false;
-    public bool missionEnd = false;
+
 
     private PlayerInteraction playerInteraction;
     private DialogueManager dialogue;
@@ -29,23 +23,11 @@ public class PlayerState : MonoBehaviour
 
     private void Start()
     {
+
         dialogue = FindObjectOfType<DialogueManager>();
         playerInteraction = GetComponent<PlayerInteraction>();
     }
 
-    private void Update()
-    {
-        conversation = dialogue.isAction;
-        
-        print("수정수정");
-
-        cantClick = (UIManager.instance.catNameWindow.isActive() || lifting); // || UIManager.instance.textEffect.isAnim
-    }
-
-    public void SetLifting(bool lift)
-    {
-        lifting = lift;
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Fall")
@@ -59,16 +41,6 @@ public class PlayerState : MonoBehaviour
         }
     }
 
-    public void SetGoal(string _g)
-    {
-        goal = _g;
-    }
-
-    //public void SetMission(bool start,bool complete)
-    //{
-    //    missionStart = start;
-    //    missionComplete = complete;
-    //}
 
     public void CheckLiftedItem(GameObject g)
     {

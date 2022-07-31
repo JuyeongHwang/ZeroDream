@@ -167,6 +167,7 @@ public class UIManager : MonoBehaviour
         FindObjectOfType<DialogueManager>().Action(cat);
 
         OnOffCatNameWindow(false);
+        GameManager.instance.SetGameStateToDialogue();
     }
 
 }

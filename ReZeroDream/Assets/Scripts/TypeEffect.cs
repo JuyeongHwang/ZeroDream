@@ -45,6 +45,8 @@ public class TypeEffect : MonoBehaviour
 
         interval = 1.0f / CharPerSeconds;
         Invoke("Effecting", interval);
+        GameManager.instance.SetUserStateToHear();
+
     }
 
     void Effecting() //재생 중
@@ -66,5 +68,6 @@ public class TypeEffect : MonoBehaviour
     void EffectEnd() //종료
     {
         isAnim = false;
+        GameManager.instance.SetUserStateToInteration();
     }
 }

@@ -41,7 +41,6 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-
     private void Talk(int id, bool isNpc, string name)
     {
         int questTalkIndex = questManager.GetQuestTalkIndex(id);
@@ -55,6 +54,9 @@ public class DialogueManager : MonoBehaviour
 
             UIManager.instance.UpdateQuestUI(id);
             UIManager.instance.OnOffDialogueWindow(isAction);
+
+            GameManager.instance.SetGameStateToPlay();
+            GameManager.instance.SetUserStateToMove();
             return;
         }
 
@@ -63,6 +65,8 @@ public class DialogueManager : MonoBehaviour
         UIManager.instance.OnOffDialogueWindow(isAction);
         UIManager.instance.UpdateDialogeText(name, talkData.Split(':')[0]);
         UIManager.instance.UpdateDialoguePortraitImage(talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1])));
+        GameManager.instance.SetGameStateToDialogue();
+
     }
 
 

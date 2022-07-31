@@ -7,26 +7,33 @@ public class SettingUI : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private UIView settingObj;
+    [SerializeField] private UIView quitObj;
 
     public void OnSettings()
     {
         settingObj.Show();
-        ChangeSettingMode();
+        GameManager.instance.SetGameStateToSetting();
+        if (GameManager.instance.IsGameStateSetting())
+        {
+
+        }
     }
     public void OffSettings()
     {
         settingObj.Hide();
-        ChangePlayMode();
-    }
+        GameManager.instance.SetGameStateToPlay();
+        if (GameManager.instance.IsGameStateSetting())
+        {
 
-    public void ChangePlayMode()
+        }
+    }
+    public void OnQuit()
     {
-        GameManager.instance.playState = GameManager.PlayState.PLAY;
+        quitObj.Show();
     }
-    public void ChangeSettingMode()
+    public void OffQuit()
     {
-        GameManager.instance.playState = GameManager.PlayState.SETTING;
+        quitObj.Hide();
+
     }
-
-
 }
