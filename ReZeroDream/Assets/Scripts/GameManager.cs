@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     }
 
     private static GameManager m_instance; // 싱글톤이 할당될 static 변수
-
+    
     public bool isGameover { get; private set; } // 게임 오버 상태
 
     // 게임 감정 상태
@@ -30,11 +30,16 @@ public class GameManager : MonoBehaviour
     public bool[] belongEmotions = new bool[3] { false, false, false };
     public bool[] spawnEmotions = new bool[3] { true, false, false };
 
-    public enum MouseState { BASIC,MOUSEOVER, DIALOGUE, CAMERA};
-    public MouseState mouseState = MouseState.BASIC;
+    //public enum MouseState { BASIC,MOUSEOVER, DIALOGUE, CAMERA};
+    //public MouseState mouseState = MouseState.BASIC;
 
-    public enum PlayState { PLAY, SETTING};
-    public PlayState playState = PlayState.SETTING;
+    public enum PlayState { PLAY, SETTING, DIALOGUE};
+    public PlayState playState = PlayState.PLAY;
+    
+    
+    public enum UserState { MOVE, INTERACTION };
+    public UserState userState = UserState.MOVE;
+
     private void Awake()
     {
         // 씬에 싱글톤 오브젝트가 된 다른 GameManager 오브젝트가 있다면
@@ -51,6 +56,49 @@ public class GameManager : MonoBehaviour
         print("game start");
     }
 
+    public void SetPlayStateToPlay()
+    {
+        playState = PlayState.PLAY;
+    }
+    public void SetPlayStateToSetting()
+    {
+        playState = PlayState.SETTING;
+    }
+    public void SetPlayStateDialogue()
+    {
+        playState = PlayState.DIALOGUE;
+    }
+    public bool IsPlayStatePlay()
+    {
+        return (playState == PlayState.PLAY);
+    }
+    public bool IsPlayStateSetting()
+    {
+        return (playState == PlayState.SETTING);
+    }
+    public bool IsPlayStateDialogue()
+    {
+        return (playState == PlayState.DIALOGUE);
+    }
+
+    public void SetUserStateMove()
+    {
+        userState = UserState.MOVE;
+    }
+    public void SetUserStateInteraction()
+    {
+        userState = UserState.INTERACTION;
+    }
+
+    public bool IsUserMoveMode()
+    {
+        return (userState == UserState.MOVE);
+    }
+    public bool IsUserInteractionMode()
+    {
+        return (userState == UserState.INTERACTION);
+    }
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.R))
@@ -59,9 +107,4 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ResetPlayerPosition()
-    {
-        GetComponent<PlayerState>().gameObject.transform.position = new Vector3(-2, 5, 2);
-
-    }
 }

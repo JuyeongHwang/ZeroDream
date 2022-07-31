@@ -41,12 +41,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (playerState.conversation || playerState.lifting)
+        if(playerState.conversation || playerState.lifting)
         {
             playerAnimator.SetFloat("Move", 0f);
-            return;
         }
-
+        if (GameManager.instance.IsPlayStateSetting()) { return; }
+        //if (GameManager.instance.IsUserInteractionMode()) return;
 
         Move();
         Rotate();
@@ -61,8 +61,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerState.conversation || playerState.lifting)
         {
-            return;
+            playerAnimator.SetFloat("Move", 0f);
         }
+        if (GameManager.instance.IsPlayStateSetting()) { return; }
+        //if (GameManager.instance.IsUserInteractionMode()) return;
 
         Jump();
         playerAnimator.SetBool("isJump", isJumping);
@@ -103,21 +105,17 @@ public class PlayerMovement : MonoBehaviour
             //jumpCount++;
             isJumping = true;
             playerAudio.clip = jumpStartSound;
-            playerAudio.Play(); //점프
+            playerAudio.Play();
         }
 
         if (isJumping)
         {
+
             Vector3 moveDistance = transform.up * jumpSpeed * Time.deltaTime;
             playerRigidbody.MovePosition(playerRigidbody.position + moveDistance / 2.0f);
-            
-            //왜 되는거지..?
-
         }
 
-
     }
-
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -127,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
             jumpCount = 0;
 
             playerAudio.clip = jumpEndSound;
-            playerAudio.Play(); //착지ㄴ
+            playerAudio.Play();
         }
 
     }

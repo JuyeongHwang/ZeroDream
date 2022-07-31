@@ -24,10 +24,8 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-        
         Click();
         Lift();
-
     }
 
     void Click()
@@ -37,6 +35,8 @@ public class PlayerInteraction : MonoBehaviour
         if (GameManager.instance.playState == GameManager.PlayState.SETTING) return;
 
         if (playerState.cantClick) return;
+
+        //if (GameManager.instance.IsUserMoveMode()) return;
 
         if (playerInput.Lclick)
         {

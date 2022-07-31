@@ -25,6 +25,8 @@ public class PlayerState : MonoBehaviour
     private PlayerInteraction playerInteraction;
     private DialogueManager dialogue;
 
+
+
     private void Start()
     {
         dialogue = FindObjectOfType<DialogueManager>();
@@ -36,7 +38,7 @@ public class PlayerState : MonoBehaviour
         conversation = dialogue.isAction;
         
         print("수정수정");
-        //catnamewindow면 mouseOver상태
+
         cantClick = (UIManager.instance.catNameWindow.isActive() || lifting); // || UIManager.instance.textEffect.isAnim
     }
 

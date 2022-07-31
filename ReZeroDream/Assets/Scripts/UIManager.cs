@@ -61,11 +61,6 @@ public class UIManager : MonoBehaviour
     private QuestManager questManager;
 
 
-    //ui객체에 uiview 스크립트 부착 -> UImanager에서 uiview로 받아옴 
-    //껐다 키기 OnOff => 버튼 바인딩은 On/Off따로, 스크립트 호출하는 애들은 OnOff 같이
-    //최상위 부모 객체 -> window
-    //내용을 바꿀 때 -> Update(group)(target)
-
     private void Start()
     {
         catNameWindow.Hide();
