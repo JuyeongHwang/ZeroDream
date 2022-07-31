@@ -12,12 +12,14 @@ public class SoundManager : MonoBehaviour
     public Slider effectSlider;
 
     public AudioSource playerAudio;
+    public AudioSource textAudio;
     public AudioSource bgmAudio;
     
 
     public void SetEffectSlider()
     {
         playerAudio.volume = effectSlider.value;
+        textAudio.volume = effectSlider.value;
     }
 
     public void SetBGMSlider()
