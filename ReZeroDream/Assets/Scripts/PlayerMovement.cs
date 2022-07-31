@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody playerRigidbody;
     private Animator playerAnimator;
 
+    public DetailCollider footCollider;
     public AudioSource jumpAudio;
     public AudioSource playerAudio;
     public AudioClip jumpEndSound;
@@ -128,11 +129,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveState == MoveState.JUMPSTART)
         {
-            moveState = MoveState.JUMPEND;
-            jumpCount = 0;
-            jumpAudio.clip = jumpEndSound;
-            jumpAudio.Play();
-            moveState = MoveState.IDLE;
+            if (footCollider.detailCollision)
+            {
+                moveState = MoveState.JUMPEND;
+                jumpCount = 0;
+                jumpAudio.clip = jumpEndSound;
+                jumpAudio.Play();
+                moveState = MoveState.IDLE;
+            }
+
+
 
         }
 
