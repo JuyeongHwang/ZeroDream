@@ -20,7 +20,7 @@ public class breakMesh : MonoBehaviour
         DestroyMesh();
     }
 
-
+    public bool reDestroy= false;
     private void DestroyMesh()
     {
         var originalMesh = GetComponent<MeshFilter>().mesh;
@@ -67,8 +67,20 @@ public class breakMesh : MonoBehaviour
         {
             parts[i].MakeGameobject(this, i%2==0);
 
-            parts[i].GameObject.transform.rotation = UnityEngine.Random.rotation;
-            parts[i].GameObject.transform.position += Vector3.up * 1.5f*(i+1) +  0.3f*Vector3.right*(i%2==0? -1 : 1);
+            //parts[i].GameObject.transform.rotation = UnityEngine.Random.rotation;
+            //parts[i].GameObject.transform.position += Vector3.up * 1.5f*(i+1) +  0.3f*Vector3.right*(i%2==0? -1 : 1);
+
+            parts[i].GameObject.AddComponent<Rigidbody>();
+            parts[i].GameObject.GetComponent<Rigidbody>().mass = UnityEngine.Random.Range(0.1f, 10.0f);
+            parts[i].GameObject.GetComponent<Rigidbody>().useGravity = false;
+            if (reDestroy)
+            {
+                parts[i].GameObject.GetComponent<Rigidbody>().AddForce(Vector3.down * UnityEngine.Random.Range(10f, 15.0f));
+            }
+            else
+            {
+                parts[i].GameObject.GetComponent<Rigidbody>().AddForce(Vector3.down * UnityEngine.Random.Range(5f, 10.0f));
+            }
 
             parts[i].GameObject.transform.SetParent(paraent);
             //parts[i].GameObject.GetComponent<Rigidbody>().AddForceAtPosition(parts[i].Bounds.center * ExplodeForce, transform.position);
@@ -311,16 +323,9 @@ public class breakMesh : MonoBehaviour
             var filter = GameObject.AddComponent<MeshFilter>();
             filter.mesh = mesh;
 
-            //var collider = GameObject.AddComponent<MeshCollider>();
-            //collider.convex = true;
+            var collider = GameObject.AddComponent<MeshCollider>();
+            collider.convex = true;
 
-            //var rigidbody = GameObject.AddComponent<Rigidbody>();
-            //if (addScript)
-            //{
-            //    var meshDestroy = GameObject.AddComponent<breakMesh>();
-            //    meshDestroy.CutCascades = original.CutCascades;
-            //    meshDestroy.ExplodeForce = original.ExplodeForce;
-            //}
 
 
         }
