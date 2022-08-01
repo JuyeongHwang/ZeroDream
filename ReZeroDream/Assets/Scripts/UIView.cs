@@ -8,17 +8,20 @@ public class UIView : MonoBehaviour
 
     //public enum VisibleState {Appearing, Appeared, Disappearing, Disappeared};
     bool active = false;
+    public Animator Dialogue;
 
     // ****** view hide show **********
     public void Show()
     {
         gameObject.SetActive(true);
+        //Dialogue.SetBool("Show", true);
         active = true;
     }
 
     public void Hide()
     {
         gameObject.SetActive(false);
+        //Dialogue.SetBool("Show", false);
         active = false;
     }
 

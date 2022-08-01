@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource playerAudio;
     public AudioClip jumpEndSound;
     public AudioClip jumpStartSound;
+    private AudioClip StepSE;
     public AudioClip concreteStep;
     public AudioClip grassStep;
     public AudioClip waterStep;
@@ -37,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
 
         playerAudio = GetComponent<AudioSource>();
+
+        StepSE = concreteStep; //default
     }
 
     private void FixedUpdate()
@@ -137,15 +140,21 @@ public class PlayerMovement : MonoBehaviour
                 jumpAudio.Play();
                 moveState = MoveState.IDLE;
             }
+        }
 
-
-
+        if(collision.gameObject.layer == 4)
+        {
+            StepSE = waterStep;
+        }
+        else
+        {
+            StepSE = concreteStep;
         }
 
     }
 
-    //1. Move 함수 안에 SE 넣기
-    //2. Move 함수 밖에 SE 제어하는 함수 따로 만들기
+    
+
     public void SoundEffect()
     {
         //1.4, 2.5
@@ -154,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!playerAudio.isPlaying)
             {
-                playerAudio.clip = concreteStep;
+                playerAudio.clip = StepSE;
                 playerAudio.loop = true;
                 playerAudio.Play();
             }
@@ -168,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (!playerAudio.isPlaying)
             {
-                playerAudio.clip = concreteStep;
+                playerAudio.clip = StepSE;
                 playerAudio.loop = true;
                 playerAudio.Play();
             }
@@ -179,6 +188,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (moveState == MoveState.IDLE || moveState == MoveState.JUMPSTART)
         {
+            playerAudio.loop = false;
             playerAudio.Stop();
         }
 
