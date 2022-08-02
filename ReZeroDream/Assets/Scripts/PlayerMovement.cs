@@ -157,7 +157,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void SoundEffect()
     {
-        //1.4, 2.5
+
+        if (!GameManager.instance.IsGameStatePlay()) return;
 
         if (moveState == MoveState.RUN)
         {
