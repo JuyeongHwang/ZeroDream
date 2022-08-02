@@ -84,12 +84,17 @@ public class UIManager : MonoBehaviour
     }
 
     // *****     [Header("Dialogue")]     *******
+    private bool isFirstDialogue = true;
     public void OnOffDialogueWindow(bool active) { 
         
         if(active)
         {
             dialogueWindow.Show();
-            animator.SetTrigger("show");
+            if(isFirstDialogue)
+            {
+                animator.SetTrigger("show");
+                isFirstDialogue = false;
+            }
 
         }
         else
@@ -97,6 +102,7 @@ public class UIManager : MonoBehaviour
             //dialogueWindow.Hide();
             animator.SetTrigger("hide");
             Debug.Log("off");
+            isFirstDialogue = true;
         }
 
         //dialogueWindow.ShowAndHide(active);
