@@ -46,6 +46,8 @@ public class UIManager : MonoBehaviour
     [Header("Story - Cat")]
     [SerializeField] public UIView catNameWindow;
     [SerializeField] private UIView InputCatName;
+    [SerializeField] private CanvasGroup canvasGroup;
+
 
     [Header("Quest Min")]
     //[SerializeField] private Image[] questStateArr;
@@ -123,7 +125,30 @@ public class UIManager : MonoBehaviour
 
 
     // *****     [Header("CatName")]     *******
-    public void OnOffCatNameWindow(bool active) { catNameWindow.ShowAndHide(active); }
+    public void OnOffCatNameWindow(bool active) 
+    {
+        if (active)
+        {
+            catNameWindow.Show();
+        }
+        else
+        {
+            StartCoroutine(DoFade(canvasGroup, canvasGroup.alpha, 0));
+        }
+        //catNameWindow.ShowAndHide(active); 
+    
+    }
+
+    public IEnumerator DoFade(CanvasGroup canvasGroup, float start, float end)
+    {
+        float counter = 0f;
+        while(counter < 0.4f)
+        {
+            counter += Time.deltaTime;
+            canvasGroup.alpha = Mathf.Lerp(start, end, counter / 0.4f);
+            yield return null;
+        }
+    }
 
 
     /// ============== ¼öÁ¤ Áß =====================
