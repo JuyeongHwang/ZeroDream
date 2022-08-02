@@ -130,6 +130,7 @@ public class UIManager : MonoBehaviour
         if (active)
         {
             catNameWindow.Show();
+            StartCoroutine(DoFade(canvasGroup, canvasGroup.alpha, 1));
         }
         else
         {
