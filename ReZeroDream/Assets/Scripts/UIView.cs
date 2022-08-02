@@ -14,14 +14,13 @@ public class UIView : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
-        //Dialogue.SetBool("Show", true);
         active = true;
+
     }
 
     public void Hide()
     {
         gameObject.SetActive(false);
-        //Dialogue.SetBool("Show", false);
         active = false;
     }
 

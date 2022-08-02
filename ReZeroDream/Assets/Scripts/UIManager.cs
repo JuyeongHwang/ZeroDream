@@ -40,6 +40,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIView dialoguePortraitImg;
     [SerializeField] private UIView dialogueObjectNameText;
     [SerializeField] private UIView dialogueTalkText;
+    [SerializeField] private Animator animator;
+
 
     [Header("Story - Cat")]
     [SerializeField] public UIView catNameWindow;
@@ -82,7 +84,24 @@ public class UIManager : MonoBehaviour
     }
 
     // *****     [Header("Dialogue")]     *******
-    public void OnOffDialogueWindow(bool active) { dialogueWindow.ShowAndHide(active); }
+    public void OnOffDialogueWindow(bool active) { 
+        
+        if(active)
+        {
+            dialogueWindow.Show();
+            animator.SetTrigger("show");
+
+        }
+        else
+        {
+            //dialogueWindow.Hide();
+            animator.SetTrigger("hide");
+            Debug.Log("off");
+        }
+
+        //dialogueWindow.ShowAndHide(active);
+
+    }
 
     public void UpdateDialogeText(string name, string talk)
     {
