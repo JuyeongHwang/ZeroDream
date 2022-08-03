@@ -28,7 +28,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
 
+=======
+    [HideInInspector]
+    public TypeEffect textEffect;
+    public bool isQuest;
+>>>>>>> parent of cf825a5 (í€˜ìŠ¤íŠ¸ ë²„íŠ¼)
 
     [Header("Player")]
     [SerializeField] private UIView playerClickImage;
@@ -48,6 +54,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIView InputCatName;
     [SerializeField] private CanvasGroup canvasGroup;
 
+<<<<<<< HEAD
 
     [Header("Quest Min")]
     //[SerializeField] private Image[] questStateArr;
@@ -61,6 +68,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIView questWindowRewardText;
     //[SerializeField] private GameObject qwOnButton;
     //[SerializeField] private GameObject qwOffButton;
+=======
+    [Header("Quest")]
+    [SerializeField] private Image[] questStateArr;
+    [SerializeField] private GameObject questImage;
+    [SerializeField] private TextMeshProUGUI questNameText;
+    [SerializeField] private GameObject questWindowImage;
+    [SerializeField] private TextMeshProUGUI questWindowNameText;
+    [SerializeField] private TextMeshProUGUI questWindowDescriptText;
+    [SerializeField] private TextMeshProUGUI questWindowContentText;
+    [SerializeField] private TextMeshProUGUI questWindowRewardText;
+>>>>>>> parent of cf825a5 (í€˜ìŠ¤íŠ¸ ë²„íŠ¼)
 
     private QuestManager questManager;
 
@@ -172,6 +190,7 @@ public class UIManager : MonoBehaviour
 
     private void SetFirstQuestUI()
     {
+<<<<<<< HEAD
         //isQuest = false;
         questMinWindow.Show();
         questMaxWindow.Hide();
@@ -183,6 +202,16 @@ public class UIManager : MonoBehaviour
         questMaxDescriptText.UpdateTextMeshProUGUI("???¿¡°Ô ´ëÈ­¸¦ °É¾î ÀÌ°÷¿¡ ´ëÇÑ Á¤º¸¸¦ ¾ò¾îº¸ÀÚ.");
         questMaxContentText.UpdateTextMeshProUGUI("???¿Í ´ëÈ­ÇÏ±â");
         questWindowRewardText.UpdateTextMeshProUGUI(" ");
+=======
+        isQuest = false;
+        questImage.SetActive(true);
+        questWindowImage.SetActive(false);
+        questNameText.text = "???¿Í ´ëÈ­ÇÏ±â";
+        questWindowNameText.text = "???¿Í ´ëÈ­ÇÏ±â";
+        questWindowDescriptText.text = "???¿¡°Ô ´ëÈ­¸¦ °É¾î ÀÌ°÷¿¡ ´ëÇÑ Á¤º¸¸¦ ¾ò¾îº¸ÀÚ.";
+        questWindowContentText.text = "???¿Í ´ëÈ­ÇÏ±â";
+        questWindowRewardText.text = " ";
+>>>>>>> parent of cf825a5 (í€˜ìŠ¤íŠ¸ ë²„íŠ¼)
     }
 
     //¿©±â¼­ ¸¸µé°í DialogueManager¿¡¼­ È£Ãâ (CheckQuest¿¡¼­ npcId > questId)
@@ -190,11 +219,26 @@ public class UIManager : MonoBehaviour
     {
         string npc = questManager.CheckQuest(npcId);
 
+<<<<<<< HEAD
         questMinText.UpdateTextMeshProUGUI(npc);
         questMaxText.UpdateTextMeshProUGUI(npc);
         questMaxDescriptText.UpdateTextMeshProUGUI(questManager.qwDescript);
         questMaxContentText.UpdateTextMeshProUGUI(questManager.qwContent);
         questWindowRewardText.UpdateTextMeshProUGUI(questManager.qwReward);
+=======
+    public void SetActiveDialogueImage(bool active) { dialogueImage.SetActive(active); }
+
+    public void UpdateDialogeText(string name, string talk)
+    {
+        textEffect.SetMsg(talk);
+        dialogueObjectNameText.text = name;
+    }
+
+    public void UpdateDialoguePortraitImg(Sprite portrait)
+    {
+        dialoguePortraitImg.sprite = portrait;
+        dialoguePortraitImg.color = new Color(1, 1, 1, 1);
+>>>>>>> parent of cf825a5 (í€˜ìŠ¤íŠ¸ ë²„íŠ¼)
     }
 
 
