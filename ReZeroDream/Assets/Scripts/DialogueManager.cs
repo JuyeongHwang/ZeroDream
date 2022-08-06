@@ -19,6 +19,8 @@ public class DialogueManager : MonoBehaviour
     private static DialogueManager m_instance; // 싱글톤이 할당될 static 변수
 
     public bool isAction { get; private set; }
+    public bool zeroTalk;
+    public GameObject Zero;
 
     private TalkManager talkManager;
     private QuestManager questManager;
@@ -32,13 +34,15 @@ public class DialogueManager : MonoBehaviour
 
         isAction = false;
         UIManager.instance.OnOffDialogueWindow(false);
+
+        zeroTalk = true;
+        Action(Zero);
     }
 
     public void Action(GameObject _scan)
     {
         ObjData objData = _scan.GetComponent<ObjData>();
         Talk(objData.id, objData.isNpc, objData._name);
-
     }
 
     private void Talk(int id, bool isNpc, string name)
@@ -49,6 +53,10 @@ public class DialogueManager : MonoBehaviour
         //데이터 종료 체크
         if(talkData == null)
         {
+            if (zeroTalk)
+            {
+                zeroTalk = false;
+            }
             isAction = false;
             talkIndex = 0;
 

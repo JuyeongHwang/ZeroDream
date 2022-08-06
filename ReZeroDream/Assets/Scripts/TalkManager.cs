@@ -21,12 +21,13 @@ public class TalkManager : MonoBehaviour
     void GenerateData()
     {
         talkData.Add(-1000, new string[] { "대화할 수 없나봐. 관련이 없는 것 같아.:1" });
-        //talkData.Add(1, new string[] { "지금은 대화할 수 없나봐..." }); 
+
         talkData.Add(1000, new string[] { "룰루랄라...:2" });
         talkData.Add(2000, new string[] { "냐옹:0" });
         talkData.Add(4000, new string[] { "어서 학교로 가야 해.:0" }); //누나
         talkData.Add(5000, new string[] { "어서 학교로 가야 해.:0" }); //아빠
         talkData.Add(6000, new string[] { "어서 학교로 가야 해.:0" }); //엄마
+
         talkData.Add(10000, new string[] { "이름 모를 꽃이다.:1" });
         talkData.Add(11000, new string[] { "유독 향기로운 꽃이다.:1" });
         talkData.Add(12000, new string[] { "경찰차다. 그러나 사람은 없는 것 같다.:1" });
@@ -34,17 +35,22 @@ public class TalkManager : MonoBehaviour
         talkData.Add(14000, new string[] { "무늬가 멋진 차네.:1", "어떤 기억이 떠오르는 것 같기도 해... 조금 뒤에 다시 조사해보자.:1" }); //퀘스트 대화 때문에 이름을 제로로 설정해서...
         talkData.Add(15000, new string[] { "햄버거 집을 보니 배가 고프네...:1" }); //햄버거 집... 근데 제로 대사로 해야겠지?
 
+
         //Quest Talks
-        talkData.Add(10 + 1000, new string[] { "넌 날 전혀 모르는구나.:2", "나에 대해서 알아봐 줄래?:2" });
+        talkData.Add(10 + 3000, new string[] { "여기는... 어디지? 세상이 전부 흑백이야.:1" });
+        talkData.Add(11 + 3000, new string[] { "저 아이는 누구지...? 왜 이런 곳에 있는 걸까 ?:1" });
+        talkData.Add(12 + 1000, new string[] { "넌 날 전혀 모르는구나.:2", "나에 대해서 알아봐 줄래?:2" });
 
         talkData.Add(20 + 1000, new string[] { "난 어디에든 있어.:2", "주변을 둘러보고 오겠니?:2" });
-        talkData.Add(21 + 2000, new string[] { "냐옹.:0", "부드럽고, 따뜻해... 무언가 차오르는 느낌이 느껴져.:1", ":0", "맞아. 내가 키우던 고양이 이름은...:1", "냐아.:0" });
-        talkData.Add(22 + 1000, new string[] { "나를 찾아왔구나.:2", "기분이 좋아지지 않니?:2", "아직은 부족해 보이네. 날 조금 더 찾아와줘.:2", "네가 좋아했던 것들을 떠올려봐.:2" });
+        talkData.Add(21 + 3000, new string[] { "이게 뭐지? 더 가까이 다가가볼까?:1" });
+        talkData.Add(22 + 2000, new string[] { "냐옹.:0", "부드럽고, 따뜻해... 무언가 차오르는 느낌이 느껴져.:1", ":0", "맞아. 내가 키우던 고양이 이름은...:1", "냐아.:0" });
+        talkData.Add(23 + 1000, new string[] { "나를 찾아왔구나.:2", "기분이 좋아지지 않니?:2", "아직은 부족해 보이네. 날 조금 더 찾아와줘.:2", "네가 좋아했던 것들을 떠올려봐.:2" });
 
         talkData.Add(30 + 10000, new string[] { "이건… 아닌 거 같아.:1" });
         talkData.Add(30 + 11000, new string[] { "익숙하고, 좋은 향기가 나... 지켜보는 것만으로도 좋아져...:1" });
         talkData.Add(32 + 1000, new string[] { "이젠 충분해 보이네.:2", "다음으로 나아가도 좋아.:2",
             "그러나 이 밖에는 위험한 형태로 존재하는 것들도 있으니 조심하는 게 좋을 거야.:2", "모두가 나처럼 대화로 해결할 수 있다면 좋을텐데...:2" });
+        talkData.Add(33 + 3000, new string[] { "길이 열렀어!:1", "색도 돌아온것 같아. 어떻게 된 일이지?.:1" });
 
         talkData.Add(50 + 3000, new string[] { "저것이 아까 그 아이가 말한 위험한 존재인 건가.:1", "대화가 통하지 않는다고 했었지만... 혹시 모르니까 한 번 다가가보자.:1" });
 
@@ -56,6 +62,7 @@ public class TalkManager : MonoBehaviour
         talkData.Add(74 + 16000, new string[] { "이 자리만 비었네. 이 햄버거는 먹어도 되는 건가:1", "이 가게는 이상해. 직원도 없고... 이 자리의 주인이 있냐고 물어도 아무도 대답해주지 않아.:1", "에잇, 배고프니까 그냥 먹자!:1" });
 
         talkData.Add(80 + 1000, new string[] { " " });
+
 
         //portraitArr 0: none/ 1: zero/ 2: happy
         portraitData.Add(1000 + 2, portraitArr[2]); //해피 > 해피

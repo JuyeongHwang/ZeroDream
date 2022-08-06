@@ -9,10 +9,12 @@ public class PlayerInteraction : MonoBehaviour
     private Animator playerAnimator;
     private PlayerInput playerInput;
     private DialogueManager dialogueManager;
+    private QuestManager questManager;
 
     enum LiftState { ReadyLift, StartLift, EndLift};
     LiftState liftState = LiftState.EndLift;
     public GameObject liftedItem { get; private set; }
+    public GameObject Zero;
 
     void Start()
     {
@@ -20,6 +22,7 @@ public class PlayerInteraction : MonoBehaviour
         playerState = GetComponent<PlayerState>();
         playerInput = GetComponent<PlayerInput>();
         dialogueManager = FindObjectOfType<DialogueManager>();
+        questManager = FindObjectOfType<QuestManager>();
         playerAnimator = GetComponent<Animator>();
     }
 
@@ -36,6 +39,13 @@ public class PlayerInteraction : MonoBehaviour
 
         if (playerInput.Lclick)
         {
+            //¡¶∑Œ »•¿„∏ª
+            if (questManager.nowDialogueObject == 3000 && dialogueManager.zeroTalk)
+            {
+                dialogueManager.Action(Zero);
+                return;
+            }
+
             if (!playerInput.scanObject) return;
             if (GameManager.instance.IsGameStateStory() || GameManager.instance.IsGameStateSetting()) return;
             if (playerInput.scanObject.name == "NPC_Cat")

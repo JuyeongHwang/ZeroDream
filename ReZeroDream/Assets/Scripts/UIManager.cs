@@ -59,8 +59,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIView questMaxDescriptText;
     [SerializeField] private UIView questMaxContentText;
     [SerializeField] private UIView questWindowRewardText;
-    [SerializeField] private GameObject questMinButton;
-    [SerializeField] private GameObject questMaxButton;
+    [SerializeField] private UIView questMinButton;
+    [SerializeField] private UIView questMaxButton;
 
     private QuestManager questManager;
 
@@ -158,16 +158,16 @@ public class UIManager : MonoBehaviour
     {
         questMinWindow.Hide();
         questMaxWindow.Show();
-        questMinButton.SetActive(true);
-        questMaxButton.SetActive(false);
+        questMinButton.Show();
+        questMaxButton.Hide();
     }
 
     public void OffQuestMaxOnQuestMinWindow()
     {
         questMaxWindow.Hide();
         questMinWindow.Show();
-        questMaxButton.SetActive(true);
-        questMinButton.SetActive(false);
+        questMaxButton.Show();
+        questMinButton.Hide();
     }
 
     private void SetFirstQuestUI()
@@ -176,8 +176,8 @@ public class UIManager : MonoBehaviour
         questMinWindow.Show();
         questMaxWindow.Hide();
 
-        questMaxButton.SetActive(true);
-        questMinButton.SetActive(false);
+        questMaxButton.Show();
+        questMinButton.Hide();
         questMinText.UpdateTextMeshProUGUI("???와 대화하기");
         questMaxText.UpdateTextMeshProUGUI("???와 대화하기");
         questMaxDescriptText.UpdateTextMeshProUGUI("???에게 대화를 걸어 이곳에 대한 정보를 얻어보자.");
