@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("수정 필요");
         playerInput = GetComponent<PlayerInput>();
         playerRigidbody = GetComponent<Rigidbody>();
         playerAnimator = GetComponent<Animator>();
@@ -46,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!GameManager.instance.IsGameStatePlay() || GameManager.instance.IsUserStateInteraction())
         {
+            playerAudio.Stop();
             playerAnimator.SetFloat("Move", 0f);
             return;
         }
@@ -157,9 +157,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void SoundEffect()
     {
-
-        if (!GameManager.instance.IsGameStatePlay()) return;
-
         if (moveState == MoveState.RUN)
         {
             if (!playerAudio.isPlaying)
