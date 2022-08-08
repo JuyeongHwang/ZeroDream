@@ -75,7 +75,7 @@ public class QuestImplementation : MonoBehaviour
     void DiscoverHuiEmotion()
     {
         float distance = Vector3.Distance(Zero.transform.position, GameManager.instance.spawnEmotions[0].transform.position);
-        if (distance <= 3.0f && !GameManager.instance.IsGameStateDialogue())
+        if (distance <= 1.5f && !GameManager.instance.IsGameStateDialogue())
         {
             focusingHui();
             dialogueManager.zeroTalk = true;

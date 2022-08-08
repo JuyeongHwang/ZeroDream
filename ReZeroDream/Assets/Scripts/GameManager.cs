@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     // 게임 감정 상태
     //0 : HUI, 1 : ENJOY, 2 : WANT, ...
     public bool[] belongEmotions = new bool[3] { false, false, false };
-    public GameObject[] spawnEmotions = new GameObject[3] { null, null, null };
+    public GameObject[] spawnEmotions = new GameObject[3];
 
     //public enum MouseState { BASIC,MOUSEOVER, DIALOGUE, CAMERA};
     //public MouseState mouseState = MouseState.BASIC;
