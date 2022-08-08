@@ -35,8 +35,6 @@ public class DialogueManager : MonoBehaviour
         isAction = false;
         UIManager.instance.OnOffDialogueWindow(false);
 
-        zeroTalk = true;
-        Action(Zero);
     }
 
     public void Action(GameObject _scan)

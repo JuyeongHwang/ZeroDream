@@ -14,11 +14,9 @@ public class PlayerInteraction : MonoBehaviour
     enum LiftState { ReadyLift, StartLift, EndLift};
     LiftState liftState = LiftState.EndLift;
     public GameObject liftedItem { get; private set; }
-    public GameObject Zero;
 
     void Start()
     {
-        Debug.Log("수정 필요");
         playerState = GetComponent<PlayerState>();
         playerInput = GetComponent<PlayerInput>();
         dialogueManager = FindObjectOfType<DialogueManager>();
@@ -28,7 +26,6 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-
         Click();
         Lift();
     }
@@ -42,8 +39,15 @@ public class PlayerInteraction : MonoBehaviour
             //제로 혼잣말
             if (questManager.nowDialogueObject == 3000 && dialogueManager.zeroTalk)
             {
-                dialogueManager.Action(Zero);
+                if (GameManager.instance.IsGameStateStory() || GameManager.instance.IsGameStateSetting()) return;
+                if (!GameManager.instance.IsUserStateHear())
+                {
+                    dialogueManager.Action(gameObject); //이 script가 붙어있는 gameObject를 반환. 즉 gameobject == zero
+                }
                 return;
+            }
+
+            else { 
             }
 
             if (!playerInput.scanObject) return;
@@ -64,6 +68,10 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
+    void CannotClick()
+    {
+
+    }
     void clickUI()
     {
         
