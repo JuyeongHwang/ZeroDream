@@ -30,7 +30,7 @@ public class PlayerState : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Fall")
+        if (other.gameObject.tag == "Fall" && GameManager.instance.IsStoryStateHui())
         {
             print("Reset");
 
@@ -39,9 +39,19 @@ public class PlayerState : MonoBehaviour
             gameObject.transform.position = new Vector3(-2, 10, 2);
             //GameManager.instance.ResetPlayerPosition();
         }
+
+        if (other.gameObject.tag == "Inside")
+        {
+            print("건물 진입");
+
+            Camera.main.orthographic = true;
+        }
     }
 
-
+    private void OnTriggerExit(Collider other)
+    {
+        Camera.main.orthographic = false;
+    }
     public void CheckLiftedItem(GameObject g)
     {
         if(g.name == "HuiEmotion(Clone)")

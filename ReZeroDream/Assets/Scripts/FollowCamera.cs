@@ -31,6 +31,21 @@ public class FollowCamera : MonoBehaviour
     private void LateUpdate()
     {
         transform.LookAt(lookTarget);
+        //// CullingMask에 "Group" Layer를 추가합니다.
+        //Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Group");
+        //// CullingMask에 "Group" Layer를 제거합니다.
+        //Camera.main.cullingMask = Camera.main.cullingMask & ~(1 << LayerMask.NameToLayer("Group"));
+        if (Camera.main.orthographic)
+        {
+            Camera.main.cullingMask = Camera.main.cullingMask & ~(1 << LayerMask.NameToLayer("OutSide"));
+            cameraOffset = new Vector3(0, 5, -7);
+        }
+        else
+        {
+            Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("OutSide");
+            cameraOffset = new Vector3(0, 3, -6);
+        }
+
     }
 
     void Move()

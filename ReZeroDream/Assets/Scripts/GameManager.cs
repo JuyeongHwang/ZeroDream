@@ -30,18 +30,8 @@ public class GameManager : MonoBehaviour
     public bool[] belongEmotions = new bool[3] { false, false, false };
     public GameObject[] spawnEmotions = new GameObject[3];
 
-    //public enum MouseState { BASIC,MOUSEOVER, DIALOGUE, CAMERA};
-    //public MouseState mouseState = MouseState.BASIC;
-
-    //public enum GameMode { STORY,PLAY, SETTING, DIALOGUE };
-    //public GameMode gameMode = GameMode.PLAY;
-
-    //public enum PlayState { PLAY, SETTING, DIALOGUE};
-    //public PlayState playState = PlayState.PLAY;
-    
-    //public enum UserState { MOVE, INTERACTION };
-    //public UserState userState = UserState.MOVE;
-
+    enum StoryState { HUI, ENJOY, WANT };
+    [SerializeField] StoryState storyState = StoryState.HUI;
     enum GameState { STORY, PLAY, SETTING, DIALOGUE};
     [SerializeField] GameState gameState = GameState.PLAY;
     enum UserState { MOVE, INTERACTION, HEAR};
@@ -61,6 +51,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         print("game start");
+        if (IsStoryStateEnjoy())
+        {
+            FindObjectOfType<QuestManager>().questId = 50;
+            FindObjectOfType<QuestManager>().questAcitonIndex = 0;
+
+        }
     }
 
     private void Update()
@@ -130,8 +126,31 @@ public class GameManager : MonoBehaviour
         return IsUserState(UserState.HEAR);
     }
 
+    public void SetStoryStateToHui()
+    {
+        storyState = SetState(StoryState.HUI);
+    }
+    public void SetStoryStateToEnjoy()
+    {
+        storyState = SetState(StoryState.ENJOY);
+    }
+    public void SetStoryStateToWant()
+    {
+        storyState = SetState(StoryState.WANT);
+    }
+    public bool IsStoryStateHui()
+    {
+        return IsStoryState(StoryState.HUI);
+    }
+    public bool IsStoryStateEnjoy()
+    {
+        return IsStoryState(StoryState.ENJOY);
+    }
+    public bool IsStoryStateWant()
+    {
+        return IsStoryState(StoryState.WANT);
+    }
 
-   
 
     T SetState<T>(T state){
         return state;
@@ -147,5 +166,8 @@ public class GameManager : MonoBehaviour
         return (userState == gs);
     }
 
-
+    bool IsStoryState(StoryState gs)
+    {
+        return (storyState == gs);
+    }
 }

@@ -25,8 +25,12 @@ public class QuestImplementation : MonoBehaviour
         playerState = FindObjectOfType<PlayerState>();
         Zero = FindObjectOfType<PlayerInput>().gameObject;
 
-        dialogueManager.zeroTalk = true;
-        dialogueManager.Action(Zero);
+        if (GameManager.instance.IsStoryStateHui()) 
+        {
+
+            dialogueManager.zeroTalk = true;
+            dialogueManager.Action(Zero);
+        }
     }
 
 
@@ -104,6 +108,7 @@ public class QuestImplementation : MonoBehaviour
 
     void EndHuiStory()
     {
+        GameManager.instance.SetStoryStateToEnjoy();
         print("³¡");
         //UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
