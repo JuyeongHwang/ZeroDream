@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         Vector3 moveDistance = Vector3.zero;
+
         if (playerInput.run && playerInput.move == 1.0f)
         {
             if (moveState != MoveState.JUMPSTART) moveState = MoveState.RUN;
@@ -86,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         {
 
             moveDistance = playerInput.move * transform.forward * moveSpeed * Time.deltaTime;
+            //moveDistance = playerInput.move * transform.forward * moveSpeed * Time.deltaTime;
             animSpeed = playerInput.move;
             if (moveDistance == Vector3.zero)
             {
@@ -128,6 +130,10 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    bool change = false;
+
+    bool change2 = false;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (moveState == MoveState.JUMPSTART)
@@ -151,10 +157,31 @@ public class PlayerMovement : MonoBehaviour
             StepSE = concreteStep;
         }
 
+        if(collision.gameObject.tag == "Wall")
+        {
+            if (!change)
+            {
+                change = true;
+
+                Physics.gravity = new Vector3(-9.8f, 0, 0);
+                transform.eulerAngles = new Vector3(-90, 0, -90);
+            }
+        }
+        if(collision.gameObject.tag == "Ground" && !change2)
+        {
+            change2 = true;
+            Physics.gravity = new Vector3(0, -9.8f, 0);
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+
     }
 
-    
+    private void OnCollisionExit(Collision collision)
+    {
+        change = false;
+        change2 = false;
 
+    }
     public void SoundEffect()
     {
         if (moveState == MoveState.RUN)
