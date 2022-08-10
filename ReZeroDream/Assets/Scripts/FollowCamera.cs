@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    private Transform lookTarget;
-    private Transform target;
+    public Transform lookTarget;
+    public Transform target;
+
+    public Transform player;
     public Vector3 cameraOffset = new Vector3(0, 3, -7);
 
 
@@ -15,8 +17,9 @@ public class FollowCamera : MonoBehaviour
     
     void Start()
     {
-        lookTarget = FindObjectOfType<PlayerMovement>().transform;
-        target = FindObjectOfType<PlayerMovement>().transform;
+        player= FindObjectOfType<PlayerMovement>().transform;
+        lookTarget = player;
+        target = player;
         transform.position = target.position;
         //cameraOffset = transform.position - target.position;
     }
@@ -28,13 +31,26 @@ public class FollowCamera : MonoBehaviour
         Rotate();
     }
 
+    private void Update()
+    {
+        if(target != player)
+        {
+            if (GameManager.instance.IsGameStatePlay())
+            {
+                ResetCameraSetting();
+            }
+            else
+            {
+                StartCoroutine(Recovery());
+            }
+        }
+
+    }
+
     private void LateUpdate()
     {
         transform.LookAt(lookTarget);
-        //// CullingMask에 "Group" Layer를 추가합니다.
-        //Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Group");
-        //// CullingMask에 "Group" Layer를 제거합니다.
-        //Camera.main.cullingMask = Camera.main.cullingMask & ~(1 << LayerMask.NameToLayer("Group"));
+
         if (Camera.main.orthographic)
         {
             Camera.main.cullingMask = Camera.main.cullingMask & ~(1 << LayerMask.NameToLayer("OutSide"));
@@ -68,5 +84,28 @@ public class FollowCamera : MonoBehaviour
     {
         lookTarget = _lookTarget;
         target = _target;
+    }
+    public void SetOffset(Vector3 offset)
+    {
+        cameraOffset = offset;
+    }
+
+    public void ResetCameraSetting()
+    {
+        SetTargets(player, player);
+        SetOffset(new Vector3(0, 3, -6));
+        moveSmoothSpeed = 0.8f;
+    }
+
+    IEnumerator Recovery()
+    {
+        yield return new WaitForSeconds(3.5f);
+        ResetCameraSetting();
+
+        if (GameManager.instance.IsGameStateStory())
+        {
+            UIManager.instance.ShowStoryMode();
+            GameManager.instance.SetGameStateToDialogue();
+        }
     }
 }

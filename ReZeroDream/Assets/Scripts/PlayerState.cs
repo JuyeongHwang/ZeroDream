@@ -48,6 +48,14 @@ public class PlayerState : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Inside")
+        {
+
+            Camera.main.orthographic = true;
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         Camera.main.orthographic = false;

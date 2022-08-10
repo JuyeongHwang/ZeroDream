@@ -6,9 +6,8 @@ using TMPro;
 public class UIView : MonoBehaviour
 {
 
-    //public enum VisibleState {Appearing, Appeared, Disappearing, Disappeared};
     bool active = false;
-    public Animator Dialogue;
+    [HideInInspector] public Animator Dialogue;
 
     // ****** view hide show **********
     public void Show()
@@ -35,6 +34,25 @@ public class UIView : MonoBehaviour
             Hide();
         }
 
+    }
+
+    public void FadeOut()
+    {
+        StartCoroutine(DoFade(1,0));
+    }
+    public void FadeIn()
+    {
+        StartCoroutine(DoFade(0, 1));
+    }
+    IEnumerator DoFade(float start, float end)
+    {
+        float counter = 0f;
+        while (counter < 0.4f)
+        {
+            counter += Time.deltaTime;
+            GetComponent<CanvasGroup>().alpha = Mathf.Lerp(start, end, counter / 0.4f);
+            yield return null;
+        }
     }
 
     // ****** update value **********

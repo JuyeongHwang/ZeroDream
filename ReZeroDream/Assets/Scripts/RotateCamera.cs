@@ -52,25 +52,27 @@ public class RotateCamera : MonoBehaviour
 
         //}
 
-
     }
 
-    bool rotation = true;
-    void rotate()
-    {
-        if (rotation)
-        {
-            fc.enabled = false;
-            xRotateMove += Time.deltaTime * 0.1f;
-            Vector3 stagePosition = target.transform.position;
-            transform.RotateAround(stagePosition, Vector3.up, xRotateMove);
-            transform.LookAt(stagePosition);
-        }
-        else
-        {
-            fc.enabled = true;
 
-        }
+    bool rotation = true;
+    public void rotate(bool _rot)
+    {
+        rotation = _rot;
+        target = fc.target.gameObject;
+
+        fc.enabled = false;
+        xRotateMove += Time.deltaTime * 0.05f;
+        Vector3 stagePosition = target.transform.position;
+        transform.RotateAround(stagePosition, Vector3.up, xRotateMove);
+        transform.LookAt(stagePosition);
+
+
+    }
+    IEnumerator Recovery()
+    {
+        yield return new WaitForSeconds(3.0f);
+        fc.enabled = true;
     }
 
 }
