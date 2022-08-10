@@ -26,6 +26,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
+        
         Click();
         Lift();
     }
@@ -39,7 +40,6 @@ public class PlayerInteraction : MonoBehaviour
             //제로 혼잣말
             if (questManager.nowDialogueObject == 3000 && dialogueManager.zeroTalk)
             {
-                if (GameManager.instance.IsGameStateStory() || GameManager.instance.IsGameStateSetting()) return;
                 if (!GameManager.instance.IsUserStateHear())
                 {
                     dialogueManager.Action(gameObject); //이 script가 붙어있는 gameObject를 반환. 즉 gameobject == zero
@@ -51,7 +51,7 @@ public class PlayerInteraction : MonoBehaviour
             }
 
             if (!playerInput.scanObject) return;
-            if (GameManager.instance.IsGameStateStory() || GameManager.instance.IsGameStateSetting()) return;
+
             if (playerInput.scanObject.name == "NPC_Cat")
             {
                 if (GameManager.instance.spawnEmotions[0] && !GameManager.instance.belongEmotions[0]) return;

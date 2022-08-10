@@ -16,6 +16,8 @@ public class QuestImplementation : MonoBehaviour
     private DialogueManager dialogueManager;
     private QuestManager questManager;
     private PlayerState playerState;
+    private FollowCamera followCam;
+    private RotateCamera rotateCam;
 
     private GameObject Zero;
     private void Start()
@@ -23,6 +25,9 @@ public class QuestImplementation : MonoBehaviour
         dialogueManager = FindObjectOfType<DialogueManager>();
         questManager = FindObjectOfType<QuestManager>();
         playerState = FindObjectOfType<PlayerState>();
+        followCam = FindObjectOfType<FollowCamera>();
+        rotateCam = FindObjectOfType<RotateCamera>();
+
         Zero = FindObjectOfType<PlayerInput>().gameObject;
 
         if (GameManager.instance.IsStoryStateHui()) 
@@ -34,6 +39,7 @@ public class QuestImplementation : MonoBehaviour
     }
 
 
+    bool catCutScene = false;
     void Update()
     {
         if (questManager.questId == 10 && questManager.questAcitonIndex == 1)
@@ -45,12 +51,22 @@ public class QuestImplementation : MonoBehaviour
             SpawnHuiEmotion();
             DiscoverHuiEmotion();
         }
+        if (questManager.questId == 20 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 3)
+        {
+            if (!catCutScene)
+            {
+                catCutScene = true;
+                //focusingCat();
+            }
+        }
         if (questManager.questId == 20 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 4)
         {
             if (UIManager.instance.catNameWindow.isActive()) return;
-            SetCatName();
-            focusingCat();
+            //focusing cat
             GameManager.instance.SetGameStateToStory();
+            SetCatName();
+
+
         }
         if (questManager.questId == 40)
         {
@@ -60,10 +76,11 @@ public class QuestImplementation : MonoBehaviour
 
     void DiscoverHui()
     {
-        float distance = Vector3.Distance(Zero.transform.position, GameObject.Find("NPC_Hui").transform.position);
+        Transform hui = GameObject.Find("NPC_Hui").transform;
+        float distance = Vector3.Distance(Zero.transform.position, hui.position);
         if (distance <= 7.0f && !GameManager.instance.IsGameStateDialogue())
         {
-            focusingHui();
+            focusingHui(hui);
             dialogueManager.zeroTalk = true;
             dialogueManager.Action(Zero);
         }
@@ -81,7 +98,6 @@ public class QuestImplementation : MonoBehaviour
         float distance = Vector3.Distance(Zero.transform.position, GameManager.instance.spawnEmotions[0].transform.position);
         if (distance <= 1.5f && !GameManager.instance.IsGameStateDialogue())
         {
-            focusingHui();
             dialogueManager.zeroTalk = true;
             dialogueManager.Action(Zero);
         }
@@ -92,14 +108,21 @@ public class QuestImplementation : MonoBehaviour
         UIManager.instance.OnOffCatNameWindow(true);
     }
 
-    void focusingHui()
+    void focusingHui(Transform hui)
     {
         //camera focusing
+        followCam.SetTargets(hui, hui);
+        followCam.moveSmoothSpeed = 0.05f;
+        followCam.SetOffset(new Vector3(0, 3, 6));
     }
+
     void focusingCat()
     {
-        //change color
-        //camera focusing & rotation
+        Debug.Log("focusing");
+        GameManager.instance.SetGameStateToStory();
+        Transform cat = GameObject.Find("NPC_Cat").transform;
+        followCam.SetTargets(cat, cat);
+        rotateCam.rotate(true);    
     }
     void focusingFlower()
     {

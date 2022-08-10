@@ -28,7 +28,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
+    [Header("Canvas")]
+    [SerializeField] private UIView SettingButtonsCavas;
+    [SerializeField] private UIView Canvas;
 
     [Header("Player")]
     [SerializeField] private UIView playerClickImage;
@@ -46,7 +48,6 @@ public class UIManager : MonoBehaviour
     [Header("Story - Cat")]
     [SerializeField] public UIView catNameWindow;
     [SerializeField] private UIView InputCatName;
-    [SerializeField] private CanvasGroup canvasGroup;
 
 
     [Header("Quest Min")]
@@ -89,12 +90,12 @@ public class UIManager : MonoBehaviour
 
     // *****     [Header("Dialogue")]     *******
     private bool isFirstDialogue = true;
-    public void OnOffDialogueWindow(bool active) { 
-        
-        if(active)
+    public void OnOffDialogueWindow(bool active) {
+
+        if (active)
         {
             dialogueWindow.Show();
-            if(isFirstDialogue)
+            if (isFirstDialogue)
             {
                 animator.SetTrigger("show");
                 isFirstDialogue = false;
@@ -127,35 +128,32 @@ public class UIManager : MonoBehaviour
 
 
     // *****     [Header("CatName")]     *******
-    public void OnOffCatNameWindow(bool active) 
+    public void OnOffCatNameWindow(bool active)
     {
         if (active)
         {
             catNameWindow.Show();
-            StartCoroutine(DoFade(canvasGroup, canvasGroup.alpha, 1));
+            catNameWindow.FadeIn();
         }
         else
         {
-            StartCoroutine(DoFade(canvasGroup, canvasGroup.alpha, 0));
+            catNameWindow.FadeOut();
         }
-        //catNameWindow.ShowAndHide(active); 
-    
+
     }
 
-    public IEnumerator DoFade(CanvasGroup canvasGroup, float start, float end)
+    public void HideStoryMode()
     {
-        float counter = 0f;
-        while(counter < 0.4f)
-        {
-            counter += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(start, end, counter / 0.4f);
-            yield return null;
-        }
+        Canvas.FadeOut();
+        SettingButtonsCavas.FadeOut();
+    }
+    public void ShowStoryMode()
+    {
+        Canvas.FadeIn();
+        SettingButtonsCavas.FadeIn();
     }
 
 
-    /// ============== ¼öÁ¤ Áß =====================
-    /// 
     public void OnQuestMaxOffQuestMinWindow()
     {
         questMinWindow.Hide();

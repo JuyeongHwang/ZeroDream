@@ -32,7 +32,7 @@ public class PlayerInput : MonoBehaviour
         run = Input.GetButton("Run");
         jump = Input.GetButtonDown("Jump");
         lift = Input.GetButtonDown("Lift");
-        Lclick = Input.GetMouseButtonDown(0);
+        Lclick = (Input.GetMouseButtonDown(0) && !GameManager.instance.IsGameStateSetting() && !GameManager.instance.IsGameStateStory());
         enter =  Input.GetButtonDown("Enter");
         scanObject = Ray();
 
