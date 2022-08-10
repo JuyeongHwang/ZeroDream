@@ -29,8 +29,6 @@ public class PlayerMovement : MonoBehaviour
 
     enum MoveState { IDLE, WALK, RUN, JUMPSTART, JUMPEND };
     [SerializeField] MoveState moveState = MoveState.IDLE;
-    enum GroundState { Ground, Wall };
-    [SerializeField] GroundState groundState = GroundState.Ground;
 
     private void Start()
     {
@@ -132,6 +130,10 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    bool change = false;
+
+    bool change2 = false;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (moveState == MoveState.JUMPSTART)
@@ -157,25 +159,29 @@ public class PlayerMovement : MonoBehaviour
 
         if(collision.gameObject.tag == "Wall")
         {
-            if (groundState != GroundState.Wall)
+            if (!change)
             {
-                groundState = GroundState.Wall;
+                change = true;
+
                 Physics.gravity = new Vector3(-9.8f, 0, 0);
                 transform.eulerAngles = new Vector3(-90, 0, -90);
             }
         }
-        if(collision.gameObject.tag == "Ground")
+        if(collision.gameObject.tag == "Ground" && !change2)
         {
-            if (groundState != GroundState.Ground)
-            {
-                groundState = GroundState.Ground;
-                Physics.gravity = new Vector3(0, -9.8f, 0);
-                transform.eulerAngles = new Vector3(0, 90, 0);
-            }
+            change2 = true;
+            Physics.gravity = new Vector3(0, -9.8f, 0);
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
 
     }
 
+    private void OnCollisionExit(Collision collision)
+    {
+        change = false;
+        change2 = false;
+
+    }
     public void SoundEffect()
     {
         if (moveState == MoveState.RUN)
