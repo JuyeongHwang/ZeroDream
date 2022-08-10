@@ -61,6 +61,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIView questWindowRewardText;
     [SerializeField] private UIView questMinButton;
     [SerializeField] private UIView questMaxButton;
+    [SerializeField] private Animator questAnimator;
+
 
     private QuestManager questManager;
 
@@ -160,9 +162,16 @@ public class UIManager : MonoBehaviour
         questMaxWindow.Show();
         questMinButton.Show();
         questMaxButton.Hide();
+        questAnimator.SetTrigger("Max");
     }
 
     public void OffQuestMaxOnQuestMinWindow()
+    {
+        questAnimator.SetTrigger("Min");
+        Invoke("InvokeOffQuestMaxOnQuestMinWindow", 0.3f);
+    }
+
+    public void InvokeOffQuestMaxOnQuestMinWindow()
     {
         questMaxWindow.Hide();
         questMinWindow.Show();

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0008095059, g: 0.004162577, b: 0.020063965, a: 1}
+  m_IndirectSpecularColor: {r: 0.0008094942, g: 0.0041625574, b: 0.02006386, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4803,7 +4803,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 253}
+  m_AnchoredPosition: {x: -9.999939, y: 253}
   m_SizeDelta: {x: 370, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &895337601
@@ -12842,6 +12842,7 @@ GameObject:
   - component: {fileID: 1898513357}
   - component: {fileID: 1898513356}
   - component: {fileID: 1898513358}
+  - component: {fileID: 1898513359}
   m_Layer: 5
   m_Name: questMaxWindow
   m_TagString: Untagged
@@ -12923,6 +12924,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dialogue: {fileID: 0}
+--- !u!95 &1898513359
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898513354}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fca67cbb6bdcf8b4ab0aa58c1fee5819, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1902137470
 GameObject:
   m_ObjectHideFlags: 0
@@ -14794,6 +14814,11 @@ PrefabInstance:
       propertyPath: catNameWindow
       value: 
       objectReference: {fileID: 677738112}
+    - target: {fileID: 1150122176254373456, guid: f6a326ccf98e0bc4eb28c6ab5282b3a6,
+        type: 3}
+      propertyPath: questAnimator
+      value: 
+      objectReference: {fileID: 1898513359}
     - target: {fileID: 1150122176254373456, guid: f6a326ccf98e0bc4eb28c6ab5282b3a6,
         type: 3}
       propertyPath: dialogueWindow
