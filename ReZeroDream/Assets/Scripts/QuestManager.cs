@@ -13,25 +13,66 @@ public class QuestManager : MonoBehaviour
 
     //public AudioClip complete = null;
 
+    [HideInInspector]
     public string qwDescript;
     public string qwContent;
     public string qwReward;
     public string qwName;
+    public bool focusing = false;
 
-    [HideInInspector] public bool focusing = false;
+    //퀘스트 상태 표시
+    private SpriteRenderer huiQuestSprite;
+    public Sprite[] questImgArr;
+
+    public GameObject huiQuestImg;
+    //public GameObject huiEmotionQuestImg;
+    public GameObject catQuestImg;
+    public GameObject yesFlowerQuestImg;
+    
 
     private void Start()
     {
         questList = new Dictionary<int, QuestData>(); //초기화
         GenerateQuestData();
 
-        //해피 발견시 ->
-        //CheckQuest(0);
+        huiQuestSprite = huiQuestImg.GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         nowDialogueObject = questList[questId].npcId[questAcitonIndex];
+
+        if (questId == 10 && questAcitonIndex == 2)
+        {
+            huiQuestImg.SetActive(true);
+        }
+        else if (questId == 20 && questAcitonIndex == 1)
+        {
+            huiQuestSprite.sprite = questImgArr[1];
+            //huiEmotionQuestImg.SetActive(true);
+        }
+        else if (questId == 20 && questAcitonIndex == 2)
+        {
+            catQuestImg.SetActive(true);
+        }
+        else if (questId == 20 && questAcitonIndex == 3)
+        {
+            catQuestImg.SetActive(false);
+            huiQuestSprite.sprite = questImgArr[0];
+        }
+        else if (questId == 30 && questAcitonIndex == 0)
+        {
+            huiQuestSprite.sprite = questImgArr[1];
+            yesFlowerQuestImg.SetActive(true);
+        }
+        else if (questId == 30 && questAcitonIndex == 2)
+        {
+            yesFlowerQuestImg.SetActive(false);
+            huiQuestSprite.sprite = questImgArr[2];
+
+            //ObjData objData = Happy.GetComponent<ObjData>();
+            //objData.name = "희";
+        }
     }
 
 
