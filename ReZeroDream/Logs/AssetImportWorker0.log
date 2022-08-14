@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.17f1 (a4537701e4ab) revision 10769271'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home; OS build 19044.1826; Version 2009; 64bit' Language: 'ko' Physical Memory: 16309 MB
+OS: 'Windows 10 Home; OS build 19044.1889; Version 2009; 64bit' Language: 'ko' Physical Memory: 16307 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
 COMMAND LINE ARGUMENTS:
@@ -11,187 +11,115 @@ C:\Program Files\Unity\Hub\Editor\2020.3.17f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/ReZeroDream/ReZeroDream
+C:/Users/user/Documents/GitHub/ReZeroDream/ReZeroDream
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-65482
-Successfully changed project path to: C:/ReZeroDream/ReZeroDream
-C:/ReZeroDream/ReZeroDream
+55110
+Successfully changed project path to: C:/Users/user/Documents/GitHub/ReZeroDream/ReZeroDream
+C:/Users/user/Documents/GitHub/ReZeroDream/ReZeroDream
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 105.52 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 112.00 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.17f1 (a4537701e4ab)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/ReZeroDream/ReZeroDream/Assets
+[Subsystems] Discovering subsystems at path C:/Users/user/Documents/GitHub/ReZeroDream/ReZeroDream/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1060 6GB (ID=0x1c03)
+    Renderer: NVIDIA GeForce RTX 3060 (ID=0x2504)
     Vendor:   
-    VRAM:     6052 MB
+    VRAM:     12142 MB
     Driver:   30.0.15.1215
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56064
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56468
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003954 seconds.
+Registered in 0.003457 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 104.63 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 98.34 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.087 seconds
+- Completed reload, in  1.908 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1087ms)
-		BeginReloadAssembly (63ms)
+	ReloadAssembly (1908ms)
+		BeginReloadAssembly (55ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (379ms)
-			LoadAssemblies (59ms)
+			CreateAndSetChildDomain (0ms)
+		EndReloadAssembly (352ms)
+			LoadAssemblies (52ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (102ms)
+			SetupTypeCache (97ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (20ms)
-			SetupLoadedEditorAssemblies (190ms)
+			RebuildScriptCaches (17ms)
+			SetupLoadedEditorAssemblies (179ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (105ms)
-				BeforeProcessingInitializeOnLoad (6ms)
-				ProcessInitializeOnLoadAttributes (56ms)
-				ProcessInitializeOnLoadMethodAttributes (19ms)
+				RefreshPlugins (98ms)
+				BeforeProcessingInitializeOnLoad (11ms)
+				ProcessInitializeOnLoadAttributes (49ms)
+				ProcessInitializeOnLoadMethodAttributes (18ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.010422 seconds.
+Registered in 0.009471 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file data-000001D50A3FA010 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50988AC90 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D509906FC0 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50A402020 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50A402020 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50A7FF010 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50A417630 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50B0EEA20 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50A685010 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D5055FF7F0 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50A7FF010 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50A38F830 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D505B42010 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D5055E92E0 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D505614C00 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D505D589B0 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D509B65010 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50A7FF010 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D5056823A0 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.InputSystem.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50AC7D020 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D509906A80 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D509B77C20 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D509CB5010 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D509CB5010 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D509DF3020 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50989F010 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50AC7D020 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Services.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D509B77C20 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D5055E92E0 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D509907340 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D509906A80 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50554E9E0 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D505629610 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D505372820 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D509CDD620 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001D50A39F840 doesn't match image C:\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file LoadedFromMemory doesn't match image C:\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\user\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\user\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 109.77 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 99.17 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.164 seconds
+- Completed reload, in  1.048 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1165ms)
-		BeginReloadAssembly (122ms)
+	ReloadAssembly (1049ms)
+		BeginReloadAssembly (113ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (3ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (17ms)
-		EndReloadAssembly (986ms)
-			LoadAssemblies (115ms)
+			CreateAndSetChildDomain (13ms)
+		EndReloadAssembly (880ms)
+			LoadAssemblies (98ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (289ms)
+			SetupTypeCache (247ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (41ms)
-			SetupLoadedEditorAssemblies (462ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (423ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
+				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (110ms)
-				BeforeProcessingInitializeOnLoad (101ms)
-				ProcessInitializeOnLoadAttributes (222ms)
-				ProcessInitializeOnLoadMethodAttributes (11ms)
-				AfterProcessingInitializeOnLoad (13ms)
+				RefreshPlugins (99ms)
+				BeforeProcessingInitializeOnLoad (98ms)
+				ProcessInitializeOnLoadAttributes (203ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (12ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 1.41 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.10 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4788 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 186.6 MB.
-System memory in use after: 186.8 MB.
+Unloading 4789 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 190.9 MB.
+System memory in use after: 191.2 MB.
 
-Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 5231.
-Total: 4.372400 ms (FindLiveObjects: 0.984100 ms CreateObjectMapping: 0.191600 ms MarkObjects: 3.121700 ms  DeleteObjects: 0.073900 ms)
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 5234.
+Total: 2.967900 ms (FindLiveObjects: 0.377000 ms CreateObjectMapping: 0.119000 ms MarkObjects: 2.414400 ms  DeleteObjects: 0.057000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -205,233 +133,121 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Fonts/DungGeunMo SDF.asset
-  artifactKey: Guid(691e9a23c62e4194f8999d865e6d701b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/DungGeunMo SDF.asset using Guid(691e9a23c62e4194f8999d865e6d701b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ef5a21a6ad0abd33fcc51c5c26a75e6') in 0.463999 seconds 
-  Import took 0.472540 seconds .
+  path: Assets/Sounds/jumping (mp3cut.net) (1).mp3
+  artifactKey: Guid(9a49c2e531a8c214e843660aa9452b89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds/jumping (mp3cut.net) (1).mp3 using Guid(9a49c2e531a8c214e843660aa9452b89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbd8717b5d227dfabe5fd6d0c98057b0') in 0.066349 seconds 
+  Import took 0.072405 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000357 seconds.
-  path: Assets/Fonts/NotoSansKR-Regular SDF.asset
-  artifactKey: Guid(06c1e841da8efe146a3b49d6791ef2a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/NotoSansKR-Regular SDF.asset using Guid(06c1e841da8efe146a3b49d6791ef2a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b56502791fa882f69a330507d223b3ef') in 0.383924 seconds 
-  Import took 0.392837 seconds .
+  Time since last request: 0.000191 seconds.
+  path: Assets/Scenes/HuiLandScene.unity
+  artifactKey: Guid(41a366e00524d4844b5850e3f31c4fcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/HuiLandScene.unity using Guid(41a366e00524d4844b5850e3f31c4fcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5389520fd8869783847a9e7366a3e3f') in 0.002975 seconds 
+  Import took 0.008157 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 4738.580442 seconds.
-  path: Assets/ImportAssets/PolygonCity/Scenes/Demo.unity
-  artifactKey: Guid(35299a6a99d6dfe4bb709527ba95aab0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/PolygonCity/Scenes/Demo.unity using Guid(35299a6a99d6dfe4bb709527ba95aab0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3187eeb05105cdc34de8d3097896a33f') in 0.008468 seconds 
-  Import took 0.021189 seconds .
+  Time since last request: 0.000128 seconds.
+  path: Assets/Sounds/running-in-grass-6237.mp3
+  artifactKey: Guid(895ac941612ac51408782feee56a8634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds/running-in-grass-6237.mp3 using Guid(895ac941612ac51408782feee56a8634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6beba9435dcec360013cbc8c7833338') in 0.008497 seconds 
+  Import took 0.013200 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 2086.292891 seconds.
-  path: Assets/ImportAssets/PolygonCity/Scenes
-  artifactKey: Guid(f422dbe4849e51347af15eedd142ec3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/PolygonCity/Scenes using Guid(f422dbe4849e51347af15eedd142ec3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86bd832a93ef3b22808918f073b4c50f') in 0.009427 seconds 
-  Import took 0.054124 seconds .
+  Time since last request: 0.000130 seconds.
+  path: Assets/Sprites/제로.png
+  artifactKey: Guid(afb55ff51d4d9e742953077d13a4255b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/제로.png using Guid(afb55ff51d4d9e742953077d13a4255b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c13497c7e501c341c44caf560d25324') in 0.031997 seconds 
+  Import took 0.037348 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 33.927307 seconds.
-  path: Assets/Scenes/EnjoyLandScene.unity
-  artifactKey: Guid(3edcf39961cb0104983adca4dabeb741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/EnjoyLandScene.unity using Guid(3edcf39961cb0104983adca4dabeb741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a1bf7fcd10a931537d3b88224ad468e') in 0.008528 seconds 
-  Import took 0.015727 seconds .
+  Time since last request: 0.000180 seconds.
+  path: Assets/Scenes/HuiLandScene.unity
+  artifactKey: Guid(41a366e00524d4844b5850e3f31c4fcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/HuiLandScene.unity using Guid(41a366e00524d4844b5850e3f31c4fcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5389520fd8869783847a9e7366a3e3f') in 0.002649 seconds 
+  Import took 0.008155 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 115.947840 seconds.
-  path: Assets/Scenes/EnjoyLandScene.unity
-  artifactKey: Guid(3edcf39961cb0104983adca4dabeb741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/EnjoyLandScene.unity using Guid(3edcf39961cb0104983adca4dabeb741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb0c27c02ffc04521385132a7ebb31a1') in 0.004061 seconds 
-  Import took 0.014823 seconds .
+  Time since last request: 0.000154 seconds.
+  path: Assets/Sprites/T_3_magnifier_-_al_.png
+  artifactKey: Guid(55376a98b8fb6f647ae6f6594b2cffba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/T_3_magnifier_-_al_.png using Guid(55376a98b8fb6f647ae6f6594b2cffba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '771857847f4e8c78a3cacba5717d1d7f') in 0.033128 seconds 
+  Import took 0.038719 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 163.509586 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/6sidedCosmicCoolCloud.mat
-  artifactKey: Guid(f531e09e2ad2fb440b4eed7605863143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/6sidedCosmicCoolCloud.mat using Guid(f531e09e2ad2fb440b4eed7605863143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b78967f43f341f0800ef6b984e80a077') in 0.384284 seconds 
-  Import took 0.391871 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000228 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/HighFantasy.mat
-  artifactKey: Guid(e2341a9d03e86ec4290c72b1e22bbc7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/HighFantasy.mat using Guid(e2341a9d03e86ec4290c72b1e22bbc7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b799f95c1f8161f800e2fe1bd3b19b3') in 0.120469 seconds 
-  Import took 0.130530 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000239 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/UnderTheSea4k.mat
-  artifactKey: Guid(119ec07f1c7ed204db46bd8465fd5a50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/UnderTheSea4k.mat using Guid(119ec07f1c7ed204db46bd8465fd5a50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c43a86d9e99587fa91cbd817622b1a4') in 0.110026 seconds 
-  Import took 0.119566 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000193 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/UnearthlyRed.mat
-  artifactKey: Guid(5d133deeaa66ed445853e946ff25e073) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/UnearthlyRed.mat using Guid(5d133deeaa66ed445853e946ff25e073) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c71c923abd820abf7cb093dbd4c476ad') in 0.108036 seconds 
-  Import took 0.116440 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000282 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/SunlessCirruscover.mat
-  artifactKey: Guid(4e154bf235e41704bbd6bbc6fd6c63f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/SunlessCirruscover.mat using Guid(4e154bf235e41704bbd6bbc6fd6c63f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1580ebb9de49aa2c76057a64fe5c9b5') in 0.112278 seconds 
-  Import took 0.120917 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000201 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/6SidedMegaSun.mat
-  artifactKey: Guid(c52c5d7968fa6c9499b0b5752f899bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/6SidedMegaSun.mat using Guid(c52c5d7968fa6c9499b0b5752f899bfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f0f78ed6dfba57e1bdc7a9c774ab1fd') in 0.065917 seconds 
-  Import took 0.072842 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000216 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/DayInTheClouds.mat
-  artifactKey: Guid(3e5399bd195de7649b874f58c1b9f8a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/DayInTheClouds.mat using Guid(3e5399bd195de7649b874f58c1b9f8a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '078fe3c51d914bbed7d39529b4ed0832') in 0.111013 seconds 
-  Import took 0.119925 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000265 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/6SidedFluffball.mat
-  artifactKey: Guid(efd1c33efd2d58340b88804268e6833f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/6SidedFluffball.mat using Guid(efd1c33efd2d58340b88804268e6833f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd810d767946b1fdedcf6ae46cd320156') in 0.062914 seconds 
-  Import took 0.069410 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000204 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/Cloudymorning.mat
-  artifactKey: Guid(d9dca9ae1786c394f9e79c637aa9a7bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/Cloudymorning.mat using Guid(d9dca9ae1786c394f9e79c637aa9a7bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f95b2726e2be8799fbec31675a2cf36') in 0.111226 seconds 
-  Import took 0.119580 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000198 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/CoriolisNight4k.mat
-  artifactKey: Guid(d4454f71d85928744be7771e2143dab7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/CoriolisNight4k.mat using Guid(d4454f71d85928744be7771e2143dab7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '953fef3a4443a94a2bf35ee1aa12e926') in 0.113445 seconds 
-  Import took 0.122208 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000246 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/SkyhighFluffycloudField.mat
-  artifactKey: Guid(f15c336556dd74f40aaca655f7767970) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/SkyhighFluffycloudField.mat using Guid(f15c336556dd74f40aaca655f7767970) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d7579686b53f1972ebef0e3a5a17cc4') in 0.112526 seconds 
-  Import took 0.122343 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000267 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/PlanetaryEarth.mat
-  artifactKey: Guid(16bc8a9d5451ca44d8f70575adbece3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/PlanetaryEarth.mat using Guid(16bc8a9d5451ca44d8f70575adbece3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bc54e4566eb5ec9ebce1791240c2d29') in 0.111846 seconds 
-  Import took 0.121581 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000189 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/DarkStorm.mat
-  artifactKey: Guid(2039a0ad0a9d05549928b70362f54902) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/DarkStorm.mat using Guid(2039a0ad0a9d05549928b70362f54902) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '805ee1189750998b94fc2bf66f21aabe') in 0.111560 seconds 
-  Import took 0.120153 seconds .
+  Time since last request: 0.000213 seconds.
+  path: Assets/Sounds/jumping.mp3
+  artifactKey: Guid(6283096ad43e4be4696129e81b0607c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds/jumping.mp3 using Guid(6283096ad43e4be4696129e81b0607c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd8d9824a2799280ed1e71f219138c08') in 0.023620 seconds 
+  Import took 0.030419 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000184 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/CosmicCoolCloud_Eq.mat
-  artifactKey: Guid(369b9ebe3a62b904dbc19bd332b44086) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/CosmicCoolCloud_Eq.mat using Guid(369b9ebe3a62b904dbc19bd332b44086) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd45cc8dee3381cf1ed22b3e28e7bbc27') in 0.042150 seconds 
-  Import took 0.050266 seconds .
+  path: Assets/Sounds/concrete-footsteps-6752.mp3
+  artifactKey: Guid(22f92a206365c2a48b02aadbb8bb7c4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds/concrete-footsteps-6752.mp3 using Guid(22f92a206365c2a48b02aadbb8bb7c4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b533dbee527c135d354cf223bb4145ce') in 0.018396 seconds 
+  Import took 0.023616 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000241 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/AmbienceExposure.mat
-  artifactKey: Guid(72deae4d18418f94688abef8e8483df0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/AmbienceExposure.mat using Guid(72deae4d18418f94688abef8e8483df0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef4ae843bec7299fc566a50ce1341a29') in 0.111698 seconds 
-  Import took 0.120231 seconds .
+  Time since last request: 0.000213 seconds.
+  path: Assets/Sounds/footsteps-in-water-nature-sounds-8185.mp3
+  artifactKey: Guid(90b7884443bdf504c82323ec8dedce7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds/footsteps-in-water-nature-sounds-8185.mp3 using Guid(90b7884443bdf504c82323ec8dedce7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '202961480204fab6e31d0d79fd2ffdd1') in 0.022378 seconds 
+  Import took 0.028246 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000220 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/CloudedSunGlow.mat
-  artifactKey: Guid(e391f00234292cc4f935308c11cf0e54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/CloudedSunGlow.mat using Guid(e391f00234292cc4f935308c11cf0e54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23e3eb461bab121a4848d2be68d84b6e') in 0.110990 seconds 
-  Import took 0.119657 seconds .
+  Time since last request: 0.000169 seconds.
+  path: Assets/Sounds/380145__yottasounds__computer-keyboard-single-key-type-5-shift.wav
+  artifactKey: Guid(0af24705c0ee91a46a82374f750ac29b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds/380145__yottasounds__computer-keyboard-single-key-type-5-shift.wav using Guid(0af24705c0ee91a46a82374f750ac29b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2bb1ee8816405ef903a497f16aa1e08') in 0.016938 seconds 
+  Import took 0.022399 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000228 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/FluffballDay.mat
-  artifactKey: Guid(20d4f77b9022eab48b4d94599ed4bf82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/FluffballDay.mat using Guid(20d4f77b9022eab48b4d94599ed4bf82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60a169b567640a9b6be7b85221009c37') in 0.122283 seconds 
-  Import took 0.131070 seconds .
+  Time since last request: 0.000148 seconds.
+  path: Assets/Sprites/T_2_magnifier_+_al_.png
+  artifactKey: Guid(4b406ee7cd6887c439325c92038c529b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/T_2_magnifier_+_al_.png using Guid(4b406ee7cd6887c439325c92038c529b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25bf07d032332bfa24be2e65f7cfe555') in 0.027364 seconds 
+  Import took 0.033194 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000206 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/CasualDay.mat
-  artifactKey: Guid(85cf0b004bc4a654b9e501efcce47902) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/CasualDay.mat using Guid(85cf0b004bc4a654b9e501efcce47902) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '177c009a33cf6f3bbb2b124239c36e3a') in 0.110893 seconds 
-  Import took 0.119564 seconds .
+  Time since last request: 0.000185 seconds.
+  path: Assets/Sprites/희.png
+  artifactKey: Guid(9bf174647e63c814eaba0c1d6a6c5e67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/희.png using Guid(9bf174647e63c814eaba0c1d6a6c5e67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd00e737652eed9f66b5760aaa1661e1a') in 0.021897 seconds 
+  Import took 0.027016 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000219 seconds.
-  path: Assets/ImportAssets/SkySeries Freebie/MegaSun.mat
-  artifactKey: Guid(cede08c9fc471e64884909cd4bbeaf59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ImportAssets/SkySeries Freebie/MegaSun.mat using Guid(cede08c9fc471e64884909cd4bbeaf59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcafce8dec7cafc7c8d7570b2c6f1b0f') in 0.113196 seconds 
-  Import took 0.121900 seconds .
+  Time since last request: 0.000162 seconds.
+  path: Assets/Sprites/HELP GUIDE 1.png
+  artifactKey: Guid(69b648f3ec78a2c438372784eb935714) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/HELP GUIDE 1.png using Guid(69b648f3ec78a2c438372784eb935714) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2301dc1e7ca81a0883c513dc15e97b98') in 0.039707 seconds 
+  Import took 0.044657 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 51.576914 seconds.
-  path: Assets/Scenes/EnjoyLandScene.unity
-  artifactKey: Guid(3edcf39961cb0104983adca4dabeb741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/EnjoyLandScene.unity using Guid(3edcf39961cb0104983adca4dabeb741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '332249f29f17e2de48bac63ddc38ed5b') in 0.003841 seconds 
-  Import took 0.010903 seconds .
+  Time since last request: 0.000159 seconds.
+  path: Assets/Sprites/emptyImg.png
+  artifactKey: Guid(c1609961541e7804790bd9c94295af35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/emptyImg.png using Guid(c1609961541e7804790bd9c94295af35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bac038588c397b397fc3d7391436418') in 0.030671 seconds 
+  Import took 0.035377 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 205.276898 seconds.
-  path: Assets/Scenes/EnjoyLandScene.unity
-  artifactKey: Guid(3edcf39961cb0104983adca4dabeb741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/EnjoyLandScene.unity using Guid(3edcf39961cb0104983adca4dabeb741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33e042f4a779430a75131dc7dbec4cde') in 0.003890 seconds 
-  Import took 0.011084 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 114.447122 seconds.
-  path: Assets/Scenes/EnjoyLandScene.unity
-  artifactKey: Guid(3edcf39961cb0104983adca4dabeb741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/EnjoyLandScene.unity using Guid(3edcf39961cb0104983adca4dabeb741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47d29a09475f8ef98c56212d729c361f') in 0.004085 seconds 
-  Import took 0.010554 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 328.158263 seconds.
-  path: Assets/Scenes/EnjoyLandScene.unity
-  artifactKey: Guid(3edcf39961cb0104983adca4dabeb741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/EnjoyLandScene.unity using Guid(3edcf39961cb0104983adca4dabeb741) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '46c0eb685d9edc3a3b7c35fc279b3627') in 0.003883 seconds 
-  Import took 0.011245 seconds .
+  Time since last request: 0.000175 seconds.
+  path: Assets/Sounds/footstep-grass-leaf-38778.mp3
+  artifactKey: Guid(24105f22932aaaa49b16db30ee9d6f95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sounds/footstep-grass-leaf-38778.mp3 using Guid(24105f22932aaaa49b16db30ee9d6f95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b4689ecf7d6a63938ddc83096d8a60d') in 0.023734 seconds 
+  Import took 0.028587 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
