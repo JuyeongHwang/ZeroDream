@@ -14,12 +14,12 @@ public class breakMesh : MonoBehaviour
     public int CutCascades = 2;
     public float ExplodeForce = 0;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnEnable()
     {
+
         DestroyMesh();
     }
-
     public bool reDestroy= false;
     private void DestroyMesh()
     {
@@ -72,16 +72,8 @@ public class breakMesh : MonoBehaviour
 
             parts[i].GameObject.AddComponent<Rigidbody>();
             parts[i].GameObject.GetComponent<Rigidbody>().mass = UnityEngine.Random.Range(0.1f, 10.0f);
-            parts[i].GameObject.GetComponent<Rigidbody>().useGravity = false;
-            if (reDestroy)
-            {
-                parts[i].GameObject.GetComponent<Rigidbody>().AddForce(Vector3.down * UnityEngine.Random.Range(10f, 15.0f));
-            }
-            else
-            {
-                parts[i].GameObject.GetComponent<Rigidbody>().AddForce(Vector3.down * UnityEngine.Random.Range(5f, 10.0f));
-            }
-
+            parts[i].GameObject.GetComponent<Rigidbody>().useGravity = true;
+            
             parts[i].GameObject.transform.SetParent(paraent);
             //parts[i].GameObject.GetComponent<Rigidbody>().AddForceAtPosition(parts[i].Bounds.center * ExplodeForce, transform.position);
         }
