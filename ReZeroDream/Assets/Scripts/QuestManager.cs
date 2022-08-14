@@ -13,12 +13,12 @@ public class QuestManager : MonoBehaviour
 
     //public AudioClip complete = null;
 
-
-    [HideInInspector] public string qwDescript;
-    [HideInInspector] public string qwContent;
-    [HideInInspector] public string qwReward;
-    [HideInInspector] public string qwName;
-    [HideInInspector] public bool focusing = false;
+    [HideInInspector]
+    public string qwDescript;
+    public string qwContent;
+    public string qwReward;
+    public string qwName;
+    public bool focusing = false;
 
     //퀘스트 상태 표시
     private SpriteRenderer huiQuestSprite;
@@ -51,10 +51,10 @@ public class QuestManager : MonoBehaviour
             huiQuestSprite.sprite = questImgArr[1];
             //huiEmotionQuestImg.SetActive(true);
         }
-        //else if (questId == 20 && questAcitonIndex == 2)
-        //{
-        //    catQuestImg.SetActive(true);
-        //}
+        else if (questId == 20 && questAcitonIndex == 2)
+        {
+            catQuestImg.SetActive(true);
+        }
         else if (questId == 20 && questAcitonIndex == 3)
         {
             catQuestImg.SetActive(false);
