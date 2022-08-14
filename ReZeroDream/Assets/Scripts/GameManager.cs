@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] StoryState storyState = StoryState.HUI;
     enum GameState { STORY, PLAY, SETTING, DIALOGUE};
     [SerializeField] GameState gameState = GameState.PLAY;
-    enum UserState { MOVE, INTERACTION, HEAR, FLOATING};
+    enum UserState { MOVE, INTERACTION, HEAR};
     [SerializeField] UserState userState = UserState.MOVE;
 
     private void Awake()
@@ -113,18 +113,9 @@ public class GameManager : MonoBehaviour
     {
         userState = SetState(UserState.HEAR);
     }
-    public void SetUserStateToFloating()
-    {
-        userState = SetState(UserState.FLOATING);
-    }
-
     public bool IsUserStateMove()
     {
         return IsUserState(UserState.MOVE);
-    }
-    public bool IsUserStateFloating()
-    {
-        return IsUserState(UserState.FLOATING);
     }
     public bool IsUserStateInteraction()
     {
