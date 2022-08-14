@@ -18,6 +18,7 @@ public class PlayerState : MonoBehaviour
 
     private PlayerInteraction playerInteraction;
     private DialogueManager dialogue;
+    private QuestManager questManager;
 
 
 
@@ -25,6 +26,7 @@ public class PlayerState : MonoBehaviour
     {
 
         dialogue = FindObjectOfType<DialogueManager>();
+        questManager = FindObjectOfType<QuestManager>();
         playerInteraction = GetComponent<PlayerInteraction>();
     }
 
@@ -68,6 +70,7 @@ public class PlayerState : MonoBehaviour
             GameManager.instance.belongEmotions[(int)EMOTION.HUI] = true;
             //missionComplete = true;
             Destroy(g);
+            questManager.catQuestImg.SetActive(true);
         }
     }
 
