@@ -62,12 +62,18 @@ public class PlayerState : MonoBehaviour
     }
     public void CheckLiftedItem(GameObject g)
     {
-        if(g.name == "HuiEmotion(Clone)")
+        if(g.gameObject == GameManager.instance.spawnMemories[0])
         {
-            print("Destroy");
+            print("이 종이는 어디에 사용하는거지? 그림이 그려져있어..");
+
+            UIManager.instance.OnOffHuiNote(true);
+
             GameManager.instance.belongEmotions[(int)EMOTION.HUI] = true;
-            //missionComplete = true;
-            Destroy(g);
+            GameManager.instance.spawnMemories[0].SetActive(false);
+        }
+        if (g.gameObject == GameManager.instance.spawnMemories[1])
+        {
+
         }
     }
 

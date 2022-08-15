@@ -11,8 +11,8 @@ public class PlayerInteraction : MonoBehaviour
     private DialogueManager dialogueManager;
     private QuestManager questManager;
 
-    enum LiftState { ReadyLift, StartLift, EndLift};
-    LiftState liftState = LiftState.EndLift;
+    //enum LiftState { ReadyLift, StartLift, EndLift};
+    //LiftState liftState = LiftState.EndLift;
     public GameObject liftedItem { get; private set; }
 
     void Start()
@@ -54,7 +54,7 @@ public class PlayerInteraction : MonoBehaviour
 
             if (playerInput.scanObject.name == "NPC_Cat")
             {
-                if (GameManager.instance.spawnEmotions[0] && !GameManager.instance.belongEmotions[0]) return;
+                if (GameManager.instance.spawnMemories[0] && !GameManager.instance.belongEmotions[0]) return;
             }
 
             if (!GameManager.instance.IsUserStateHear())
@@ -68,10 +68,6 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    void CannotClick()
-    {
-
-    }
     void clickUI()
     {
         
@@ -84,51 +80,58 @@ public class PlayerInteraction : MonoBehaviour
     }
 
 
-
+    bool canLift = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Item" && liftState == LiftState.EndLift)
+        if (other.tag == "Item")
         {
-            liftState = LiftState.ReadyLift;
+            canLift = true;
             liftedItem = other.gameObject;
         }
 
     }
     private void OnTriggerExit(Collider other)
     {
-        liftState = LiftState.EndLift;
+        canLift = false;
         liftedItem = null;
     }
 
     void Lift()
     {
         liftUI();
-        playerAnimator.SetBool("isLift", liftState == LiftState.StartLift ? true : false);
 
-        if (liftState == LiftState.ReadyLift)
+        if (playerInput.lift)
         {
-            if (playerInput.lift)
-            {
-                GameManager.instance.SetUserStateToInteration();
-                liftState = LiftState.StartLift;
-                playerState.CheckLiftedItem(liftedItem);
-                StartCoroutine(WaitLifting());
-            }
+            canLift = false;
+            playerState.CheckLiftedItem(liftedItem);
         }
+
+        //playerAnimator.SetBool("isLift", liftState == LiftState.StartLift ? true : false);
+
+        //if (liftState == LiftState.ReadyLift)
+        //{
+        //    if (playerInput.lift)
+        //    {
+        //        GameManager.instance.SetUserStateToInteration();
+        //        liftState = LiftState.StartLift;
+        //        playerState.CheckLiftedItem(liftedItem);
+        //        StartCoroutine(WaitLifting());
+        //    }
+        //}
     }
 
     void liftUI()
     {
-        UIManager.instance.OnOffPlayerLiftImage(liftState == LiftState.ReadyLift ? true : false);
+        UIManager.instance.OnOffPlayerLiftImage(canLift? true : false);
     }
 
 
-    IEnumerator WaitLifting()
-    {
-        yield return new WaitForSeconds(3.0f);
-        GameManager.instance.SetUserStateToMove();
-        liftState = LiftState.EndLift;
-    }
+    //IEnumerator WaitLifting()
+    //{
+    //    yield return new WaitForSeconds(3.0f);
+    //    GameManager.instance.SetUserStateToMove();
+    //    liftState = LiftState.EndLift;
+    //}
 
     
 }

@@ -87,15 +87,14 @@ public class QuestImplementation : MonoBehaviour
     }
     void SpawnHuiEmotion()
     {
-        if (GameManager.instance.spawnEmotions[0]) return;
-
-        GameObject g = Instantiate(EmotionPrefabs, new Vector3(-10, 5, 3), Quaternion.identity);
-        GameManager.instance.spawnEmotions[0] = g;
+        if (GameManager.instance.spawnMemories[0].activeSelf && 
+            GameManager.instance.belongEmotions[0]) return;
+        GameManager.instance.spawnMemories[0].SetActive(true);
 
     }
     void DiscoverHuiEmotion()
     {
-        float distance = Vector3.Distance(Zero.transform.position, GameManager.instance.spawnEmotions[0].transform.position);
+        float distance = Vector3.Distance(Zero.transform.position, GameManager.instance.spawnMemories[0].transform.position);
         if (distance <= 1.5f && !GameManager.instance.IsGameStateDialogue())
         {
             dialogueManager.zeroTalk = true;
@@ -131,6 +130,9 @@ public class QuestImplementation : MonoBehaviour
 
     void EndHuiStory()
     {
+        GameObject.Find("NPC_Hui").SetActive(false);
+        GameObject.Find("NPC_Cat").SetActive(false);
+
         GameManager.instance.SetStoryStateToEnjoy();
         print("³¡");
         //UnityEngine.SceneManagement.SceneManager.LoadScene(1);

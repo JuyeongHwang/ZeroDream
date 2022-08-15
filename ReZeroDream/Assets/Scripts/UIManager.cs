@@ -64,14 +64,21 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIView questMaxButton;
     [SerializeField] private Animator questAnimator;
 
+    [Header("Memory")]
+    [SerializeField] private UIView NotePadWindow;
+    [SerializeField] private UIView HuiNote;
+    [SerializeField] private UIView HuiCatText;
+    [SerializeField] private UIView EnjoyNote;
+
 
     private QuestManager questManager;
 
 
     private void Start()
     {
+        //initialize
         catNameWindow.Hide();
-
+        HuiNote.Hide();
 
         questManager = FindObjectOfType<QuestManager>();
         SetFirstQuestUI(); //퀘스트UI초기화 (원래는 대화 끝날 때만 불리니까)
@@ -142,6 +149,19 @@ public class UIManager : MonoBehaviour
 
     }
 
+    // *****     [Header("Memory")]     *******
+
+    public void OnOffHuiNote(bool isActive)
+    {
+        HuiNote.ShowAndHide(isActive);
+    }
+
+    public void UpdateHuiCatText(string catName)
+    {
+        HuiCatText.UpdateTextMeshProUGUI(catName);
+    }
+
+    // *****     [Header("")]     *******
     public void HideStoryMode()
     {
         Canvas.FadeOut();
@@ -207,18 +227,19 @@ public class UIManager : MonoBehaviour
 
 
     //애매..
-    public void UpdateCatName() {
-        string catName = catNameWindow.getTextMeshProInputField();
-        GameObject cat = GameObject.Find("NPC_Cat");
-        cat.GetComponent<ObjData>()._name = catName;
-        FindObjectOfType<DialogueManager>().Action(cat);
-    }
+    //public void UpdateCatName() {
+    //    string catName = catNameWindow.getTextMeshProInputField();
+    //    GameObject cat = GameObject.Find("NPC_Cat");
+    //    cat.GetComponent<ObjData>()._name = catName;
+    //    FindObjectOfType<DialogueManager>().Action(cat);
+    //}
 
     public void OnEndEdit(string str)
     {
-        print("on End edit");
         string catName = catNameWindow.getTextMeshProInputField();
         catName = InputCatName.changeKoreanText(catName);
+
+        UpdateHuiCatText(catName);
 
         GameObject cat = GameObject.Find("NPC_Cat");
         cat.GetComponent<ObjData>()._name = catName;
