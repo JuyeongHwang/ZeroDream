@@ -20,6 +20,10 @@ public class QuestImplementation : MonoBehaviour
     private RotateCamera rotateCam;
 
     private GameObject Zero;
+
+    public GameObject[] NPCs;
+    public Transform EnzoPos;
+
     private void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
@@ -30,12 +34,11 @@ public class QuestImplementation : MonoBehaviour
 
         Zero = FindObjectOfType<PlayerInput>().gameObject;
 
-        if (GameManager.instance.IsStoryStateHui()) 
-        {
-
-            dialogueManager.zeroTalk = true;
-            dialogueManager.Action(Zero);
-        }
+        //if (GameManager.instance.IsStoryStateHui()) 
+        //{
+        //    dialogueManager.zeroTalk = true;
+        //    dialogueManager.Action(Zero);
+        //}
     }
 
 
@@ -71,6 +74,7 @@ public class QuestImplementation : MonoBehaviour
         if (questManager.questId == 40)
         {
             EndHuiStory();
+            startEnzoStory();
         }
     }
 
@@ -130,11 +134,23 @@ public class QuestImplementation : MonoBehaviour
 
     void EndHuiStory()
     {
-        GameObject.Find("NPC_Hui").SetActive(false);
-        GameObject.Find("NPC_Cat").SetActive(false);
+        //GameObject.Find("NPC_Hui").SetActive(false);
+        //GameObject.Find("NPC_Cat").SetActive(false);
 
+        NPCs[0].SetActive(false);
+        NPCs[1].SetActive(false);
         GameManager.instance.SetStoryStateToEnjoy();
         print("³¡");
         //UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+    }
+
+    void startEnzoStory()
+    {
+        GameManager.instance.spawnMemories[1].SetActive(true);
+
+        GameManager.instance.spawnMemories[1].transform.position = EnzoPos.position;
+            //GameObject.Find("EnzoPos").transform.position;
+
+
     }
 }

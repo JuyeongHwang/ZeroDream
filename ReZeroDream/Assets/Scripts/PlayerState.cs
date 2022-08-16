@@ -62,7 +62,7 @@ public class PlayerState : MonoBehaviour
     }
     public void CheckLiftedItem(GameObject g)
     {
-        if(g.gameObject == GameManager.instance.spawnMemories[0])
+        if(g == GameManager.instance.spawnMemories[0])
         {
             print("이 종이는 어디에 사용하는거지? 그림이 그려져있어..");
 
@@ -71,7 +71,7 @@ public class PlayerState : MonoBehaviour
             GameManager.instance.belongEmotions[(int)EMOTION.HUI] = true;
             GameManager.instance.spawnMemories[0].SetActive(false);
         }
-        if (g.gameObject == GameManager.instance.spawnMemories[1])
+        if (g == GameManager.instance.spawnMemories[1])
         {
 
         }

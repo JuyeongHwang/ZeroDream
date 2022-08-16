@@ -36,20 +36,24 @@ public class UIView : MonoBehaviour
 
     }
 
-    public void FadeOut()
+    public float GetAlphaValue()
     {
-        StartCoroutine(DoFade(1,0));
+        return GetComponent<CanvasGroup>().alpha;
     }
-    public void FadeIn()
+    public void FadeOut(float speed)
     {
-        StartCoroutine(DoFade(0, 1));
+        StartCoroutine(DoFade(1,0, speed));
     }
-    IEnumerator DoFade(float start, float end)
+    public void FadeIn(float speed)
+    {
+        StartCoroutine(DoFade(0, 1, speed));
+    }
+    IEnumerator DoFade(float start, float end, float speed)
     {
         float counter = 0f;
         while (counter < 0.4f)
         {
-            counter += Time.deltaTime;
+            counter += Time.deltaTime * speed;
             GetComponent<CanvasGroup>().alpha = Mathf.Lerp(start, end, counter / 0.4f);
             yield return null;
         }

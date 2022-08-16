@@ -140,11 +140,11 @@ public class UIManager : MonoBehaviour
         if (active)
         {
             catNameWindow.Show();
-            catNameWindow.FadeIn();
+            catNameWindow.FadeIn(1);
         }
         else
         {
-            catNameWindow.FadeOut();
+            catNameWindow.FadeOut(1);
         }
 
     }
@@ -164,13 +164,13 @@ public class UIManager : MonoBehaviour
     // *****     [Header("")]     *******
     public void HideStoryMode()
     {
-        Canvas.FadeOut();
-        SettingButtonsCavas.FadeOut();
+        Canvas.FadeOut(1);
+        SettingButtonsCavas.FadeOut(1);
     }
     public void ShowStoryMode()
     {
-        Canvas.FadeIn();
-        SettingButtonsCavas.FadeIn();
+        Canvas.FadeIn(1);
+        SettingButtonsCavas.FadeIn(1);
     }
 
 

@@ -20,7 +20,7 @@ public class FollowCamera : MonoBehaviour
         player= FindObjectOfType<PlayerMovement>().transform;
         lookTarget = player;
         target = player;
-        transform.position = target.position;
+        transform.position = target.position + cameraOffset;
         //cameraOffset = transform.position - target.position;
     }
 
