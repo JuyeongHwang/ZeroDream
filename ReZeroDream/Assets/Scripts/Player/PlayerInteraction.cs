@@ -13,6 +13,8 @@ public class PlayerInteraction : MonoBehaviour
 
     //enum LiftState { ReadyLift, StartLift, EndLift};
     //LiftState liftState = LiftState.EndLift;
+    public Transform attackItemPos;
+    public GameObject cube;
     public GameObject liftedItem { get; private set; }
 
     void Start()
@@ -24,11 +26,17 @@ public class PlayerInteraction : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
     }
 
+    bool test = false;
+    string m_ClipName;
+    AnimatorClipInfo[] m_CurrentClipInfo;
+    float m_CurrentClipLength;
     private void Update()
     {
         
         Click();
         Lift();
+
+
     }
 
     void Click()

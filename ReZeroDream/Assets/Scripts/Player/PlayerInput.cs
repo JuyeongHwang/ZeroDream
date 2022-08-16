@@ -14,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     public bool lift { get; private set; }
     public bool Lclick { get; private set; }
     public bool enter { get; private set; }
+    public bool throwing { get; private set; }
     public GameObject scanObject { get; private set; } 
 
     void Update()
@@ -26,7 +27,7 @@ public class PlayerInput : MonoBehaviour
             return;
         }
 
-        
+        throwing = Input.GetKeyDown(KeyCode.T);
         move = Input.GetAxis("Vertical");
         rotate = Input.GetAxis("Horizontal");
         run = Input.GetButton("Run");
