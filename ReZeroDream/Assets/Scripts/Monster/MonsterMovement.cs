@@ -48,95 +48,80 @@ public class MonsterMovement : MonoBehaviour
             waypoints[i].y = transform.position.y;
         }
 
+        monsterState = MonsterState.PATROL;
         follow = StartCoroutine(FollowPath(waypoints));
     }
 
-    public int attackCount = 1;
+
     private void Update()
     {
-        //1. 몬스터가 잡힌 경우 다 무시
-        if(monsterState == MonsterState.CATCHED)
-        {
-            return;
-        }
 
-        if (MonsterState.PATROL == monsterState)
+        //1. 몬스터가 잡힌 경우 다 무시
+
+        ControlMonsterState();
+        //2. 몬스터가 플레이어를 볼 수 있을때,
+        if (CanSeePlayer() && monsterState != MonsterState.BACK)
         {
-            if (CanSeePlayer())
+            //2-1. 처음 발견한거라면, 패트롤 정지
+            if (monsterState != MonsterState.CHASE)
             {
                 StopCoroutine(follow);
-                monsterState = MonsterState.CHASE; //쫓아가
             }
+            //2-2. 쫓는다
+            ChasePlayer();
         }
-        else if(MonsterState.CHASE == monsterState)
+        else
         {
-            //공격 가능할때만 쫓아가기
-            if (attackCount > 0)
+            if (monsterState != MonsterState.PATROL)
             {
-                if (Vector3.Distance(player.position, transform.position) < 1.5f)
-                {
-                    anim.SetFloat("WalkAttack", 1.8f);
-                    //player 뒤로 밀려남
-                    attackCount -= 1;
-                    monsterState = MonsterState.ATTACK; //공격해
-                }
-                else
-                {
-                    ChasePlayer();
-                }
-            }
-        }
-        else if(monsterState == MonsterState.ATTACK)
-        {
-            if(attackCount <= 0)
-            {
-                monsterState = MonsterState.BACK; //돌아가
-                StartCoroutine(TurnToFace(waypoints[targetWayPointIndex]));
+
+                monsterState = MonsterState.PATROL;
+                follow = StartCoroutine(FollowPath(waypoints));
                 anim.SetFloat("WalkAttack", 1.0f);
                 viewDistance = 10;
                 spotlight.color = originalSpotlightColor;
             }
+
         }
-        else if(MonsterState.BACK == monsterState)
+    }
+
+    void ControlMonsterState()
+    {
+        if (monsterState == MonsterState.CATCHED)
         {
+            return;
+        }
+
+        else if (monsterState == MonsterState.CHASE)
+        {
+            StopCoroutine(follow);
+            spotlight.color = Color.cyan;
+            viewDistance = 20;
+
+            transform.LookAt(player.position);
+
+            Vector3 diff = player.position - transform.position;
+            float distance = diff.magnitude;
+            Vector3 orient = diff / distance;
+            Vector3 newPos = transform.transform.position + orient * 15 * Time.deltaTime;//Vector3.Lerp(transform.transform.position, transform.transform.position + orient, speed * Time.deltaTime);//this.transform.position + direction.normalized * 10 * Time.deltaTime;
+
+            transform.GetComponent<Rigidbody>().MovePosition(newPos);
+        }
+        else if(monsterState == MonsterState.ATTACK)
+        {
+            anim.SetTrigger("Attack");
+            print("제로 밀림");
+
             follow = StartCoroutine(FollowPath(waypoints));
-            monsterState = MonsterState.PATROL; //돌아다녀
+            monsterState = MonsterState.PATROL;
         }
         else if(monsterState == MonsterState.PATROL)
         {
             anim.SetFloat("WalkAttack", 1.0f);
             viewDistance = 10;
             spotlight.color = originalSpotlightColor;
-            
         }
-
-        ////2. 몬스터가 플레이어를 볼 수 있을때,
-        //if (CanSeePlayer() && monsterState != MonsterState.BACK)
-        //{
-        //    //2-1. 처음 발견한거라면, 패트롤 정지
-        //    if(monsterState != MonsterState.CHASE)
-        //    {
-        //        StopCoroutine(follow);
-        //    }
-        //    //2-2. 쫓는다
-        //    ChasePlayer();
-        //}
-        //else
-        //{
-        //    if(monsterState != MonsterState.PATROL)
-        //    {
-
-        //        monsterState = MonsterState.PATROL;
-        //        follow = StartCoroutine(FollowPath(waypoints));
-        //        anim.SetFloat("WalkAttack", 1.0f);
-        //        viewDistance = 10;
-        //        spotlight.color = originalSpotlightColor;
-        //    }
-
-        //}
     }
-
-
     bool CanSeePlayer()
     {
         //1. 반경 안에 있는가
@@ -168,50 +153,29 @@ public class MonsterMovement : MonoBehaviour
         float animScale = 1.0f;
 
 
-        float chaseSpeed = speed * 7;
+        if (Vector3.Distance(player.position, transform.position) < 1.0f && monsterState != MonsterState.ATTACK)        //플레이어와 가까워지면 밀어냄
+        {
+            monsterState = MonsterState.ATTACK;
+            anim.SetTrigger("Attack");
+            monsterState = MonsterState.BACK;
+        }
+        else //쫓아감
+        {
+            monsterState = MonsterState.CHASE;
 
-        animScale -= Time.deltaTime * 0.5f;
-        Vector3 diff = player.position - transform.position;
-        float distance = diff.magnitude;
-        Vector3 orient = diff / distance;
-        Vector3 newPos = transform.transform.position + orient * chaseSpeed * Time.deltaTime;//Vector3.Lerp(transform.transform.position, transform.transform.position + orient, speed * Time.deltaTime);//this.transform.position + direction.normalized * 10 * Time.deltaTime;
-        transform.GetComponent<Rigidbody>().MovePosition(newPos);
+            float chaseSpeed = speed * 7;
 
-        transform.LookAt(player.position);
-        anim.SetFloat("WalkAttack", animScale);
+            animScale -= Time.deltaTime * 0.5f;
+            Vector3 diff = player.position - transform.position;
+            float distance = diff.magnitude;
+            Vector3 orient = diff / distance;
+            Vector3 newPos = transform.transform.position + orient * chaseSpeed * Time.deltaTime;//Vector3.Lerp(transform.transform.position, transform.transform.position + orient, speed * Time.deltaTime);//this.transform.position + direction.normalized * 10 * Time.deltaTime;
+            transform.GetComponent<Rigidbody>().MovePosition(newPos);
 
+            transform.LookAt(player.position);
+            anim.SetFloat("WalkAttack", animScale);
 
-        //if (Vector3.Distance(player.position, transform.position) < 1.0f && monsterState != MonsterState.ATTACK)        //플레이어와 가까워지면 밀어냄
-        //{
-        //    monsterState = MonsterState.ATTACK;
-        //    animScale = 1.8f;
-        //    anim.SetFloat("WalkAttack", animScale);
-        //}
-        //else //쫓아감
-        //{
-        //    if(monsterState == MonsterState.ATTACK)
-        //    {
-        //        monsterState = MonsterState.BACK;
-
-        //    }
-        //    else
-        //    {
-        //        monsterState = MonsterState.CHASE;
-
-        //        float chaseSpeed = speed * 7;
-
-        //        animScale -= Time.deltaTime * 0.5f;
-        //        Vector3 diff = player.position - transform.position;
-        //        float distance = diff.magnitude;
-        //        Vector3 orient = diff / distance;
-        //        Vector3 newPos = transform.transform.position + orient * chaseSpeed * Time.deltaTime;//Vector3.Lerp(transform.transform.position, transform.transform.position + orient, speed * Time.deltaTime);//this.transform.position + direction.normalized * 10 * Time.deltaTime;
-        //        transform.GetComponent<Rigidbody>().MovePosition(newPos);
-
-        //        transform.LookAt(player.position);
-        //        anim.SetFloat("WalkAttack", animScale);
-        //    }
-
-        //}
+        }
     }
 
 
@@ -234,7 +198,7 @@ public class MonsterMovement : MonoBehaviour
             //만약 그 타겟에 도착했다면,
             if ((targetWayPoint - this.transform.position).magnitude < 0.05f)
             {
-                if(attackCount == 0) { attackCount = 1; }
+
                 targetWayPointIndex++;
                 targetWayPointIndex = (targetWayPointIndex) % waypoints.Length;
                 targetWayPoint = waypoints[targetWayPointIndex];
