@@ -145,7 +145,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            catNameWindow.FadeOut(1);
+            catNameWindow.Hide();
         }
 
     }
@@ -234,21 +234,28 @@ public class UIManager : MonoBehaviour
     //    cat.GetComponent<ObjData>()._name = catName;
     //    FindObjectOfType<DialogueManager>().Action(cat);
     //}
-
+    bool named = false;
+    public bool BNameCatName()
+    {
+        return named;
+    }
     public void OnEndEdit(string str)
     {
 
         string catName = catNameWindow.getTextMeshProInputField();
         catName = InputCatName.changeKoreanText(catName);
+        named = true;
+
 
         UpdateHuiCatText(catName);
 
         GameObject cat = GameObject.Find("NPC_Cat");
         cat.GetComponent<ObjData>()._name = catName;
-        FindObjectOfType<DialogueManager>().Action(cat);
 
         OnOffCatNameWindow(false);
         GameManager.instance.SetGameStateToDialogue();
+
+        DialogueManager.instance.Action(cat);
     }
 
 }

@@ -71,8 +71,8 @@ public class QuestImplementation : MonoBehaviour
             DiscoverHuiEmotion();
         }
 
-        getHuiMemory = GameManager.instance.belongEmotions[0];
-        if (getHuiMemory)
+        getHuiMemory = GameManager.instance.belongEmotions[0] ;
+        if (getHuiMemory && GameManager.instance.spawnMemories[0].activeSelf)
         {
             print("이 종이는 어디에 사용하는거지? 그림이 그려져있어..");
             GameManager.instance.spawnMemories[0].SetActive(false);
@@ -87,15 +87,24 @@ public class QuestImplementation : MonoBehaviour
                 focusCat();
             }
         }
-        
-        //***********
-        if (questManager.questId == 20 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 4)
+        if (getBackCatColor && !nameCatName)
         {
-            if (UIManager.instance.catNameWindow.isActive()) return;
-            GameManager.instance.SetGameStateToStory();
-            SetCatName();
-
+            if (questManager.questId == 20 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 4)
+            {
+                GameManager.instance.SetGameStateToStory();
+                SetCatName();
+            }
+            nameCatName = UIManager.instance.BNameCatName();
         }
+        if (findFlower)
+        {
+            print("벽 걷기 활성화 & 희 : 너가 원하는 곳은 어디든 갈 수 있어. ");
+            if (questManager.questId == 30 && questManager.questAcitonIndex == 0)
+            {
+                focusFlower();
+            }
+        }
+        
         if (questManager.questId == 40)
         {
             EndHuiStory();
@@ -156,23 +165,32 @@ public class QuestImplementation : MonoBehaviour
 
     //====================================
 
+    float catVal = 0.0f;
     void focusCat()
     {
         //FFE500
         GameManager.instance.SetGameStateToStory();
         Transform cat = GameObject.Find("NPC_Cat").transform;
-        cat.GetChild(1).GetComponent<SkinnedMeshRenderer>().material.SetFloat("_blend", 1);
+
+        if (catVal <= 0.0f)
+        {
+            Camera.main.transform.position = cat.position + new Vector3(5, 6, 9);
+        }
+        catVal += Time.deltaTime * 1.5f;
+        cat.GetChild(1).GetComponent<SkinnedMeshRenderer>().material.SetFloat("_blend", catVal);
 
         followCam.SetTargets(cat, cat);
-        followCam.moveSmoothSpeed = 0.4f;
-        followCam.SetOffset(new Vector3(2, -3, 6));
+        followCam.moveSmoothSpeed = 0.3f;
+
+
+        followCam.SetOffset(new Vector3(2, 3, -6));
 
         StartCoroutine(focusingCat(cat));
     }
 
     IEnumerator focusingCat(Transform cat)
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.5f);
 
         if (!getBackCatColor)
         {
@@ -183,19 +201,20 @@ public class QuestImplementation : MonoBehaviour
 
     }
 
-
     //====================================
     void SetCatName()
     {
-        Debug.Log("고양이 이름 짓기 활성화");
         UIManager.instance.OnOffCatNameWindow(true);
     }
 
-
-
-    void focusingFlower()
+    //====================================
+    void focusFlower()
     {
-        //camera focusing & rotation
+    }
+
+    IEnumerator EndFocusingFlower()
+    {
+        yield return new WaitForSeconds(2.5f);
     }
 
     void EndHuiStory()

@@ -27,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float animSpeed = 0.0f;
 
-    enum MoveState { IDLE, WALK, RUN, JUMPSTART, JUMPEND };
-    [SerializeField] MoveState moveState = MoveState.IDLE;
+    public enum MoveState { IDLE, WALK, RUN, JUMPSTART, JUMPEND };
+    public MoveState moveState = MoveState.IDLE;
     enum GroundState { Ground, Wall};
     [SerializeField] GroundState groundState = GroundState.Ground;
 
@@ -171,7 +171,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 groundState = GroundState.Wall;
                 Physics.gravity = new Vector3(-9.8f, 0, 0);
-                transform.eulerAngles = new Vector3(-90, 0, -90);
+                transform.Rotate(Vector3.right * -90, Space.Self);
+
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, -90);
+
             }
         }
         if(collision.gameObject.tag == "Ground")
@@ -180,7 +183,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 groundState = GroundState.Ground;
                 Physics.gravity = new Vector3(0, -9.8f, 0);
-                transform.eulerAngles = new Vector3(0, 90, 0);
+                transform.Rotate(Vector3.right * -90, Space.Self);
+                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             }
 
         }
