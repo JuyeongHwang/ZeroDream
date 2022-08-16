@@ -126,8 +126,12 @@ public class QuestImplementation : MonoBehaviour
             if (getEnzoMemory && GameManager.instance.spawnMemories[1].activeSelf)
             {
                 print("햄버거집 오픈 ");
-                GameManager.instance.spawnMemories[0].SetActive(false);
-                UIManager.instance.OnOffHuiNote(true);
+                BurgerBarrier.SetActive(false);
+                GameManager.instance.spawnMemories[1].SetActive(false);
+                UIManager.instance.OnOffEnjoyNote(true);//enjoy로 바꿔야함
+
+                print("수정필요한 부분 (quest)");
+                questManager.questId = 70;
             }
 
 

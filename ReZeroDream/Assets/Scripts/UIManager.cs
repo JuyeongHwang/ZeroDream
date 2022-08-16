@@ -162,6 +162,12 @@ public class UIManager : MonoBehaviour
         HuiCatText.UpdateTextMeshProUGUI(catName);
     }
 
+    public void OnOffEnjoyNote(bool isActive)
+    {
+        EnjoyNote.ShowAndHide(isActive);
+    }
+
+
     // *****     [Header("")]     *******
     public void HideStoryMode()
     {
