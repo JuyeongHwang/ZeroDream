@@ -7,15 +7,16 @@ public class ControlLand : MonoBehaviour
     public Transform origianl;
     public Transform breakMesh;
 
-    public bool start = true;
+    bool startBreak = true;
+    public bool start = false;
 
     float destroyTime = 0.0f;
     private void Update()
     {
-        if (GameManager.instance.IsStoryStateEnjoy())
+        if (start)
         {
             destroyTime += Time.deltaTime;
-            if (start)
+            if (startBreak)
             {
                 GameManager.instance.SetUserStateToFloating();
                 GameManager.instance.SetGameStateToStory();
@@ -26,7 +27,7 @@ public class ControlLand : MonoBehaviour
                 {
                     breakMesh.GetChild(i).gameObject.SetActive(true);
                 }
-                start = false;
+                startBreak = false;
             }
 
         }

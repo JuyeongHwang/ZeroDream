@@ -55,7 +55,8 @@ public class QuestManager : MonoBehaviour
             new string[] { "새로운 지역 조사하기" },
             new string[] { " " }));
 
-        questList.Add(50, new QuestData("위험한 존재에 대해 알아보기", new int[] { 3000 }, //대사 없는 경우는 -10000으로/ 제로 혼잣말은 3000으로
+        print("대사 추가시 어떻게 수정해야하는지 !!! ");
+        questList.Add(50, new QuestData("새로운 지역 조사하기", new int[] { 3000 }, //대사 없는 경우는 -10000으로/ 제로 혼잣말은 3000으로
            new string[] { "희가 말했던 위험한 존재와 조우했다. 위험한 존재가 지키고 있는 구슬을 가져와 보자." },
            new string[] { "구슬 획득하기" },
            new string[] { "구슬 \n락 메모장 활성화" }));

@@ -22,6 +22,7 @@ public class QuestImplementation : MonoBehaviour
     private GameObject Zero;
 
     public GameObject[] NPCs;
+    public ControlLand[] ControlLands;
     public Transform EnzoPos;
 
     // 희
@@ -36,6 +37,7 @@ public class QuestImplementation : MonoBehaviour
 
     // 엔조
     bool catchMonster = false;
+   
     bool getEnzoMemory = false;
     bool findFamilyCar = false;
     bool eatBurger = false;
@@ -54,61 +56,67 @@ public class QuestImplementation : MonoBehaviour
 
     void Update()
     {
-        if (!findHui)
+        if (GameManager.instance.IsStoryStateHui())
         {
-            DiscoverHui();
-        }
+            if (!findHui)
+            {
+                DiscoverHui();
+            }
 
-        if (!spawnHuiMemory)
-        {
-            if (questManager.questId == 20 && questManager.questAcitonIndex == 1 && dialogueManager.talkIndex == 0)
+            if (!spawnHuiMemory)
             {
-                SpawnHuiEmotion();
+                if (questManager.questId == 20 && questManager.questAcitonIndex == 1 && dialogueManager.talkIndex == 0)
+                {
+                    SpawnHuiEmotion();
+                }
             }
-        }
-        if (spawnHuiMemory && !findHuiMemory)
-        {
-            DiscoverHuiEmotion();
-        }
+            if (spawnHuiMemory && !findHuiMemory)
+            {
+                DiscoverHuiEmotion();
+            }
 
-        getHuiMemory = GameManager.instance.belongEmotions[0] ;
-        if (getHuiMemory && GameManager.instance.spawnMemories[0].activeSelf)
-        {
-            print("이 종이는 어디에 사용하는거지? 그림이 그려져있어..");
-            GameManager.instance.spawnMemories[0].SetActive(false);
-            UIManager.instance.OnOffHuiNote(true);
-        }
+            getHuiMemory = GameManager.instance.belongEmotions[0];
+            if (getHuiMemory && GameManager.instance.spawnMemories[0].activeSelf)
+            {
+                print("이 종이는 어디에 사용하는거지? 그림이 그려져있어..");
+                GameManager.instance.spawnMemories[0].SetActive(false);
+                UIManager.instance.OnOffHuiNote(true);
+            }
 
-        if (!getBackCatColor)
-        {
-            if (questManager.questId == 20 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 3)
+            if (!getBackCatColor)
             {
-                GameManager.instance.SetGameStateToStory();
-                focusCat();
+                if (questManager.questId == 20 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 3)
+                {
+                    GameManager.instance.SetGameStateToStory();
+                    focusCat();
+                }
+            }
+            if (getBackCatColor && !nameCatName)
+            {
+                if (questManager.questId == 20 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 4)
+                {
+                    GameManager.instance.SetGameStateToStory();
+                    SetCatName();
+                }
+                nameCatName = UIManager.instance.BNameCatName();
+            }
+            if (findFlower)
+            {
+                print("벽 걷기 활성화 & 희 : 너가 원하는 곳은 어디든 갈 수 있어. ");
+                if (questManager.questId == 30 && questManager.questAcitonIndex == 0)
+                {
+                    focusFlower();
+                }
+            }
+
+            if (questManager.questId == 40)
+            {
+                EndHuiStory();
             }
         }
-        if (getBackCatColor && !nameCatName)
+        else if (GameManager.instance.IsStoryStateEnjoy())
         {
-            if (questManager.questId == 20 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 4)
-            {
-                GameManager.instance.SetGameStateToStory();
-                SetCatName();
-            }
-            nameCatName = UIManager.instance.BNameCatName();
-        }
-        if (findFlower)
-        {
-            print("벽 걷기 활성화 & 희 : 너가 원하는 곳은 어디든 갈 수 있어. ");
-            if (questManager.questId == 30 && questManager.questAcitonIndex == 0)
-            {
-                focusFlower();
-            }
-        }
-        
-        if (questManager.questId == 40)
-        {
-            EndHuiStory();
-            startEnzoStory();
+            //startEnzoStory();
         }
     }
 
@@ -224,7 +232,11 @@ public class QuestImplementation : MonoBehaviour
 
         NPCs[0].SetActive(false);
         NPCs[1].SetActive(false);
-        GameManager.instance.SetStoryStateToEnjoy();
+        for(int i = 0; i<ControlLands.Length; i++)
+        {
+            ControlLands[i].start = true;
+        }
+        //GameManager.instance.SetStoryStateToEnjoy();
         print("끝");
         //UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }

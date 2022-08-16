@@ -147,13 +147,6 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if (collision.gameObject.name == "EnjoyPlane")
-        {
-            GameManager.instance.SetUserStateToMove();
-            GameManager.instance.SetGameStateToPlay();
-            Physics.gravity = new Vector3(0, -9.8f, 0);
-            print("분위기가 달라졌어");
-        }
 
 
         if (collision.gameObject.layer == 4)

@@ -40,6 +40,17 @@ public class PlayerState : MonoBehaviour
 
             Camera.main.orthographic = true;
         }
+
+        if (other.gameObject.name == "EnjoyPlane" && !GameManager.instance.IsStoryStateEnjoy())
+        {
+            FindObjectOfType<QuestManager>().questId = 50;
+            GameManager.instance.SetGameStateToStory();
+            GameManager.instance.SetStoryStateToEnjoy();
+
+            Physics.gravity = new Vector3(0, -9.8f, 0);
+            print("분위기가 달라졌어");
+        }
+
     }
 
     private void OnTriggerStay(Collider other)
