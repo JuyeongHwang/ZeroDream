@@ -24,6 +24,23 @@ public class QuestImplementation : MonoBehaviour
     public GameObject[] NPCs;
     public Transform EnzoPos;
 
+    // 희
+    bool findHui = false;
+    bool spawnHuiMemory = false;
+    bool findHuiMemory = false;
+    bool getHuiMemory = false;
+    bool getBackCatColor = false;
+    bool nameCatName = false;
+    bool findFlower = false;
+    bool getBackFlowerColor = false;
+
+    // 엔조
+    bool catchMonster = false;
+    bool getEnzoMemory = false;
+    bool findFamilyCar = false;
+    bool eatBurger = false;
+
+
     private void Start()
     {
         dialogueManager = FindObjectOfType<DialogueManager>();
@@ -33,42 +50,50 @@ public class QuestImplementation : MonoBehaviour
         rotateCam = FindObjectOfType<RotateCamera>();
 
         Zero = FindObjectOfType<PlayerInput>().gameObject;
-
-        //if (GameManager.instance.IsStoryStateHui()) 
-        //{
-        //    dialogueManager.zeroTalk = true;
-        //    dialogueManager.Action(Zero);
-        //}
     }
 
-
-    bool catCutScene = false;
     void Update()
     {
-        if (questManager.questId == 10 && questManager.questAcitonIndex == 1)
+        if (!findHui)
         {
             DiscoverHui();
         }
-        if (questManager.questId == 20 && questManager.questAcitonIndex == 1 && dialogueManager.talkIndex == 0)
+
+        if (!spawnHuiMemory)
         {
-            SpawnHuiEmotion();
-            DiscoverHuiEmotion();
-        }
-        if (questManager.questId == 20 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 3)
-        {
-            if (!catCutScene)
+            if (questManager.questId == 20 && questManager.questAcitonIndex == 1 && dialogueManager.talkIndex == 0)
             {
-                catCutScene = true;
-                //focusingCat();
+                SpawnHuiEmotion();
             }
         }
+        if (spawnHuiMemory && !findHuiMemory)
+        {
+            DiscoverHuiEmotion();
+        }
+
+        getHuiMemory = GameManager.instance.belongEmotions[0];
+        if (getHuiMemory)
+        {
+            print("이 종이는 어디에 사용하는거지? 그림이 그려져있어..");
+            GameManager.instance.spawnMemories[0].SetActive(false);
+            UIManager.instance.OnOffHuiNote(true);
+        }
+
+        if (!getBackCatColor)
+        {
+            if (questManager.questId == 20 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 3)
+            {
+                GameManager.instance.SetGameStateToStory();
+                focusCat();
+            }
+        }
+        
+        //***********
         if (questManager.questId == 20 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 4)
         {
             if (UIManager.instance.catNameWindow.isActive()) return;
-            //focusing cat
             GameManager.instance.SetGameStateToStory();
             SetCatName();
-
 
         }
         if (questManager.questId == 40)
@@ -78,22 +103,43 @@ public class QuestImplementation : MonoBehaviour
         }
     }
 
+    //====================================
     void DiscoverHui()
     {
         Transform hui = GameObject.Find("NPC_Hui").transform;
         float distance = Vector3.Distance(Zero.transform.position, hui.position);
         if (distance <= 7.0f && !GameManager.instance.IsGameStateDialogue())
         {
-            focusingHui(hui);
+            GameManager.instance.SetGameStateToStory();
+            focusHui(hui);
             dialogueManager.zeroTalk = true;
             dialogueManager.Action(Zero);
         }
     }
+    void focusHui(Transform hui)
+    {
+        findHui = true;
+        followCam.SetTargets(hui, hui);
+        followCam.moveSmoothSpeed = 0.05f;
+        followCam.SetOffset(new Vector3(0, 3, 6));
+        StartCoroutine(EndfocusingHui());
+    }
+
+    IEnumerator EndfocusingHui()
+    {
+        yield return new WaitForSeconds(1.3f);
+        followCam.ResetCameraSetting();
+        GameManager.instance.SetGameStateToPlay();
+    }
+
+    //====================================
+
     void SpawnHuiEmotion()
     {
         if (GameManager.instance.spawnMemories[0].activeSelf && 
             GameManager.instance.belongEmotions[0]) return;
         GameManager.instance.spawnMemories[0].SetActive(true);
+        spawnHuiMemory = true;
 
     }
     void DiscoverHuiEmotion()
@@ -101,32 +147,52 @@ public class QuestImplementation : MonoBehaviour
         float distance = Vector3.Distance(Zero.transform.position, GameManager.instance.spawnMemories[0].transform.position);
         if (distance <= 1.5f && !GameManager.instance.IsGameStateDialogue())
         {
+            GameManager.instance.SetGameStateToDialogue();
             dialogueManager.zeroTalk = true;
             dialogueManager.Action(Zero);
+            findHuiMemory = true;
         }
     }
+
+    //====================================
+
+    void focusCat()
+    {
+        //FFE500
+        GameManager.instance.SetGameStateToStory();
+        Transform cat = GameObject.Find("NPC_Cat").transform;
+        cat.GetChild(1).GetComponent<SkinnedMeshRenderer>().material.SetFloat("_blend", 1);
+
+        followCam.SetTargets(cat, cat);
+        followCam.moveSmoothSpeed = 0.4f;
+        followCam.SetOffset(new Vector3(2, -3, 6));
+
+        StartCoroutine(focusingCat(cat));
+    }
+
+    IEnumerator focusingCat(Transform cat)
+    {
+        yield return new WaitForSeconds(2.0f);
+
+        if (!getBackCatColor)
+        {
+            followCam.ResetCameraSetting();
+            getBackCatColor = true;
+            dialogueManager.Action(cat.gameObject);
+        }
+
+    }
+
+
+    //====================================
     void SetCatName()
     {
         Debug.Log("고양이 이름 짓기 활성화");
         UIManager.instance.OnOffCatNameWindow(true);
     }
 
-    void focusingHui(Transform hui)
-    {
-        //camera focusing
-        followCam.SetTargets(hui, hui);
-        followCam.moveSmoothSpeed = 0.05f;
-        followCam.SetOffset(new Vector3(0, 3, 6));
-    }
 
-    void focusingCat()
-    {
-        Debug.Log("focusing");
-        GameManager.instance.SetGameStateToStory();
-        Transform cat = GameObject.Find("NPC_Cat").transform;
-        followCam.SetTargets(cat, cat);
-        rotateCam.rotate(true);    
-    }
+
     void focusingFlower()
     {
         //camera focusing & rotation

@@ -5,16 +5,7 @@ using UnityEngine;
 public class PlayerState : MonoBehaviour
 {
 
-    public enum EMOTION
-    {
-        HUI = 0,
-        ENJOY,
-        WANT
-    };
-
-
     public string goal ="";
-
 
     private PlayerInteraction playerInteraction;
     private DialogueManager dialogue;
@@ -64,13 +55,9 @@ public class PlayerState : MonoBehaviour
     {
         if(g == GameManager.instance.spawnMemories[0])
         {
-            print("이 종이는 어디에 사용하는거지? 그림이 그려져있어..");
-
-            UIManager.instance.OnOffHuiNote(true);
-
-            GameManager.instance.belongEmotions[(int)EMOTION.HUI] = true;
-            GameManager.instance.spawnMemories[0].SetActive(false);
+            GameManager.instance.belongEmotions[0] = true;
         }
+
         if (g == GameManager.instance.spawnMemories[1])
         {
 

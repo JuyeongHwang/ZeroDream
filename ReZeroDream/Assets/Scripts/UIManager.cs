@@ -139,6 +139,7 @@ public class UIManager : MonoBehaviour
     {
         if (active)
         {
+
             catNameWindow.Show();
             catNameWindow.FadeIn(1);
         }
@@ -236,6 +237,7 @@ public class UIManager : MonoBehaviour
 
     public void OnEndEdit(string str)
     {
+
         string catName = catNameWindow.getTextMeshProInputField();
         catName = InputCatName.changeKoreanText(catName);
 

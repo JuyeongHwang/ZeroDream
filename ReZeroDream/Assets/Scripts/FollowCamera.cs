@@ -33,17 +33,13 @@ public class FollowCamera : MonoBehaviour
 
     private void Update()
     {
-        if(target != player)
-        {
-            if (GameManager.instance.IsGameStatePlay())
-            {
-                ResetCameraSetting();
-            }
-            else
-            {
-                StartCoroutine(Recovery());
-            }
-        }
+        //if(target != player)
+        //{
+        //    if (GameManager.instance.IsGameStatePlay() || GameManager.instance.IsGameStateStory())
+        //    {
+        //        ResetCameraSetting();
+        //    }
+        //}
 
     }
 
