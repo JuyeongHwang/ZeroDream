@@ -24,7 +24,7 @@ public class QuestImplementation : MonoBehaviour
     public GameObject[] NPCs;
     public ControlLand[] ControlLands;
     public Transform EnzoPos;
-
+    public GameObject BurgerBarrier;
     // Èñ
     bool findHui = false;
     bool spawnHuiMemory = false;
@@ -37,7 +37,7 @@ public class QuestImplementation : MonoBehaviour
 
     // ¿£Á¶
     bool catchMonster = false;
-   
+    bool spawnEnzoMemory = false;
     bool getEnzoMemory = false;
     bool findFamilyCar = false;
     bool eatBurger = false;
@@ -116,8 +116,23 @@ public class QuestImplementation : MonoBehaviour
         }
         else if (GameManager.instance.IsStoryStateEnjoy())
         {
-            //startEnzoStory();
+
+            getEnzoMemory = GameManager.instance.belongEmotions[1];
+            if (!getEnzoMemory)
+            {
+                SpawnAFollowEnzoMemory();
+            }
+
+            if (getEnzoMemory && GameManager.instance.spawnMemories[1].activeSelf)
+            {
+                print("ÇÜ¹ö°ÅÁý ¿ÀÇÂ ");
+                GameManager.instance.spawnMemories[0].SetActive(false);
+                UIManager.instance.OnOffHuiNote(true);
+            }
+
+
         }
+
     }
 
     //====================================
@@ -241,13 +256,10 @@ public class QuestImplementation : MonoBehaviour
         //UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 
-    void startEnzoStory()
+    void SpawnAFollowEnzoMemory()
     {
         GameManager.instance.spawnMemories[1].SetActive(true);
-
         GameManager.instance.spawnMemories[1].transform.position = EnzoPos.position;
-            //GameObject.Find("EnzoPos").transform.position;
-
-
     }
+
 }

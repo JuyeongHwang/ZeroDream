@@ -74,7 +74,7 @@ public class PlayerState : MonoBehaviour
 
         if (g == GameManager.instance.spawnMemories[1])
         {
-
+            GameManager.instance.belongEmotions[1] = true;
         }
     }
 

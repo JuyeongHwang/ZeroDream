@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
     }
     private static DialogueManager m_instance; // ΩÃ±€≈Ê¿Ã «“¥Áµ… static ∫Øºˆ
 
-    public bool isAction { get; private set; }
+    public bool isAction = false;
     public bool zeroTalk;
     public GameObject Zero;
 
@@ -72,8 +72,6 @@ public class DialogueManager : MonoBehaviour
         UIManager.instance.UpdateDialogeText(name, talkData.Split(':')[0]);
         UIManager.instance.UpdateDialoguePortraitImage(talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1])));
         GameManager.instance.SetGameStateToDialogue();
-
     }
-
 
 }

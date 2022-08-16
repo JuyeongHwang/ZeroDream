@@ -37,6 +37,14 @@ public class PlayerInteraction : MonoBehaviour
 
         if (playerInput.Lclick)
         {
+            //碍力肺 挪 版快
+            if(GameManager.instance.IsGameStatePlay() && dialogueManager.isAction)
+            {
+                UIManager.instance.OnOffDialogueWindow(false);
+
+                GameManager.instance.SetGameStateToPlay();
+                GameManager.instance.SetUserStateToMove();
+            }
             //力肺 去楞富
             if (questManager.nowDialogueObject == 3000 && dialogueManager.zeroTalk)
             {

@@ -147,6 +147,12 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+        if(collision.gameObject.tag == "barrier")
+        {
+            DialogueManager.instance.isAction = true;
+            UIManager.instance.OnOffDialogueWindow(true);
+            UIManager.instance.UpdateDialogeText("제로","더이상 갈 수 없나봐");
+        }
 
 
         if (collision.gameObject.layer == 4)

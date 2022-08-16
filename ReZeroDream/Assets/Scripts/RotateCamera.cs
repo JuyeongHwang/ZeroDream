@@ -20,22 +20,27 @@ public class RotateCamera : MonoBehaviour
     private void Update()
     {
         //Debug.Log("¼öÁ¤");
-        //if (GameManager.instance.playState == GameManager.PlayState.SETTING) return;
+        if (GameManager.instance.IsGameStateSetting()) return;
+        if (GameManager.instance.IsGameStateDialogue()) return;
+        if (GameManager.instance.IsGameStateStory()) return;
+        //if(!GameManager.instance.IsGameStatePlay())
+        if (Input.GetMouseButton(0))
+        {
+            fc.enabled = false;
+            xRotateMove = Input.GetAxis("Mouse X") * Time.deltaTime * rotateSpeed;
+            yRotateMove = Input.GetAxis("Mouse Y") * Time.deltaTime * rotateSpeed;
 
+            Vector3 stagePosition = target.transform.position;
 
-        //if (Input.GetMouseButton(0))
-        //{
-        //    fc.enabled = false;
-        //    xRotateMove = Input.GetAxis("Mouse X") * Time.deltaTime * rotateSpeed;
-        //    yRotateMove = Input.GetAxis("Mouse Y") * Time.deltaTime * rotateSpeed;
+            transform.RotateAround(stagePosition, Vector3.right, -yRotateMove);
+            transform.RotateAround(stagePosition, Vector3.up, xRotateMove);
 
-        //    Vector3 stagePosition = target.transform.position;
-
-        //    transform.RotateAround(stagePosition, Vector3.right, -yRotateMove);
-        //    transform.RotateAround(stagePosition, Vector3.up, xRotateMove);
-
-        //    transform.LookAt(stagePosition);
-        //}
+            transform.LookAt(stagePosition);
+        }
+        else
+        {
+            fc.enabled = true;
+        }
         //else
         //{
         //    fc.enabled = true;
