@@ -41,6 +41,8 @@ public class FollowCamera : MonoBehaviour
         //    }
         //}
 
+
+
     }
 
     private void LateUpdate()
@@ -55,7 +57,15 @@ public class FollowCamera : MonoBehaviour
         else
         {
             Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("OutSide");
-            cameraOffset = new Vector3(0, 3, -6);
+            
+            if (GameManager.instance.IsStoryStateHui())
+            {
+                cameraOffset = new Vector3(0, 3, -6);
+            }
+            else if (GameManager.instance.IsStoryStateEnjoy())
+            {
+                cameraOffset = new Vector3(0, 6, -6);
+            }
         }
 
     }

@@ -13,11 +13,13 @@ public class BallLauncher : MonoBehaviour
     public Rigidbody ball;
     public Transform target;
 
+    Vector3 originalPos;
     public float h = 10;
     public float gravity = -18f;
 
     void Start()
     {
+        originalPos = ball.transform.position;
         ball.useGravity = false;
         ball.gameObject.GetComponent<SphereCollider>().isTrigger = true;
 
@@ -34,8 +36,6 @@ public class BallLauncher : MonoBehaviour
             DrawPath();
         }
 
-
-
         if (GameManager.instance.IsUserStateThrowReady())
         {
             ScreenToWorld();
@@ -44,6 +44,16 @@ public class BallLauncher : MonoBehaviour
 
     }
 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject == plane)
+        {
+            //ball.transform.SetParent(null);
+            //ball.gameObject.GetComponent<SphereCollider>().isTrigger = true;
+            //ball.position = originalPos;
+        }
+    }
     void ScreenToWorld()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -63,7 +73,7 @@ public class BallLauncher : MonoBehaviour
     IEnumerator changeTrigger()
     {
         yield return new WaitForSeconds(0.5f);
-        ball.transform.SetParent(null);
+        //
         ball.gameObject.GetComponent<SphereCollider>().isTrigger = false;
         GameManager.instance.SetUserStateToMove();
     }

@@ -13,8 +13,7 @@ public class PlayerInteraction : MonoBehaviour
 
     //enum LiftState { ReadyLift, StartLift, EndLift};
     //LiftState liftState = LiftState.EndLift;
-    public Transform attackItemPos;
-    public GameObject cube;
+    public Transform throwItemPos;
     public GameObject liftedItem { get; private set; }
     public GameObject throwItem { get; private set; }
     void Start()
@@ -32,11 +31,6 @@ public class PlayerInteraction : MonoBehaviour
         
         Click();
         Lift();
-        if (Input.GetKeyDown(KeyCode.T) && canThrow)
-        {
-            GameManager.instance.SetUserStateToThrow();
-            throwItem.GetComponent<BallLauncher>().Launch();
-        }
 
     }
 
@@ -46,8 +40,18 @@ public class PlayerInteraction : MonoBehaviour
 
         if (playerInput.Lclick)
         {
+            if (GameManager.instance.IsUserStateThrowReady())
+            {
+                throwItem.transform.SetParent(null);
+                GameManager.instance.SetUserStateToThrow();
+                throwItem.GetComponent<throwSleepBall>().Launch();
+                GameManager.instance.SetUserStateToMove();
+                return;
+            }
+
+
             //강제로 킨 경우
-            if(GameManager.instance.IsGameStatePlay() && dialogueManager.isAction)
+            if (GameManager.instance.IsGameStatePlay() && dialogueManager.isAction)
             {
                 UIManager.instance.OnOffDialogueWindow(false);
 
@@ -134,10 +138,9 @@ public class PlayerInteraction : MonoBehaviour
             if (canThrow)
             {
                 canThrow = false;
-                throwItem.GetComponent<BallLauncher>().ball.position = attackItemPos.position;
-                throwItem.transform.SetParent(attackItemPos);
+                throwItem.transform.position = throwItemPos.position;
+                throwItem.transform.SetParent(throwItemPos);
                 GameManager.instance.SetUserStateToThrowReady();
-                //playerState.CheckLiftedItem(throwItem);
             }
         }
 
