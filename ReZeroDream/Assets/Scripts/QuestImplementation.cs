@@ -16,8 +16,9 @@ public class QuestImplementation : MonoBehaviour
     private DialogueManager dialogueManager;
     private QuestManager questManager;
     private PlayerState playerState;
-    private FollowCamera followCam;
-    private RotateCamera rotateCam;
+    //private FollowCamera followCam;
+    //private RotateCamera rotateCam;
+    private CameraMovement cameraMovement;
 
     private GameObject Zero;
 
@@ -48,8 +49,9 @@ public class QuestImplementation : MonoBehaviour
         dialogueManager = FindObjectOfType<DialogueManager>();
         questManager = FindObjectOfType<QuestManager>();
         playerState = FindObjectOfType<PlayerState>();
-        followCam = FindObjectOfType<FollowCamera>();
-        rotateCam = FindObjectOfType<RotateCamera>();
+        //followCam = FindObjectOfType<FollowCamera>();
+        //rotateCam = FindObjectOfType<RotateCamera>();
+        cameraMovement = FindObjectOfType<CameraMovement>();
 
         Zero = FindObjectOfType<PlayerInput>().gameObject;
     }
@@ -88,8 +90,9 @@ public class QuestImplementation : MonoBehaviour
             {
                 if (questManager.questId == 20 && questManager.questAcitonIndex ==3  && dialogueManager.talkIndex == 3)
                 {
-                    GameManager.instance.SetGameStateToStory();
+                    getBackCatColor = true;
                     focusCat();
+                    GameManager.instance.SetGameStateToStory();
                 }
             }
             if (getBackCatColor && !nameCatName)
@@ -147,26 +150,30 @@ public class QuestImplementation : MonoBehaviour
         float distance = Vector3.Distance(Zero.transform.position, hui.position);
         if (distance <= 7.0f && !GameManager.instance.IsGameStateDialogue())
         {
-            GameManager.instance.SetGameStateToStory();
-            focusHui(hui);
             dialogueManager.zeroTalk = true;
             dialogueManager.Action(Zero);
+
+            GameManager.instance.SetCamStateToFocus();
+            GameManager.instance.SetGameStateToStory();
+            focusHui(hui);
         }
     }
     void focusHui(Transform hui)
     {
         findHui = true;
-        followCam.SetTargets(hui, hui);
-        followCam.moveSmoothSpeed = 0.05f;
-        followCam.SetOffset(new Vector3(0, 3, 6));
+
+        cameraMovement.SetCameraSetting(hui, 0.1f, transform.forward * 4);
+
         StartCoroutine(EndfocusingHui());
     }
 
     IEnumerator EndfocusingHui()
     {
-        yield return new WaitForSeconds(1.3f);
-        followCam.ResetCameraSetting();
+        yield return new WaitForSeconds(3.0f);
+        //followCam.ResetCameraSetting();
         GameManager.instance.SetGameStateToPlay();
+        GameManager.instance.SetCamStateToFollow();
+        cameraMovement.SetCameraSetting(playerState.transform, 3f, new Vector3(0, 5, -7));
     }
 
     //====================================
@@ -192,43 +199,66 @@ public class QuestImplementation : MonoBehaviour
     }
 
     //====================================
-
-    float catVal = 0.0f;
     void focusCat()
     {
-        //FFE500
-        GameManager.instance.SetGameStateToStory();
         Transform cat = GameObject.Find("NPC_Cat").transform;
-
-        if (catVal <= 0.0f)
+        
+        if(cameraMovement.target != cat)
         {
-            Camera.main.transform.position = cat.position + new Vector3(2, 2, 2);
-            Camera.main.transform.LookAt(cat);
+            cameraMovement.SetCameraSetting(cat, 0.5f, cat.right * -7 + cat.up * 3);
         }
-        catVal += Time.deltaTime * 1.5f;
-        cat.GetChild(1).GetComponent<SkinnedMeshRenderer>().material.SetFloat("_blend", catVal);
 
-        followCam.SetTargets(cat, cat);
-        followCam.moveSmoothSpeed = 0.3f;
-
-        followCam.SetOffset(new Vector3(2, 3, -6));
-
-        StartCoroutine(focusingCat(cat));
+        StartCoroutine(EndfocusingCat());
     }
 
-    IEnumerator focusingCat(Transform cat)
+    IEnumerator EndfocusingCat()
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(3.0f);
 
-        if (!getBackCatColor)
-        {
-            print("back");
-            followCam.ResetCameraSetting();
-            getBackCatColor = true;
-            dialogueManager.Action(cat.gameObject);
-        }
-
+        GameManager.instance.SetGameStateToDialogue();
+        GameManager.instance.SetCamStateToFollow();
+        cameraMovement.SetCameraSetting(playerState.transform, 3f, new Vector3(0, 5, -7));
     }
+
+
+
+
+    //float catVal = 0.0f;
+    //void focusCat()
+    //{
+    //    //FFE500
+    //    GameManager.instance.SetGameStateToStory();
+    //    Transform cat = GameObject.Find("NPC_Cat").transform;
+
+    //    if (catVal <= 0.0f)
+    //    {
+    //        Camera.main.transform.position = cat.position + new Vector3(2, 2, 2);
+    //        Camera.main.transform.LookAt(cat);
+    //    }
+    //    catVal += Time.deltaTime * 1.5f;
+    //    cat.GetChild(1).GetComponent<SkinnedMeshRenderer>().material.SetFloat("_blend", catVal);
+
+    //    //followCam.SetTargets(cat, cat);
+    //    //followCam.moveSmoothSpeed = 0.3f;
+
+    //    //followCam.SetOffset(new Vector3(2, 3, -6));
+
+    //    StartCoroutine(focusingCat(cat));
+    //}
+
+    //IEnumerator focusingCat(Transform cat)
+    //{
+    //    yield return new WaitForSeconds(3.5f);
+
+    //    if (!getBackCatColor)
+    //    {
+    //        print("back");
+    //        //followCam.ResetCameraSetting();
+    //        getBackCatColor = true;
+    //        dialogueManager.Action(cat.gameObject);
+    //    }
+
+    //}
 
     //====================================
     void SetCatName()

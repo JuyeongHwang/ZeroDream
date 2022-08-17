@@ -7,7 +7,7 @@ public class StoryManager : MonoBehaviour
     private GameObject Zero;
 
     private DialogueManager dialogueManager;
-
+    private CameraMovement camMovement;
     public Material HuiSkyBox;
     public Material EnzoSkyBox;
 
@@ -23,6 +23,7 @@ public class StoryManager : MonoBehaviour
     {
         Zero = FindObjectOfType<PlayerInput>().gameObject;
         dialogueManager = FindObjectOfType<DialogueManager>();
+        camMovement = FindObjectOfType<CameraMovement>();
     }
 
     bool startHuiOpening = false;
@@ -36,6 +37,8 @@ public class StoryManager : MonoBehaviour
         {
             if (!startHuiOpening)
             {
+                Camera.main.transform.position = Zero.transform.forward * -30 + Zero.transform.up * 40 + Zero.transform.right * -7;
+                camMovement.SetCameraSetting(Zero.transform, 0.15f, Zero.transform.forward * -5 + Zero.transform.up * 3 + Zero.transform.right * 2);
                 GameManager.instance.SetGameStateToStory();
                 Opening.FadeIn(0.3f);
                 OpeningText.UpdateTextMeshProUGUI(openingMent[0]);
@@ -68,6 +71,7 @@ public class StoryManager : MonoBehaviour
         }
         if (Opening.GetAlphaValue() <= 0.0f && !EndHuiOpening)
         {
+            camMovement.SetCameraSetting(Zero.transform, 3f, new Vector3(0, 5, -7));
             EndHuiOpening = true;
             dialogueManager.zeroTalk = true;
             dialogueManager.Action(Zero);

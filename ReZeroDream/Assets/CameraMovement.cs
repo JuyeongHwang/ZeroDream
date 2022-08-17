@@ -31,13 +31,16 @@ public class CameraMovement : MonoBehaviour
         }
         else if (GameManager.instance.IsCamStateFocus())
         {
-
+            Move();
+            transform.LookAt(target);
         }
         SetOrthoPerspec();
     }
-    private void LateUpdate()
+    public void SetCameraSetting(Transform _target,float moveSpeed, Vector3 offset)
     {
-
+        target = _target;
+        moveSmoothSpeed = moveSpeed;
+        cameraOffset = offset;
     }
 
     void Move()
