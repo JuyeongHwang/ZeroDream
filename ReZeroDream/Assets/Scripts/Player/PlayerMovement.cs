@@ -45,12 +45,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!GameManager.instance.IsGameStatePlay() || GameManager.instance.IsUserStateInteraction())
+        if (GameManager.instance)
         {
-            playerAudio.Stop();
-            playerAnimator.SetFloat("Move", 0f);
-            return;
+            if (!GameManager.instance.IsGameStatePlay() || GameManager.instance.IsUserStateInteraction())
+            {
+                playerAudio.Stop();
+                playerAnimator.SetFloat("Move", 0f);
+                return;
+            }
         }
+
 
         Move();
         Rotate();
@@ -62,11 +66,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!GameManager.instance.IsGameStatePlay() || GameManager.instance.IsUserStateInteraction())
+        if (GameManager.instance)
         {
-            playerAnimator.SetFloat("Move", 0f);
-            return;
+            if (!GameManager.instance.IsGameStatePlay() || GameManager.instance.IsUserStateInteraction())
+            {
+                playerAnimator.SetFloat("Move", 0f);
+                return;
+            }
         }
+
 
         Jump();
         playerAnimator.SetBool("isJump", moveState == MoveState.JUMPSTART);

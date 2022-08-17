@@ -19,13 +19,17 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.isGameover && GameManager.instance != null)
+        if (GameManager.instance)
         {
-            move = 0;
-            rotate = 0;
-            
-            return;
+            if (GameManager.instance.isGameover && GameManager.instance != null)
+            {
+                move = 0;
+                rotate = 0;
+
+                return;
+            }
         }
+
 
         throwing = Input.GetKeyDown(KeyCode.T);
         move = Input.GetAxis("Vertical");
