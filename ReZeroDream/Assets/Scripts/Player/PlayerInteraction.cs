@@ -16,7 +16,7 @@ public class PlayerInteraction : MonoBehaviour
     public Transform attackItemPos;
     public GameObject cube;
     public GameObject liftedItem { get; private set; }
-
+    public GameObject throwItem { get; private set; }
     void Start()
     {
         playerState = GetComponent<PlayerState>();
@@ -26,16 +26,17 @@ public class PlayerInteraction : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
     }
 
-    bool test = false;
-    string m_ClipName;
-    AnimatorClipInfo[] m_CurrentClipInfo;
-    float m_CurrentClipLength;
+
     private void Update()
     {
         
         Click();
         Lift();
-
+        if (Input.GetKeyDown(KeyCode.T) && canThrow)
+        {
+            GameManager.instance.SetUserStateToThrow();
+            throwItem.GetComponent<BallLauncher>().Launch();
+        }
 
     }
 
@@ -97,12 +98,18 @@ public class PlayerInteraction : MonoBehaviour
 
 
     bool canLift = false;
+    bool canThrow = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Item")
         {
             canLift = true;
             liftedItem = other.gameObject;
+        }
+        if(other.tag == "attackItem")
+        {
+            canThrow = true;
+            throwItem = other.gameObject;
         }
 
     }
@@ -118,8 +125,20 @@ public class PlayerInteraction : MonoBehaviour
 
         if (playerInput.lift)
         {
-            canLift = false;
-            playerState.CheckLiftedItem(liftedItem);
+            if (canLift)
+            {
+                canLift = false;
+                playerState.CheckLiftedItem(liftedItem);
+
+            }
+            if (canThrow)
+            {
+                canThrow = false;
+                throwItem.GetComponent<BallLauncher>().ball.position = attackItemPos.position;
+                throwItem.transform.SetParent(attackItemPos);
+                GameManager.instance.SetUserStateToThrowReady();
+                //playerState.CheckLiftedItem(throwItem);
+            }
         }
 
         //playerAnimator.SetBool("isLift", liftState == LiftState.StartLift ? true : false);
