@@ -29,7 +29,7 @@ public class FollowCamera : MonoBehaviour
         if (lookTarget != player) return;
         transform.LookAt(lookTarget);
         Move();
-        Rotate();
+        //Rotate();
     }
 
     private void Update()

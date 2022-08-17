@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameState gameState = GameState.PLAY;
     enum UserState { MOVE, INTERACTION, HEAR, FLOATING, DEFENCE, THROWREADY, THROW};
     [SerializeField] UserState userState = UserState.MOVE;
+    enum CameraState { FOLLOW, FOCUS };
+    [SerializeField] CameraState cameraState = CameraState.FOLLOW;
 
     private void Awake()
     {
@@ -177,6 +179,24 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void SetCamStateToFollow()
+    {
+        cameraState = SetState(CameraState.FOLLOW);
+    }
+    public bool IsCamStateFollow()
+    {
+        return IsCamState(CameraState.FOLLOW);
+    }
+    public void SetCamStateToFocus()
+    {
+        cameraState = SetState(CameraState.FOCUS);
+    }
+    public bool IsCamStateFocus()
+    {
+        return IsCamState(CameraState.FOCUS);
+    }
+
+
     T SetState<T>(T state){
         return state;
     }
@@ -194,5 +214,9 @@ public class GameManager : MonoBehaviour
     bool IsStoryState(StoryState gs)
     {
         return (storyState == gs);
+    }
+    bool IsCamState(CameraState gs)
+    {
+        return (cameraState == gs);
     }
 }
