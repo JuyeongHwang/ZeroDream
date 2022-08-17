@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1000
   isNpc: 1
-  name: ???
+  _name: 
 --- !u!4 &34887514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8672003455025937042, guid: aa0ba387f794005419a74fdfff3da4df,
@@ -279,28 +279,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4efc7e04effb9242936fb09f36d70cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textEffect: {fileID: 0}
-  isQuest: 0
-  playerClickImage: {fileID: 561182443}
-  dialogueImage: {fileID: 2086376389}
-  dialogueObjectNameText: {fileID: 1480635165}
-  dialogueTalkText: {fileID: 1456699657}
-  dialoguePortraitImg: {fileID: 1125946234}
-  catNameInput: {fileID: 221707801}
-  catNameImage: {fileID: 221707799}
-  catName: 
-  catText: {fileID: 1909796504}
-  questStateArr:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  questImage: {fileID: 1059422249}
-  questNameText: {fileID: 506194128}
-  questWindowImage: {fileID: 45965276}
-  questWindowNameText: {fileID: 1338492895}
-  questWindowDescriptText: {fileID: 433784637}
-  questWindowContentText: {fileID: 1519837879}
-  questWindowRewardText: {fileID: 136180617}
+  SettingButtonsCavas: {fileID: 0}
+  Canvas: {fileID: 0}
+  playerClickImage: {fileID: 0}
+  playerLiftImage: {fileID: 0}
+  dialogueWindow: {fileID: 0}
+  dialoguePortraitImg: {fileID: 0}
+  dialogueObjectNameText: {fileID: 0}
+  dialogueTalkText: {fileID: 0}
+  animator: {fileID: 0}
+  catNameWindow: {fileID: 0}
+  InputCatName: {fileID: 0}
+  questMinWindow: {fileID: 0}
+  questMinText: {fileID: 0}
+  questMaxWindow: {fileID: 0}
+  questMaxText: {fileID: 0}
+  questMaxDescriptText: {fileID: 0}
+  questMaxContentText: {fileID: 0}
+  questWindowRewardText: {fileID: 0}
+  questMinButton: {fileID: 0}
+  questMaxButton: {fileID: 0}
+  questAnimator: {fileID: 0}
+  NotePadWindow: {fileID: 0}
+  HuiNote: {fileID: 0}
+  HuiCatText: {fileID: 0}
+  EnjoyNote: {fileID: 0}
 --- !u!1 &80389956
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,6 +334,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86b13cb4083793144a390b5290f66b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAction: 0
+  zeroTalk: 0
+  Zero: {fileID: 0}
   talkIndex: 0
 --- !u!4 &80389958
 Transform:
@@ -1228,6 +1234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47f7e0b82a311549b566f515035788e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookTarget: {fileID: 0}
+  target: {fileID: 0}
+  player: {fileID: 0}
   cameraOffset: {x: 0, y: 3, z: -7}
   moveSmoothSpeed: 5
   turnSmoothSpeed: 5
@@ -4524,6 +4533,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d71190e23a298468de067cced0259a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  belongEmotions: 000000
+  spawnMemories:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  storyState: 0
+  gameState: 1
+  userState: 0
 --- !u!1001 &1649104932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4966,7 +4983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2000
   isNpc: 1
-  name: "\uC774\uB984 \uBAA8\uB97C \uACE0\uC591\uC774"
+  _name: 
 --- !u!65 &1719363968
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6760,7 +6777,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b565e99664e65bc409f04e2a532b2195, type: 2}
+      objectReference: {fileID: 2100000, guid: d8afbea8214ae644fafeb67e0d77ffc2, type: 2}
     - target: {fileID: 4173399174423090169, guid: 5c224c00d908f514889c62a3d26c0b79,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
