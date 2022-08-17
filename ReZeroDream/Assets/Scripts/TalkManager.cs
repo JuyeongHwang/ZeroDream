@@ -23,8 +23,9 @@ public class TalkManager : MonoBehaviour
         talkData.Add(-1000, new string[] { "대화할 수 없나봐. 관련이 없는 것 같아.:1" });
 
         talkData.Add(1000, new string[] { "룰루랄라...:2" });
+        talkData.Add(2000, new string[] { "냐옹:0" });
         talkData.Add(4000, new string[] { "햄버거가 다 팔렸어.:3" });
-        //talkData.Add(2000, new string[] { "냐옹:0" });
+        
         //talkData.Add(5000, new string[] { "어서 학교로 가야 해.:0" }); //누나
         //talkData.Add(6000, new string[] { "어서 학교로 가야 해.:0" }); //아빠
         //talkData.Add(7000, new string[] { "어서 학교로 가야 해.:0" }); //엄마
@@ -34,7 +35,7 @@ public class TalkManager : MonoBehaviour
         talkData.Add(12000, new string[] { "경찰차다. 그러나 사람은 없는 것 같다.:1" });
         talkData.Add(13000, new string[] { "평범한 자동차이다.:1" });
         talkData.Add(14000, new string[] { "무늬가 멋진 차네.:1", "어떤 기억이 떠오르는 것 같기도 해... 조금 뒤에 다시 조사해보자.:1" }); //퀘스트 대화 때문에 이름을 제로로 설정해서...
-        talkData.Add(15000, new string[] { "햄버거 집을 보니 배가 고프네...:1" }); //햄버거 집... 근데 제로 대사로 해야겠지?
+        talkData.Add(15000, new string[] { "햄버거 집을 보니 배가 고프네...:1" }); //햄버거집 처음 발견할 때 에 zeroTalk = true;
 
 
         //Quest Talks
