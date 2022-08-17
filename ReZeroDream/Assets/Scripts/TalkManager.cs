@@ -73,6 +73,7 @@ public class TalkManager : MonoBehaviour
         portraitData.Add(5000 + 0, portraitArr[0]); //아빠 > none
         portraitData.Add(6000 + 0, portraitArr[0]); //엄마 > none
         portraitData.Add(2000 + 1, portraitArr[1]); //고양이 > zero
+
         portraitData.Add(10000 + 1, portraitArr[1]); //이름모를꽃 > zero
         portraitData.Add(11000 + 1, portraitArr[1]); //향기로운꽃 > zero
         portraitData.Add(12000 + 1, portraitArr[1]); //경찰차 > zero

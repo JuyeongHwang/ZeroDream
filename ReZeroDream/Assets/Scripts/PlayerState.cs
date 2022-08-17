@@ -9,13 +9,13 @@ public class PlayerState : MonoBehaviour
 
     private PlayerInteraction playerInteraction;
     private DialogueManager dialogue;
-
-
+    private QuestManager questManager;
 
     private void Start()
     {
 
         dialogue = FindObjectOfType<DialogueManager>();
+        questManager = FindObjectOfType<QuestManager>();
         playerInteraction = GetComponent<PlayerInteraction>();
     }
 
@@ -74,6 +74,7 @@ public class PlayerState : MonoBehaviour
         if(g == GameManager.instance.spawnMemories[0])
         {
             GameManager.instance.belongEmotions[0] = true;
+            questManager.catQuestImg.SetActive(true);
         }
 
         if (g == GameManager.instance.spawnMemories[1])
