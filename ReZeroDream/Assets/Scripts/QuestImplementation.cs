@@ -78,7 +78,8 @@ public class QuestImplementation : MonoBehaviour
             getHuiMemory = GameManager.instance.belongEmotions[0];
             if (getHuiMemory && GameManager.instance.spawnMemories[0].activeSelf)
             {
-                print("이 종이는 어디에 사용하는거지? 그림이 그려져있어..");
+                dialogueManager.zeroTalk = true;
+                dialogueManager.Action(Zero);
                 GameManager.instance.spawnMemories[0].SetActive(false);
                 UIManager.instance.OnOffHuiNote(true);
             }

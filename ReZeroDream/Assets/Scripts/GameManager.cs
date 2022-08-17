@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
         print("game start");
         if (IsStoryStateEnjoy())
         {
-            FindObjectOfType<QuestManager>().questId = 50;
+            FindObjectOfType<QuestManager>().questId = 40;
             FindObjectOfType<QuestManager>().questAcitonIndex = 0;
 
         }

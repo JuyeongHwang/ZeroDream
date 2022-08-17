@@ -27,6 +27,7 @@ public class QuestManager : MonoBehaviour
     public GameObject huiMemoryQuestImg;
     public GameObject catQuestImg;
     public GameObject flowerQuestImg;
+    public GameObject[] carQuestImg;
 
     private void Start()
     {
@@ -49,7 +50,7 @@ public class QuestManager : MonoBehaviour
             huiQuestSprite.sprite = questImgArr[1];
             huiMemoryQuestImg.SetActive(true);
         }
-        else if (questId == 20 && questAcitonIndex == 3)
+        else if (questId == 20 && questAcitonIndex == 4)
         {
             catQuestImg.SetActive(false);
             huiQuestSprite.sprite = questImgArr[0];
@@ -67,6 +68,16 @@ public class QuestManager : MonoBehaviour
             //ObjData objData = Happy.GetComponent<ObjData>();
             //objData.name = "희";
         }
+        else if (questId == 60 && questAcitonIndex == 0)
+        {
+            for (int i = 0; i < 5; i++)
+                carQuestImg[i].SetActive(true);
+        }
+        else if (questId == 60 && questAcitonIndex == 3)
+        {
+            for (int i = 0; i < 5; i++)
+                carQuestImg[i].SetActive(false);
+        }
     }
 
 
@@ -75,38 +86,38 @@ public class QuestManager : MonoBehaviour
         questList.Add(10, new QuestData("???와 대화하기", new int[] { 3000, 3000, 1000 },
             new string[] { "", "", "???에게 대화를 걸어 이곳에 대한 정보를 얻어보자." }, new string[] { "", "", "???와 대화하기" }, new string[] { " ", " ", " " }));
 
-        questList.Add(20, new QuestData("???에 대해 알아보기", new int[] { 1000, 3000, 2000, 1000 },
-            new string[] { "알 수 없는 말을 하는 소녀이다. 소녀에게 다시 한 번 더 대화를 걸어 단서를 얻자.", "주변을 둘러보고 오자.", "주변을 둘러보고 오자.", "알 수 없는 구슬을 획득했다. 다시 소녀에게 돌아가보자." },
-            new string[] { "???와 대화하기", "구슬 획득하기 \n고양이와 상호작용하기", "구슬 획득하기 \n고양이와 상호작용하기", "???와 대화하기" },
-            new string[] { " ", "구슬", "구슬", " " }));
+        questList.Add(20, new QuestData("???에 대해 알아보기", new int[] { 1000, 3000, 3000, 2000, 1000 },
+            new string[] { "알 수 없는 말을 하는 소녀이다. 소녀에게 다시 한 번 더 대화를 걸어 단서를 얻자.", "주변을 둘러보고 오자.", "주변을 둘러보고 오자.", "주변을 둘러보고 오자.", "알 수 없는 구슬을 획득했다. 다시 소녀에게 돌아가보자." },
+            new string[] { "???와 대화하기", "구슬 획득하기 \n고양이와 상호작용하기", "구슬 획득하기 \n고양이와 상호작용하기", "구슬 획득하기 \n고양이와 상호작용하기", "???와 대화하기" },
+            new string[] { " ", "구슬", "구슬", "구슬", " " }));
 
         questList.Add(30, new QuestData("???을 찾아보기", new int[] { 10000, 11000, 1000 },
             new string[] { "내가 좋아했던 것들에는 무엇이 있었을까? 주변을 둘러보며 찾아보자.", "내가 좋아했던 것들에는 무엇이 있었을까? 주변을 둘러보며 찾아보자.", "좋아하던 꽃에 대한 기억이 떠오른다. 소녀를 찾아가 그 사실을 말해보자." },
             new string[] { "주변 둘러보기", "주변 둘러보기", "희와 대화하기" }, //근데 여기서 이렇게 감정이라고 언급해도 되는 건가용..??
             new string[] { " ", " ", "활성화된 감정 구슬 \n다음 지역 잠금 해제" })); //마찬가지
 
-        questList.Add(40, new QuestData("새로운 지역 조사하기", new int[] { -10000 }, //일단 대화 뜨면 안되니까 
-            new string[] { "희와의 대화를 마치니 새로운 지역이 열렸다. 이곳을 돌아다니며 조사해보자." },
-            new string[] { "새로운 지역 조사하기" },
-            new string[] { " " }));
+        questList.Add(40, new QuestData("새로운 지역 조사하기", new int[] { 3000, -10000 }, //일단 대화 뜨면 안되니까 
+            new string[] { "희와의 대화를 마치니 새로운 지역이 열렸다. 이곳을 돌아다니며 조사해보자.", "희와의 대화를 마치니 새로운 지역이 열렸다. 이곳을 돌아다니며 조사해보자." },
+            new string[] { "새로운 지역 조사하기", "새로운 지역 조사하기" },
+            new string[] { " ", " " }));
 
-        print("대사 추가시 어떻게 수정해야하는지 !!! ");
-        questList.Add(50, new QuestData("새로운 지역 조사하기", new int[] { 3000 }, //대사 없는 경우는 -10000으로/ 제로 혼잣말은 3000으로
-           new string[] { "희가 말했던 위험한 존재와 조우했다. 위험한 존재가 지키고 있는 구슬을 가져와 보자." },
-           new string[] { "구슬 획득하기" },
-           new string[] { "구슬 \n락 메모장 활성화" }));
+        //questList.Add(50, new QuestData("새로운 지역 조사하기", new int[] { -10000 }, //대사 없는 경우는 -10000으로/ 제로 혼잣말은 3000으로
+        //   new string[] { "희와의 대화를 마치니 새로운 지역이 열렸다. 이곳을 돌아다니며 조사해보자." },
+        //   new string[] { "새로운 지역 조사하기" },
+        //   new string[] { " " }));
+        //수정해야하는 부분: 닿으면 제로토크 만 true되게 다른거 신경쓸 필요x, 몬스터 발견하면 퀘스트 아이디 50되도록, ㄱ구슬 발견하면 60 되도록
 
-        questList.Add(60, new QuestData("위험한 존재에 대해 알아보기", new int[] { -10000 }, 
+        questList.Add(50, new QuestData("위험한 존재에 대해 알아보기", new int[] { 3000 }, 
            new string[] { "희가 말했던 위험한 존재와 조우했다. 위험한 존재가 지키고 있는 구슬을 가져와 보자." },
            new string[] { "구슬 획득하기" },
            new string[] { "구슬 \n메모장의 새로운 페이지 활성화" }));
 
-        questList.Add(70, new QuestData("메모장 채워보기", new int[] { 12000, 13000, 14000, 3000, 16000 },
+        questList.Add(60, new QuestData("메모장 채워보기", new int[] { 12000, 13000, 14000, 3000, 16000 },
          new string[] { "메모장에 알 수 없는 글자들이 있다. 관련된 기억들을 찾아보자.", "메모장에 알 수 없는 글자들이 있다. 관련된 기억들을 찾아보자.", "메모장에 알 수 없는 글자들이 있다. 관련된 기억들을 찾아보자.", "메모장에 알 수 없는 글자들이 있다. 관련된 기억들을 찾아보자.", "메모장에 알 수 없는 글자들이 있다. 관련된 기억들을 찾아보자." },
          new string[] { "여행과 관련된 것들 조사하기 \n배고픔 채우기", "여행과 관련된 것들 조사하기 \n배고픔 채우기", "여행과 관련된 것들 조사하기 \n배고픔 채우기", "여행과 관련된 것들 조사하기 \n배고픔 채우기", "여행과 관련된 것들 조사하기 \n배고픔 채우기" },
          new string[] { "여행 사진, ■■에 대한 단서 \n다음 지역 잠금 해제", "여행 사진, ■■에 대한 단서 \n다음 지역 잠금 해제", "여행 사진, ■■에 대한 단서 \n다음 지역 잠금 해제", "여행 사진, ■■에 대한 단서 \n다음 지역 잠금 해제", "여행 사진, ■■에 대한 단서 \n다음 지역 잠금 해제" }));
 
-        questList.Add(80, new QuestData("퀘스트 끝", new int[] { 1000 },
+        questList.Add(70, new QuestData("퀘스트 끝", new int[] { -10000 },
            new string[] { "오류 때문에 넣음." }, new string[] { " " }, new string[] { " " }));
     }
 
@@ -127,6 +138,11 @@ public class QuestManager : MonoBehaviour
         else if (id == 11000 && questId == 30 && questAcitonIndex == 0)
         {
             questAcitonIndex = 2;
+        }
+        //자동차(여행) 대화 순서 무시
+        else if (id == 14000 && questId == 60 && questAcitonIndex == 0 || id == 14000 && questId == 60 && questAcitonIndex == 1)
+        {
+            questAcitonIndex = 3;
         }
 
         if (questAcitonIndex == questList[questId].npcId.Length)
