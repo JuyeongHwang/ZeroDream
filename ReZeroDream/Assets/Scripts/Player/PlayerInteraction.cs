@@ -120,6 +120,8 @@ public class PlayerInteraction : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         canLift = false;
+        canThrow = false;
+        throwItem = null;
         liftedItem = null;
     }
 
@@ -135,11 +137,10 @@ public class PlayerInteraction : MonoBehaviour
                 playerState.CheckLiftedItem(liftedItem);
 
             }
-            if (canThrow)
+            if (throwItem)
             {
-                canThrow = false;
-                throwItem.transform.position = throwItemPos.position;
-                throwItem.transform.SetParent(throwItemPos);
+                //throwItem.transform.position = throwItemPos.position;
+                throwItem.transform.SetParent(throwItemPos, true);
                 GameManager.instance.SetUserStateToThrowReady();
             }
         }
