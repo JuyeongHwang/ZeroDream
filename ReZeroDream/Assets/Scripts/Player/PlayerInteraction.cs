@@ -28,10 +28,15 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-        
+
         Click();
         Lift();
 
+        if (GameManager.instance.IsUserStateThrowReady())
+        {
+            throwItem.transform.position = throwItemPos.position;
+            //throwItem.transform.SetParent(throwItemPos, true);
+        }
     }
 
     void Click()
@@ -42,7 +47,6 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (GameManager.instance.IsUserStateThrowReady())
             {
-                throwItem.transform.SetParent(null);
                 GameManager.instance.SetUserStateToThrow();
                 throwItem.GetComponent<throwSleepBall>().Launch();
                 GameManager.instance.SetUserStateToMove();
@@ -139,8 +143,7 @@ public class PlayerInteraction : MonoBehaviour
             }
             if (throwItem)
             {
-                //throwItem.transform.position = throwItemPos.position;
-                throwItem.transform.SetParent(throwItemPos, true);
+
                 GameManager.instance.SetUserStateToThrowReady();
             }
         }

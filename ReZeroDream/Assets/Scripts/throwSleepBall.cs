@@ -12,7 +12,8 @@ public class throwSleepBall : MonoBehaviour
     public ParticleSystem explosion;
     public Rigidbody ball;
     public Transform target;
-
+    public enum kind { sleep, wakeup};
+    public kind myKind = kind.sleep;
     Vector3 originalPos;
     public float h = 10;
     public float gravity = -18f;
@@ -76,9 +77,18 @@ public class throwSleepBall : MonoBehaviour
 
         if(collision.gameObject.name == "NPC_Monster")
         {
-            collision.transform.GetComponent<Animator>().SetTrigger("Dizzy");
-            explosion.Play();
-            StartCoroutine(reset());
+            if(myKind == kind.sleep)
+            {
+                collision.transform.GetComponent<Animator>().SetTrigger("Dizzy");
+                explosion.Play();
+                StartCoroutine(reset());
+            }
+            else if (myKind == kind.wakeup)
+            {
+                //collision.transform.GetComponent<Animator>().SetTrigger("Dizzy");
+                explosion.Play();
+                StartCoroutine(reset());
+            }
         }
     }
 
