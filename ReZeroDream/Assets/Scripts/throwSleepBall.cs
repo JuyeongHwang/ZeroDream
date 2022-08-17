@@ -70,23 +70,25 @@ public class throwSleepBall : MonoBehaviour
         print(collision.gameObject.name);
         if(collision.gameObject == plane)
         {
-
+            ball.gameObject.GetComponent<SphereCollider>().isTrigger = true;
+            //explosion.transform.position = collision.transform.position;
             explosion.Play();
             StartCoroutine(reset());
         }
 
         if(collision.gameObject.name == "NPC_Monster")
         {
-            if(myKind == kind.sleep)
+            explosion.transform.position = collision.transform.position;
+            if (myKind == kind.sleep)
             {
-                collision.transform.GetComponent<Animator>().SetTrigger("Dizzy");
                 explosion.Play();
+                collision.transform.GetComponent<Animator>().SetTrigger("Dizzy");
                 StartCoroutine(reset());
             }
             else if (myKind == kind.wakeup)
             {
-                //collision.transform.GetComponent<Animator>().SetTrigger("Dizzy");
                 explosion.Play();
+                //collision.transform.GetComponent<Animator>().SetTrigger("Dizzy");
                 StartCoroutine(reset());
             }
         }

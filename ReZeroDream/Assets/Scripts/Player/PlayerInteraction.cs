@@ -32,7 +32,7 @@ public class PlayerInteraction : MonoBehaviour
         Click();
         Lift();
 
-        if (GameManager.instance.IsUserStateThrowReady())
+        if (GameManager.instance.IsUserStateThrowReady() && throwItem)
         {
             throwItem.transform.position = throwItemPos.position;
             //throwItem.transform.SetParent(throwItemPos, true);
@@ -121,12 +121,32 @@ public class PlayerInteraction : MonoBehaviour
         }
 
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Item")
+        {
+            canLift = true;
+            liftedItem = other.gameObject;
+        }
+        if (other.tag == "attackItem")
+        {
+            canThrow = true;
+            throwItem = other.gameObject;
+        }
+
+    }
     private void OnTriggerExit(Collider other)
     {
         canLift = false;
-        canThrow = false;
-        throwItem = null;
         liftedItem = null;
+        if (!GameManager.instance.IsUserStateThrowReady())
+        {
+
+            canThrow = false;
+            throwItem = null;
+
+        }
+
     }
 
     void Lift()
