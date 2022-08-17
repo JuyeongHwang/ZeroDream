@@ -26,7 +26,8 @@ public class FollowCamera : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.LookAt(target);
+        if (lookTarget != player) return;
+        transform.LookAt(lookTarget);
         Move();
         Rotate();
     }
@@ -47,7 +48,9 @@ public class FollowCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.LookAt(lookTarget);
+
+        if (lookTarget != player) return;
+
 
         if (Camera.main.orthographic)
         {
@@ -100,7 +103,7 @@ public class FollowCamera : MonoBehaviour
     {
         SetTargets(player, player);
         SetOffset(new Vector3(0, 3, -6));
-        moveSmoothSpeed = 0.8f;
+        moveSmoothSpeed = 5f;
     }
 
     IEnumerator Recovery()

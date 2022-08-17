@@ -86,7 +86,7 @@ public class QuestImplementation : MonoBehaviour
 
             if (!getBackCatColor)
             {
-                if (questManager.questId == 20 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 3)
+                if (questManager.questId == 20 && questManager.questAcitonIndex ==3  && dialogueManager.talkIndex == 3)
                 {
                     GameManager.instance.SetGameStateToStory();
                     focusCat();
@@ -94,7 +94,7 @@ public class QuestImplementation : MonoBehaviour
             }
             if (getBackCatColor && !nameCatName)
             {
-                if (questManager.questId == 20 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 4)
+                if (questManager.questId == 20 && questManager.questAcitonIndex == 3 && dialogueManager.talkIndex == 4)
                 {
                     GameManager.instance.SetGameStateToStory();
                     SetCatName();
@@ -202,14 +202,14 @@ public class QuestImplementation : MonoBehaviour
 
         if (catVal <= 0.0f)
         {
-            Camera.main.transform.position = cat.position + new Vector3(5, 6, 9);
+            Camera.main.transform.position = cat.position + new Vector3(2, 2, 2);
+            Camera.main.transform.LookAt(cat);
         }
         catVal += Time.deltaTime * 1.5f;
         cat.GetChild(1).GetComponent<SkinnedMeshRenderer>().material.SetFloat("_blend", catVal);
 
         followCam.SetTargets(cat, cat);
         followCam.moveSmoothSpeed = 0.3f;
-
 
         followCam.SetOffset(new Vector3(2, 3, -6));
 
@@ -222,6 +222,7 @@ public class QuestImplementation : MonoBehaviour
 
         if (!getBackCatColor)
         {
+            print("back");
             followCam.ResetCameraSetting();
             getBackCatColor = true;
             dialogueManager.Action(cat.gameObject);
