@@ -25,6 +25,7 @@ public class QuestImplementation : MonoBehaviour
     public Transform Cat;
 
     public Material[] flowerMats;
+    public Material[] HuiMats;
     public ControlLand[] ControlLands;
     public Transform EnzoPos;
     public GameObject BurgerBarrier;
@@ -39,7 +40,7 @@ public class QuestImplementation : MonoBehaviour
     bool findFlower = false;
     bool bfocusFlower = false;
     bool getBackFlowerColor = false;
-
+    bool getBackAllColor = false;
     // ¿£Á¶
     bool catchMonster = false;
     bool spawnEnzoMemory = false;
@@ -56,7 +57,14 @@ public class QuestImplementation : MonoBehaviour
         //followCam = FindObjectOfType<FollowCamera>();
         //rotateCam = FindObjectOfType<RotateCamera>();
         cameraMovement = FindObjectOfType<CameraMovement>();
-
+        for (int i = 0; i < HuiMats.Length; i++)
+        {
+            HuiMats[i].SetFloat("_blend", 0);
+        }
+        for (int i = 0; i < flowerMats.Length; i++)
+        {
+            flowerMats[i].SetFloat("_blend", 0);
+        }
         Zero = FindObjectOfType<PlayerInput>().gameObject;
     }
 
@@ -105,11 +113,21 @@ public class QuestImplementation : MonoBehaviour
                 if (findFlower)
                 {
                     if (!getBackFlowerColor) FlowerColorChange();
-                    if (!bfocusFlower) FocusFlower();
-
+                    //if (!bfocusFlower) FocusFlower();
+                    print("focus flower");
                 }
             }
 
+            if (questManager.questId == 30 && questManager.questAcitonIndex ==2 && dialogueManager.talkIndex ==1)
+            {
+                print("change color");
+                //if ((Zero.GetComponent<PlayerInput>().scanObject == Hui))
+                //    if (!getBackAllColor) AllColorChange();
+            }
+            if (questManager.questId == 40)
+            {
+                EndHuiStory();
+            }
 
         }
 
@@ -233,11 +251,11 @@ public class QuestImplementation : MonoBehaviour
 
     void FlowerColorChange()
     {
-        if (flowerVal > 1.0f)
+        if (flowerVal >= 0.8f)
         {
             getBackFlowerColor = true;
         }
-        flowerVal += Time.deltaTime * 0.2f;
+        flowerVal += Time.deltaTime * 0.5f;
         for (int i = 0; i < flowerMats.Length; i++)
         {
             flowerMats[i].SetFloat("_blend", flowerVal);
@@ -248,7 +266,7 @@ public class QuestImplementation : MonoBehaviour
     {
         bfocusFlower = true;
 
-        cameraMovement.SetCameraSetting(Zero.transform, 0.3f, new Vector3(3, 10, -3));
+        cameraMovement.SetCameraSetting(Zero.transform, 0.3f, new Vector3(13, 20, -13));
         GameManager.instance.SetCamStateToFocus();
 
         UIManager.instance.HideAllCanvas(0.1f);
@@ -264,15 +282,25 @@ public class QuestImplementation : MonoBehaviour
         cameraMovement.SetCameraSetting(Zero.transform, 3.0f, new Vector3(0, 5, -7));
         GameManager.instance.SetCamStateToFollow();
         GameManager.instance.SetGameStateToPlay();
-        dialogueManager.Action(Cat.gameObject);
     }
 
     #endregion
-    //====================================
-    //====================================
 
-    //====================================
 
+    float val = 0.0f;
+
+    void AllColorChange()
+    {
+        if (val > 1.0f)
+        {
+            getBackAllColor = true;
+        }
+        val += Time.deltaTime * 0.2f;
+        for (int i = 0; i < HuiMats.Length; i++)
+        {
+            HuiMats[i].SetFloat("_blend", val);
+        }
+    }
 
     void EndHuiStory()
     {
