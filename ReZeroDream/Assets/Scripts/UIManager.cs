@@ -74,9 +74,9 @@ public class UIManager : MonoBehaviour
 
     private QuestManager questManager;
 
-    public void HideAllCanvas()
+    public void HideAllCanvas(float speed)
     {
-        Canvas.FadeOut(1);
+        Canvas.FadeOut(speed);
 
         //SettingButtonsCavas.Hide();
         //SettingButtonsCavas.FadeOut(1);

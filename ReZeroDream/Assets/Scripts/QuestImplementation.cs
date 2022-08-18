@@ -24,7 +24,7 @@ public class QuestImplementation : MonoBehaviour
     public Transform Hui;
     public Transform Cat;
 
-    
+    public Material[] flowerMats;
     public ControlLand[] ControlLands;
     public Transform EnzoPos;
     public GameObject BurgerBarrier;
@@ -37,6 +37,7 @@ public class QuestImplementation : MonoBehaviour
     bool bfocusCat = false;
     bool nameCatName = false;
     bool findFlower = false;
+    bool bfocusFlower = false;
     bool getBackFlowerColor = false;
 
     // ¿£Á¶
@@ -92,9 +93,21 @@ public class QuestImplementation : MonoBehaviour
                 else if(dialogueManager.talkIndex == 4)
                 {
                     if (!nameCatName) SetCatName();
+                }
+            }
+
+            if (questManager.questId == 30 && questManager.questAcitonIndex == 0)
+            {
+                if (dialogueManager.isAction)
+                {
+                    findFlower = (Zero.GetComponent<PlayerInput>().scanObject.GetComponent<ObjData>().id == 11000);
+                }
+                if (findFlower)
+                {
+                    if (!getBackFlowerColor) FlowerColorChange();
+                    if (!bfocusFlower) FocusFlower();
 
                 }
-
             }
 
 
@@ -189,7 +202,7 @@ public class QuestImplementation : MonoBehaviour
         cameraMovement.SetCameraSetting(Cat, 0.3f, new Vector3(5, 5, 0));
         GameManager.instance.SetCamStateToFocus();
 
-        UIManager.instance.HideAllCanvas();
+        UIManager.instance.HideAllCanvas(1);
 
         StartCoroutine(endFocusingCat());
     }
@@ -215,19 +228,51 @@ public class QuestImplementation : MonoBehaviour
 
     #endregion
 
+    #region FLOWER
+    float flowerVal = 0.0f;
 
-    //====================================
-    //====================================
-
-    //====================================
-    void focusFlower()
+    void FlowerColorChange()
     {
+        if (flowerVal > 1.0f)
+        {
+            getBackFlowerColor = true;
+        }
+        flowerVal += Time.deltaTime * 0.2f;
+        for (int i = 0; i < flowerMats.Length; i++)
+        {
+            flowerMats[i].SetFloat("_blend", flowerVal);
+        }
+    }
+
+    void FocusFlower()
+    {
+        bfocusFlower = true;
+
+        cameraMovement.SetCameraSetting(Zero.transform, 0.3f, new Vector3(3, 10, -3));
+        GameManager.instance.SetCamStateToFocus();
+
+        UIManager.instance.HideAllCanvas(0.1f);
+
+        StartCoroutine(EndFocusingFlower());
     }
 
     IEnumerator EndFocusingFlower()
     {
         yield return new WaitForSeconds(2.5f);
+
+        UIManager.instance.ShowAllCanvas();
+        cameraMovement.SetCameraSetting(Zero.transform, 3.0f, new Vector3(0, 5, -7));
+        GameManager.instance.SetCamStateToFollow();
+        GameManager.instance.SetGameStateToPlay();
+        dialogueManager.Action(Cat.gameObject);
     }
+
+    #endregion
+    //====================================
+    //====================================
+
+    //====================================
+
 
     void EndHuiStory()
     {
