@@ -82,6 +82,7 @@ public class QuestImplementation : MonoBehaviour
             {
                 DiscoverHuiEmotion();
             }
+
             getHuiMemory = GameManager.instance.belongEmotions[0];
             if (getHuiMemory && GameManager.instance.spawnMemories[0].activeSelf)
             {
@@ -130,7 +131,17 @@ public class QuestImplementation : MonoBehaviour
             }
 
         }
-
+        else if (GameManager.instance.IsStoryStateEnjoy())
+        {
+            getEnzoMemory = GameManager.instance.belongEmotions[1];
+            if (getEnzoMemory && GameManager.instance.spawnMemories[1].activeSelf)
+            {
+                //dialogueManager.zeroTalk = true;
+                //dialogueManager.Action(Zero);
+                GameManager.instance.spawnMemories[1].SetActive(false);
+                UIManager.instance.OnOffEnzoNote(true);
+            }
+        }
     }
 
 
@@ -286,7 +297,7 @@ public class QuestImplementation : MonoBehaviour
 
     #endregion
 
-
+    #region Hui End
     float val = 0.0f;
 
     void AllColorChange()
@@ -324,12 +335,15 @@ public class QuestImplementation : MonoBehaviour
 
     }
 
-    void SpawnAFollowEnzoMemory()
-    {
-        GameManager.instance.spawnMemories[1].SetActive(true);
-        GameManager.instance.spawnMemories[1].transform.position = EnzoPos.position;
-    }
+    #endregion
 
+    void SpawnEnzoEmotion()
+    {
+        if (spawnEnzoMemory) return;
+        GameManager.instance.spawnMemories[1].SetActive(true);
+        spawnHuiMemory = true;
+
+    }
 }
 
 

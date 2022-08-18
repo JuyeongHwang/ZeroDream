@@ -19,8 +19,8 @@ public class MonsterMovement : MonoBehaviour
     public LayerMask viewMask;
     float viewAngle;
 
-    enum MonsterState { PATROL, CHASE, ATTACK, BACK, CATCHED };
-    [SerializeField] MonsterState monsterState = MonsterState.PATROL;
+    public enum MonsterState { PATROL, CHASE, ATTACK, BACK, CATCHED };
+    public MonsterState monsterState = MonsterState.PATROL;
     [SerializeField] private int targetWayPointIndex = 0;
 
     private Transform player;
@@ -45,41 +45,50 @@ public class MonsterMovement : MonoBehaviour
             waypoints[i].y = transform.position.y;
         }
 
-        follow = StartCoroutine(FollowPath(waypoints));
+        //follow = StartCoroutine(FollowPath(waypoints));
     }
 
+    bool myCoroutineIsRunning = false;
     private void Update()
     {
         //1. 몬스터가 잡힌 경우 다 무시
         if(monsterState == MonsterState.CATCHED)
         {
+            myCoroutineIsRunning = false;
+            StopCoroutine(follow);
             return;
-        }
-
-        //2. 몬스터가 플레이어를 볼 수 있을때,
-        if (CanSeePlayer())
-        {
-            //2-1. 처음 발견한거라면, 패트롤 정지
-            if(monsterState != MonsterState.CHASE)
-            {
-                StopCoroutine(follow);
-            }
-            //2-2. 쫓는다
-            ChasePlayer();
         }
         else
         {
-            if(monsterState != MonsterState.PATROL)
+            if (!myCoroutineIsRunning)
             {
-                
+                myCoroutineIsRunning = true ;
                 monsterState = MonsterState.PATROL;
                 follow = StartCoroutine(FollowPath(waypoints));
                 anim.SetFloat("WalkAttack", 1.0f);
                 viewDistance = 10;
                 spotlight.color = originalSpotlightColor;
             }
-
         }
+
+
+
+        //2. 몬스터가 플레이어를 볼 수 있을때,
+        //if (CanSeePlayer())
+        //{
+        //    //2-1. 처음 발견한거라면, 패트롤 정지
+        //    if(monsterState != MonsterState.CHASE)
+        //    {
+        //        StopCoroutine(follow);
+        //    }
+        //    //2-2. 쫓는다
+        //    ChasePlayer();
+        //}
+        //else
+        //{
+
+
+        //}
     }
 
 
@@ -185,15 +194,6 @@ public class MonsterMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "trap")
-        {
-            monsterState = MonsterState.CATCHED;
-            anim.SetTrigger("Dizzy");
-            spotlight.enabled = false;
-        }
-    }
 
 
     private void OnDrawGizmos()

@@ -20,6 +20,8 @@ public class throwSleepBall : MonoBehaviour
 
     void Start()
     {
+
+        target.gameObject.SetActive(false);
         explosion.Stop();
         originalPos = ball.transform.position;
         ball.useGravity = false;
@@ -38,6 +40,7 @@ public class throwSleepBall : MonoBehaviour
         }
         if (GameManager.instance.IsUserStateThrowReady())
         {
+            target.gameObject.SetActive(true);
             ScreenToWorld();
             target.position = worldPosition;
         }
@@ -78,15 +81,19 @@ public class throwSleepBall : MonoBehaviour
 
         if(collision.gameObject.name == "NPC_Monster")
         {
-            explosion.transform.position = collision.transform.position;
+            //explosion.transform.position = collision.transform.position;
             if (myKind == kind.sleep)
             {
+                Instantiate(explosion, collision.transform.position, Quaternion.identity);
                 explosion.Play();
+                collision.transform.GetComponent<MonsterMovement>().monsterState = MonsterMovement.MonsterState.CATCHED;
                 collision.transform.GetComponent<Animator>().SetTrigger("Dizzy");
                 StartCoroutine(reset());
             }
             else if (myKind == kind.wakeup)
             {
+                collision.transform.GetComponent<MonsterMovement>().monsterState = MonsterMovement.MonsterState.PATROL;
+                Instantiate(explosion, collision.transform.position, Quaternion.identity);
                 explosion.Play();
                 //collision.transform.GetComponent<Animator>().SetTrigger("Dizzy");
                 StartCoroutine(reset());

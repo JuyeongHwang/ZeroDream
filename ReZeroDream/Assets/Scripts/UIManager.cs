@@ -174,6 +174,10 @@ public class UIManager : MonoBehaviour
     {
         HuiNote.ShowAndHide(isActive);
     }
+    public void OnOffEnzoNote(bool isActive)
+    {
+        EnjoyNote.ShowAndHide(isActive);
+    }
 
     public void UpdateHuiCatText(string catName)
     {
