@@ -1671,7 +1671,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1038128334585484, guid: a92acd4090533d84bb62ba63b05c0db5, type: 3}
       propertyPath: m_Name
-      value: Character_ShopKeeper_01 (1)
+      value: EnZo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038128334585484, guid: a92acd4090533d84bb62ba63b05c0db5, type: 3}
+      propertyPath: m_TagString
+      value: RayObject
       objectReference: {fileID: 0}
     - target: {fileID: 4376456554723998, guid: a92acd4090533d84bb62ba63b05c0db5, type: 3}
       propertyPath: m_RootOrder
@@ -2905,7 +2909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d744e8f62d498a418546669c700e57a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   huis:
   - {fileID: 912884246}
   - {fileID: 17796396}
@@ -5952,7 +5956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &207110231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15576,7 +15580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5929af747ae519041ac3903e91c33ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 16000
+  id: 15000
   isNpc: 0
   _name: "\uC81C\uB85C"
 --- !u!1001 &576823799
@@ -25499,6 +25503,36 @@ MonoBehaviour:
   id: 4000
   isNpc: 0
   _name: EnZo
+--- !u!136 &977450036
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977450034}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!54 &977450037
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977450034}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 20
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1001 &977818317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33686,7 +33720,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 130748, guid: c4dc818a3d0107c43a6ad73bdfca8766, type: 3}
       propertyPath: m_Name
-      value: SM_Prop_LargeSign_Burger_01
+      value: EnjoyHamburger
       objectReference: {fileID: 0}
     - target: {fileID: 130748, guid: c4dc818a3d0107c43a6ad73bdfca8766, type: 3}
       propertyPath: m_Layer
