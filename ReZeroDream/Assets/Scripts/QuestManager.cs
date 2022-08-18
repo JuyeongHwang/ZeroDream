@@ -64,9 +64,6 @@ public class QuestManager : MonoBehaviour
         {
             flowerQuestImg.SetActive(false);
             huiQuestSprite.sprite = questImgArr[2];
-
-            //ObjData objData = Happy.GetComponent<ObjData>();
-            //objData.name = "희";
         }
         else if (questId == 60 && questAcitonIndex == 0)
         {
@@ -93,7 +90,7 @@ public class QuestManager : MonoBehaviour
 
         questList.Add(30, new QuestData("???을 찾아보기", new int[] { 10000, 11000, 1000 },
             new string[] { "내가 좋아했던 것들에는 무엇이 있었을까? 주변을 둘러보며 찾아보자.", "내가 좋아했던 것들에는 무엇이 있었을까? 주변을 둘러보며 찾아보자.", "좋아하던 꽃에 대한 기억이 떠오른다. 소녀를 찾아가 그 사실을 말해보자." },
-            new string[] { "주변 둘러보기", "주변 둘러보기", "희와 대화하기" }, //근데 여기서 이렇게 감정이라고 언급해도 되는 건가용..??
+            new string[] { "주변 둘러보기", "주변 둘러보기", "희와 대화하기" }, 
             new string[] { " ", " ", "활성화된 감정 구슬 \n다음 지역 잠금 해제" })); //마찬가지
 
         questList.Add(40, new QuestData("새로운 지역 조사하기", new int[] { 3000, -10000 }, //일단 대화 뜨면 안되니까 
@@ -149,6 +146,7 @@ public class QuestManager : MonoBehaviour
         else if (id == 14000 && questId == 60 && questAcitonIndex == 0 || id == 14000 && questId == 60 && questAcitonIndex == 1)
         {
             questId = 70;
+            questAcitonIndex = 0;
         }
 
         if (questAcitonIndex == questList[questId].npcId.Length)

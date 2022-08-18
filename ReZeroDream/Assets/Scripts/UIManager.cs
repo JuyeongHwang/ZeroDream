@@ -68,6 +68,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIView NotePadWindow;
     [SerializeField] private UIView HuiNote;
     [SerializeField] private UIView HuiCatText;
+    [SerializeField] private UIView HuiFlowerText;
     [SerializeField] private UIView EnjoyNote;
 
 
@@ -160,6 +161,11 @@ public class UIManager : MonoBehaviour
     public void UpdateHuiCatText(string catName)
     {
         HuiCatText.UpdateTextMeshProUGUI(catName);
+    }
+
+    public void UpdateHuiFlowerText()
+    {
+        HuiFlowerText.UpdateTextMeshProUGUI("�ε鷹");
     }
 
     public void OnOffEnjoyNote(bool isActive)

@@ -112,6 +112,12 @@ public class QuestImplementation : MonoBehaviour
                     focusFlower();
                 }
             }
+            if (questManager.questId == 30 && questManager.questAcitonIndex == 2)
+            {
+                ObjData objData = NPCs[0].GetComponent<ObjData>();
+                objData._name = "Èñ";
+                UIManager.instance.UpdateHuiFlowerText();
+            }
 
             if (questManager.questId == 40)
             {
