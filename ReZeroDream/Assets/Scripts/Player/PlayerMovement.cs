@@ -177,10 +177,11 @@ public class PlayerMovement : MonoBehaviour
             if(groundState != GroundState.Wall)
             {
                 groundState = GroundState.Wall;
-                Physics.gravity = new Vector3(-9.8f, 0, 0);
+                
                 transform.Rotate(Vector3.right * -90, Space.Self);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, collision.transform.eulerAngles.y, collision.transform.eulerAngles.z);
 
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, -90);
+                Physics.gravity = -collision.gameObject.transform.up * 10;
 
             }
         }
@@ -190,7 +191,15 @@ public class PlayerMovement : MonoBehaviour
             {
                 groundState = GroundState.Ground;
                 Physics.gravity = new Vector3(0, -9.8f, 0);
-                transform.Rotate(Vector3.right * -90, Space.Self);
+                if(collision.gameObject.name == "roof")
+                {
+                    transform.Rotate(Vector3.right * 90, Space.Self);
+                }
+                else
+                {
+
+                    transform.Rotate(Vector3.right * -90, Space.Self);
+                }
                 transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             }
 
