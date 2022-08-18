@@ -287,9 +287,14 @@ public class QuestImplementation : MonoBehaviour
         {
             ControlLands[i].start = true;
         }
-        //GameManager.instance.SetStoryStateToEnjoy();
-        print("³¡");
-        //UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        if (!FindObjectOfType<StoryManager>().EnzoLand.activeSelf)
+        {
+            FindObjectOfType<StoryManager>().EnzoLand.SetActive(true);
+        }
+        cameraMovement.cameraOffset = new Vector3(10, 10, 10);
+
+        print("Èñ ³¡");
+
     }
 
     void SpawnAFollowEnzoMemory()

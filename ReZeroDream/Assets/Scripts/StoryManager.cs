@@ -8,6 +8,10 @@ public class StoryManager : MonoBehaviour
 
     private DialogueManager dialogueManager;
     private CameraMovement camMovement;
+
+    public GameObject HuiLand;
+    public GameObject EnzoLand;
+
     public Material HuiSkyBox;
     public Material EnzoSkyBox;
 
@@ -43,6 +47,7 @@ public class StoryManager : MonoBehaviour
                 Opening.FadeIn(0.3f);
                 OpeningText.UpdateTextMeshProUGUI(openingMent[0]);
                 startHuiOpening = true;
+                EnzoLand.SetActive(false);
             }
             HuiOpeningScene();
         }
@@ -57,6 +62,7 @@ public class StoryManager : MonoBehaviour
                 Opening.FadeIn(0.3f);
                 OpeningText.UpdateTextMeshProUGUI(openingMent[1]);
                 startEnzoOpening = true;
+                HuiLand.SetActive(false);
             }
 
             EnzoOpeningScene();

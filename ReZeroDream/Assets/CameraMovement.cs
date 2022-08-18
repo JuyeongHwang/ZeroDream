@@ -9,7 +9,7 @@ public class CameraMovement : MonoBehaviour
 
     [SerializeField]private Transform player;
 
-    Vector3 cameraOffset = new Vector3(0, 5, -7);
+    public Vector3 cameraOffset = new Vector3(0, 5, -7);
 
     public float moveSmoothSpeed = 10.0f;
     public float turnSmoothSpeed = 5.0f;
