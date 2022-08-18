@@ -74,6 +74,7 @@ public class PlayerState : MonoBehaviour
         if(g == GameManager.instance.spawnMemories[0])
         {
             GameManager.instance.belongEmotions[0] = true;
+
             questManager.catQuestImg.SetActive(true);
         }
 

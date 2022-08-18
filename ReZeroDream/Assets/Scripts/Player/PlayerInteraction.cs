@@ -45,6 +45,8 @@ public class PlayerInteraction : MonoBehaviour
 
         if (playerInput.Lclick)
         {
+            if (GameManager.instance.IsGameStateStory()) return;
+
             if (GameManager.instance.IsUserStateThrowReady())
             {
                 GameManager.instance.SetUserStateToThrow();

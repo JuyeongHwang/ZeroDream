@@ -21,8 +21,10 @@ public class QuestImplementation : MonoBehaviour
     private CameraMovement cameraMovement;
 
     private GameObject Zero;
+    public Transform Hui;
+    public Transform Cat;
 
-    public GameObject[] NPCs;
+    
     public ControlLand[] ControlLands;
     public Transform EnzoPos;
     public GameObject BurgerBarrier;
@@ -32,6 +34,7 @@ public class QuestImplementation : MonoBehaviour
     bool findHuiMemory = false;
     bool getHuiMemory = false;
     bool getBackCatColor = false;
+    bool bfocusCat = false;
     bool nameCatName = false;
     bool findFlower = false;
     bool getBackFlowerColor = false;
@@ -60,7 +63,208 @@ public class QuestImplementation : MonoBehaviour
     {
         if (GameManager.instance.IsStoryStateHui())
         {
-            if (!findHui)
+            checkInCameraHui();
+
+            if (questManager.questId == 20 && questManager.questAcitonIndex == 1 && dialogueManager.talkIndex == 0)
+            {
+                SpawnHuiEmotion();
+            }
+            if(spawnHuiMemory && !findHuiMemory)
+            {
+                DiscoverHuiEmotion();
+            }
+            getHuiMemory = GameManager.instance.belongEmotions[0];
+            if (getHuiMemory && GameManager.instance.spawnMemories[0].activeSelf)
+            {
+                dialogueManager.zeroTalk = true;
+                dialogueManager.Action(Zero);
+                GameManager.instance.spawnMemories[0].SetActive(false);
+                UIManager.instance.OnOffHuiNote(true);
+            }
+            if (questManager.questId == 20 && questManager.questAcitonIndex == 3)
+            {
+                if(dialogueManager.talkIndex == 3)
+                {
+                    GameManager.instance.SetGameStateToStory();
+                    if (!getBackCatColor) CatColorChange();
+                    if (!bfocusCat) FocusCat();
+                }
+                else if(dialogueManager.talkIndex == 4)
+                {
+                    if (!nameCatName) SetCatName();
+
+                }
+
+            }
+
+
+        }
+
+    }
+
+
+
+    #region HAPPY - HUI
+    public void checkInCameraHui()
+    {
+        if (findHui) return;
+
+
+        Vector3 viewPos = Camera.main.WorldToViewportPoint(Hui.position);
+        float distance = (Zero.transform.position - Hui.transform.position).magnitude;
+        if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
+        {
+            if (distance <= 7.0f)
+            {
+                findHui = true;
+
+                dialogueManager.zeroTalk = true;
+                dialogueManager.Action(Zero);
+
+
+                cameraMovement.SetCameraSetting(Hui, 0.1f, new Vector3(10, 3, -10));
+
+                GameManager.instance.SetCamStateToFocus();
+                GameManager.instance.SetGameStateToStory();
+
+                StartCoroutine(endFocusingHui());
+            }
+        }
+
+    }
+
+    IEnumerator endFocusingHui()
+    {
+        yield return new WaitForSeconds(3.0f);
+
+        cameraMovement.SetCameraSetting(Zero.transform, 3.0f, new Vector3(0, 5, -7));
+        GameManager.instance.SetCamStateToFollow();
+        GameManager.instance.SetGameStateToPlay();
+    }
+
+    #endregion
+
+    #region SpawnEmotions
+
+    void SpawnHuiEmotion()
+    {
+        if (spawnHuiMemory) return;
+        GameManager.instance.spawnMemories[0].SetActive(true);
+        spawnHuiMemory = true;
+
+    }
+    void DiscoverHuiEmotion()
+    {
+        float distance = Vector3.Distance(Zero.transform.position, GameManager.instance.spawnMemories[0].transform.position);
+        if (distance <= 3.0f && !GameManager.instance.IsGameStateDialogue())
+        {
+            dialogueManager.zeroTalk = true;
+            dialogueManager.Action(Zero);
+            findHuiMemory = true;
+        }
+    }
+
+
+    #endregion
+
+    #region CAT
+
+    float catVal = 0.0f;
+    
+    void CatColorChange()
+    {
+
+        if(catVal > 1.0f)
+        {
+            getBackCatColor = true;
+        }
+        catVal += Time.deltaTime * 0.5f;
+        Cat.GetChild(1).GetComponent<SkinnedMeshRenderer>().material.SetFloat("_blend", catVal);
+    }
+
+    void FocusCat()
+    {
+        bfocusCat = true;
+
+        cameraMovement.SetCameraSetting(Cat, 0.3f, new Vector3(5, 5, 0));
+        GameManager.instance.SetCamStateToFocus();
+
+        UIManager.instance.HideAllCanvas();
+
+        StartCoroutine(endFocusingCat());
+    }
+
+    IEnumerator endFocusingCat()
+    {
+        yield return new WaitForSeconds(3.0f);
+
+        UIManager.instance.ShowAllCanvas();
+        cameraMovement.SetCameraSetting(Zero.transform, 3.0f, new Vector3(0, 5, -7));
+        GameManager.instance.SetCamStateToFollow();
+        GameManager.instance.SetGameStateToPlay();
+        dialogueManager.Action(Cat.gameObject);
+    }
+
+    void SetCatName()
+    {
+        nameCatName = true;
+        UIManager.instance.OnOffCatNameWindow(true);
+        GameManager.instance.SetGameStateToStory();
+    }
+
+
+    #endregion
+
+
+    //====================================
+    //====================================
+
+    //====================================
+    void focusFlower()
+    {
+    }
+
+    IEnumerator EndFocusingFlower()
+    {
+        yield return new WaitForSeconds(2.5f);
+    }
+
+    void EndHuiStory()
+    {
+        //GameObject.Find("NPC_Hui").SetActive(false);
+        //GameObject.Find("NPC_Cat").SetActive(false);
+
+        Hui.gameObject.SetActive(false);
+        Cat.gameObject.SetActive(false);
+
+        for(int i = 0; i<ControlLands.Length; i++)
+        {
+            ControlLands[i].start = true;
+        }
+        if (!FindObjectOfType<StoryManager>().EnzoLand.activeSelf)
+        {
+            FindObjectOfType<StoryManager>().EnzoLand.SetActive(true);
+        }
+        cameraMovement.cameraOffset = new Vector3(10, 10, 10);
+
+        print("Èñ ³¡");
+
+    }
+
+    void SpawnAFollowEnzoMemory()
+    {
+        GameManager.instance.spawnMemories[1].SetActive(true);
+        GameManager.instance.spawnMemories[1].transform.position = EnzoPos.position;
+    }
+
+}
+
+
+
+
+    /*
+     
+                 if (!findHui)
             {
                 DiscoverHui();
             }
@@ -146,167 +350,6 @@ public class QuestImplementation : MonoBehaviour
 
 
         }
-
-    }
-
-    //====================================
-    void DiscoverHui()
-    {
-        Transform hui = GameObject.Find("NPC_Hui").transform;
-        float distance = Vector3.Distance(Zero.transform.position, hui.position);
-        if (distance <= 7.0f && !GameManager.instance.IsGameStateDialogue())
-        {
-            dialogueManager.zeroTalk = true;
-            dialogueManager.Action(Zero);
-
-            GameManager.instance.SetCamStateToFocus();
-            GameManager.instance.SetGameStateToStory();
-            focusHui(hui);
-        }
-    }
-    void focusHui(Transform hui)
-    {
-        findHui = true;
-
-        cameraMovement.SetCameraSetting(hui, 0.1f, transform.forward * 4);
-
-        StartCoroutine(EndfocusingHui());
-    }
-
-    IEnumerator EndfocusingHui()
-    {
-        yield return new WaitForSeconds(3.0f);
-        //followCam.ResetCameraSetting();
-        GameManager.instance.SetGameStateToPlay();
-        GameManager.instance.SetCamStateToFollow();
-        cameraMovement.SetCameraSetting(playerState.transform, 3f, new Vector3(0, 5, -7));
-    }
-
-    //====================================
-
-    void SpawnHuiEmotion()
-    {
-        if (GameManager.instance.spawnMemories[0].activeSelf && 
-            GameManager.instance.belongEmotions[0]) return;
-        GameManager.instance.spawnMemories[0].SetActive(true);
-        spawnHuiMemory = true;
-
-    }
-    void DiscoverHuiEmotion()
-    {
-        float distance = Vector3.Distance(Zero.transform.position, GameManager.instance.spawnMemories[0].transform.position);
-        if (distance <= 1.5f && !GameManager.instance.IsGameStateDialogue())
-        {
-            GameManager.instance.SetGameStateToDialogue();
-            dialogueManager.zeroTalk = true;
-            dialogueManager.Action(Zero);
-            findHuiMemory = true;
-        }
-    }
-
-    //====================================
-    void focusCat()
-    {
-        Transform cat = GameObject.Find("NPC_Cat").transform;
-        
-        if(cameraMovement.target != cat)
-        {
-            cameraMovement.SetCameraSetting(cat, 0.5f, cat.right * -7 + cat.up * 3);
-        }
-
-        StartCoroutine(EndfocusingCat());
-    }
-
-    IEnumerator EndfocusingCat()
-    {
-        yield return new WaitForSeconds(3.0f);
-
-        GameManager.instance.SetGameStateToDialogue();
-        GameManager.instance.SetCamStateToFollow();
-        cameraMovement.SetCameraSetting(playerState.transform, 3f, new Vector3(0, 5, -7));
-    }
-
-
-
-
-    //float catVal = 0.0f;
-    //void focusCat()
-    //{
-    //    //FFE500
-    //    GameManager.instance.SetGameStateToStory();
-    //    Transform cat = GameObject.Find("NPC_Cat").transform;
-
-    //    if (catVal <= 0.0f)
-    //    {
-    //        Camera.main.transform.position = cat.position + new Vector3(2, 2, 2);
-    //        Camera.main.transform.LookAt(cat);
-    //    }
-    //    catVal += Time.deltaTime * 1.5f;
-    //    cat.GetChild(1).GetComponent<SkinnedMeshRenderer>().material.SetFloat("_blend", catVal);
-
-    //    //followCam.SetTargets(cat, cat);
-    //    //followCam.moveSmoothSpeed = 0.3f;
-
-    //    //followCam.SetOffset(new Vector3(2, 3, -6));
-
-    //    StartCoroutine(focusingCat(cat));
-    //}
-
-    //IEnumerator focusingCat(Transform cat)
-    //{
-    //    yield return new WaitForSeconds(3.5f);
-
-    //    if (!getBackCatColor)
-    //    {
-    //        print("back");
-    //        //followCam.ResetCameraSetting();
-    //        getBackCatColor = true;
-    //        dialogueManager.Action(cat.gameObject);
-    //    }
-
-    //}
-
-    //====================================
-    void SetCatName()
-    {
-        UIManager.instance.OnOffCatNameWindow(true);
-    }
-
-    //====================================
-    void focusFlower()
-    {
-    }
-
-    IEnumerator EndFocusingFlower()
-    {
-        yield return new WaitForSeconds(2.5f);
-    }
-
-    void EndHuiStory()
-    {
-        //GameObject.Find("NPC_Hui").SetActive(false);
-        //GameObject.Find("NPC_Cat").SetActive(false);
-
-        NPCs[0].SetActive(false);
-        NPCs[1].SetActive(false);
-        for(int i = 0; i<ControlLands.Length; i++)
-        {
-            ControlLands[i].start = true;
-        }
-        if (!FindObjectOfType<StoryManager>().EnzoLand.activeSelf)
-        {
-            FindObjectOfType<StoryManager>().EnzoLand.SetActive(true);
-        }
-        cameraMovement.cameraOffset = new Vector3(10, 10, 10);
-
-        print("Èñ ³¡");
-
-    }
-
-    void SpawnAFollowEnzoMemory()
-    {
-        GameManager.instance.spawnMemories[1].SetActive(true);
-        GameManager.instance.spawnMemories[1].transform.position = EnzoPos.position;
-    }
-
-}
+     
+     
+     */

@@ -14,6 +14,7 @@ public class CameraMovement : MonoBehaviour
     public float moveSmoothSpeed = 10.0f;
     public float turnSmoothSpeed = 5.0f;
 
+    bool isFocusing = false;
     private void Start()
     {
         player = FindObjectOfType<PlayerMovement>().transform;
@@ -34,9 +35,10 @@ public class CameraMovement : MonoBehaviour
             Move();
             transform.LookAt(target);
         }
+
         SetOrthoPerspec();
     }
-    public void SetCameraSetting(Transform _target,float moveSpeed, Vector3 offset)
+    public void SetCameraSetting(Transform _target,float moveSpeed , Vector3 offset)
     {
         target = _target;
         moveSmoothSpeed = moveSpeed;
@@ -46,6 +48,7 @@ public class CameraMovement : MonoBehaviour
     void Move()
     {
         Vector3 dPos = target.position;
+        dPos += target.right * cameraOffset.x;
         dPos += target.forward * cameraOffset.z;
         dPos += target.up * cameraOffset.y;
         transform.position = Vector3.Lerp(transform.position, dPos, moveSmoothSpeed * Time.deltaTime);
@@ -60,6 +63,8 @@ public class CameraMovement : MonoBehaviour
 
     void SetOrthoPerspec()
     {
+
+        if (target != player) return;
         if (Camera.main.orthographic)
         {
             Camera.main.cullingMask = Camera.main.cullingMask & ~(1 << LayerMask.NameToLayer("OutSide"));
@@ -79,4 +84,5 @@ public class CameraMovement : MonoBehaviour
             }
         }
     }
+
 }

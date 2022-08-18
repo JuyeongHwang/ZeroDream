@@ -74,7 +74,20 @@ public class UIManager : MonoBehaviour
 
     private QuestManager questManager;
 
+    public void HideAllCanvas()
+    {
+        Canvas.FadeOut(1);
 
+        //SettingButtonsCavas.Hide();
+        //SettingButtonsCavas.FadeOut(1);
+    }
+
+    public void ShowAllCanvas()
+    {
+        Canvas.FadeIn(1);
+        //SettingButtonsCavas.Show();
+        //SettingButtonsCavas.FadeIn(1);
+    }
     private void Start()
     {
         //initialize
@@ -83,6 +96,11 @@ public class UIManager : MonoBehaviour
 
         questManager = FindObjectOfType<QuestManager>();
         SetFirstQuestUI(); //퀘스트UI초기화 (원래는 대화 끝날 때만 불리니까)
+    }
+
+    private void Update()
+    {
+
     }
 
     // *****     [Header("Player")]     *******
@@ -140,7 +158,6 @@ public class UIManager : MonoBehaviour
     {
         if (active)
         {
-
             catNameWindow.Show();
             catNameWindow.FadeIn(1);
         }
@@ -239,25 +256,11 @@ public class UIManager : MonoBehaviour
 
 
 
-    //애매..
-    //public void UpdateCatName() {
-    //    string catName = catNameWindow.getTextMeshProInputField();
-    //    GameObject cat = GameObject.Find("NPC_Cat");
-    //    cat.GetComponent<ObjData>()._name = catName;
-    //    FindObjectOfType<DialogueManager>().Action(cat);
-    //}
-    bool named = false;
-    public bool BNameCatName()
-    {
-        return named;
-    }
+
     public void OnEndEdit(string str)
     {
-
         string catName = catNameWindow.getTextMeshProInputField();
         catName = InputCatName.changeKoreanText(catName);
-        named = true;
-
 
         UpdateHuiCatText(catName);
 
@@ -266,8 +269,6 @@ public class UIManager : MonoBehaviour
 
         OnOffCatNameWindow(false);
         GameManager.instance.SetGameStateToDialogue();
-
-        DialogueManager.instance.Action(cat);
     }
 
 }
