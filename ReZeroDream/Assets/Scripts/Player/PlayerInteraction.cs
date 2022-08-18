@@ -77,7 +77,20 @@ public class PlayerInteraction : MonoBehaviour
             else { 
             }
 
-            if (!playerInput.scanObject) return;
+            if (!playerInput.scanObject)
+            {
+                if (dialogueManager.isAction)
+                {
+                    //°­Á¾
+                    dialogueManager.talkIndex = 0;
+                    dialogueManager.isAction = false;
+                    UIManager.instance.OnOffDialogueWindow(false);
+
+                    GameManager.instance.SetGameStateToPlay();
+                    GameManager.instance.SetUserStateToMove();
+                }
+                return;
+            }
 
             if (playerInput.scanObject.name == "NPC_Cat")
             {

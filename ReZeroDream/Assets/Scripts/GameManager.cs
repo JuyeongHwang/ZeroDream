@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
             FindObjectOfType<QuestManager>().questAcitonIndex = 0;
 
         }
+        spawnMemories[0].SetActive(false);
     }
 
     private void Update()

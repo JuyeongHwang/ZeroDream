@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed = 3f;
     public int jumpCount = 0;
 
+    private PlayerState playerState;
     private PlayerInput playerInput;
     private Rigidbody playerRigidbody;
     private Animator playerAnimator;
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        playerState = GetComponent<PlayerState>();
         playerInput = GetComponent<PlayerInput>();
         playerRigidbody = GetComponent<Rigidbody>();
         playerAnimator = GetComponent<Animator>();
@@ -125,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        if (playerState.bInside) return;
         if (playerInput.jump && moveState != MoveState.JUMPSTART)
         {
             moveState = MoveState.JUMPSTART;
@@ -177,11 +180,22 @@ public class PlayerMovement : MonoBehaviour
             if(groundState != GroundState.Wall)
             {
                 groundState = GroundState.Wall;
-                
-                transform.Rotate(Vector3.right * -90, Space.Self);
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, collision.transform.eulerAngles.y, collision.transform.eulerAngles.z);
 
-                Physics.gravity = -collision.gameObject.transform.up * 10;
+
+                transform.Rotate(Vector3.right * -90, Space.Self);
+                if (GameManager.instance.IsStoryStateEnjoy())
+                {
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, collision.transform.eulerAngles.y, collision.transform.eulerAngles.z);
+                    Physics.gravity = -collision.gameObject.transform.up * 10;
+
+
+                }
+                else
+                {
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, -90);
+                    Physics.gravity = new Vector3(-9.8f, 0, 0);
+                }
+
 
             }
         }
@@ -197,7 +211,6 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-
                     transform.Rotate(Vector3.right * -90, Space.Self);
                 }
                 transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);

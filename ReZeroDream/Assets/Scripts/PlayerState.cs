@@ -11,6 +11,7 @@ public class PlayerState : MonoBehaviour
     private DialogueManager dialogue;
     private QuestManager questManager;
 
+    public bool bInside = false;
     private void Start()
     {
 
@@ -31,13 +32,13 @@ public class PlayerState : MonoBehaviour
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             Camera.main.transform.position = new Vector3(-2, 10, 2);
             gameObject.transform.position = new Vector3(-2, 4, 2);
-            //GameManager.instance.ResetPlayerPosition();
+
         }
 
         if (other.gameObject.tag == "Inside")
         {
             print("건물 진입");
-
+            bInside = true;
             Camera.main.orthographic = true;
         }
 
@@ -49,6 +50,7 @@ public class PlayerState : MonoBehaviour
                 GameManager.instance.SetGameStateToStory();
                 GameManager.instance.SetStoryStateToEnjoy();
 
+                GetComponent<PlayerMovement>().jumpSpeed = 10.0f;
                 Physics.gravity = new Vector3(0, -9.8f, 0);
                 //print("분위기가 달라졌어");
             }
@@ -61,12 +63,13 @@ public class PlayerState : MonoBehaviour
     {
         if (other.gameObject.tag == "Inside")
         {
-
+            bInside = true;
             Camera.main.orthographic = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
+        bInside = false;
         Camera.main.orthographic = false;
     }
     public void CheckLiftedItem(GameObject g)
