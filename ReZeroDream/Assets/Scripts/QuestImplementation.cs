@@ -104,20 +104,33 @@ public class QuestImplementation : MonoBehaviour
                     if (!nameCatName) SetCatName();
                 }
             }
-
-            if (questManager.questId == 30 && questManager.questAcitonIndex == 0)
+            if (questManager.questId == 30 && questManager.questAcitonIndex == 2)
             {
-                if (dialogueManager.isAction)
-                {
-                    findFlower = (Zero.GetComponent<PlayerInput>().scanObject.GetComponent<ObjData>().id == 11000);
-                }
-                if (findFlower)
-                {
-                    if (!getBackFlowerColor) FlowerColorChange();
-                    //if (!bfocusFlower) FocusFlower();
-                    print("focus flower");
-                }
+                ObjData objData = Hui.GetComponent<ObjData>();
+                objData._name = "Èñ";
+                UIManager.instance.UpdateHuiFlowerText();
+
+                if (!getBackFlowerColor) FlowerColorChange();
+                print("focus flower");
             }
+
+            //if (questManager.questId == 30 && questManager.questAcitonIndex == 0)
+            //{
+            //    if (dialogueManager.isAction)
+            //    {
+            //        findFlower = (Zero.GetComponent<PlayerInput>().scanObject.GetComponent<ObjData>().id == 11000);
+            //    }
+            //    if (findFlower)
+            //    {
+            //        ObjData objData = Hui.GetComponent<ObjData>();
+            //        objData._name = "Èñ";
+            //        UIManager.instance.UpdateHuiFlowerText();
+
+            //        if (!getBackFlowerColor) FlowerColorChange();
+            //        //if (!bfocusFlower) FocusFlower();
+            //        print("focus flower");
+            //    }
+            //}
 
             if (questManager.questId == 30 && questManager.questAcitonIndex ==2 && dialogueManager.talkIndex ==1)
             {
