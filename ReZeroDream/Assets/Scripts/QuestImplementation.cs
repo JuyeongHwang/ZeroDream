@@ -23,7 +23,7 @@ public class QuestImplementation : MonoBehaviour
     private GameObject Zero;
     public Transform Hui;
     public Transform Cat;
-
+    public Transform[] Monsters;
     public Material[] flowerMats;
     public Material[] HuiMats;
     public ControlLand[] ControlLands;
@@ -42,12 +42,14 @@ public class QuestImplementation : MonoBehaviour
     bool getBackFlowerColor = false;
     bool getBackAllColor = false;
     // 엔조
+    bool findMonsters = false;
     bool catchMonster = false;
     bool spawnEnzoMemory = false;
     bool getEnzoMemory = false;
     bool findFamilyCar = false;
     bool eatBurger = false;
-
+    bool findStore = false;
+    bool enterStore = false;
 
     private void Start()
     {
@@ -107,6 +109,7 @@ public class QuestImplementation : MonoBehaviour
                 else if(dialogueManager.talkIndex == 4)
                 {
                     if (!nameCatName) SetCatName();
+                    print("벽 걷기 활성화 & 설명");
                 }
             }
             if (questManager.questId == 30 && questManager.questAcitonIndex == 2)
@@ -116,30 +119,14 @@ public class QuestImplementation : MonoBehaviour
                 UIManager.instance.UpdateHuiFlowerText();
 
                 if (!getBackFlowerColor) FlowerColorChange();
+                if (!getBackFlowerColor) FlowerColorChange();
+
                 print("focus flower");
             }
 
-            //if (questManager.questId == 30 && questManager.questAcitonIndex == 0)
-            //{
-            //    if (dialogueManager.isAction)
-            //    {
-            //        findFlower = (Zero.GetComponent<PlayerInput>().scanObject.GetComponent<ObjData>().id == 11000);
-            //    }
-            //    if (findFlower)
-            //    {
-            //        ObjData objData = Hui.GetComponent<ObjData>();
-            //        objData._name = "희";
-            //        UIManager.instance.UpdateHuiFlowerText();
-
-            //        if (!getBackFlowerColor) FlowerColorChange();
-            //        //if (!bfocusFlower) FocusFlower();
-            //        print("focus flower");
-            //    }
-            //}
-
             if (questManager.questId == 30 && questManager.questAcitonIndex ==2 && dialogueManager.talkIndex ==1)
             {
-                print("change color");
+                print("해피와의 대화가 끝나면 색 돌아오고, 다 돌아왔을때 무너지기 희 : 행운을 빌게 ");
                 //if ((Zero.GetComponent<PlayerInput>().scanObject == Hui))
                 //    if (!getBackAllColor) AllColorChange();
             }
@@ -154,11 +141,28 @@ public class QuestImplementation : MonoBehaviour
             getEnzoMemory = GameManager.instance.belongEmotions[1];
             if (getEnzoMemory && GameManager.instance.spawnMemories[1].activeSelf)
             {
+                questManager.questId = 50;
                 //dialogueManager.zeroTalk = true;
                 //dialogueManager.Action(Zero);
                 GameManager.instance.spawnMemories[1].SetActive(false);
                 UIManager.instance.OnOffEnzoNote(true);
             }
+
+            checkInCameraMonster();
+
+
+
+            //find a Store
+
+            //enter the store
+            if(Camera.main.orthographic && !enterStore)
+            {
+                dialogueManager.zeroTalk = true;
+                dialogueManager.Action(Zero);
+                enterStore = true;
+            }
+            //talk to the enzo
+
         }
     }
 
@@ -355,6 +359,7 @@ public class QuestImplementation : MonoBehaviour
 
     #endregion
 
+    #region ENJOY - Enzo
     void SpawnEnzoEmotion()
     {
         if (spawnEnzoMemory) return;
@@ -362,99 +367,159 @@ public class QuestImplementation : MonoBehaviour
         spawnHuiMemory = true;
 
     }
+
+    #endregion
+
+
+    #region Monster
+
+
+    public void checkInCameraMonster()
+    {
+        if (findMonsters) return;
+
+        for(int i= 0; i<Monsters.Length; i++)
+        {
+            Vector3 viewPos = Camera.main.WorldToViewportPoint(Monsters[i].position);
+            float distance = (Zero.transform.position - Monsters[i].transform.position).magnitude;
+            if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
+            {
+                if (distance <= 10.0f)
+                {
+                    findMonsters = true;
+
+
+
+                    cameraMovement.SetCameraSetting(Monsters[i], 0.1f, new Vector3(10, 3, -10));
+
+                    GameManager.instance.SetCamStateToFocus();
+                    GameManager.instance.SetGameStateToStory();
+
+                    StartCoroutine(endFocusingMonster());
+                }
+            }
+        }
+
+    }
+
+    IEnumerator endFocusingMonster()
+    {
+        yield return new WaitForSeconds(3.0f);
+
+        cameraMovement.SetCameraSetting(Zero.transform, 3.0f, new Vector3(0, 5, -7));
+        GameManager.instance.SetCamStateToFollow();
+
+        print("여기 이렇게 해도 되는지 확인 필요.... 대사가 끝까지 안나오고 잘림");
+        dialogueManager.zeroTalk = true;
+        dialogueManager.Action(Zero);
+
+        //print("일단 강제로");
+        //questManager.questId = 60;
+        //questManager.questAcitonIndex = 0;
+        //dialogueManager.talkIndex = 0;
+    }
+
+
+
+    #endregion
+
 }
 
 
 
 
-    /*
-     
-                 if (!findHui)
-            {
-                DiscoverHui();
-            }
 
-            if (!spawnHuiMemory)
-            {
-                if (questManager.questId == 20 && questManager.questAcitonIndex == 1 && dialogueManager.talkIndex == 0)
-                {
-                    SpawnHuiEmotion();
-                }
-            }
-            if (spawnHuiMemory && !findHuiMemory)
-            {
-                DiscoverHuiEmotion();
-            }
 
-            getHuiMemory = GameManager.instance.belongEmotions[0];
-            if (getHuiMemory && GameManager.instance.spawnMemories[0].activeSelf)
-            {
-                dialogueManager.zeroTalk = true;
-                dialogueManager.Action(Zero);
-                GameManager.instance.spawnMemories[0].SetActive(false);
-                UIManager.instance.OnOffHuiNote(true);
-            }
 
-            if (!getBackCatColor)
-            {
-                if (questManager.questId == 20 && questManager.questAcitonIndex ==3  && dialogueManager.talkIndex == 3)
-                {
-                    getBackCatColor = true;
-                    focusCat();
-                    GameManager.instance.SetGameStateToStory();
-                }
-            }
-            if (getBackCatColor && !nameCatName)
-            {
-                if (questManager.questId == 20 && questManager.questAcitonIndex == 3 && dialogueManager.talkIndex == 4)
-                {
-                    GameManager.instance.SetGameStateToStory();
-                    SetCatName();
-                }
-                nameCatName = UIManager.instance.BNameCatName();
-            }
-            if (findFlower)
-            {
-                print("벽 걷기 활성화 & 희 : 너가 원하는 곳은 어디든 갈 수 있어. ");
-                if (questManager.questId == 30 && questManager.questAcitonIndex == 0)
-                {
-                    focusFlower();
-                }
-            }
-            if (questManager.questId == 30 && questManager.questAcitonIndex == 2)
-            {
-                ObjData objData = NPCs[0].GetComponent<ObjData>();
-                objData._name = "희";
-                UIManager.instance.UpdateHuiFlowerText();
-            }
 
-            if (questManager.questId == 40)
-            {
-                EndHuiStory();
-            }
-        }
-        else if (GameManager.instance.IsStoryStateEnjoy())
+/*
+
+             if (!findHui)
         {
-
-            getEnzoMemory = GameManager.instance.belongEmotions[1];
-            if (!getEnzoMemory)
-            {
-                SpawnAFollowEnzoMemory();
-            }
-
-            if (getEnzoMemory && GameManager.instance.spawnMemories[1].activeSelf)
-            {
-                print("햄버거집 오픈 ");
-                BurgerBarrier.SetActive(false);
-                GameManager.instance.spawnMemories[1].SetActive(false);
-                UIManager.instance.OnOffEnjoyNote(true);//enjoy로 바꿔야함
-
-                print("수정필요한 부분 (quest)");
-                questManager.questId = 70;
-            }
-
-
+            DiscoverHui();
         }
-     
-     
-     */
+
+        if (!spawnHuiMemory)
+        {
+            if (questManager.questId == 20 && questManager.questAcitonIndex == 1 && dialogueManager.talkIndex == 0)
+            {
+                SpawnHuiEmotion();
+            }
+        }
+        if (spawnHuiMemory && !findHuiMemory)
+        {
+            DiscoverHuiEmotion();
+        }
+
+        getHuiMemory = GameManager.instance.belongEmotions[0];
+        if (getHuiMemory && GameManager.instance.spawnMemories[0].activeSelf)
+        {
+            dialogueManager.zeroTalk = true;
+            dialogueManager.Action(Zero);
+            GameManager.instance.spawnMemories[0].SetActive(false);
+            UIManager.instance.OnOffHuiNote(true);
+        }
+
+        if (!getBackCatColor)
+        {
+            if (questManager.questId == 20 && questManager.questAcitonIndex ==3  && dialogueManager.talkIndex == 3)
+            {
+                getBackCatColor = true;
+                focusCat();
+                GameManager.instance.SetGameStateToStory();
+            }
+        }
+        if (getBackCatColor && !nameCatName)
+        {
+            if (questManager.questId == 20 && questManager.questAcitonIndex == 3 && dialogueManager.talkIndex == 4)
+            {
+                GameManager.instance.SetGameStateToStory();
+                SetCatName();
+            }
+            nameCatName = UIManager.instance.BNameCatName();
+        }
+        if (findFlower)
+        {
+            print("벽 걷기 활성화 & 희 : 너가 원하는 곳은 어디든 갈 수 있어. ");
+            if (questManager.questId == 30 && questManager.questAcitonIndex == 0)
+            {
+                focusFlower();
+            }
+        }
+        if (questManager.questId == 30 && questManager.questAcitonIndex == 2)
+        {
+            ObjData objData = NPCs[0].GetComponent<ObjData>();
+            objData._name = "희";
+            UIManager.instance.UpdateHuiFlowerText();
+        }
+
+        if (questManager.questId == 40)
+        {
+            EndHuiStory();
+        }
+    }
+    else if (GameManager.instance.IsStoryStateEnjoy())
+    {
+
+        getEnzoMemory = GameManager.instance.belongEmotions[1];
+        if (!getEnzoMemory)
+        {
+            SpawnAFollowEnzoMemory();
+        }
+
+        if (getEnzoMemory && GameManager.instance.spawnMemories[1].activeSelf)
+        {
+            print("햄버거집 오픈 ");
+            BurgerBarrier.SetActive(false);
+            GameManager.instance.spawnMemories[1].SetActive(false);
+            UIManager.instance.OnOffEnjoyNote(true);//enjoy로 바꿔야함
+
+            print("수정필요한 부분 (quest)");
+            questManager.questId = 70;
+        }
+
+
+    }
+
+
+ */
