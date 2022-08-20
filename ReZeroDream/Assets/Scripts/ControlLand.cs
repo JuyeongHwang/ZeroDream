@@ -20,7 +20,7 @@ public class ControlLand : MonoBehaviour
             {
                 GameManager.instance.SetUserStateToFloating();
                 GameManager.instance.SetGameStateToStory();
-                Physics.gravity = new Vector3(0, -0.5f, 0);
+                Physics.gravity = new Vector3(0, -5.5f, 0);
 
                 origianl.gameObject.SetActive(false);
                 for (int i = 0; i < breakMesh.childCount; i++)

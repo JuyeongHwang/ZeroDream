@@ -74,19 +74,27 @@ public class UIManager : MonoBehaviour
 
     private QuestManager questManager;
 
+    public void HideAllCanvasNoFade()
+    {
+        Canvas.Hide();
+        SettingButtonsCavas.Hide();
+
+    }
+
     public void HideAllCanvas(float speed)
     {
         Canvas.FadeOut(speed);
-
+        SettingButtonsCavas.FadeOut(speed);
         //SettingButtonsCavas.Hide();
-        //SettingButtonsCavas.FadeOut(1);
+        //
     }
 
     public void ShowAllCanvas()
     {
+        Canvas.Show();
         Canvas.FadeIn(1);
-        //SettingButtonsCavas.Show();
-        //SettingButtonsCavas.FadeIn(1);
+        SettingButtonsCavas.Show();
+        SettingButtonsCavas.FadeIn(1);
     }
     private void Start()
     {
@@ -98,9 +106,15 @@ public class UIManager : MonoBehaviour
         SetFirstQuestUI(); //퀘스트UI초기화 (원래는 대화 끝날 때만 불리니까)
     }
 
-    private void Update()
+    public void HideQuestWindow()
     {
-
+        questMaxWindow.Hide();
+        questMinWindow.Hide();
+    }
+    public void ShowQuestWindow()
+    {
+        questMinWindow.Show();
+        questMinWindow.FadeIn(1.0f);
     }
 
     // *****     [Header("Player")]     *******

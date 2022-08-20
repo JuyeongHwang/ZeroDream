@@ -42,6 +42,7 @@ public class StoryManager : MonoBehaviour
         {
             if (!startHuiOpening)
             {
+                UIManager.instance.HideAllCanvasNoFade();
                 OpeningWindow.gameObject.SetActive(true);
                 Camera.main.transform.position = Zero.transform.forward * -30 + Zero.transform.up * 40 + Zero.transform.right * -7;
                 camMovement.SetCameraSetting(Zero.transform, 0.15f, Zero.transform.forward * -5 + Zero.transform.up * 3 + Zero.transform.right * 2);
@@ -80,6 +81,9 @@ public class StoryManager : MonoBehaviour
         }
         if (OpeningWindow.GetAlphaValue() <= 0.0f && !EndHuiOpening)
         {
+            UIManager.instance.ShowAllCanvas();
+            print("üũ2..");
+            //UIManager.instance.HideQuestWindow();
             camMovement.SetCameraSetting(Zero.transform, 3f, new Vector3(0, 5, -7));
             EndHuiOpening = true;
             dialogueManager.zeroTalk = true;

@@ -74,6 +74,11 @@ public class QuestImplementation : MonoBehaviour
         {
             checkInCameraHui();
 
+            if(questManager.questAcitonIndex == 10 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 2)
+            {
+                print("여기 왜 안되는거지,,");
+                //UIManager.instance.ShowQuestWindow();
+            }
             if (questManager.questId == 20 && questManager.questAcitonIndex == 1 && dialogueManager.talkIndex == 0)
             {
                 SpawnHuiEmotion();
