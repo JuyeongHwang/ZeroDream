@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
     [Header("Dialogue")]
     [SerializeField] private UIView dialogueWindow;
     [SerializeField] private UIView dialoguePortraitImg;
-    [SerializeField] private UIView dialogueObjectNameText;
+    [SerializeField] public UIView dialogueObjectNameText;
     [SerializeField] private UIView dialogueTalkText;
     [SerializeField] private Animator animator;
 
@@ -103,7 +103,9 @@ public class UIManager : MonoBehaviour
         HuiNote.Hide();
 
         questManager = FindObjectOfType<QuestManager>();
-        SetFirstQuestUI(); //퀘스트UI초기화 (원래는 대화 끝날 때만 불리니까)
+
+        questMinWindow.Hide();
+        questMaxWindow.Hide();
     }
 
     public void HideQuestWindow()
@@ -114,6 +116,7 @@ public class UIManager : MonoBehaviour
     public void ShowQuestWindow()
     {
         questMinWindow.Show();
+        questMaxButton.Show();
         questMinWindow.FadeIn(1.0f);
     }
 
@@ -245,20 +248,6 @@ public class UIManager : MonoBehaviour
         questMinButton.Hide();
     }
 
-    private void SetFirstQuestUI()
-    {
-        //isQuest = false;
-        questMinWindow.Show();
-        questMaxWindow.Hide();
-
-        questMaxButton.Show();
-        questMinButton.Hide();
-        questMinText.UpdateTextMeshProUGUI("???와 대화하기");
-        questMaxText.UpdateTextMeshProUGUI("???와 대화하기");
-        questMaxDescriptText.UpdateTextMeshProUGUI("???에게 대화를 걸어 이곳에 대한 정보를 얻어보자.");
-        questMaxContentText.UpdateTextMeshProUGUI("???와 대화하기");
-        questWindowRewardText.UpdateTextMeshProUGUI(" ");
-    }
 
     //여기서 만들고 DialogueManager에서 호출 (CheckQuest에서 npcId > questId)
     public void UpdateQuestUI(int npcId)

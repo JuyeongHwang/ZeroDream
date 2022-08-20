@@ -76,10 +76,9 @@ public class QuestImplementation : MonoBehaviour
         {
             checkInCameraHui();
 
-            if(questManager.questAcitonIndex == 10 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 2)
+            if (questManager.questId == 10 && questManager.questAcitonIndex == 2 && dialogueManager.talkIndex == 2)
             {
-                print("여기 왜 안되는거지,,");
-                //UIManager.instance.ShowQuestWindow();
+                UIManager.instance.ShowQuestWindow();
             }
             if (questManager.questId == 20 && questManager.questAcitonIndex == 1 && dialogueManager.talkIndex == 0)
             {
@@ -114,22 +113,31 @@ public class QuestImplementation : MonoBehaviour
             }
             if (questManager.questId == 30 && questManager.questAcitonIndex == 2)
             {
-                ObjData objData = Hui.GetComponent<ObjData>();
-                objData._name = "희";
                 UIManager.instance.UpdateHuiFlowerText();
 
                 if (!getBackFlowerColor) FlowerColorChange();
                 if (!getBackFlowerColor) FlowerColorChange();
 
                 print("focus flower");
+
+                if (dialogueManager.talkIndex == 0 || dialogueManager.talkIndex == 1)
+                {
+                    UIManager.instance.dialogueObjectNameText.UpdateTextMeshProUGUI("제로");
+                    //요거왜안되지
+                }
+                else if (dialogueManager.talkIndex == 2)
+                {
+                    ObjData objData = Hui.GetComponent<ObjData>();
+                    objData._name = "희";
+                }        
             }
 
-            if (questManager.questId == 30 && questManager.questAcitonIndex ==2 && dialogueManager.talkIndex ==1)
-            {
-                print("해피와의 대화가 끝나면 색 돌아오고, 다 돌아왔을때 무너지기 희 : 행운을 빌게 ");
-                //if ((Zero.GetComponent<PlayerInput>().scanObject == Hui))
-                //    if (!getBackAllColor) AllColorChange();
-            }
+            //if (questManager.questId == 30 && questManager.questAcitonIndex ==2 && dialogueManager.talkIndex ==1)
+            //{
+            //    print("해피와의 대화가 끝나면 색 돌아오고, 다 돌아왔을때 무너지기 희 : 행운을 빌게 ");
+            //    //if ((Zero.GetComponent<PlayerInput>().scanObject == Hui))
+            //    //    if (!getBackAllColor) AllColorChange();
+            //}
             if (questManager.questId == 40)
             {
                 EndHuiStory();
