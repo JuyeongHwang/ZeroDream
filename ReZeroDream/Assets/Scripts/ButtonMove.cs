@@ -14,7 +14,7 @@ public class ButtonMove : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
     }
-
+    //문제) 두번째 부딪혔을 때 다시 올라갔다 내려감.
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -37,10 +37,16 @@ public class ButtonMove : MonoBehaviour
                 Debug.Log("Up");
             }
         }
-        else
+        
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
         {
-            isDown = false;
+            isDown = !isDown;
+            Debug.Log("Exit");
         }
+
     }
 
 }
