@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BuildingMovement : MonoBehaviour
 {
-    public bool isActive = false;
+    public bool isRotate = false;
     public float buildingRotateDegree = 20.0f;
+    
+    public bool isMove= false;
     public float buildingMoveSpeed = 1.0f;
 
     public Transform buildingStartPos;
@@ -14,10 +16,13 @@ public class BuildingMovement : MonoBehaviour
 
     void Update()
     {
-        if (isActive)
+        if (isMove)
         {
             BuildingMoveAndCheck();
+        }
 
+        if (isRotate)
+        {
             transform.Rotate(Vector3.up * Time.deltaTime * buildingRotateDegree);
         }
     }
@@ -36,14 +41,5 @@ public class BuildingMovement : MonoBehaviour
 
         //2.move
         transform.position += transform.forward * Time.deltaTime * buildingMoveSpeed;
-
     }
-    ////빌딩에는 필요 없는 부분
-    //IEnumerator ReSpawnDelay()
-    //{
-    //    yield return new WaitForSeconds(2.0f);
-    //    transform.gameObject.SetActive(true);
-    //    isActive = true;
-    //    transform.position = StartPos.position;
-    //}
 }
