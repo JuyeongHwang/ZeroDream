@@ -194,8 +194,6 @@ public class QuestImplementation : MonoBehaviour
 
             checkInCameraMonster();
 
-
-
             //first find store
             if( !findStore && findMonsters && pushTrap && throwObj)
             {

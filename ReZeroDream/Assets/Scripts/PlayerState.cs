@@ -50,11 +50,22 @@ public class PlayerState : MonoBehaviour
                 GameManager.instance.SetGameStateToStory();
                 GameManager.instance.SetStoryStateToEnjoy();
 
-                GetComponent<PlayerMovement>().jumpSpeed = 10.0f;
+                GetComponent<PlayerMovement>().jumpSpeed = 8.0f;
                 Physics.gravity = new Vector3(0, -9.8f, 0);
                 //print("분위기가 달라졌어");
             }
+            
+            if (other.gameObject.name == "WantPlane" && !GameManager.instance.IsStoryStateWant())
+            {
+                //FindObjectOfType<QuestManager>().questId = 50;
+                GameManager.instance.SetGameStateToStory();
+                GameManager.instance.SetStoryStateToWant();
+
+                GetComponent<PlayerMovement>().jumpSpeed = 0.0f;
+                print("want 지역");
+            }
         }
+
 
 
     }

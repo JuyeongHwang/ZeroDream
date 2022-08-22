@@ -11,13 +11,16 @@ public class StoryManager : MonoBehaviour
 
     public GameObject HuiLand;
     public GameObject EnzoLand;
+    public GameObject WantLand;
 
     public Material HuiSkyBox;
     public Material EnzoSkyBox;
+    public Material WantSkyBox;
 
     public AudioSource Bgm;
     public AudioClip HuiBgm;
     public AudioClip EnzoBgm;
+    public AudioClip WantBgm;
 
     public UIView OpeningWindow;
     public UIView OpeningText;
@@ -33,8 +36,11 @@ public class StoryManager : MonoBehaviour
 
     bool startHuiOpening = false;
     bool startEnzoOpening = false;
+    bool startWantOpening = false;
+
     bool EndHuiOpening = false;
     bool EndEnzoOpening = false;
+    bool EndWantOpening = false;
     // Update is called once per frame
     void Update()
     {
@@ -44,17 +50,24 @@ public class StoryManager : MonoBehaviour
             {
                 UIManager.instance.HideAllCanvasNoFade();
                 OpeningWindow.gameObject.SetActive(true);
+
+                Bgm.clip = HuiBgm;
+                Bgm.Play();
+                RenderSettings.skybox = HuiSkyBox;
+
                 Camera.main.transform.position = Zero.transform.forward * -30 + Zero.transform.up * 40 + Zero.transform.right * -7;
                 camMovement.SetCameraSetting(Zero.transform, 0.15f, Zero.transform.forward * -5 + Zero.transform.up * 3 + Zero.transform.right * 2);
                 GameManager.instance.SetGameStateToStory();
                 OpeningWindow.FadeIn(0.3f);
                 OpeningText.UpdateTextMeshProUGUI(openingMent[0]);
                 startHuiOpening = true;
+                HuiLand.SetActive(true);
                 EnzoLand.SetActive(false);
+                WantLand.SetActive(false);
             }
             HuiOpeningScene();
         }
-        if (GameManager.instance.IsStoryStateEnjoy())
+        else if (GameManager.instance.IsStoryStateEnjoy())
         {
             if (!startEnzoOpening)
             {
@@ -66,11 +79,32 @@ public class StoryManager : MonoBehaviour
                 OpeningWindow.FadeIn(0.3f);
                 OpeningText.UpdateTextMeshProUGUI(openingMent[1]);
                 startEnzoOpening = true;
+                EnzoLand.SetActive(true);
                 HuiLand.SetActive(false);
+                WantLand.SetActive(false);
             }
 
             EnzoOpeningScene();
         }
+        else if (GameManager.instance.IsStoryStateWant())
+        {
+            if (!startWantOpening)
+            {
+                OpeningWindow.gameObject.SetActive(true);
+                Bgm.clip = WantBgm;
+                Bgm.Play();
+                RenderSettings.skybox = WantSkyBox;
+                GameManager.instance.SetGameStateToStory();
+                OpeningWindow.FadeIn(0.3f);
+                OpeningText.UpdateTextMeshProUGUI(openingMent[2]);
+                startWantOpening = true;
+                WantLand.SetActive(true);
+                EnzoLand.SetActive(false);
+                HuiLand.SetActive(false);
+            }
+            WantOpeningScene();
+        }
+        
     }
 
     void HuiOpeningScene()
@@ -103,6 +137,24 @@ public class StoryManager : MonoBehaviour
             EndEnzoOpening = true;
             dialogueManager.zeroTalk = true;
             dialogueManager.Action(Zero);
+            OpeningWindow.gameObject.SetActive(false);
+            //GameManager.instance.SetUserStateToHear();
+            //GameManager.instance.SetGameStateToStory();
+            //GameManager.instance.SetStoryStateToEnjoy();
+        }
+    }
+    void WantOpeningScene()
+    {
+        if (OpeningWindow.GetAlphaValue() >= 1.0f)
+        {
+            StartCoroutine(HoldAlpha());
+        }
+        if (OpeningWindow.GetAlphaValue() <= 0.0f && !EndWantOpening)
+        {
+
+            EndWantOpening = true;
+            //dialogueManager.zeroTalk = true;
+            //dialogueManager.Action(Zero);
             OpeningWindow.gameObject.SetActive(false);
             //GameManager.instance.SetUserStateToHear();
             //GameManager.instance.SetGameStateToStory();
