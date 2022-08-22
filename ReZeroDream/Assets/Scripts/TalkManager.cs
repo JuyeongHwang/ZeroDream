@@ -66,15 +66,46 @@ public class TalkManager : MonoBehaviour
         talkData.Add(60 + 13000, new string[] { "평범한 자동차이다.:1" });
         talkData.Add(60 + 14000, new string[] { "뭐지? 이 차는 뭔가 익숙해.:1", "그러고보니 예전에 가족들과 함께 이 차를 타고 놀이공원에 갔었지.:1", "그때 정말 즐거웠었는데...:1" }); //이름 일단 제로로 (제로가 말한 것처럼 나와야 하니까)
 
-        talkData.Add(70 + 3000, new string[] { "햄버거집을 보니 배가 고프네... 한 번 들어가볼까?:1" }); //햄버거집 발견 > questId == 70, zeroTalk = true
+        talkData.Add(70 + 3000, new string[] { "햄버거집을 보니 배가 고프네... 한 번 들어가볼까?:1" }); 
         talkData.Add(71 + 3000, new string[] { "우와, 여기는 사람이 많잖아! :1", "사람들이 먹고 있는 음식이 맛있어 보여.:1", "아, 배고파... 직원에게 가서 햄버거를 주문해보자.:1" });
         talkData.Add(72 + 4000, new string[] { "미안하지만 더이상 햄버거는 팔 수 없어.\n이미 재료가 다 떨어졌거든.:3", "뭐, 정 배고프다면 주변에서 직접 찾아봐.:3", "만약 햄버거를 얻어오면 자리와 음료 정도는 제공해 줄게.:3" });
-        //뭔가... 햄버거 = 즐거움이니까 제로가 학교폭력 때문에 더이상 즐겁지 않다는 얘기로 해석할 수도 있을 것 같아서 대사를 이런 식으로 적어보았습니닷
+        
         talkData.Add(73 + 15000, new string[] { "엔조가 말했던 햄버거가 설마 이건가?:1", "이 햄버거는 너무 커서 가게로 가져갈 수 없을 것 같은데...\n다시 엔조에게 가서 물어보자.:1" });
         talkData.Add(74 + 4000, new string[] { "뭐? 그 햄버거를 먹어도 되냐고?:3", "아니, 햄버거를 찾아오라는 건 농담이었어. :3", "자리에 앉아있으면 햄버거를 가져다줄게.:3" });
         //끝나면 시네마틱 재생
-        talkData.Add(80 + 1000, new string[] { " " });
-        talkData.Add(90 + 1000, new string[] { " " });
+        talkData.Add(75 + 3000, new string[] { "맞아... 방과후에 항상 친구들과 축구를 한 후 햄버거집을 가곤 했었어.:1", "정말 즐거웠지만, 이젠 그때로 다시 돌아갈 수 없겠지...:1" });
+
+        //이 대사 끝나면... 또 주변 지형이 바뀌는 건가? want로?
+        //questId = 80 대사 & 퀘스트 내용수정 필요!!
+        talkData.Add(80 + 3000, new string[] { "여긴 또 어딜까... 여전히 시간이 멈춰있어.:1", "사람들이... 어쩌고저쩌고 군중들에 대한 설명.:1", "아까 그 도화지가 또 있다는 설명.:1" });
+        talkData.Add(81 + 3000, new string[] { "도화지를 얻었다는 설명:1 ", "등굣길 같다. 마찬가지로 걸어보면 도화지에 대한 단서를 얻고 기억을 찾을 수 있겠지 어쩌고저쩌고:1" });
+        //(가족 찾았으면 욕망, 사랑, 슬픔 다 있고 못 찾았으면 욕망이랑 슬픔만 
+
+        //순서대로 진행해야 해서 퀘스트 표시? 이미지 일단 차례대로 넣어놓긴 했는데 불필요한 것 같아서 비활성화했습니당
+        //questId = 90 퀘스트 내용 수정 필요
+        talkData.Add(90 + 16000, new string[] { "등교하는 학생들인 건가?:1", "시간이 멈춰있지만 사이가 좋아보이네.:1", "왠지 모르겠지만 앞으로도 저 아이들이 잘 지냈으면 좋겠어.:1" });
+        talkData.Add(91 + 17000, new string[] { "우와, 축구를 하고 있잖아? 재밌겠다!:1", "시간이 다시 흐르면 나도 함께할 수 있냐고 물어봐야지!:1" });
+        talkData.Add(92 + 18000, new string[] { "이 사람들은 등굣길에서 생일파티를 하고 있네:1", "뭔가 이상한 것 같지만... 분명한 건 즐거워 보여.:1", "올해 내 생일파티는 어떤 모습이었더라...?:1" });
+        talkData.Add(93 + 19000, new string[] { "아까 그 애잖아. 왜 혼자있는 걸까?:1", "뒷모습이 슬퍼보여.\n왠지 나까지 외로워지는 기분이야:1" });
+        talkData.Add(94 + 20000, new string[] { "이번에도 혼자네...:1", "함께 축구를 하던 친구들은 어디로 간 걸까?:1", "그런데 저 모습이 왜이렇게 익숙하지?" });
+        talkData.Add(95 + 21000, new string[] { "맞아... 올해의 내 생일파티는 이랬었지.:1", "아무도 오지 않았고, 초대할 친구조차 없었어:1", "울고 있는 저 소년도, 친구들과 놀며 즐거워하던 소년도 모두 '나'구나.:1", "어느날 갑자기 아무 이유 없이 점점 소외당하고 무시당하던 '나'...:1", "이제 다 기억났어." });
+
+        // 뭔가 이러고.... 메모장들이 쫙 나타나거나 하면 좋을듯... 시네마틱으로?
+        //그리고 zeroTalk = true, 제로혼잣말 나와야함
+
+        //questId = 100 퀘스트 내용 수정 필요
+        talkData.Add(100 + 3000, new string[] { "나는 수면제를 먹고 잠들었었지.:1", "그렇다면 이곳은 내 꿈속 세상인 걸까?:1", "차라리 이대로 깨어나고 싶지 않아.\n어차피 날 좋아하는 사람은 아무도 없는 걸.:1" });
+        // 배드 엔딩인 경우 여기서 바로 배드엔딩으로
+        
+        // 노멀 or 해피면 가족들과 대화 가능하게 계속 진행/ 가족들 대사 내용 수정해야 함. 현재 npc랑 ObjData도 없음.
+        talkData.Add(101 + 5000, new string[] { "제로야 엄마다.:0" });
+        talkData.Add(102 + 6000, new string[] { "제로야 아빠다.:0" });
+        talkData.Add(103 + 7000, new string[] { "제로야 누나다.:0" });
+        
+        // 노멀 or 해피 엔딩으로 어떻게 잘...
+
+
+
 
         //portraitArr 0: none/ 1: zero/ 2: happy/ 3:enzo
         portraitData.Add(1000 + 2, portraitArr[2]); //해피
@@ -83,6 +114,9 @@ public class TalkManager : MonoBehaviour
         portraitData.Add(2000 + 0, portraitArr[0]); //고양이 > none
         portraitData.Add(2000 + 1, portraitArr[1]); //고양이 > zero
         portraitData.Add(4000 + 3, portraitArr[3]); //엔조 
+        portraitData.Add(5000 + 0, portraitArr[0]); //제로엄마 
+        portraitData.Add(6000 + 0, portraitArr[0]); //아빠 
+        portraitData.Add(7000 + 0, portraitArr[0]); //누나 
 
         portraitData.Add(10000 + 1, portraitArr[1]); //이름모를꽃 > zero
         portraitData.Add(11000 + 1, portraitArr[1]); //향기로운꽃 > zero
@@ -90,8 +124,14 @@ public class TalkManager : MonoBehaviour
         portraitData.Add(12000 + 1, portraitArr[1]); //경찰차 > zero
         portraitData.Add(13000 + 1, portraitArr[1]); //자동차 > zero
         portraitData.Add(14000 + 1, portraitArr[1]); //맞는차 > zero
-        portraitData.Add(15000 + 1, portraitArr[1]); //햄버거집 > zero
-        portraitData.Add(16000 + 1, portraitArr[1]); //햄버거 > zero
+        portraitData.Add(15000 + 1, portraitArr[1]); //햄버거 > zero
+
+        portraitData.Add(16000 + 1, portraitArr[1]); 
+        portraitData.Add(17000 + 1, portraitArr[1]);
+        portraitData.Add(18000 + 1, portraitArr[1]); 
+        portraitData.Add(19000 + 1, portraitArr[1]);
+        portraitData.Add(20000 + 1, portraitArr[1]);
+        portraitData.Add(21000 + 1, portraitArr[1]);
 
 
     }

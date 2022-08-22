@@ -28,6 +28,7 @@ public class QuestManager : MonoBehaviour
     public GameObject catQuestImg;
     public GameObject flowerQuestImg;
     public GameObject[] carQuestImg;
+    //public GameObject[] wantQuestImg;
 
     private void Start()
     {
@@ -83,8 +84,39 @@ public class QuestManager : MonoBehaviour
             for (int i = 0; i < 5; i++)
                 carQuestImg[i].SetActive(false);
         }
+        //else if (questId == 90)
+        //{
+        //    if (questAcitonIndex == 0)
+        //    {
+        //        wantQuestImg[0].SetActive(true);
+        //    }
+        //    if (questAcitonIndex == 1)
+        //    {
+        //        wantQuestImg[0].SetActive(false);
+        //        wantQuestImg[1].SetActive(true);
+        //    }
+        //    if (questAcitonIndex == 2)
+        //    {
+        //        wantQuestImg[1].SetActive(false);
+        //        wantQuestImg[2].SetActive(true);
+        //    }
+        //    if (questAcitonIndex == 3)
+        //    {
+        //        wantQuestImg[2].SetActive(false);
+        //        wantQuestImg[3].SetActive(true);
+        //    }
+        //    if (questAcitonIndex == 4)
+        //    {
+        //        wantQuestImg[3].SetActive(false);
+        //        wantQuestImg[4].SetActive(true);
+        //    }
+        //    if (questAcitonIndex == 5)
+        //    {
+        //        wantQuestImg[4].SetActive(false);
+        //        wantQuestImg[5].SetActive(true);
+        //    }
+        //}
     }
-
 
     void GenerateQuestData()
     {   //이 부분 세부 목록 내용 수정 필요
@@ -119,18 +151,22 @@ public class QuestManager : MonoBehaviour
 
         //햄버거집 발견하면 questId == 70, zeroTalk = true
         //(자동차와 대화하지 않고 햄버거집 앞으로 일정 거리 내에 오는 경우도 마찬가지. 대신 그러면 메모장에서 자동차 그림이 사라지거나 X표시 되어도 좋을듯)
-        questList.Add(70, new QuestData("메모장 채우기", new int[] { 3000, 3000, 4000, 15000, 4000 },
+        questList.Add(70, new QuestData("도화지 채우기", new int[] { 3000, 3000, 4000, 15000, 4000, 3000 },
             new string[] { "햄버거집을 들어가 메모장의 햄버거 그림에 대한 단서를 얻고, 배고픔을 채워보자.", "직원에게 대화를 걸어 주문을 해보자.", "엔조가 말하는 '그 햄버거'란 무엇일까? 가게 곳곳을 살펴보며 다른 사람이 먹고 있지 않은 햄버거가 있는지 찾아보자.",
-            "햄버거를 얻었다. 가게로 돌아가 엔조에게 대화를 걸어보자.", " " },
-            new string[] { "햄버거집 들어가기", "직원과 대화하기", "주변을 둘러보며 햄버거 찾기", "엔조와 대화하기", " " },
+            "햄버거를 얻었다. 가게로 돌아가 엔조에게 대화를 걸어보자.", " ", "" },
+            new string[] { "햄버거집 들어가기", "직원과 대화하기", "주변을 둘러보며 햄버거 찾기", "엔조와 대화하기", " ", "" },
             //그리고 가게 내부의 다른 npc랑도 대화 추가해도 좋을 것 같아요!
-            new string[] { " ", " ", "햄버거", "온전해진 도화지의 두번째 페이지", " " }));
+            new string[] { " ", " ", "햄버거", "온전해진 도화지의 두번째 페이지", " ", "" }));
 
-        questList.Add(80, new QuestData("퀘스트 끝", new int[] { -10000 },
-           new string[] { "오류 때문에 넣음." }, new string[] { " " }, new string[] { " " }));
+        questList.Add(80, new QuestData("원트 시작", new int[] { 3000, 3000 },
+        new string[] { "원트지역.", " " }, new string[] { " ", " " }, new string[] { " ", " " }));
 
-        questList.Add(90, new QuestData("원트 시작", new int[] { -10000 },
-        new string[] { "원트지역." }, new string[] { " " }, new string[] { " " }));
+        questList.Add(90, new QuestData("등굣길 걷기", new int[] {16000, 17000, 18000, 19000, 20000, 21000 },
+        new string[] { "원트지역.", " ", " ", " ", " ", " " }, new string[] { " ", " ", " ", " ", " ", " " }, new string[] { " ", " ", " ", " ", " ", " " }));
+
+        questList.Add(100, new QuestData("가족들과의 대화, 사랑", new int[] { 5000, 6000, 7000 },
+        new string[] { " "," "," " }, new string[] { " "," "," " }, new string[] { " "," "," " }));
+
     }
 
     public int GetQuestTalkIndex(int id) //npc id받고 퀘스트번호(퀘스트토크인덱스) 반환하는 함수
