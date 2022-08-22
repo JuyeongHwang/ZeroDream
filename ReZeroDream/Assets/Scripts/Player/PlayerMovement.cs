@@ -58,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
+        if (GameManager.instance.IsStoryStateWant())
+        {
+
+        }
+
         Move();
         Rotate();
         SoundEffect();
@@ -77,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-
+        if (GameManager.instance.IsStoryStateWant()) return;
         Jump();
         playerAnimator.SetBool("isJump", moveState == MoveState.JUMPSTART);
     }

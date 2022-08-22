@@ -39,8 +39,8 @@ public class QuestImplementation : MonoBehaviour
     public RawImage videoRaw;
     public VideoPlayer video;
     public VideoClip Burger;
-    
 
+    public Transform wantNpc;
 
     // Èñ
     bool findHui = false;
@@ -293,6 +293,16 @@ public class QuestImplementation : MonoBehaviour
                     questManager.questId = 90;
                     questManager.questAcitonIndex = 0;
                     videoEnd = true;
+                }
+            }
+        }
+        else if (GameManager.instance.IsStoryStateWant())
+        {
+            if (GameManager.instance.IsGameStatePlay())
+            {
+                for (int i = 0; i < wantNpc.childCount; i++)
+                {
+                    wantNpc.GetChild(i).transform.position += Vector3.left * 0.1f * Time.deltaTime;
                 }
             }
         }

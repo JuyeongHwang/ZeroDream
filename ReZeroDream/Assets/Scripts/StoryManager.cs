@@ -56,7 +56,7 @@ public class StoryManager : MonoBehaviour
                 Bgm.clip = HuiBgm;
                 Bgm.Play();
                 RenderSettings.skybox = HuiSkyBox;
-
+                RenderSettings.fog = false;
                 Camera.main.transform.position = Zero.transform.forward * -30 + Zero.transform.up * 40 + Zero.transform.right * -7;
                 camMovement.SetCameraSetting(Zero.transform, 0.15f, Zero.transform.forward * -5 + Zero.transform.up * 3 + Zero.transform.right * 2);
                 GameManager.instance.SetGameStateToStory();
@@ -73,6 +73,7 @@ public class StoryManager : MonoBehaviour
         {
             if (!startEnzoOpening)
             {
+                RenderSettings.fog = false;
                 OpeningWindow.gameObject.SetActive(true);
                 Bgm.clip = EnzoBgm;
                 Bgm.Play();
@@ -92,6 +93,8 @@ public class StoryManager : MonoBehaviour
         {
             if (!startWantOpening)
             {
+                RenderSettings.fog = true;
+                Camera.main.orthographic = false;
                 OpeningWindow.gameObject.SetActive(true);
                 Bgm.clip = WantBgm;
                 Bgm.Play();
@@ -163,7 +166,7 @@ public class StoryManager : MonoBehaviour
             //dialogueManager.Action(Zero);
             OpeningWindow.gameObject.SetActive(false);
             //GameManager.instance.SetUserStateToHear();
-            //GameManager.instance.SetGameStateToStory();
+            GameManager.instance.SetGameStateToPlay();
             //GameManager.instance.SetStoryStateToEnjoy();
         }
     }
