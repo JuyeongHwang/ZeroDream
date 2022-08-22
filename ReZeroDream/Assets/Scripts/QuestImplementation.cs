@@ -111,33 +111,38 @@ public class QuestImplementation : MonoBehaviour
                     print("벽 걷기 활성화 & 설명");
                 }
             }
-            if (questManager.questId == 30 && questManager.questAcitonIndex == 2)
+            if (questManager.questId == 30 && questManager.questAcitonIndex == 0 && dialogueManager.talkIndex == 2)
             {
                 UIManager.instance.UpdateHuiFlowerText();
-
+            }
+            if (questManager.questId == 30 && questManager.questAcitonIndex == 2)
+            {
                 if (!getBackFlowerColor) FlowerColorChange();
-                if (!getBackFlowerColor) FlowerColorChange();
 
-                print("focus flower");
+                //print("focus flower");
 
-                if (dialogueManager.talkIndex == 0 || dialogueManager.talkIndex == 1)
+                if (dialogueManager.talkIndex == 0)
                 {
                     UIManager.instance.dialogueObjectNameText.UpdateTextMeshProUGUI("제로");
-                    //요거왜안되지
+                }
+                else if (dialogueManager.talkIndex == 1)
+                {
+                    UIManager.instance.dialogueObjectNameText.UpdateTextMeshProUGUI("제로");
                 }
                 else if (dialogueManager.talkIndex == 2)
                 {
                     ObjData objData = Hui.GetComponent<ObjData>();
                     objData._name = "희";
-                }        
+                }
             }
+            if (questManager.questId == 30 && questManager.questAcitonIndex == 3)
+            {
+                if (!getBackAllColor) AllColorChange();
+                //dialogueManager.zeroTalk = true;
+                //dialogueManager.Action(Zero);
+            }
+            
 
-            //if (questManager.questId == 30 && questManager.questAcitonIndex ==2 && dialogueManager.talkIndex ==1)
-            //{
-            //    print("해피와의 대화가 끝나면 색 돌아오고, 다 돌아왔을때 무너지기 희 : 행운을 빌게 ");
-            //    //if ((Zero.GetComponent<PlayerInput>().scanObject == Hui))
-            //    //    if (!getBackAllColor) AllColorChange();
-            //}
             if (questManager.questId == 40)
             {
                 EndHuiStory();
@@ -359,7 +364,7 @@ public class QuestImplementation : MonoBehaviour
         {
             FindObjectOfType<StoryManager>().EnzoLand.SetActive(true);
         }
-        cameraMovement.cameraOffset = new Vector3(10, 10, 10);
+        cameraMovement.cameraOffset = new Vector3(-20, 10, 10);
 
         print("희 끝");
 

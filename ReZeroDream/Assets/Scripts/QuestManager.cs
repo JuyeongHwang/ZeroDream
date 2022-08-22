@@ -63,6 +63,14 @@ public class QuestManager : MonoBehaviour
         else if (questId == 30 && questAcitonIndex == 2)
         {
             flowerQuestImg.SetActive(false);
+        }
+        else if (questId == 30 && questAcitonIndex == 3)
+        {
+            huiQuestImg.SetActive(false);
+        }
+        else if (questId == 30 && questAcitonIndex == 3)
+        {
+            huiQuestImg.SetActive(true);
             huiQuestSprite.sprite = questImgArr[2];
         }
         else if (questId == 60 && questAcitonIndex == 0)
