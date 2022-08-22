@@ -82,7 +82,6 @@ public class StoryManager : MonoBehaviour
         if (OpeningWindow.GetAlphaValue() <= 0.0f && !EndHuiOpening)
         {
             UIManager.instance.ShowAllCanvas();
-            print("üũ2..");
             //UIManager.instance.HideQuestWindow();
             camMovement.SetCameraSetting(Zero.transform, 3f, new Vector3(0, 5, -7));
             EndHuiOpening = true;

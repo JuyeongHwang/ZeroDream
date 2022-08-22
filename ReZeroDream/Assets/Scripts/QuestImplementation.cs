@@ -23,10 +23,13 @@ public class QuestImplementation : MonoBehaviour
     private GameObject Zero;
     public Transform Hui;
     public Transform Cat;
-    public Transform[] Monsters;
     public Material[] flowerMats;
     public Material[] HuiMats;
     public ControlLand[] ControlLands;
+
+    public GameObject[] MonsterTraps;
+    public Transform[] Monsters;
+    public Transform Store;
     public Transform EnzoPos;
     public GameObject BurgerBarrier;
     // Èñ
@@ -44,6 +47,8 @@ public class QuestImplementation : MonoBehaviour
     // ¿£Á¶
     bool findMonsters = false;
     bool catchMonster = false;
+    bool throwObj = false;
+    bool pushTrap = false;
     bool spawnEnzoMemory = false;
     bool getEnzoMemory = false;
     bool findFamilyCar = false;
@@ -66,6 +71,14 @@ public class QuestImplementation : MonoBehaviour
         for (int i = 0; i < flowerMats.Length; i++)
         {
             flowerMats[i].SetFloat("_blend", 0);
+        }
+        for (int i = 0; i < Monsters.Length; i++)
+        {
+            Monsters[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i < MonsterTraps.Length; i++)
+        {
+            MonsterTraps[i].SetActive(false);
         }
         Zero = FindObjectOfType<PlayerInput>().gameObject;
     }
@@ -160,25 +173,53 @@ public class QuestImplementation : MonoBehaviour
             getEnzoMemory = GameManager.instance.belongEmotions[1];
             if (getEnzoMemory && GameManager.instance.spawnMemories[1].activeSelf)
             {
-                questManager.questId = 60;
+                questManager.questId = 40;
+                questManager.questAcitonIndex = 2;
                 dialogueManager.zeroTalk = true;
                 dialogueManager.Action(Zero);
+                BurgerBarrier.SetActive(false);
+
+                for (int i = 0; i < MonsterTraps.Length; i++)
+                {
+                    MonsterTraps[i].SetActive(true);
+                }
+                for (int i = 0; i < Monsters.Length; i++)
+                {
+                    Monsters[i].gameObject.SetActive(true);
+                }
+
                 GameManager.instance.spawnMemories[1].SetActive(false);
                 UIManager.instance.OnOffEnzoNote(true);
             }
 
             checkInCameraMonster();
 
-            //find a Store
 
-            //enter the store
-            if(Camera.main.orthographic && !enterStore)
+
+            //first find store
+            if( !findStore && findMonsters && pushTrap && throwObj)
             {
+                questManager.questId = 70;
+                questManager.questAcitonIndex = 0;
+
+                float distance = (Store.position - Zero.transform.position).magnitude;
+                if(distance < 20.0f)
+                {
+                    findStore = true;
+                    dialogueManager.zeroTalk = true;
+                    dialogueManager.Action(Zero);
+                }
+
+            }
+            //enter the store
+            if (Camera.main.orthographic && !enterStore)
+            {
+                questManager.questAcitonIndex = 1;
                 dialogueManager.zeroTalk = true;
                 dialogueManager.Action(Zero);
                 enterStore = true;
             }
-            //talk to the enzo
+
 
         }
     }
@@ -409,9 +450,8 @@ public class QuestImplementation : MonoBehaviour
             float distance = (Zero.transform.position - Monsters[i].transform.position).magnitude;
             if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
             {
-                if (distance <= 20.0f)
+                if (distance <= 30.0f)
                 {
-
                     findMonsters = true;
 
                     cameraMovement.SetCameraSetting(Monsters[i], 0.1f, new Vector3(10, 3, -10));
