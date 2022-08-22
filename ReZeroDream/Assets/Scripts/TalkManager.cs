@@ -61,7 +61,6 @@ public class TalkManager : MonoBehaviour
         talkData.Add(40 + 3000, new string[] { "분위기가 달라졌어.:1", "여기는 도시가 멈춰있는 것 같아.:1", "떨어지면서 저 건물 옥상에서 무언가를 본것같아.:1" , "확인해볼까?:1" });
         talkData.Add(42 + 3000, new string[] { "아까 얻었던 도화지잖아?:1", "그렇지만 내용이 달라. 즐거웠던 기억이라...:1", "햄버거와 자동차라니, 무슨 의미일까?.:1", "다시 내려가 주변을 둘러보며 단서를 얻어보자.:1" });
         talkData.Add(50 + 3000, new string[] { "저건 뭐지?:1", "이상한 생명체가 돌아다니고 있어.\n분명 아까는 없었는데...:1", "무언가를 지키고 있는 것 같아.\n하지만 왠지 날 공격할 것 같지는 않아..:1", "그런데 주변의 저 발판들은 뭐지? 한번 밟아볼까?:1", "발판마다 조금씩 다른 것 같으니 하나씩 밟으며 확인해보자.:1" });
-        talkData.Add(51 + 3000, new string[] { "공중에 저건 뭐지?:1", "주워서 던져보자.:1" });
 
         talkData.Add(60 + 12000, new string[] { "경찰차다. 그러나 사람은 없는 것 같다.:1" });
         talkData.Add(60 + 13000, new string[] { "평범한 자동차이다.:1" });
@@ -75,7 +74,7 @@ public class TalkManager : MonoBehaviour
         talkData.Add(74 + 4000, new string[] { "그래, 그게 내가 말했던 햄버거가 맞아. 잘 찾아왔네.:3", "저 자리에 앉아서 먼저 먹고 있어.:3" });
        //끝나면 시네마틱 재생
         talkData.Add(80 + 1000, new string[] { " " });
-
+        talkData.Add(90 + 1000, new string[] { " " });
 
         //portraitArr 0: none/ 1: zero/ 2: happy/ 3:enzo
         portraitData.Add(1000 + 2, portraitArr[2]); //해피

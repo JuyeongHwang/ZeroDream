@@ -11,11 +11,12 @@ public class DeveloperSetting : MonoBehaviour
     public GameObject[] wants;
     public Transform[] startPosition;
 
-
+    QuestManager quest;
+    Transform player;
     private void Start()
     {
-        Transform player = FindObjectOfType<PlayerInput>().transform;
-        QuestManager quest = FindObjectOfType<QuestManager>();
+        player = FindObjectOfType<PlayerInput>().transform;
+        quest = FindObjectOfType<QuestManager>();
         if (state == StoryState.HUI)
         {
             quest.questId = 10;
@@ -46,6 +47,16 @@ public class DeveloperSetting : MonoBehaviour
 
             player.position = startPosition[2].position;
 
+        }
+    }
+
+   
+    private void Update()
+    {
+        if(quest.questId ==90 && quest.questAcitonIndex == 0 && !GameManager.instance.IsStoryStateWant())
+        {
+            GameManager.instance.SetStoryStateToWant();
+            player.position = startPosition[2].position;
         }
     }
 }

@@ -6,6 +6,7 @@ public class StoryManager : MonoBehaviour
 {
     private GameObject Zero;
 
+    private QuestManager questManager;
     private DialogueManager dialogueManager;
     private CameraMovement camMovement;
 
@@ -31,6 +32,7 @@ public class StoryManager : MonoBehaviour
         OpeningWindow.gameObject.SetActive(false);
         Zero = FindObjectOfType<PlayerInput>().gameObject;
         dialogueManager = FindObjectOfType<DialogueManager>();
+        questManager = FindObjectOfType<QuestManager>();
         camMovement = FindObjectOfType<CameraMovement>();
     }
 
@@ -104,7 +106,11 @@ public class StoryManager : MonoBehaviour
             }
             WantOpeningScene();
         }
-        
+
+        if (questManager.questId == 80 && questManager.questAcitonIndex == 0)
+        {
+            Bgm.Stop();
+        }
     }
 
     void HuiOpeningScene()

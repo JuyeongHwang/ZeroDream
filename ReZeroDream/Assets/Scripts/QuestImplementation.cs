@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
+using UnityEngine.UI;
 
 public class QuestImplementation : MonoBehaviour
 {
@@ -29,23 +31,33 @@ public class QuestImplementation : MonoBehaviour
 
     public GameObject[] MonsterTraps;
     public Transform[] Monsters;
+    public GameObject[] Booms;
     public Transform Store;
     public Transform EnzoPos;
     public GameObject BurgerBarrier;
+
+    public RawImage videoRaw;
+    public VideoPlayer video;
+    public VideoClip Burger;
+    
+
+
     // 희
     bool findHui = false;
     bool spawnHuiMemory = false;
     bool findHuiMemory = false;
     bool getHuiMemory = false;
+    bool zeroHuiTalk = false;
     bool getBackCatColor = false;
     bool bfocusCat = false;
     bool nameCatName = false;
     bool findFlower = false;
     bool bfocusFlower = false;
     bool getBackFlowerColor = false;
-    [SerializeField] bool getBackAllColor = false;
+    bool getBackAllColor = false;
     // 엔조
     bool findMonsters = false;
+    bool zeroEnzoTalk = false;
     bool catchMonster = false;
     bool throwObj = false;
     bool pushTrap = false;
@@ -55,9 +67,11 @@ public class QuestImplementation : MonoBehaviour
     bool eatBurger = false;
     bool findStore = false;
     bool enterStore = false;
-
+    
+    
     private void Start()
     {
+        videoRaw.gameObject.SetActive(false);
         dialogueManager = FindObjectOfType<DialogueManager>();
         questManager = FindObjectOfType<QuestManager>();
         playerState = FindObjectOfType<PlayerState>();
@@ -80,9 +94,16 @@ public class QuestImplementation : MonoBehaviour
         {
             MonsterTraps[i].SetActive(false);
         }
+        for (int i = 0; i < Booms.Length; i++)
+        {
+            Booms[i].SetActive(false);
+        }
         Zero = FindObjectOfType<PlayerInput>().gameObject;
     }
 
+    [SerializeField] float PlayTime = 0;
+    [SerializeField] bool videoStart = false;
+    [SerializeField] bool videoEnd = false;
     void Update()
     {
 
@@ -106,10 +127,20 @@ public class QuestImplementation : MonoBehaviour
             getHuiMemory = GameManager.instance.belongEmotions[0];
             if (getHuiMemory && GameManager.instance.spawnMemories[0].activeSelf)
             {
-                dialogueManager.zeroTalk = true;
-                dialogueManager.Action(Zero);
+                UIManager.instance.ShowAndHideCautionWindow(true);
+                UIManager.instance.UpdateCautionText("도화지를 획득하였습니다.\n도화지의 그림을 통해 제로가 잃어버린 기억을 되찾아주세요.");
+
                 GameManager.instance.spawnMemories[0].SetActive(false);
                 UIManager.instance.OnOffHuiNote(true);
+            }
+            if(getHuiMemory && !UIManager.instance.activateCaution)
+            {
+                if (!zeroHuiTalk)
+                {
+                    zeroHuiTalk = true;
+                    dialogueManager.zeroTalk = true;
+                    dialogueManager.Action(Zero);
+                }
             }
             if (questManager.questId == 20 && questManager.questAcitonIndex == 3)
             {
@@ -192,18 +223,38 @@ public class QuestImplementation : MonoBehaviour
                 UIManager.instance.OnOffEnzoNote(true);
             }
 
-            checkInCameraMonster();
+            //몬스터 발견 -> 제로 혼잣말 -> 주의사항 온
+
+            if (getEnzoMemory)
+            {
+                checkInCameraMonster();
+            }
+            if(questManager.questId == 60 && questManager.questAcitonIndex == 0)
+            {
+                print("몬스터 주의사항 안뜨면 여기 보기");
+                if (findMonsters && !zeroEnzoTalk)
+                {
+                    zeroEnzoTalk = true;
+                    UIManager.instance.ShowAndHideCautionWindow(true);
+                    UIManager.instance.UpdateCautionText("주민이 지나다니는 길에 있는 발판은\n 이 지역을 움직이게 할 수 있습니다.\n 도시를 움직여 원하는 목표를 달성하세요.");
+
+                    for(int i = 0; i<Booms.Length; i++)
+                    {
+                        Booms[i].SetActive(true);
+                    }
+                }
+            }
+
 
             //first find store
-            if( !findStore && findMonsters && pushTrap && throwObj)
+            if ( !findStore && findMonsters)
             {
-                questManager.questId = 70;
-                questManager.questAcitonIndex = 0;
-
                 float distance = (Store.position - Zero.transform.position).magnitude;
-                if(distance < 20.0f)
+                if(distance < 3.0f)
                 {
                     findStore = true;
+                    questManager.questId = 70;
+                    questManager.questAcitonIndex = 0;
                     dialogueManager.zeroTalk = true;
                     dialogueManager.Action(Zero);
                 }
@@ -212,13 +263,38 @@ public class QuestImplementation : MonoBehaviour
             //enter the store
             if (Camera.main.orthographic && !enterStore)
             {
+                questManager.questId = 70;
                 questManager.questAcitonIndex = 1;
                 dialogueManager.zeroTalk = true;
                 dialogueManager.Action(Zero);
                 enterStore = true;
             }
 
-
+            if (questManager.questId == 80 && questManager.questAcitonIndex == 0)
+            {
+                if (!videoStart)
+                {
+                    GameManager.instance.SetGameStateToStory();
+                    videoStart = true;
+                    videoRaw.gameObject.SetActive(true);
+                    video.clip = Burger;
+                    video.Play();
+                }
+            }
+            if (videoStart && !videoEnd)
+            {
+                PlayTime += Time.deltaTime;
+                if ( PlayTime >= 20 )
+                {
+                    GameManager.instance.SetGameStateToPlay();
+                    videoRaw.gameObject.SetActive(false);
+                    video.Stop();
+                    PlayTime = 0;
+                    questManager.questId = 90;
+                    questManager.questAcitonIndex = 0;
+                    videoEnd = true;
+                }
+            }
         }
     }
 
@@ -382,6 +458,7 @@ public class QuestImplementation : MonoBehaviour
     {
         if (val > 1.0f)
         {
+            UIManager.instance.ShowAllCanvas();
             cameraMovement.SetCameraSetting(Zero.transform, 3.0f, new Vector3(0, 5, -7));
             GameManager.instance.SetCamStateToFollow();
             GameManager.instance.SetGameStateToPlay();
@@ -389,8 +466,10 @@ public class QuestImplementation : MonoBehaviour
             dialogueManager.Action(Zero);
             getBackAllColor = true;
         }
+        UIManager.instance.HideAllCanvas(2.0f);
         val += Time.deltaTime * 0.2f;
         GameManager.instance.SetCamStateToFocus();
+
         cameraMovement.cameraOffset = new Vector3(0, 20, -14);
         cameraMovement.moveSmoothSpeed = 1.0f;
         for (int i = 0; i < HuiMats.Length; i++)

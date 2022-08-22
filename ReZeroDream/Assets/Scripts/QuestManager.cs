@@ -107,10 +107,10 @@ public class QuestManager : MonoBehaviour
             new string[] { "옥상 위 확인하기", "", "주변 둘러보기" },
             new string[] { "", " ", "" }));
 
-        questList.Add(50, new QuestData("멈춰버린 도시에 대해 알아보기(2)", new int[] { 3000,3000 },
-            new string[] { "도화지를 획득하니 존재하지 않았던 이상한 존재와 여러 발판들이 생겨났다. 이 도시와 관련이 있는지 발판을 직접 밟아보며 확인해보자.", "폭탄을 통해 몬스터를 재우고 깨울수 있는 것같다. 확인해보자."},
-            new string[] { "발판 밟아보기", "폭탄을 던져보자" },
-            new string[] { "","" }));
+        questList.Add(50, new QuestData("멈춰버린 도시에 대해 알아보기(2)", new int[] { 3000 },
+            new string[] { "도화지를 획득하니 존재하지 않았던 이상한 존재와 여러 발판들이 생겨났다. 이 도시와 관련이 있는지 발판을 직접 밟아보며 확인해보자."},
+            new string[] { "발판 밟아보기" },
+            new string[] { "" }));
 
         questList.Add(60, new QuestData("메모장 채우기", new int[] { 12000, 13000, 14000 },
             new string[] { "메모장에 알 수 없는 글자들이 있다. 즐거웠던 기억들에는 무엇이 있었을까? 주변을 둘러보며 찾아보자.", "메모장에 알 수 없는 글자들이 있다. 즐거웠던 기억들에는 무엇이 있었을까? 주변을 둘러보며 찾아보자.", "메모장에 알 수 없는 글자들이 있다.즐거웠던 기억들에는 무엇이 있었을까? 주변을 둘러보며 찾아보자." },
@@ -128,6 +128,9 @@ public class QuestManager : MonoBehaviour
 
         questList.Add(80, new QuestData("퀘스트 끝", new int[] { -10000 },
            new string[] { "오류 때문에 넣음." }, new string[] { " " }, new string[] { " " }));
+
+        questList.Add(90, new QuestData("원트 시작", new int[] { -10000 },
+        new string[] { "원트지역." }, new string[] { " " }, new string[] { " " }));
     }
 
     public int GetQuestTalkIndex(int id) //npc id받고 퀘스트번호(퀘스트토크인덱스) 반환하는 함수

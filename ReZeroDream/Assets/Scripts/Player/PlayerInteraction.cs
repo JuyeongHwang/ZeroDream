@@ -162,6 +162,7 @@ public class PlayerInteraction : MonoBehaviour
 
     }
 
+    bool firstThrow = false;
     void Lift()
     {
         liftUI();
@@ -176,7 +177,13 @@ public class PlayerInteraction : MonoBehaviour
             }
             if (throwItem)
             {
-
+                if (!firstThrow)
+                {
+                    firstThrow = true;
+                    Time.timeScale = 0f;
+                    UIManager.instance.ShowAndHideCautionWindow(true);
+                    UIManager.instance.UpdateCautionText("주민을 재울 수 있는 초록색 아이템과 깨울 수 있는 분홍색 아이템이 있습니다.\n아이템을 이용하여 주민을 원하는 트랩에 고정시켜보세요.");
+                }
                 GameManager.instance.SetUserStateToThrowReady();
             }
         }

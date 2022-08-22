@@ -71,14 +71,42 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIView HuiFlowerText;
     [SerializeField] private UIView EnjoyNote;
 
-
+    [Header("Caution")]
+    [SerializeField] private UIView CautionWindow;
+    [SerializeField] private UIView CautionText;
+    [SerializeField] private UIView CautionCloseBtn;
+    [HideInInspector] public bool activateCaution = false;
     private QuestManager questManager;
 
     public void HideAllCanvasNoFade()
     {
         Canvas.Hide();
         SettingButtonsCavas.Hide();
+        CautionWindow.Hide();
+        CautionCloseBtn.Hide();
+    }
 
+    public void ShowAndHideCautionWindow(bool active)
+    {
+        if (active)
+        {
+            GameManager.instance.SetGameStateToSetting();
+            activateCaution = true;
+            CautionWindow.Show();
+            CautionCloseBtn.Show();
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            activateCaution = false;
+            GameManager.instance.SetGameStateToPlay();
+            CautionWindow.Hide();
+            CautionCloseBtn.Hide();
+        }
+    }
+    public void UpdateCautionText(string txt)
+    {
+        CautionText.UpdateTextMeshProUGUI(txt);
     }
 
     public void HideAllCanvas(float speed)

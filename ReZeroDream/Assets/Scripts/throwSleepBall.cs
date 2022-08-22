@@ -8,6 +8,8 @@ public class throwSleepBall : MonoBehaviour
     MeshCollider meshCollider;
     Ray ray;
     Vector3 worldPosition;
+    LineRenderer line;
+    public Material lineMat;
 
     public ParticleSystem explosion;
     public Rigidbody ball;
@@ -17,7 +19,7 @@ public class throwSleepBall : MonoBehaviour
     Vector3 originalPos;
     public float h = 10;
     public float gravity = -18f;
-
+    public bool isBelongToUser = false;
     void Start()
     {
 
@@ -29,17 +31,30 @@ public class throwSleepBall : MonoBehaviour
 
         plane = GameObject.Find("EnjoyPlane");
         meshCollider = plane.GetComponent<MeshCollider>();
+
+        line = GetComponent<LineRenderer>();
+        line.material = new Material(Shader.Find("Diffuse"));
+        line.positionCount = 30;
+        line.startWidth = 0.05f;
+        line.endWidth = 0.05f;
+        line.useWorldSpace = true;
     }
 
     public bool debugPath = false;
     void Update()
     {
-        if (debugPath)
+        if (isBelongToUser)
         {
+            line.enabled = true;
             DrawPath();
+        }
+        else
+        {
+            line.enabled = false;
         }
         if (GameManager.instance.IsUserStateThrowReady())
         {
+            isBelongToUser = true;
             target.gameObject.SetActive(true);
             ScreenToWorld();
             target.position = worldPosition;
@@ -56,6 +71,8 @@ public class throwSleepBall : MonoBehaviour
     }
     public void Launch()
     {
+
+        isBelongToUser = false;
         Physics.gravity = Vector3.up * gravity;
         ball.useGravity = true;
         ball.velocity = CaculateLaunchData().initialVelocity;
@@ -68,16 +85,22 @@ public class throwSleepBall : MonoBehaviour
         GameManager.instance.SetUserStateToMove();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        print(collision.gameObject.name);
-        if(collision.gameObject == plane)
+        if (other.gameObject == target.gameObject)
         {
             ball.gameObject.GetComponent<SphereCollider>().isTrigger = true;
-            //explosion.transform.position = collision.transform.position;
+            Instantiate(explosion, other.transform.position, Quaternion.identity);
             explosion.Play();
             StartCoroutine(reset());
         }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        isBelongToUser = false;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
 
         if(collision.gameObject.name == "NPC_Monster")
         {
@@ -126,6 +149,7 @@ public class throwSleepBall : MonoBehaviour
     {
         LaunchData ld = CaculateLaunchData();
         int resolution = 30;
+
         Vector3 previousDrawPoint = ball.position;
         for (int i= 1; i<=resolution; i++)
         {
@@ -133,7 +157,8 @@ public class throwSleepBall : MonoBehaviour
             Vector3 displacement = ld.initialVelocity * simulationTime + Vector3.up * gravity * simulationTime * simulationTime / 2f;
             Vector3 drawPoint = ball.position + displacement;
             Debug.DrawLine(previousDrawPoint, drawPoint, Color.green);
-
+            line.SetPosition(i-1, drawPoint);
+ 
             previousDrawPoint = drawPoint;
         }
     }
