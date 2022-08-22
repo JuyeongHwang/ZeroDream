@@ -34,14 +34,6 @@ public class FollowCamera : MonoBehaviour
 
     private void Update()
     {
-        //if(target != player)
-        //{
-        //    if (GameManager.instance.IsGameStatePlay() || GameManager.instance.IsGameStateStory())
-        //    {
-        //        ResetCameraSetting();
-        //    }
-        //}
-
 
 
     }
@@ -67,7 +59,7 @@ public class FollowCamera : MonoBehaviour
             }
             else if (GameManager.instance.IsStoryStateEnjoy())
             {
-                cameraOffset = new Vector3(0, 6, -6);
+                cameraOffset = new Vector3(0, 5, -10);
             }
         }
 

@@ -10,7 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     private PlayerInput playerInput;
     private DialogueManager dialogueManager;
     private QuestManager questManager;
-
+    private CameraMovement camMove;
     //enum LiftState { ReadyLift, StartLift, EndLift};
     //LiftState liftState = LiftState.EndLift;
     public Transform throwItemPos;
@@ -23,6 +23,7 @@ public class PlayerInteraction : MonoBehaviour
         dialogueManager = FindObjectOfType<DialogueManager>();
         questManager = FindObjectOfType<QuestManager>();
         playerAnimator = GetComponent<Animator>();
+        camMove = GetComponent<CameraMovement>();
     }
 
 
@@ -72,9 +73,6 @@ public class PlayerInteraction : MonoBehaviour
                     dialogueManager.Action(gameObject); //이 script가 붙어있는 gameObject를 반환. 즉 gameobject == zero
                 }
                 return;
-            }
-
-            else { 
             }
 
             if (!playerInput.scanObject)

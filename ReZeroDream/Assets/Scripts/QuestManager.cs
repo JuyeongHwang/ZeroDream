@@ -109,7 +109,7 @@ public class QuestManager : MonoBehaviour
         //몬스터 발견 > questId == 50
         //두루마리 획득 > questId == 60, 햄버거집 barrier 없어짐
 
-        questList.Add(50, new QuestData("위험한 존재에 대해 알아보기", new int[] { 3000, -10000 }, 
+        questList.Add(50, new QuestData("멈춰버린 도시에 대해 알아보기", new int[] { 3000, -10000 }, 
             new string[] { "희가 말했던 위험한 존재와 조우했다. 위험한 존재가 지키고 있는 두루마리를 가져와 보자.", "희가 말했던 위험한 존재와 조우했다. 위험한 존재가 지키고 있는 두루마리를 가져와 보자." },
             new string[] { "두루마리 획득하기", "두루마리 획득하기" },
             new string[] { "메모장의 새로운 페이지 활성화", "메모장의 새로운 페이지 활성화" }));

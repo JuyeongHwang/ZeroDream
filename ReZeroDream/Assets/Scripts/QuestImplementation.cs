@@ -40,7 +40,7 @@ public class QuestImplementation : MonoBehaviour
     bool findFlower = false;
     bool bfocusFlower = false;
     bool getBackFlowerColor = false;
-    bool getBackAllColor = false;
+    [SerializeField] bool getBackAllColor = false;
     // 엔조
     bool findMonsters = false;
     bool catchMonster = false;
@@ -72,6 +72,7 @@ public class QuestImplementation : MonoBehaviour
 
     void Update()
     {
+
         if (GameManager.instance.IsStoryStateHui())
         {
             checkInCameraHui();
@@ -117,31 +118,36 @@ public class QuestImplementation : MonoBehaviour
             }
             if (questManager.questId == 30 && questManager.questAcitonIndex == 2)
             {
-                if (!getBackFlowerColor) FlowerColorChange();
-
                 //print("focus flower");
 
                 if (dialogueManager.talkIndex == 0)
                 {
-                    UIManager.instance.dialogueObjectNameText.UpdateTextMeshProUGUI("제로");
-                }
-                else if (dialogueManager.talkIndex == 1)
-                {
-                    UIManager.instance.dialogueObjectNameText.UpdateTextMeshProUGUI("제로");
+                    print("0");
+                    ObjData objData = Hui.GetComponent<ObjData>();
+                    if(objData._name != "제로")
+                    {
+
+                        objData._name = "제로";
+                    }
                 }
                 else if (dialogueManager.talkIndex == 2)
                 {
                     ObjData objData = Hui.GetComponent<ObjData>();
-                    objData._name = "희";
+                    if (objData._name != "희")
+                    {
+
+                        objData._name = "희";
+                    }
                 }
+
+                if (!getBackFlowerColor) FlowerColorChange();
+
             }
             if (questManager.questId == 30 && questManager.questAcitonIndex == 3)
             {
                 if (!getBackAllColor) AllColorChange();
-                //dialogueManager.zeroTalk = true;
-                //dialogueManager.Action(Zero);
+                
             }
-            
 
             if (questManager.questId == 40)
             {
@@ -154,16 +160,14 @@ public class QuestImplementation : MonoBehaviour
             getEnzoMemory = GameManager.instance.belongEmotions[1];
             if (getEnzoMemory && GameManager.instance.spawnMemories[1].activeSelf)
             {
-                questManager.questId = 50;
-                //dialogueManager.zeroTalk = true;
-                //dialogueManager.Action(Zero);
+                questManager.questId = 60;
+                dialogueManager.zeroTalk = true;
+                dialogueManager.Action(Zero);
                 GameManager.instance.spawnMemories[1].SetActive(false);
                 UIManager.instance.OnOffEnzoNote(true);
             }
 
             checkInCameraMonster();
-
-
 
             //find a Store
 
@@ -339,9 +343,17 @@ public class QuestImplementation : MonoBehaviour
     {
         if (val > 1.0f)
         {
+            cameraMovement.SetCameraSetting(Zero.transform, 3.0f, new Vector3(0, 5, -7));
+            GameManager.instance.SetCamStateToFollow();
+            GameManager.instance.SetGameStateToPlay();
+            dialogueManager.zeroTalk = true;
+            dialogueManager.Action(Zero);
             getBackAllColor = true;
         }
         val += Time.deltaTime * 0.2f;
+        GameManager.instance.SetCamStateToFocus();
+        cameraMovement.cameraOffset = new Vector3(0, 20, -14);
+        cameraMovement.moveSmoothSpeed = 1.0f;
         for (int i = 0; i < HuiMats.Length; i++)
         {
             HuiMats[i].SetFloat("_blend", val);
@@ -397,11 +409,10 @@ public class QuestImplementation : MonoBehaviour
             float distance = (Zero.transform.position - Monsters[i].transform.position).magnitude;
             if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
             {
-                if (distance <= 10.0f)
+                if (distance <= 20.0f)
                 {
+
                     findMonsters = true;
-
-
 
                     cameraMovement.SetCameraSetting(Monsters[i], 0.1f, new Vector3(10, 3, -10));
 
@@ -422,14 +433,10 @@ public class QuestImplementation : MonoBehaviour
         cameraMovement.SetCameraSetting(Zero.transform, 3.0f, new Vector3(0, 5, -7));
         GameManager.instance.SetCamStateToFollow();
 
-        print("여기 이렇게 해도 되는지 확인 필요.... 대사가 끝까지 안나오고 잘림");
+        questManager.questId = 50;
+        questManager.questAcitonIndex = 0;
         dialogueManager.zeroTalk = true;
         dialogueManager.Action(Zero);
-
-        //print("일단 강제로");
-        //questManager.questId = 60;
-        //questManager.questAcitonIndex = 0;
-        //dialogueManager.talkIndex = 0;
     }
 
 
