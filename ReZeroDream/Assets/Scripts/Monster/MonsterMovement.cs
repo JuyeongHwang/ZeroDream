@@ -65,7 +65,9 @@ public class MonsterMovement : MonoBehaviour
                 myCoroutineIsRunning = true ;
                 monsterState = MonsterState.PATROL;
                 follow = StartCoroutine(FollowPath(waypoints));
+                
                 anim.SetFloat("WalkAttack", 1.0f);
+
                 viewDistance = 10;
                 spotlight.color = originalSpotlightColor;
             }

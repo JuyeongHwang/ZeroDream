@@ -110,7 +110,7 @@ public class throwSleepBall : MonoBehaviour
                 Instantiate(explosion, collision.transform.position, Quaternion.identity);
                 explosion.Play();
                 collision.transform.GetComponent<MonsterMovement>().monsterState = MonsterMovement.MonsterState.CATCHED;
-                collision.transform.GetComponent<Animator>().SetTrigger("Dizzy");
+                collision.transform.GetComponent<Animator>().SetBool("dizzyB", true);
                 StartCoroutine(reset());
             }
             else if (myKind == kind.wakeup)
@@ -118,6 +118,7 @@ public class throwSleepBall : MonoBehaviour
                 collision.transform.GetComponent<MonsterMovement>().monsterState = MonsterMovement.MonsterState.PATROL;
                 Instantiate(explosion, collision.transform.position, Quaternion.identity);
                 explosion.Play();
+                collision.transform.GetComponent<Animator>().SetBool("dizzyB", false);
                 //collision.transform.GetComponent<Animator>().SetTrigger("Dizzy");
                 StartCoroutine(reset());
             }
