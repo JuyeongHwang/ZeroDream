@@ -5,6 +5,7 @@ using UnityEngine;
 public class BuildingMovement : MonoBehaviour
 {
     public bool isRotate = false;
+    public Transform Offset;
     public float buildingRotateDegree = 20.0f;
 
     public bool isMove = false;
@@ -23,9 +24,9 @@ public class BuildingMovement : MonoBehaviour
 
         if (isRotate)
         {
-            transform.Rotate(Vector3.up * Time.deltaTime * buildingRotateDegree);
-            transform.GetChild(0).transform.Rotate(Vector3.up * Time.deltaTime * buildingRotateDegree);
-            transform.GetChild(2).transform.Rotate(Vector3.up * Time.deltaTime * buildingRotateDegree);
+            Offset.Rotate(Vector3.up * Time.deltaTime * buildingRotateDegree);
+            //Offset.GetChild(0).transform.Rotate(Vector3.up * Time.deltaTime * buildingRotateDegree);
+            //Offset.GetChild(2).transform.Rotate(Vector3.up * Time.deltaTime * buildingRotateDegree);
         }
     }
 
@@ -34,13 +35,12 @@ public class BuildingMovement : MonoBehaviour
         //1. check
         if ((transform.position - buildingEndPos.position).magnitude < 1.1f) //¿Ö 1.1f?
         {
-            //StartCoroutine(ReSpawnDelay());
-            //isActive = false;
-            //transform.gameObject.SetActive(false);
-
-            transform.position = buildingStartPos.position;
+            buildingMoveSpeed = -1.0f;
         }
-
+        if((transform.position - buildingStartPos.position).magnitude < 1.1f)
+        {
+            buildingMoveSpeed = 1.0f;
+        }
         //2.move
         transform.position += transform.forward * Time.deltaTime * buildingMoveSpeed;
     }
