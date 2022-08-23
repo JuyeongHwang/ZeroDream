@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIView HuiCatText;
     [SerializeField] private UIView HuiFlowerText;
     [SerializeField] private UIView EnjoyNote;
-
+    [SerializeField] private UIView WantNote;
     [Header("Caution")]
     [SerializeField] private UIView CautionWindow;
     [SerializeField] private UIView CautionText;
@@ -223,7 +223,10 @@ public class UIManager : MonoBehaviour
     {
         EnjoyNote.ShowAndHide(isActive);
     }
-
+    public void OnOffWantNote(bool isActive)
+    {
+        WantNote.ShowAndHide(isActive);
+    }
     public void UpdateHuiCatText(string catName)
     {
         HuiCatText.UpdateTextMeshProUGUI(catName);
@@ -234,10 +237,10 @@ public class UIManager : MonoBehaviour
         HuiFlowerText.UpdateTextMeshProUGUI("�ε鷹");
     }
 
-    public void OnOffEnjoyNote(bool isActive)
-    {
-        EnjoyNote.ShowAndHide(isActive);
-    }
+    //public void OnOffEnjoyNote(bool isActive)
+    //{
+    //    EnjoyNote.ShowAndHide(isActive);
+    //}
 
 
     // *****     [Header("")]     *******

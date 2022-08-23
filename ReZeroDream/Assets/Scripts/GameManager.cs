@@ -31,6 +31,11 @@ public class GameManager : MonoBehaviour
     //public GameObject[] spawnEmotions = new GameObject[3];
     public GameObject[] spawnMemories = new GameObject[3];
 
+
+    public bool findCar = false;
+    public bool findWantMemory = false;
+    public bool findAllFamilies = false;
+
     enum StoryState { HUI, ENJOY, WANT };
     [SerializeField] StoryState storyState = StoryState.HUI;
     enum GameState { STORY, PLAY, SETTING, DIALOGUE};

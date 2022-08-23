@@ -21,6 +21,7 @@ public class QuestImplementation : MonoBehaviour
     //private FollowCamera followCam;
     //private RotateCamera rotateCam;
     private CameraMovement cameraMovement;
+    private crowdMovement crowdMovement;
 
     private GameObject Zero;
     public Transform Hui;
@@ -74,6 +75,8 @@ public class QuestImplementation : MonoBehaviour
 
     //원트
     bool zeroWantTalk = false;
+    bool spawnWantMemory = false;
+    bool getWantMemory = false;
 
     private void Start()
     {
@@ -84,6 +87,7 @@ public class QuestImplementation : MonoBehaviour
         //followCam = FindObjectOfType<FollowCamera>();
         //rotateCam = FindObjectOfType<RotateCamera>();
         cameraMovement = FindObjectOfType<CameraMovement>();
+        crowdMovement = FindObjectOfType<crowdMovement>();
         for (int i = 0; i < HuiMats.Length; i++)
         {
             HuiMats[i].SetFloat("_blend", 0);
@@ -104,6 +108,7 @@ public class QuestImplementation : MonoBehaviour
         {
             Booms[i].SetActive(false);
         }
+        crowdMovement.enabled = false;
         Zero = FindObjectOfType<PlayerInput>().gameObject;
     }
 
@@ -263,6 +268,29 @@ public class QuestImplementation : MonoBehaviour
                 }
 
             }
+            //60 + 14000
+            //find family car
+            if (questManager.questId == 60 && questManager.questAcitonIndex == 0)
+            {
+                //print("focus flower");
+                if (!findFamilyCar)
+                {
+                    ObjData obj = Zero.GetComponent<PlayerInput>().scanObject.GetComponent<ObjData>();
+                    if(obj.id == 14000)
+                    {
+                        findFamilyCar = true;
+                        GameManager.instance.findCar = true;
+                    }
+                }
+            }
+
+
+
+
+
+
+
+
             //enter the store
             if (Camera.main.orthographic && !enterStore)
             {
@@ -305,13 +333,37 @@ public class QuestImplementation : MonoBehaviour
         else if (GameManager.instance.IsStoryStateWant())
         {
 
-            if (GameManager.instance.IsGameStatePlay())
+
+
+            getWantMemory = GameManager.instance.belongEmotions[2];
+            if (getWantMemory && GameManager.instance.spawnMemories[2].activeSelf)
+            {
+                questManager.questId = 80;
+                questManager.questAcitonIndex = 1;
+                dialogueManager.zeroTalk = true;
+                dialogueManager.Action(Zero);
+
+                //1. crowds / faimily 활성화로 변경.
+                crowdMovement.enabled = true;
+
+                GameManager.instance.spawnMemories[2].SetActive(false);
+                UIManager.instance.OnOffEnzoNote(true);
+            }
+
+            if (GameManager.instance.IsGameStatePlay() && getWantMemory)
             {
                 for (int i = 0; i < wantNpc.childCount; i++)
                 {
-                    wantNpc.GetChild(i).transform.position += Vector3.left * 0.1f * Time.deltaTime;
+                    wantNpc.GetChild(i).transform.position += Vector3.left * 0.5f * Time.deltaTime;
                 }
             }
+
+
+
+
+
+
+
         }
     }
 

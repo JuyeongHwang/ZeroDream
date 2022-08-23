@@ -34,7 +34,7 @@ public class crowdMovement : MonoBehaviour
                 curCrowds[i].GetComponent<Animator>().SetFloat("Blend", 0.0f, 0.1f, Time.deltaTime);
                 curCrowds[i].transform.LookAt(avoidTarget);
             }
-            else if (distancePlayer >= 7.0f)
+            else if (distancePlayer >= 7.0f && distancePlayer < 15.0f)
             {
                 //if (curCrowds[i].GetComponent<crowdCollision>().enterCollision) continue;
                 Vector3 newPos = Vector3.Lerp(curCrowds[i].transform.position, curCrowds[i].transform.position + orientPlayer * 2.0f, speed * Time.deltaTime);
@@ -44,6 +44,12 @@ public class crowdMovement : MonoBehaviour
                 curCrowds[i].transform.LookAt(avoidTarget);
 
             }
+            else
+            {
+                curCrowds[i].GetComponent<Animator>().SetFloat("Blend", 0.0f, 0.1f, Time.deltaTime);
+                curCrowds[i].transform.LookAt(avoidTarget);
+            }
+            
         }
 
     }

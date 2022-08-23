@@ -57,15 +57,37 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-
+        if (GameManager.instance.IsStoryStateHui())
+        {
+            moveSpeed = 2.5f;
+            runSpeed = 5.0f;
+            jumpSpeed = 20.0f;
+        }
+        if (GameManager.instance.IsStoryStateEnjoy())
+        {
+            moveSpeed = 2.5f;
+            runSpeed = 5.0f;
+            jumpSpeed =8.0f;
+        }
         if (GameManager.instance.IsStoryStateWant())
         {
+            moveSpeed = 3.0f;
+            runSpeed = 3.0f;
+            jumpSpeed = 0.0f;
+            animSpeed = 1.0f;
 
         }
 
         Move();
         Rotate();
         SoundEffect();
+
+        if (GameManager.instance.IsStoryStateWant())
+        {
+            if (animSpeed > 1.0f) animSpeed = 1.0f;
+            playerAnimator.SetFloat("Move", animSpeed);
+            return;
+        }
         playerAnimator.SetFloat("Move", animSpeed);
 
 
@@ -227,19 +249,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void SoundEffect()
     {
-        if (moveState == MoveState.RUN)
-        {
-            if (!playerAudio.isPlaying)
-            {
-                playerAudio.clip = StepSE;
-                playerAudio.loop = true;
-                playerAudio.Play();
-            }
-            if (playerAudio.pitch != 1.4f)
-            {
-                playerAudio.pitch = 1.4f;
-            }
-        }
         if (moveState == MoveState.WALK)
         {
 
@@ -259,6 +268,23 @@ public class PlayerMovement : MonoBehaviour
             playerAudio.loop = false;
             playerAudio.Stop();
         }
+        if (GameManager.instance.IsStoryStateWant()) { return; }
+
+        if (moveState == MoveState.RUN)
+        {
+            if (!playerAudio.isPlaying)
+            {
+                playerAudio.clip = StepSE;
+                playerAudio.loop = true;
+                playerAudio.Play();
+            }
+            if (playerAudio.pitch != 1.4f)
+            {
+                playerAudio.pitch = 1.4f;
+            }
+        }
+
+
 
     }
 
