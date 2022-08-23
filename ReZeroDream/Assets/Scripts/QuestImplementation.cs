@@ -349,23 +349,17 @@ public class QuestImplementation : MonoBehaviour
             }
             //60 + 14000
             //find family car
-            if (questManager.questId == 60 && questManager.questAcitonIndex == 0)
+            if (!Zero.GetComponent<PlayerInput>().scanObject)
             {
-                //print("focus flower");
-                if (!findFamilyCar)
+                ObjData obj = Zero.GetComponent<PlayerInput>().scanObject.GetComponent<ObjData>();
+                questManager.questId = 60; questManager.questAcitonIndex = 0;
+                if (obj.id == 14000 && GameManager.instance.IsGameStateDialogue() && !findFamilyCar)
                 {
-                    if (GameManager.instance.IsGameStateDialogue())
-                    {
-                        ObjData obj = Zero.GetComponent<PlayerInput>().scanObject.GetComponent<ObjData>();
-                        if (obj.id == 14000)
-                        {
-                            findFamilyCar = true;
-                            GameManager.instance.findCar = true;
-                        }
-                    }
-
+                    findFamilyCar = true;
+                    GameManager.instance.findCar = true;
                 }
             }
+
 
 
             //enter the store
@@ -410,7 +404,7 @@ public class QuestImplementation : MonoBehaviour
                     videoEnd = true;
                 }
             }
-            if (questManager.questId == 70 && questManager.questAcitonIndex == 5 && dialogueManager.talkIndex == 1)
+            if (questManager.questId == 70 && questManager.questAcitonIndex == 5 && dialogueManager.talkIndex == 1 )
             {
                 UIManager.instance.UpdateEnjoyBurgerText();
             }

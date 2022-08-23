@@ -71,10 +71,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.R))
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-        }
+        //if (Input.GetKey(KeyCode.R))
+        //{
+        //    UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        //}
     }
 
 
