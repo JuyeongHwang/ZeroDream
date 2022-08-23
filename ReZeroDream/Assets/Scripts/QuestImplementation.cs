@@ -40,6 +40,9 @@ public class QuestImplementation : MonoBehaviour
     public RawImage videoRaw;
     public VideoPlayer video;
     public VideoClip Burger;
+    public VideoClip Happy;
+    public VideoClip Normal;
+    public VideoClip Bad;
 
     public Transform wantNpc;
 
@@ -136,6 +139,58 @@ public class QuestImplementation : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.gameEnding)
+        {
+            GameManager.instance.MemoryPercent = memrySlider.value;
+            for (int i = 0; i < zeroFamily.Count; i++)
+            {
+                if (zeroFamily[i] == true)
+                {
+                    GameManager.instance.FamilyPercent += 33.3f;
+                }
+            }
+
+
+            if (GameManager.instance.findCar && GameManager.instance.MemoryPercent >= 80.0f && GameManager.instance.FamilyPercent >= 80.0f)
+            {
+                video.clip = Happy;
+                Debug.Log("Happy Ending");
+            }
+            else if (GameManager.instance.findCar && GameManager.instance.MemoryPercent >= 60.0f && GameManager.instance.FamilyPercent >= 60.0f)
+            {
+                video.clip = Normal;
+                Debug.Log("Normal Ending");
+            }
+            else
+            {
+                video.clip = Bad;
+                Debug.Log("Bad Ending");
+            }
+
+            if (!videoStart)
+            {
+                GameManager.instance.SetGameStateToStory();
+                videoStart = true;
+                videoRaw.gameObject.SetActive(true);
+                video.Play();
+            }
+            if (videoStart && !videoEnd)
+            {
+                PlayTime += Time.deltaTime;
+                if (PlayTime >= video.clip.length)
+                {
+                    GameManager.instance.SetGameStateToPlay();
+                    videoRaw.gameObject.SetActive(false);
+                    video.Stop();
+                    PlayTime = 0;
+                    videoEnd = true;
+                }
+            }
+
+            //1. happy
+
+            return;
+        }
 
         if (GameManager.instance.IsStoryStateHui())
         {
@@ -364,6 +419,8 @@ public class QuestImplementation : MonoBehaviour
             getWantMemory = GameManager.instance.belongEmotions[2];
             if (getWantMemory && GameManager.instance.spawnMemories[2].activeSelf)
             {
+                videoStart = false;
+                videoEnd = false;
                 questManager.questId = 80;
                 questManager.questAcitonIndex = 1;
                 dialogueManager.zeroTalk = true;
@@ -557,32 +614,7 @@ public class QuestImplementation : MonoBehaviour
 
 
 
-        if (GameManager.instance.gameEnding)
-        {
-            GameManager.instance.MemoryPercent = memrySlider.value;
-            for (int i = 0; i < zeroFamily.Count; i++)
-            {
-                if (zeroFamily[i] == true)
-                {
-                    GameManager.instance.FamilyPercent += 33.3f;
-                }
-            }
-            //1. happy
-            if (GameManager.instance.findCar && GameManager.instance.MemoryPercent >= 80.0f && GameManager.instance.FamilyPercent >=80.0f)
-            {
-                Debug.Log("Happy Ending");
-            }
-            else if(GameManager.instance.findCar && GameManager.instance.MemoryPercent >= 60.0f && GameManager.instance.FamilyPercent >= 60.0f)
-            {
-                Debug.Log("Normal Ending");
-            }
-            else
-            {
-                Debug.Log("Bad Ending");
-            }
 
-
-        }
 
     }
 
