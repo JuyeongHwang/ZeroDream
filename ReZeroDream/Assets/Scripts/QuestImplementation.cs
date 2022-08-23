@@ -275,12 +275,16 @@ public class QuestImplementation : MonoBehaviour
                 //print("focus flower");
                 if (!findFamilyCar)
                 {
-                    ObjData obj = Zero.GetComponent<PlayerInput>().scanObject.GetComponent<ObjData>();
-                    if(obj.id == 14000)
+                    if (GameManager.instance.IsGameStateDialogue())
                     {
-                        findFamilyCar = true;
-                        GameManager.instance.findCar = true;
+                        ObjData obj = Zero.GetComponent<PlayerInput>().scanObject.GetComponent<ObjData>();
+                        if (obj.id == 14000)
+                        {
+                            findFamilyCar = true;
+                            GameManager.instance.findCar = true;
+                        }
                     }
+
                 }
             }
 

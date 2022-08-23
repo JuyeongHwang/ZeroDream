@@ -6,6 +6,7 @@ public class BuildingMovement : MonoBehaviour
 {
     public bool isRotate = false;
     public Transform Offset;
+    public Transform targetBuilding;
     public float buildingRotateDegree = 20.0f;
 
     public bool isMove = false;
@@ -33,15 +34,15 @@ public class BuildingMovement : MonoBehaviour
     void BuildingMoveAndCheck()
     {
         //1. check
-        if ((transform.position - buildingEndPos.position).magnitude < 1.1f) //¿Ö 1.1f?
+        if ((targetBuilding.transform.position - buildingEndPos.position).magnitude < 1.1f) //¿Ö 1.1f?
         {
             buildingMoveSpeed = -1.0f;
         }
-        if((transform.position - buildingStartPos.position).magnitude < 1.1f)
+        if((targetBuilding.transform.position - buildingStartPos.position).magnitude < 1.1f)
         {
             buildingMoveSpeed = 1.0f;
         }
         //2.move
-        transform.position += transform.forward * Time.deltaTime * buildingMoveSpeed;
+        targetBuilding.transform.position += targetBuilding.transform.forward * Time.deltaTime * buildingMoveSpeed;
     }
 }
