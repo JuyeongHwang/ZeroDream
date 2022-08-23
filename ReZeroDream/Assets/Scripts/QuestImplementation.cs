@@ -349,11 +349,11 @@ public class QuestImplementation : MonoBehaviour
             }
             //60 + 14000
             //find family car
-            if (!Zero.GetComponent<PlayerInput>().scanObject)
+            if (Zero.GetComponent<PlayerInput>().scanObject && !findFamilyCar)
             {
                 ObjData obj = Zero.GetComponent<PlayerInput>().scanObject.GetComponent<ObjData>();
                 questManager.questId = 60; questManager.questAcitonIndex = 0;
-                if (obj.id == 14000 && GameManager.instance.IsGameStateDialogue() && !findFamilyCar)
+                if (obj.id == 14000 && GameManager.instance.IsGameStateDialogue() )
                 {
                     findFamilyCar = true;
                     GameManager.instance.findCar = true;
