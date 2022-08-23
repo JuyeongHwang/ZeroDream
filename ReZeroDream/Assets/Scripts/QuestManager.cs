@@ -166,9 +166,11 @@ public class QuestManager : MonoBehaviour
         questList.Add(90, new QuestData("등굣길 걷기", new int[] {16000, 17000, 18000, 19000, 20000, 21000 },
         new string[] { "원트지역.", " ", " ", " ", " ", " " }, new string[] { " ", " ", " ", " ", " ", " " }, new string[] { " ", " ", " ", " ", " ", " " }));
 
-        questList.Add(100, new QuestData("가족들과의 대화, 사랑", new int[] {3000, 5000, 6000, 7000 },
-        new string[] { " ", " "," "," " }, new string[] { " ", " "," "," " }, new string[] { " ", " "," "," " }));
+        //questList.Add(100, new QuestData("가족들과의 대화, 사랑", new int[] {3000, 5000, 6000, 7000 },
+        //new string[] { " ", " "," "," " }, new string[] { " ", " "," "," " }, new string[] { " ", " "," "," " }));
 
+        questList.Add(100, new QuestData("가족들과의 대화, 사랑", new int[] { 3000, 5000, 6000, 7000 },
+        new string[] { " ", " ", " ", " " }, new string[] { " ", " ", " ", " " }, new string[] { " ", " ", " ", " " }));
     }
 
     public int GetQuestTalkIndex(int id) //npc id받고 퀘스트번호(퀘스트토크인덱스) 반환하는 함수

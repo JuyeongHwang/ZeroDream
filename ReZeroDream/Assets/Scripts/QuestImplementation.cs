@@ -92,6 +92,7 @@ public class QuestImplementation : MonoBehaviour
     public Material[] wantMats;
     private void Start()
     {
+        memrySlider.gameObject.SetActive(false);
         videoRaw.gameObject.SetActive(false);
         dialogueManager = FindObjectOfType<DialogueManager>();
         questManager = FindObjectOfType<QuestManager>();
@@ -141,6 +142,7 @@ public class QuestImplementation : MonoBehaviour
     {
         if (GameManager.instance.gameEnding)
         {
+            memrySlider.gameObject.SetActive(false);
             GameManager.instance.MemoryPercent = memrySlider.value;
             for (int i = 0; i < zeroFamily.Count; i++)
             {
@@ -179,10 +181,10 @@ public class QuestImplementation : MonoBehaviour
                 PlayTime += Time.deltaTime;
                 if (PlayTime >= video.clip.length)
                 {
-                    GameManager.instance.SetGameStateToPlay();
-                    videoRaw.gameObject.SetActive(false);
-                    video.Stop();
-                    PlayTime = 0;
+                    //GameManager.instance.SetGameStateToPlay();
+                    //videoRaw.gameObject.SetActive(false);
+                    //video.Stop();
+                    //PlayTime = 0;
                     videoEnd = true;
                 }
             }
@@ -419,6 +421,7 @@ public class QuestImplementation : MonoBehaviour
             getWantMemory = GameManager.instance.belongEmotions[2];
             if (getWantMemory && GameManager.instance.spawnMemories[2].activeSelf)
             {
+                memrySlider.gameObject.SetActive(true);
                 videoStart = false;
                 videoEnd = false;
                 questManager.questId = 80;
