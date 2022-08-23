@@ -27,7 +27,7 @@ public class QuestManager : MonoBehaviour
     public GameObject huiMemoryQuestImg;
     public GameObject catQuestImg;
     public GameObject flowerQuestImg;
-    public GameObject[] carQuestImg;
+    //public GameObject[] carQuestImg;
     //public GameObject[] wantQuestImg;
 
     private void Start()
@@ -69,21 +69,21 @@ public class QuestManager : MonoBehaviour
         {
             huiQuestImg.SetActive(false);
         }
-        else if (questId == 30 && questAcitonIndex == 3)
+        else if (questId == 30 && questAcitonIndex == 4)
         {
             huiQuestImg.SetActive(true);
             huiQuestSprite.sprite = questImgArr[2];
         }
-        else if (questId == 60 && questAcitonIndex == 0)
-        {
-            for (int i = 0; i < 5; i++)
-                carQuestImg[i].SetActive(true);
-        }
-        else if (questId == 60 && questAcitonIndex == 3)
-        {
-            for (int i = 0; i < 5; i++)
-                carQuestImg[i].SetActive(false);
-        }
+        //else if (questId == 60 && questAcitonIndex == 0)
+        //{
+        //    for (int i = 0; i < 5; i++)
+        //        carQuestImg[i].SetActive(true);
+        //}
+        //else if (questId == 60 && questAcitonIndex == 3)
+        //{
+        //    for (int i = 0; i < 5; i++)
+        //        carQuestImg[i].SetActive(false);
+        //}
         //else if (questId == 90)
         //{
         //    if (questAcitonIndex == 0)
@@ -134,12 +134,12 @@ public class QuestManager : MonoBehaviour
             new string[] { "꽃에 대한 기억", "꽃에 대한 기억", "온전해진 도화지의 첫 페이지", "", "다음 지역 잠금 해제" }));
 
 
-        questList.Add(40, new QuestData("멈춰버린 도시에 대해 알아보기", new int[] { 3000, -10000, 3000 }, //일단 대화 뜨면 안되니까 
+        questList.Add(40, new QuestData("멈춰버린 도시에 대해\n알아보기", new int[] { 3000, -10000, 3000 }, //일단 대화 뜨면 안되니까 
             new string[] { "아까 떨어지면서 옥상에서 무언가를 본 것 같다. 옥상 위를 확인해 이 멈춰버린 놀이공원? 도시에 대한 단서를 얻어보자.", "", "옥상에서 내려가 주변을 둘러보며 도화지의 그림에 대한 단서를 얻어보자." },
             new string[] { "옥상 위 확인하기", "", "주변 둘러보기" },
             new string[] { "", " ", "" }));
 
-        questList.Add(50, new QuestData("멈춰버린 도시에 대해 알아보기(2)", new int[] { 3000 },
+        questList.Add(50, new QuestData("멈춰버린 도시에 대해\n알아보기(2)", new int[] { 3000 },
             new string[] { "도화지를 획득하니 존재하지 않았던 이상한 존재와 여러 발판들이 생겨났다. 이 도시와 관련이 있는지 발판을 직접 밟아보며 확인해보자."},
             new string[] { "발판 밟아보기" },
             new string[] { "" }));

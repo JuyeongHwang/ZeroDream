@@ -263,7 +263,7 @@ public class QuestImplementation : MonoBehaviour
                 {
                     zeroEnzoTalk = true;
                     UIManager.instance.ShowAndHideCautionWindow(true);
-                    UIManager.instance.UpdateCautionText("몬스터가 지나다니는 길에 있는 발판은\n 이 지역을 움직이게 할 수 있습니다.\n 도시를 움직여 원하는 목표를 달성하세요.");
+                    UIManager.instance.UpdateCautionText("몬스터가 지나다니는 길에 있는 발판은\n이 지역을 움직이게 할 수 있습니다.\n도시를 움직여 원하는 목표를 달성하세요.");
 
                     for(int i = 0; i<Booms.Length; i++)
                     {
@@ -346,7 +346,12 @@ public class QuestImplementation : MonoBehaviour
                     videoEnd = true;
                 }
             }
+            if (questManager.questId == 70 && questManager.questAcitonIndex == 5 && dialogueManager.talkIndex == 1)
+            {
+                UIManager.instance.UpdateEnjoyBurgerText();
+            }
         }
+
         else if (GameManager.instance.IsStoryStateWant())
         {
             getWantMemory = GameManager.instance.belongEmotions[2];
