@@ -55,6 +55,14 @@ public class DeveloperSetting : MonoBehaviour
    
     private void Update()
     {
+        if (GameManager.instance.IsStoryStateEnjoy())
+        {
+            burgerStore.gameObject.SetActive(true);
+        }
+        else
+        {
+            burgerStore.gameObject.SetActive(false);
+        }
         if(quest.questId ==80 && quest.questAcitonIndex == 0 && !endEnjoy)
         {
             enjoys.SetActive(false);
