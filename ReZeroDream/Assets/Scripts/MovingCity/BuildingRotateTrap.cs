@@ -24,4 +24,19 @@ public class BuildingRotateTrap : MonoBehaviour
     {
         buildingRotateControl.isRotate = false;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        buildingRotateControl.isRotate = true;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        buildingRotateControl.isRotate = true;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        buildingRotateControl.isRotate = false;
+    }
 }

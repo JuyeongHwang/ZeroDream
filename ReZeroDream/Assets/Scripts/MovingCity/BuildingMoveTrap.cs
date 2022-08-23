@@ -24,4 +24,18 @@ public class BuildingMoveTrap : MonoBehaviour
     {
         buildingMoveControl.isMove = false;
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        buildingMoveControl.isMove = true;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        buildingMoveControl.isMove = true;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        buildingMoveControl.isMove = false;
+    }
 }
