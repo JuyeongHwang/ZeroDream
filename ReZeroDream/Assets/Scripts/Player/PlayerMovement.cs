@@ -185,7 +185,13 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if(collision.gameObject.tag == "barrier")
+        if (collision.gameObject.tag == "school")
+        {
+            GameManager.instance.gameEnding = true;
+        }
+
+
+        if (collision.gameObject.tag == "barrier")
         {
             DialogueManager.instance.isAction = true;
             UIManager.instance.OnOffDialogueWindow(true);

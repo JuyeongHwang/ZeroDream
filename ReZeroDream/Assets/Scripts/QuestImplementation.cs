@@ -77,6 +77,15 @@ public class QuestImplementation : MonoBehaviour
     bool zeroWantTalk = false;
     bool spawnWantMemory = false;
     bool getWantMemory = false;
+    //bool firstMemory = false;
+    //bool secondMem = false;
+    //bool thirdMem = false;
+    //bool forthMem = false;
+    //bool fifthMem = false;
+    //bool sixthMem = false;
+    public Slider memrySlider;
+    public List<bool> zeroMemories = new List<bool>();
+    List<bool> zeroFamily = new List<bool>();
 
     private void Start()
     {
@@ -108,9 +117,19 @@ public class QuestImplementation : MonoBehaviour
         {
             Booms[i].SetActive(false);
         }
+        for(int i = 0; i<6; i++)
+        {
+            zeroMemories.Add(false);
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            zeroFamily.Add(false);
+        }
         crowdMovement.enabled = false;
         Zero = FindObjectOfType<PlayerInput>().gameObject;
     }
+
+    
 
     void Update()
     {
@@ -289,12 +308,6 @@ public class QuestImplementation : MonoBehaviour
             }
 
 
-
-
-
-
-
-
             //enter the store
             if (Camera.main.orthographic && !enterStore)
             {
@@ -336,9 +349,6 @@ public class QuestImplementation : MonoBehaviour
         }
         else if (GameManager.instance.IsStoryStateWant())
         {
-
-
-
             getWantMemory = GameManager.instance.belongEmotions[2];
             if (getWantMemory && GameManager.instance.spawnMemories[2].activeSelf)
             {
@@ -362,13 +372,125 @@ public class QuestImplementation : MonoBehaviour
                 }
             }
 
+            //16000~21000
+
+
+            if (Zero.GetComponent<PlayerInput>().scanObject)
+            {
+                ObjData obj = Zero.GetComponent<PlayerInput>().scanObject.GetComponent<ObjData>();
+                print(obj.id);
+                if (obj.id == 16000&&!zeroMemories[0])
+                {
+                    questManager.questId = 90;
+                    questManager.questAcitonIndex = 0;
+                    if (GameManager.instance.IsGameStateDialogue()) {
+
+                        zeroMemories[0] = true;
+                        memrySlider.value += 0.166f;
+                    }
+                }
+                else if (obj.id == 17000 && !zeroMemories[1])
+                {
+                    questManager.questId = 90;
+                    questManager.questAcitonIndex = 1;
+                    if (GameManager.instance.IsGameStateDialogue()) {
+
+                        zeroMemories[1] = true;
+                        memrySlider.value += 0.166f;
+                    }
+                        
+                }
+                else if (obj.id == 18000 && !zeroMemories[2])
+                {
+                    questManager.questId = 90;
+                    questManager.questAcitonIndex = 2;
+                    if (GameManager.instance.IsGameStateDialogue()) {
+
+
+                        zeroMemories[2] = true;
+                        memrySlider.value += 0.166f;
+                    }
+                }
+                else if (obj.id == 19000 && !zeroMemories[3])
+                {
+                    questManager.questId = 90;
+                    questManager.questAcitonIndex = 3;
+                    if (GameManager.instance.IsGameStateDialogue()) {
+  
+                        zeroMemories[3] = true;
+                        memrySlider.value += 0.166f;
+                    }
+                        
+                }
+                else if (obj.id == 20000 && !zeroMemories[4])
+                {
+                    questManager.questId = 90;
+                    questManager.questAcitonIndex = 4;
+                    if (GameManager.instance.IsGameStateDialogue()) {
+
+                        zeroMemories[4] = true;
+                        memrySlider.value += 0.166f;
+                    }
+                        
+                }
+                else if (obj.id == 21000 && !zeroMemories[5])
+                {
+                    questManager.questId = 90;
+                    questManager.questAcitonIndex = 5;
+                    if (GameManager.instance.IsGameStateDialogue()) {
+
+                        zeroMemories[5] = true;
+                        memrySlider.value += 0.166f;
+                    }
+                        
+                }
+
+            }
+
+
+            //if (questManager.questId == 100 && questManager.questAcitonIndex == 1)
+            //{
+            //    zeroFamily[0] = true;
+            //}
+            //if (questManager.questId == 100 && questManager.questAcitonIndex == 2)
+            //{
+            //    zeroFamily[1] = true;
+            //}
+            //if (questManager.questId == 100 && questManager.questAcitonIndex == 3)
+            //{
+            //    zeroFamily[2] = true;
+            //}
+        }
 
 
 
-
+        if (GameManager.instance.gameEnding)
+        {
+            GameManager.instance.MemoryPercent = memrySlider.value;
+            for (int i = 0; i < zeroFamily.Count; i++)
+            {
+                if (zeroFamily[i] == true)
+                {
+                    GameManager.instance.FamilyPercent += 33.3f;
+                }
+            }
+            //1. happy
+            if (GameManager.instance.findCar && GameManager.instance.MemoryPercent >= 80.0f && GameManager.instance.FamilyPercent >=80.0f)
+            {
+                Debug.Log("Happy Ending");
+            }
+            else if(GameManager.instance.findCar && GameManager.instance.MemoryPercent >= 60.0f && GameManager.instance.FamilyPercent >= 60.0f)
+            {
+                Debug.Log("Normal Ending");
+            }
+            else
+            {
+                Debug.Log("Bad Ending");
+            }
 
 
         }
+
     }
 
 

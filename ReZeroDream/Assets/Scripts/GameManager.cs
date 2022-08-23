@@ -34,8 +34,9 @@ public class GameManager : MonoBehaviour
 
     public bool findCar = false;
     public bool findWantMemory = false;
-    public bool findAllFamilies = false;
-
+    public float MemoryPercent = 0.0f;
+    public float FamilyPercent = 0.0f;
+    public bool gameEnding = false;
     enum StoryState { HUI, ENJOY, WANT };
     [SerializeField] StoryState storyState = StoryState.HUI;
     enum GameState { STORY, PLAY, SETTING, DIALOGUE};
