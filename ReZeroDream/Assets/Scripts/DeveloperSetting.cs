@@ -6,11 +6,12 @@ public class DeveloperSetting : MonoBehaviour
 {
     public enum StoryState { HUI, ENJOY, WANT };
     public StoryState state = StoryState.HUI;
+    public Transform burgerStore;
     public GameObject[] huis;
-    public GameObject[] enjoys;
-    public GameObject[] wants;
+    public GameObject enjoys;
+    public GameObject wants;
     public Transform[] startPosition;
-
+    public Transform[] endPosition;
     QuestManager quest;
     Transform player;
     private void Start()
@@ -50,13 +51,23 @@ public class DeveloperSetting : MonoBehaviour
         }
     }
 
+    bool endEnjoy = false;
    
     private void Update()
     {
-        if(quest.questId ==90 && quest.questAcitonIndex == 0 && !GameManager.instance.IsStoryStateWant())
+        if(quest.questId ==80 && quest.questAcitonIndex == 0 && !endEnjoy)
         {
-            GameManager.instance.SetStoryStateToWant();
-            player.position = startPosition[2].position;
+            enjoys.SetActive(false);
+            wants.SetActive(true);
+            //GameManager.instance.SetStoryStateToWant();
+            //Vector3(41.6360016,-75.9846954,-3.86319184)
+            player.position = new Vector3(41.6f, -75.9f, -3.8f);
+            //player.eulerAngles = endPosition[0].eulerAngles;
+
+            endEnjoy = true;
+            //Vector3(41.6100006,-76.1100006,-12.4499998)
+            burgerStore.position = new Vector3(38.7f, -76f, -1.65f);
+            burgerStore.eulerAngles = new Vector3(0, 90, 0f);
         }
     }
 }

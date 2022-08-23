@@ -82,6 +82,10 @@ public class CameraMovement : MonoBehaviour
             {
                 cameraOffset = new Vector3(0,5, -10);
             }
+            else if (GameManager.instance.IsStoryStateWant())
+            {
+                cameraOffset = new Vector3(0, 5, -5);
+            }
         }
     }
 

@@ -98,7 +98,10 @@ public class PlayerInteraction : MonoBehaviour
             if (!GameManager.instance.IsUserStateHear())
             {
                 if (playerInput.scanObject.GetComponent<ObjData>().isNpc)
-                    playerInput.scanObject.transform.LookAt(transform);
+                {
+                    if (!GameManager.instance.IsStoryStateWant())
+                        playerInput.scanObject.transform.LookAt(transform);
+                }
 
                 dialogueManager.Action(playerInput.scanObject);
             }

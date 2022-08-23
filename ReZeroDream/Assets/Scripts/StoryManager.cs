@@ -110,7 +110,7 @@ public class StoryManager : MonoBehaviour
             WantOpeningScene();
         }
 
-        if (questManager.questId == 80 && questManager.questAcitonIndex == 0)
+        if (questManager.questId == 70 && questManager.questAcitonIndex == 5)
         {
             Bgm.Stop();
         }
@@ -160,13 +160,14 @@ public class StoryManager : MonoBehaviour
         }
         if (OpeningWindow.GetAlphaValue() <= 0.0f && !EndWantOpening)
         {
-
+            dialogueManager.zeroTalk = true;
+            dialogueManager.Action(Zero);
             EndWantOpening = true;
             //dialogueManager.zeroTalk = true;
             //dialogueManager.Action(Zero);
             OpeningWindow.gameObject.SetActive(false);
             //GameManager.instance.SetUserStateToHear();
-            GameManager.instance.SetGameStateToPlay();
+            
             //GameManager.instance.SetStoryStateToEnjoy();
         }
     }

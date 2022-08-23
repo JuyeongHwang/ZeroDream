@@ -12,7 +12,7 @@ public class crowdMovement : MonoBehaviour
 
     void Update()
     {
-
+        if (!GameManager.instance.IsStoryStateWant()) return;
         //자신의 target 근처로 향하고, player는 피함.
         for (int i = 0; i < curCrowds.Count; i++)
         {

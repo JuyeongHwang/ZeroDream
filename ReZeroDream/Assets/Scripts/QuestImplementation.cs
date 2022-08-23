@@ -67,8 +67,14 @@ public class QuestImplementation : MonoBehaviour
     bool eatBurger = false;
     bool findStore = false;
     bool enterStore = false;
-    
-    
+
+    [SerializeField] float PlayTime = 0;
+    [SerializeField] bool videoStart = false;
+    [SerializeField] bool videoEnd = false;
+
+    //¿øÆ®
+    bool zeroWantTalk = false;
+
     private void Start()
     {
         videoRaw.gameObject.SetActive(false);
@@ -101,9 +107,6 @@ public class QuestImplementation : MonoBehaviour
         Zero = FindObjectOfType<PlayerInput>().gameObject;
     }
 
-    [SerializeField] float PlayTime = 0;
-    [SerializeField] bool videoStart = false;
-    [SerializeField] bool videoEnd = false;
     void Update()
     {
 
@@ -270,7 +273,7 @@ public class QuestImplementation : MonoBehaviour
                 enterStore = true;
             }
 
-            if (questManager.questId == 80 && questManager.questAcitonIndex == 0)
+            if (questManager.questId == 70 && questManager.questAcitonIndex == 5)
             {
                 if (!videoStart)
                 {
@@ -290,14 +293,18 @@ public class QuestImplementation : MonoBehaviour
                     videoRaw.gameObject.SetActive(false);
                     video.Stop();
                     PlayTime = 0;
-                    questManager.questId = 90;
-                    questManager.questAcitonIndex = 0;
+                    dialogueManager.zeroTalk = true;
+                    dialogueManager.Action(Zero);
+
+                    //questManager.questId = 90;
+                    //questManager.questAcitonIndex = 0;
                     videoEnd = true;
                 }
             }
         }
         else if (GameManager.instance.IsStoryStateWant())
         {
+
             if (GameManager.instance.IsGameStatePlay())
             {
                 for (int i = 0; i < wantNpc.childCount; i++)

@@ -158,6 +158,8 @@ public class QuestManager : MonoBehaviour
             //그리고 가게 내부의 다른 npc랑도 대화 추가해도 좋을 것 같아요!
             new string[] { " ", " ", "햄버거", "온전해진 도화지의 두번째 페이지", " ", "" }));
 
+        
+
         questList.Add(80, new QuestData("원트 시작", new int[] { 3000, 3000 },
         new string[] { "원트지역.", " " }, new string[] { " ", " " }, new string[] { " ", " " }));
 
