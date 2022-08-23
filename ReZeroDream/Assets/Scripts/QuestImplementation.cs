@@ -22,7 +22,7 @@ public class QuestImplementation : MonoBehaviour
     //private RotateCamera rotateCam;
     private CameraMovement cameraMovement;
     private crowdMovement crowdMovement;
-
+    public FamilyMovement familyMovement;
     private GameObject Zero;
     public Transform Hui;
     public Transform Cat;
@@ -86,7 +86,7 @@ public class QuestImplementation : MonoBehaviour
     public Slider memrySlider;
     public List<bool> zeroMemories = new List<bool>();
     List<bool> zeroFamily = new List<bool>();
-
+    public Material[] wantMats;
     private void Start()
     {
         videoRaw.gameObject.SetActive(false);
@@ -97,6 +97,7 @@ public class QuestImplementation : MonoBehaviour
         //rotateCam = FindObjectOfType<RotateCamera>();
         cameraMovement = FindObjectOfType<CameraMovement>();
         crowdMovement = FindObjectOfType<crowdMovement>();
+        familyMovement = FindObjectOfType<FamilyMovement>();
         for (int i = 0; i < HuiMats.Length; i++)
         {
             HuiMats[i].SetFloat("_blend", 0);
@@ -126,6 +127,8 @@ public class QuestImplementation : MonoBehaviour
             zeroFamily.Add(false);
         }
         crowdMovement.enabled = false;
+        familyMovement.gameObject.SetActive(false);
+        familyMovement.enabled = false;
         Zero = FindObjectOfType<PlayerInput>().gameObject;
     }
 
@@ -340,7 +343,11 @@ public class QuestImplementation : MonoBehaviour
                     PlayTime = 0;
                     dialogueManager.zeroTalk = true;
                     dialogueManager.Action(Zero);
-
+                    for(int i = 0; i< wantMats.Length; i++)
+                    {
+                        wantMats[i].SetFloat("_blend", 1);
+                        wantMats[i].SetColor("_Color", Color.HSVToRGB(193,193,193));
+                    }
                     //questManager.questId = 90;
                     //questManager.questAcitonIndex = 0;
                     videoEnd = true;
@@ -383,7 +390,6 @@ public class QuestImplementation : MonoBehaviour
             if (Zero.GetComponent<PlayerInput>().scanObject)
             {
                 ObjData obj = Zero.GetComponent<PlayerInput>().scanObject.GetComponent<ObjData>();
-                print(obj.id);
                 if (obj.id == 16000&&!zeroMemories[0])
                 {
                     questManager.questId = 90;
@@ -391,7 +397,12 @@ public class QuestImplementation : MonoBehaviour
                     if (GameManager.instance.IsGameStateDialogue()) {
 
                         zeroMemories[0] = true;
-                        memrySlider.value += 0.166f;
+                        memrySlider.value += 0.18f;
+                        GameManager.instance.MemoryPercent += 0.18f;
+                        for (int i = 0; i < wantMats.Length; i++)
+                        {
+                            wantMats[i].SetFloat("_blend", 1 - memrySlider.value);
+                        }
                     }
                 }
                 else if (obj.id == 17000 && !zeroMemories[1])
@@ -401,7 +412,12 @@ public class QuestImplementation : MonoBehaviour
                     if (GameManager.instance.IsGameStateDialogue()) {
 
                         zeroMemories[1] = true;
-                        memrySlider.value += 0.166f;
+                        memrySlider.value += 0.18f;
+                        GameManager.instance.MemoryPercent += 0.18f;
+                        for (int i = 0; i < wantMats.Length; i++)
+                        {
+                            wantMats[i].SetFloat("_blend", 1 - memrySlider.value);
+                        }
                     }
                         
                 }
@@ -413,7 +429,12 @@ public class QuestImplementation : MonoBehaviour
 
 
                         zeroMemories[2] = true;
-                        memrySlider.value += 0.166f;
+                        memrySlider.value += 0.18f;
+                        GameManager.instance.MemoryPercent += 0.18f;
+                        for (int i = 0; i < wantMats.Length; i++)
+                        {
+                            wantMats[i].SetFloat("_blend", 1 - memrySlider.value);
+                        }
                     }
                 }
                 else if (obj.id == 19000 && !zeroMemories[3])
@@ -423,7 +444,12 @@ public class QuestImplementation : MonoBehaviour
                     if (GameManager.instance.IsGameStateDialogue()) {
   
                         zeroMemories[3] = true;
-                        memrySlider.value += 0.166f;
+                        memrySlider.value += 0.18f;
+                        GameManager.instance.MemoryPercent += 0.18f;
+                        for (int i = 0; i < wantMats.Length; i++)
+                        {
+                            wantMats[i].SetFloat("_blend", 1 - memrySlider.value);
+                        }
                     }
                         
                 }
@@ -434,7 +460,12 @@ public class QuestImplementation : MonoBehaviour
                     if (GameManager.instance.IsGameStateDialogue()) {
 
                         zeroMemories[4] = true;
-                        memrySlider.value += 0.166f;
+                        memrySlider.value += 0.18f;
+                        GameManager.instance.MemoryPercent += 0.18f;
+                        for (int i = 0; i < wantMats.Length; i++)
+                        {
+                            wantMats[i].SetFloat("_blend", 1 - memrySlider.value);
+                        }
                     }
                         
                 }
@@ -445,11 +476,68 @@ public class QuestImplementation : MonoBehaviour
                     if (GameManager.instance.IsGameStateDialogue()) {
 
                         zeroMemories[5] = true;
-                        memrySlider.value += 0.166f;
+                        memrySlider.value += 0.18f;
+                        GameManager.instance.MemoryPercent += 0.18f;
+                        for (int i = 0; i < wantMats.Length; i++)
+                        {
+                            wantMats[i].SetFloat("_blend", 1 - memrySlider.value);
+                        }
                     }
                         
                 }
+                //===========
+                if(obj.id == 5000 && !zeroFamily[0])
+                {
+                    questManager.questId = 100;
+                    questManager.questAcitonIndex = 1;
+                    if (GameManager.instance.IsGameStateDialogue())
+                    {
+                        zeroFamily[0] = true;
+                        memrySlider.value -= 0.35f;
+                        GameManager.instance.FamilyPercent += 0.35f;
+                        for (int i = 0; i < wantMats.Length; i++)
+                        {
+                            wantMats[i].SetFloat("_blend", memrySlider.value + 0.35f);
+                        }
+                    }
 
+                }
+                else if (obj.id == 6000 && !zeroFamily[1])
+                {
+                    questManager.questId = 100;
+                    questManager.questAcitonIndex = 2;
+                    if (GameManager.instance.IsGameStateDialogue())
+                    {
+                        zeroFamily[1] = true;
+                        memrySlider.value -= 0.35f;
+                        GameManager.instance.FamilyPercent += 0.35f;
+                        for (int i = 0; i < wantMats.Length; i++)
+                        {
+                            wantMats[i].SetFloat("_blend", memrySlider.value + 0.35f);
+                        }
+                    }
+                }
+                else if (obj.id == 7000 && !zeroFamily[2])
+                {
+                    questManager.questId = 100;
+                    questManager.questAcitonIndex = 3;
+                    if (GameManager.instance.IsGameStateDialogue())
+                    {
+                        zeroFamily[1] = true;
+                        memrySlider.value -= 0.35f;
+                        GameManager.instance.FamilyPercent += 0.35f;
+                        for (int i = 0; i < wantMats.Length; i++)
+                        {
+                            wantMats[i].SetFloat("_blend", memrySlider.value + 0.35f);
+                        }
+                    }
+                }
+            }
+
+            if(GameManager.instance.MemoryPercent > 0.9f && !familyMovement.enabled && GameManager.instance.findCar)
+            {
+                familyMovement.gameObject.SetActive(true);
+                familyMovement.enabled = true;
             }
 
 
