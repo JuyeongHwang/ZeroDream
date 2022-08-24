@@ -25,10 +25,11 @@ public class TalkManager : MonoBehaviour
         talkData.Add(1000, new string[] { "룰루랄라...:2" });
         talkData.Add(2000, new string[] { "냐옹:0" });
         talkData.Add(4000, new string[] { "햄버거가 다 팔렸어.:3" });
-        
-        //talkData.Add(5000, new string[] { "어서 학교로 가야 해.:0" }); //누나
-        //talkData.Add(6000, new string[] { "어서 학교로 가야 해.:0" }); //아빠
-        //talkData.Add(7000, new string[] { "어서 학교로 가야 해.:0" }); //엄마
+
+        talkData.Add(5000, new string[] { "학교 다녀온 거니?:0", "기다리고 있었어, 우리 아들.:0" });
+        talkData.Add(6000, new string[] { "학교가 끝났으면 어서 돌아오렴.:0", "모두들 걱정하고 있어.:0" }); //아빠
+        talkData.Add(7000, new string[] { "제로야, 고양이가 너를 찾아.:0", "어서 돌아와.:0" }); //누나
+
 
         talkData.Add(10000, new string[] { "이름 모를 꽃이다.:1" });
         talkData.Add(11000, new string[] { "유독 향기로운 꽃이다.:1" });
@@ -98,10 +99,6 @@ public class TalkManager : MonoBehaviour
         // 배드 엔딩인 경우 여기서 바로 배드엔딩으로
         
         // 노멀 or 해피면 가족들과 대화 가능하게 계속 진행/ 가족들 대사 내용 수정해야 함. 현재 npc랑 ObjData도 없음.
-        talkData.Add(101 + 5000, new string[] { "제로야 엄마다.:0" });
-        talkData.Add(102 + 6000, new string[] { "제로야 아빠다.:0" });
-        talkData.Add(103 + 7000, new string[] { "제로야 누나다.:0" });
-        
         // 노멀 or 해피 엔딩으로 어떻게 잘...
 
 
