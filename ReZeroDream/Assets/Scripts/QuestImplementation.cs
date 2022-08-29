@@ -243,13 +243,9 @@ public class QuestImplementation : MonoBehaviour
                     print("벽 걷기 활성화 & 설명");
                 }
             }
-            if (questManager.questId == 30 && questManager.questAcitonIndex == 0 && dialogueManager.talkIndex == 2)
-            {
-                UIManager.instance.UpdateHuiFlowerText();
-            }
             if (questManager.questId == 30 && questManager.questAcitonIndex == 2)
             {
-                //print("focus flower");
+                UIManager.instance.UpdateHuiFlowerText();
 
                 if (dialogueManager.talkIndex == 0)
                 {
@@ -588,7 +584,8 @@ public class QuestImplementation : MonoBehaviour
                 //}
             }
 
-            if(GameManager.instance.MemoryPercent > 0.9f && !familyMovement.enabled && GameManager.instance.findCar)
+            //questId == 100 && questActionIndex == 1 일때 가족들이 활성화되면 되구, 대사를 퀘스트 안이 아니라 밖(기본 대사)로 빼서 대화 순서 상관없이 진행할 수 있습니다! npcId는 엄마가 5000, 아빠가 6000, 누나가 7000입니다.
+            if (GameManager.instance.MemoryPercent > 0.9f && !familyMovement.enabled && GameManager.instance.findCar)
             {
                 familyMovement.gameObject.SetActive(true);
                 familyMovement.enabled = true;
