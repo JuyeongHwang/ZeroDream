@@ -15,11 +15,11 @@ C:/Users/Yudain/Documents/GitHub/ReZeroDream/ReZeroDream
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57482
+59427
 Successfully changed project path to: C:/Users/Yudain/Documents/GitHub/ReZeroDream/ReZeroDream
 C:/Users/Yudain/Documents/GitHub/ReZeroDream/ReZeroDream
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 106.21 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 111.61 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.17f1 (a4537701e4ab)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/Resources/UnitySubsystems
@@ -35,452 +35,167 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56040
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56908
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.17f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001357 seconds.
+Registered in 0.001241 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 118.17 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 94.87 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.466 seconds
+- Completed reload, in  1.470 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1466ms)
-		BeginReloadAssembly (31ms)
+	ReloadAssembly (1470ms)
+		BeginReloadAssembly (29ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (0ms)
-		EndReloadAssembly (332ms)
-			LoadAssemblies (29ms)
+		EndReloadAssembly (304ms)
+			LoadAssemblies (28ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (83ms)
+			SetupTypeCache (86ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (15ms)
-			SetupLoadedEditorAssemblies (191ms)
+			RebuildScriptCaches (14ms)
+			SetupLoadedEditorAssemblies (162ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (3ms)
+				InitializePlatformSupportModulesInManaged (2ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (118ms)
-				BeforeProcessingInitializeOnLoad (5ms)
-				ProcessInitializeOnLoadAttributes (48ms)
-				ProcessInitializeOnLoadMethodAttributes (17ms)
+				RefreshPlugins (95ms)
+				BeforeProcessingInitializeOnLoad (6ms)
+				ProcessInitializeOnLoadAttributes (44ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005253 seconds.
+Registered in 0.004196 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file data-000001BC0EB9E230 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
+Symbol file data-0000023FFB4BB020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E22F540 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file data-0000023FFB5A5680 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC09496D90 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
+Symbol file data-0000023FF58C5820 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E1F2700 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
+Symbol file data-0000023FF580F300 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0EB9E230 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file data-0000023FFB4C6630 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC095E1020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file data-0000023FFA074C30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0EF0E830 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file data-0000023FF5824910 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E20D110 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file data-0000023FFB4C6630 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC091CCF30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
+Symbol file data-0000023FFA65B010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E960080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file data-0000023FFA379020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC095E1020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
+Symbol file data-0000023FFA074C30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E98F890 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file data-0000023FFAACF830 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E222520 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
+Symbol file data-0000023FFB5A5680 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0ECBC370 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
+Symbol file data-0000023FFA178400 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC09263E80 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
+Symbol file data-0000023FFA38E430 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08E25D00 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
+Symbol file data-0000023FF56EB860 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DBFE020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
+Symbol file data-0000023FFA38E430 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC095E1020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file data-0000023FFA074C30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.UI.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DE40010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.InputSystem.dll
+Symbol file data-0000023FFA4DB010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.InputSystem.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC095E1020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file data-0000023FFA157030 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Rider.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08FCD040 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
+Symbol file data-0000023FF5B1B900 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DC10C30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file data-0000023FFA38E430 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.UI.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DCA6020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file data-0000023FFA3CD020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DCA6020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
+Symbol file data-0000023FFA3CD020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC091CCF30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.dll
+Symbol file data-0000023FF5A48020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0D910010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
+Symbol file data-0000023FFAC47020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC095E1020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Services.Core.Editor.dll
+Symbol file data-0000023FF6057020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Services.Core.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DC10C30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Cinemachine.dll
+Symbol file data-0000023FFA38E430 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Cinemachine.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DC10C30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll
+Symbol file data-0000023FFA5F5430 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DC10C30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
+Symbol file data-0000023FFA38E430 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0ECBC370 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
+Symbol file data-0000023FFA21E500 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC09496D90 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
+Symbol file data-0000023FF58C5820 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08FCD040 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+Symbol file data-0000023FF5B1B900 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC09300020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file data-0000023FFA18A010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC09278890 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file data-0000023FFA571020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08E0EAC0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
+Symbol file data-0000023FFB5A8890 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DC52020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
+Symbol file data-0000023FFA571020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F49B450 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
+Symbol file data-0000023FFAADF840 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
 Symbol file LoadedFromMemory is not a mono symbol file
 Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 116.46 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 99.17 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.039 seconds
+- Completed reload, in  0.897 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1039ms)
-		BeginReloadAssembly (88ms)
+	ReloadAssembly (898ms)
+		BeginReloadAssembly (79ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (2ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (13ms)
-		EndReloadAssembly (903ms)
-			LoadAssemblies (67ms)
+			CreateAndSetChildDomain (12ms)
+		EndReloadAssembly (782ms)
+			LoadAssemblies (65ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (284ms)
+			SetupTypeCache (247ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (41ms)
-			SetupLoadedEditorAssemblies (434ms)
+			RebuildScriptCaches (35ms)
+			SetupLoadedEditorAssemblies (366ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (117ms)
-				BeforeProcessingInitializeOnLoad (69ms)
-				ProcessInitializeOnLoadAttributes (231ms)
-				ProcessInitializeOnLoadMethodAttributes (9ms)
-				AfterProcessingInitializeOnLoad (6ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (4ms)
-Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 1.18 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4963 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 201.6 MB.
-System memory in use after: 201.7 MB.
-
-Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 5406.
-Total: 2.835700 ms (FindLiveObjects: 0.277100 ms CreateObjectMapping: 0.121300 ms MarkObjects: 2.327800 ms  DeleteObjects: 0.108300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  path: Assets/Scripts/QuestManager.cs
-  artifactKey: Guid(cb2b5996eb04d864cabedb9f5ec94a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/QuestManager.cs using Guid(cb2b5996eb04d864cabedb9f5ec94a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '523b1039ec171a63b8a16370f74a74c2') in 0.014464 seconds 
-  Import took 0.020075 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.003971 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file data-000001BC111EB020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC09055C30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC17BBA9B0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0D785010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC12E8C1E0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC090FE8A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC12E8C1E0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC12E8C1E0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F19F010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DA4F010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC090FE8A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC117FC060 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08E0CAB0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F49D010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F914020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC194DC1C0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DA4F010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0ECB6030 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DE40010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.InputSystem.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0ECB6030 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC173B52D0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC12E60080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E960080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E960080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F19F010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0D910010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08F67030 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Services.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F914020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Cinemachine.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC116DE020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC12E60080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F49D010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC17BBA9B0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC173B6250 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC120F6010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC116DE020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DBE6C30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DC52020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08E0CAB0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.95 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.725 seconds
-Domain Reload Profiling:
-	ReloadAssembly (725ms)
-		BeginReloadAssembly (89ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (2ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (25ms)
-		EndReloadAssembly (600ms)
-			LoadAssemblies (62ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (211ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (24ms)
-			SetupLoadedEditorAssemblies (220ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (3ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (47ms)
-				ProcessInitializeOnLoadAttributes (157ms)
-				ProcessInitializeOnLoadMethodAttributes (8ms)
-				AfterProcessingInitializeOnLoad (4ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (11ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.28 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4836 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 193.2 MB.
-System memory in use after: 193.4 MB.
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 5409.
-Total: 2.627400 ms (FindLiveObjects: 0.224900 ms CreateObjectMapping: 0.122700 ms MarkObjects: 2.196200 ms  DeleteObjects: 0.082600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 19.297694 seconds.
-  path: Assets/Scripts/QuestManager.cs
-  artifactKey: Guid(cb2b5996eb04d864cabedb9f5ec94a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/QuestManager.cs using Guid(cb2b5996eb04d864cabedb9f5ec94a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '945aefe5f0ab9efa691f741bd3ac1cbd') in 0.004866 seconds 
-  Import took 0.009557 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007922 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file data-000001BC0E11D010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08E0CAB0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC3D9A0F50 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC1386A020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC12E60080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC090FE8A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC12E60080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC12E60080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0D5C0080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DA4F010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC090FE8A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC09368040 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BBDDEADDA0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BBDDEB3010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E11D010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC3F6FCE90 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DA4F010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC090FE8A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC10F86010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.InputSystem.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC090FE8A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC3BE09110 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC1386A020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11D07020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11AE1020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC091CCF30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0D910010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08F67030 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Services.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F914020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Cinemachine.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11CED020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC1386A020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BBDDEB3010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC3D99FAB0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC3BE08950 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC1281B030 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11CED020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BBDDEB3010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DC52020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08E0CAB0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.30 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.882 seconds
-Domain Reload Profiling:
-	ReloadAssembly (882ms)
-		BeginReloadAssembly (121ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (35ms)
-		EndReloadAssembly (705ms)
-			LoadAssemblies (103ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (264ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (29ms)
-			SetupLoadedEditorAssemblies (249ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (3ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (48ms)
-				ProcessInitializeOnLoadAttributes (186ms)
+				RefreshPlugins (99ms)
+				BeforeProcessingInitializeOnLoad (59ms)
+				ProcessInitializeOnLoadAttributes (195ms)
 				ProcessInitializeOnLoadMethodAttributes (6ms)
 				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (13ms)
+			AwakeInstancesAfterBackupRestoration (3ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.88 ms, found 3 plugins.
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.90 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4836 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 193.3 MB.
-System memory in use after: 193.5 MB.
+Unloading 4963 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 201.9 MB.
+System memory in use after: 202.0 MB.
 
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 5412.
-Total: 2.346500 ms (FindLiveObjects: 0.238500 ms CreateObjectMapping: 0.085900 ms MarkObjects: 1.930000 ms  DeleteObjects: 0.091400 ms)
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 5406.
+Total: 2.512900 ms (FindLiveObjects: 0.257900 ms CreateObjectMapping: 0.095600 ms MarkObjects: 2.063400 ms  DeleteObjects: 0.095200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -494,128 +209,582 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
+Received Import Request.
+  path: Assets/Scripts/QuestImplementation.cs
+  artifactKey: Guid(7b897a71c19897047902dec2162856be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/QuestImplementation.cs using Guid(7b897a71c19897047902dec2162856be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9906c6db379a9786d76b82f8b1f2c8b0') in 0.022505 seconds 
+  Import took 0.027520 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 144.827940 seconds.
+  path: Assets/ImportAssets/PolygonCity/Materials/PolygonCity_Mat_01_A.mat
+  artifactKey: Guid(62e25ef75a2216f418d06453c9ad15cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonCity/Materials/PolygonCity_Mat_01_A.mat using Guid(62e25ef75a2216f418d06453c9ad15cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a91570dd71bee5b68c5f9aa240ffbac') in 0.137757 seconds 
+  Import took 0.145075 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000285 seconds.
+  path: Assets/ImportAssets/PolygonCity/Materials/PolygonCity_Mat_Road_01.mat
+  artifactKey: Guid(9415d5fbf987e4d47b3c90bea3a0d824) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonCity/Materials/PolygonCity_Mat_Road_01.mat using Guid(9415d5fbf987e4d47b3c90bea3a0d824) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1bc646a9407a397b3685816d9841594') in 0.031438 seconds 
+  Import took 0.036728 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/ImportAssets/PolygonTown/Materials/PolygonTown_01_A.mat
+  artifactKey: Guid(28646867ddcf90a4989276acd313ea43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Materials/PolygonTown_01_A.mat using Guid(28646867ddcf90a4989276acd313ea43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77e4832aa062bb3657660cd3a8990e47') in 0.038470 seconds 
+  Import took 0.043926 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000134 seconds.
+  path: Assets/ImportAssets/PolygonCity/Models/Collisions/Materials/PolygonCity_Texture.mat
+  artifactKey: Guid(d235e1f25ebc4e4448cf5a2f17745912) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonCity/Models/Collisions/Materials/PolygonCity_Texture.mat using Guid(d235e1f25ebc4e4448cf5a2f17745912) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '187d706a1a212237d96cb0b47a1213f3') in 0.029540 seconds 
+  Import took 0.034812 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Assets/ImportAssets/PolygonCity/Models/Materials/PolygonCity_Texture_01_C.mat
+  artifactKey: Guid(7a53b03397e27f549916c12488526a63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonCity/Models/Materials/PolygonCity_Texture_01_C.mat using Guid(7a53b03397e27f549916c12488526a63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e329bb7a8edd9de09888e8d307f40e0') in 0.027807 seconds 
+  Import took 0.033021 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000268 seconds.
+  path: Assets/ImportAssets/PolygonTown/Materials/Misc/PolygonTown_01_A_Emissive.mat
+  artifactKey: Guid(dfd1ba1b4a428cc4181ebb45dcaf2022) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Materials/Misc/PolygonTown_01_A_Emissive.mat using Guid(dfd1ba1b4a428cc4181ebb45dcaf2022) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8857c5128e7a92f40bf3719aa5cc8921') in 0.034835 seconds 
+  Import took 0.040141 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.859923 seconds.
+  path: Assets/ImportAssets/PolygonTown/Materials/Misc/PolygonTown_01_A_TEMP.mat
+  artifactKey: Guid(90b40a9eb4f2e8a4ca68077789ba069b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Materials/Misc/PolygonTown_01_A_TEMP.mat using Guid(90b40a9eb4f2e8a4ca68077789ba069b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea92d8c8d58a1002de22564f87bd5db3') in 0.022127 seconds 
+  Import took 0.027712 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/ImportAssets/PolygonTown/Materials/PolygonTown_02_A.mat
+  artifactKey: Guid(465b43787f0dc5a4f8692f074f54c897) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Materials/PolygonTown_02_A.mat using Guid(465b43787f0dc5a4f8692f074f54c897) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2504754b3ff03b5999e5812390c6400c') in 0.038279 seconds 
+  Import took 0.043544 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_02_B.mat
+  artifactKey: Guid(0f9f0db6b5e12a54f950b8713ce48093) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_02_B.mat using Guid(0f9f0db6b5e12a54f950b8713ce48093) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a14049260aacabd620b52b97a4d0c9f') in 0.046344 seconds 
+  Import took 0.051948 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000142 seconds.
+  path: Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_01_C.mat
+  artifactKey: Guid(bab002177b386b747b6b5085ad792f80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_01_C.mat using Guid(bab002177b386b747b6b5085ad792f80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aff46a37899de9e76f4314c4a70c676b') in 0.039881 seconds 
+  Import took 0.045177 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000350 seconds.
+  path: Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_03_B.mat
+  artifactKey: Guid(f483cd15cfaea5d47b707c18e7c06174) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_03_B.mat using Guid(f483cd15cfaea5d47b707c18e7c06174) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8ed69716db11c18f3eab4c6db368f91') in 0.028299 seconds 
+  Import took 0.033683 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000212 seconds.
+  path: Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_04_B.mat
+  artifactKey: Guid(a4e402d0af1617e4cacc1682d13b4411) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_04_B.mat using Guid(a4e402d0af1617e4cacc1682d13b4411) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd77b22d81fcadedbfeb2455703694af') in 0.027171 seconds 
+  Import took 0.032609 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000183 seconds.
+  path: Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_01_B.mat
+  artifactKey: Guid(87afcd97595cd02479bfcfd00d66fda9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_01_B.mat using Guid(87afcd97595cd02479bfcfd00d66fda9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8324c25a4582b3742efd64ac408fdfe6') in 0.032637 seconds 
+  Import took 0.038424 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000209 seconds.
+  path: Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_02_C.mat
+  artifactKey: Guid(cb3e8bc1d85c7f04dafa457c27f34ce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_02_C.mat using Guid(cb3e8bc1d85c7f04dafa457c27f34ce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47a173428bf735bee7d14dfae3a664ef') in 0.031624 seconds 
+  Import took 0.037053 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_03_C.mat
+  artifactKey: Guid(1a832f41054861b428f328f5362b636f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_03_C.mat using Guid(1a832f41054861b428f328f5362b636f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21a76a1892c3b42947dbeed0b908748f') in 0.036528 seconds 
+  Import took 0.042207 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.142961 seconds.
+  path: Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_04_C.mat
+  artifactKey: Guid(7f78f6690b4971247836df99a22ede8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Materials/Alternates/PolygonTown_04_C.mat using Guid(7f78f6690b4971247836df99a22ede8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90e718a0deb5b7270c6b011ea58203d4') in 0.015141 seconds 
+  Import took 0.021149 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Emissive_02.png
+  artifactKey: Guid(561f18e2d1bb50b4a878165002e5590f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Emissive_02.png using Guid(561f18e2d1bb50b4a878165002e5590f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f461d3ae8580cea3acd3fdcc96ca4857') in 0.045548 seconds 
+  Import took 0.051113 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000222 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_03_B.png
+  artifactKey: Guid(7e0fc204759b10941b52133ce7b878d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_03_B.png using Guid(7e0fc204759b10941b52133ce7b878d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fee6254aae3dfb3ba6a8ba6903ee021') in 0.007383 seconds 
+  Import took 0.013023 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Window_01.png
+  artifactKey: Guid(cff67aec3bf8c2e4982a3a67ba06d40f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Window_01.png using Guid(cff67aec3bf8c2e4982a3a67ba06d40f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0dfd4082844d07c897503a127797e18a') in 0.008843 seconds 
+  Import took 0.014210 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Texture_Normal.png
+  artifactKey: Guid(b25ddb39e801a8941803c3b9d1d2fdbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Texture_Normal.png using Guid(b25ddb39e801a8941803c3b9d1d2fdbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b5d522e9b3f53b3f6a08808050651f3') in 0.008823 seconds 
+  Import took 0.014370 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000155 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Road_01.png
+  artifactKey: Guid(487d4c9c787206a4aa99d7ff1ead7eae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Road_01.png using Guid(487d4c9c787206a4aa99d7ff1ead7eae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f28a76c3305ce63129a8105d413fc9c4') in 0.006538 seconds 
+  Import took 0.011980 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_02_C.png
+  artifactKey: Guid(fa3458e7477e05e4cb9d0f63f1ef30a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_02_C.png using Guid(fa3458e7477e05e4cb9d0f63f1ef30a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89d390f2a5645cb4c71986fa3d24e554') in 0.009287 seconds 
+  Import took 0.014803 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000132 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Emissive_01.png
+  artifactKey: Guid(efa34d710ef93124aa8baa1a8e6708d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Emissive_01.png using Guid(efa34d710ef93124aa8baa1a8e6708d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbc34c0ddab02805e84672423dbbe31d') in 0.008252 seconds 
+  Import took 0.013855 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_04_C.png
+  artifactKey: Guid(8f9f9af058f5dc64980559a503529ff3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_04_C.png using Guid(8f9f9af058f5dc64980559a503529ff3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a21b8a599e77a2b2671ef78e2ef8e95e') in 0.007509 seconds 
+  Import took 0.013191 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000140 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Window_Normal.png
+  artifactKey: Guid(abf5755910bc3cb44b22e16ed69f4e4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Window_Normal.png using Guid(abf5755910bc3cb44b22e16ed69f4e4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d13b0d7877d49605402353fc95a2f38') in 0.008826 seconds 
+  Import took 0.014407 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Assets/ImportAssets/PolygonTown/Materials/Misc/PolygonTown_Road.mat
+  artifactKey: Guid(3433cc3a39062ce4e9007a2c49514db4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Materials/Misc/PolygonTown_Road.mat using Guid(3433cc3a39062ce4e9007a2c49514db4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1b004b0d0c516155f2ad6751a4862d0') in 0.009423 seconds 
+  Import took 0.015156 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_03_C.png
+  artifactKey: Guid(728e552d6b203a34dbc24bffc4ba2d25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_03_C.png using Guid(728e552d6b203a34dbc24bffc4ba2d25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da703af4a0e1662f025e63f656eaa99f') in 0.007328 seconds 
+  Import took 0.012759 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Texture_Normal_C.png
+  artifactKey: Guid(7102c8076bf67b046a76f60c692b0e3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Texture_Normal_C.png using Guid(7102c8076bf67b046a76f60c692b0e3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b35c19fe5b335444bd7731d7e98b81b') in 0.008698 seconds 
+  Import took 0.014242 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/ImportAssets/PolygonTown/Models/Environment/SM_Env_Fence_Wood_Gate_01.fbm/PolygonTown_Texture_01_A.png
+  artifactKey: Guid(be3e5a8a35b181342a1943e0f4fc0dc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Models/Environment/SM_Env_Fence_Wood_Gate_01.fbm/PolygonTown_Texture_01_A.png using Guid(be3e5a8a35b181342a1943e0f4fc0dc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e04cf19068109be88a182481ce222db9') in 0.009856 seconds 
+  Import took 0.016510 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000134 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_01_B.png
+  artifactKey: Guid(582eb86dbc0b58441b2501b967616665) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_01_B.png using Guid(582eb86dbc0b58441b2501b967616665) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '534d7a8baade425a76dd74a639bd221b') in 0.009634 seconds 
+  Import took 0.015174 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_01_C.png
+  artifactKey: Guid(b55a604c07e953647be10e4025d173e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_01_C.png using Guid(b55a604c07e953647be10e4025d173e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a44dba61a9107e04242d45e63bedde30') in 0.008403 seconds 
+  Import took 0.014003 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Texture_Normal_A.png
+  artifactKey: Guid(f19d91fb55c31f3489e749e808679b35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Texture_Normal_A.png using Guid(f19d91fb55c31f3489e749e808679b35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94aedec27ef092390d42bdb27c7747fd') in 0.009842 seconds 
+  Import took 0.016155 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000273 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Texture_Normal_B.png
+  artifactKey: Guid(086476661ce213044bfdd533b93e8dd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Texture_Normal_B.png using Guid(086476661ce213044bfdd533b93e8dd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00410f94e09305fded851dcb46051d43') in 0.007608 seconds 
+  Import took 0.013099 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/ShaderGraphs/Materials/PolygonTown_Texture_01_A.mat
+  artifactKey: Guid(b30cbc17ef968654087b1b1e5b7823cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ShaderGraphs/Materials/PolygonTown_Texture_01_A.mat using Guid(b30cbc17ef968654087b1b1e5b7823cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b29edd86ad3689511567531cc9e11b4b') in 0.011409 seconds 
+  Import took 0.017067 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Road_Normal.png
+  artifactKey: Guid(ed98b4bbb1ee648489b44b58eba8cc59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Road_Normal.png using Guid(ed98b4bbb1ee648489b44b58eba8cc59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cabb31bcc5d5bafc50083f251d66117') in 0.005728 seconds 
+  Import took 0.011300 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000292 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_04_B.png
+  artifactKey: Guid(7f792667bba8a9f49a5fee8004561058) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_04_B.png using Guid(7f792667bba8a9f49a5fee8004561058) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d60ddcb02e8905be568475ee6609cfe') in 0.008748 seconds 
+  Import took 0.014388 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_02_B.png
+  artifactKey: Guid(c3e478b3fda57644ba6649dc696f0730) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Alternates/PolygonTown_Texture_02_B.png using Guid(c3e478b3fda57644ba6649dc696f0730) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd302366a4a1d45051ad5f8b4d73b083') in 0.008949 seconds 
+  Import took 0.014519 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000180 seconds.
+  path: Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Texture_Metallic.tga
+  artifactKey: Guid(414d49db8a9dc1b4c884ddcd07bfa01f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Textures/Misc/PolygonTown_Texture_Metallic.tga using Guid(414d49db8a9dc1b4c884ddcd07bfa01f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a30d9c3e2ea756f6d49e01b6f0ba588d') in 0.007970 seconds 
+  Import took 0.013623 seconds .
+
+========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005457 seconds.
+Registered in 0.004010 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file data-000001BC0D7F2B10 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
+Symbol file data-0000023FF56F7CD0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08E0CAB0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file data-0000023FFA40C440 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC4316B150 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
+Symbol file data-0000023E46059150 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC13836870 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
+Symbol file data-0000023FF580F300 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11165020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file data-0000023E430C8E30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC090FE8A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file data-0000023FFA7CE010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E225F30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file data-0000023FFE712010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC12E60080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file data-0000023FFE712010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0D5C0080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
+Symbol file data-0000023FFA65B010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DA4F010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file data-0000023FFA571020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC090FE8A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
+Symbol file data-0000023FFA7CE010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11324020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file data-0000023E40112350 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC095E1020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
+Symbol file data-0000023E40DF0E00 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E133A20 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
+Symbol file data-0000023FF5837F50 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DC52020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
+Symbol file data-0000023FFF6F7030 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC44CC6C70 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
+Symbol file data-0000024000F4E350 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DA4F010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
+Symbol file data-0000023FFA571020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC090FE8A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file data-0000023FFA7CE010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.UI.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC10F86010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.InputSystem.dll
+Symbol file data-0000023FFA715020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.InputSystem.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC090FE8A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file data-0000023FFA157030 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Rider.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DA8C470 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
+Symbol file data-0000024000BFD2E0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC129A9010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file data-00000240012E2C40 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.UI.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11197020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file data-0000023FF584E010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11AE1020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
+Symbol file data-0000023FFC239020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC091CCF30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.dll
+Symbol file data-0000023FFA02A020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0D910010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
+Symbol file data-0000023FFE172010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08F67030 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Services.Core.Editor.dll
+Symbol file data-0000023FF6057020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Services.Core.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F914020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Cinemachine.dll
+Symbol file data-00000240012E2C40 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Cinemachine.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11165020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll
+Symbol file data-0000023E430C8E30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC129A9010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
+Symbol file data-00000240012E2C40 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E133A20 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
+Symbol file data-0000023E40B8BBB0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC4316C410 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
+Symbol file data-0000023E46059150 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0EB926B0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+Symbol file data-0000024000BFD6C0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC091CCF30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file data-0000023FFF429030 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E225F30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file data-0000023FFE712010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E133A20 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
+Symbol file data-0000023FF5C2D900 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DC52020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
+Symbol file data-00000240012E2C40 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08E0CAB0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
+Symbol file data-0000023FFAADF840 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
 Symbol file LoadedFromMemory is not a mono symbol file
 Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.83 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.93 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.837 seconds
+- Completed reload, in  0.739 seconds
 Domain Reload Profiling:
-	ReloadAssembly (837ms)
-		BeginReloadAssembly (100ms)
+	ReloadAssembly (739ms)
+		BeginReloadAssembly (81ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
+			DisableScriptedObjects (3ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (29ms)
-		EndReloadAssembly (697ms)
-			LoadAssemblies (95ms)
+			CreateAndSetChildDomain (27ms)
+		EndReloadAssembly (621ms)
+			LoadAssemblies (63ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (271ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (34ms)
-			SetupLoadedEditorAssemblies (228ms)
+			SetupTypeCache (222ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (25ms)
+			SetupLoadedEditorAssemblies (203ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (45ms)
+				ProcessInitializeOnLoadAttributes (145ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (29ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.87 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4836 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 199.1 MB.
+System memory in use after: 199.5 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 5496.
+Total: 2.506700 ms (FindLiveObjects: 0.298300 ms CreateObjectMapping: 0.114300 ms MarkObjects: 2.015200 ms  DeleteObjects: 0.078100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 41.996088 seconds.
+  path: Assets/ImportAssets/PolygonTown/Materials/Misc/PolygonTown_Road.mat
+  artifactKey: Guid(3433cc3a39062ce4e9007a2c49514db4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportAssets/PolygonTown/Materials/Misc/PolygonTown_Road.mat using Guid(3433cc3a39062ce4e9007a2c49514db4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29f4102a545f78e691b417921829deb3') in 0.101922 seconds 
+  Import took 0.107597 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004083 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0000023E404A0060 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023FFA40C440 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000002402737B240 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000240012E1A40 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023FF5FAB020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023FFA7CE010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E42157540 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023FFA86E400 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E445AB020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E44B439B0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023FFA7CE010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E42333010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023FFBB01030 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E41DC8DB0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E42405C20 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000024028B06650 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E45F05010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023FFA7CE010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E4498A5C0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.InputSystem.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E44DFBB60 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023FF5B1BAF0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E41290F50 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E42597050 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023FF9F71020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E41F2A090 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E45779010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E452CA560 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Services.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E41712C60 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Cinemachine.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E465C1350 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023FFA908020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E40B8C6C0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000002402737B600 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023FF5B1AF50 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E42797B50 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000240007D3920 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023FFB5A8890 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023FF56F7CD0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0000023E4701FE80 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.84 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.872 seconds
+Domain Reload Profiling:
+	ReloadAssembly (872ms)
+		BeginReloadAssembly (113ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (8ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (36ms)
+		EndReloadAssembly (705ms)
+			LoadAssemblies (78ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (234ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (28ms)
+			SetupLoadedEditorAssemblies (264ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (3ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (1ms)
 				BeforeProcessingInitializeOnLoad (53ms)
-				ProcessInitializeOnLoadAttributes (157ms)
-				ProcessInitializeOnLoadMethodAttributes (7ms)
-				AfterProcessingInitializeOnLoad (6ms)
+				ProcessInitializeOnLoadAttributes (195ms)
+				ProcessInitializeOnLoadMethodAttributes (8ms)
+				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (12ms)
+			AwakeInstancesAfterBackupRestoration (35ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.85 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 1.38 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4836 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 193.4 MB.
-System memory in use after: 193.6 MB.
+System memory in use before: 199.4 MB.
+System memory in use after: 199.8 MB.
 
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 5415.
-Total: 2.556900 ms (FindLiveObjects: 0.240500 ms CreateObjectMapping: 0.123600 ms MarkObjects: 2.103400 ms  DeleteObjects: 0.088800 ms)
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 5536.
+Total: 5.000900 ms (FindLiveObjects: 0.348800 ms CreateObjectMapping: 0.169000 ms MarkObjects: 4.345900 ms  DeleteObjects: 0.135700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -628,585 +797,4 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007371 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file data-000001BC13317EC0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08E0CAB0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC47B4E180 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0D785010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11750010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC090FE8A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E225F30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC12E60080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0D5C0080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC114F1020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC090FE8A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E483010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E22E940 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DE20460 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC19C58E00 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC4A87B450 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC3FAAA010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC090FE8A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC10F86010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.InputSystem.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC090FE8A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC3BE08D30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F455030 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11AE1020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11AE1020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC091CCF30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0D910010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC09154330 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Services.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F914020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Cinemachine.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11750010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F455030 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DE20460 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC47B4E180 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC3BE08D30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC091CCF30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11750010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DE20460 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DC52020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08E0CAB0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.36 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.828 seconds
-Domain Reload Profiling:
-	ReloadAssembly (828ms)
-		BeginReloadAssembly (91ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (3ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (29ms)
-		EndReloadAssembly (701ms)
-			LoadAssemblies (58ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (233ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (26ms)
-			SetupLoadedEditorAssemblies (280ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (52ms)
-				ProcessInitializeOnLoadAttributes (206ms)
-				ProcessInitializeOnLoadMethodAttributes (9ms)
-				AfterProcessingInitializeOnLoad (6ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (15ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.34 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4836 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 193.4 MB.
-System memory in use after: 193.6 MB.
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 5418.
-Total: 3.957100 ms (FindLiveObjects: 0.304900 ms CreateObjectMapping: 0.155100 ms MarkObjects: 3.332200 ms  DeleteObjects: 0.163600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005447 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file data-000001BC13317EC0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC091028B0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC4E37C230 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC134E5020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC479EE010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC50373A20 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC12E60080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC12E60080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0D5C0080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC114F1020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC50373A20 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC093F0020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC08FC4020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC111CB320 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC19C58E00 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC4FDBD590 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC117DC050 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC12E60080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC10F86010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.InputSystem.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC12E60080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC4C854260 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11621010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11AE1020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11AE1020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC091CCF30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0D910010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11DD6490 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Services.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F914020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Cinemachine.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11750010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11621010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC111CB320 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC4E37C230 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC4C856350 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC091CCF30 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC11750010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC111CB320 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DC52020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC091028B0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.86 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.799 seconds
-Domain Reload Profiling:
-	ReloadAssembly (799ms)
-		BeginReloadAssembly (99ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (3ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (28ms)
-		EndReloadAssembly (653ms)
-			LoadAssemblies (70ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (241ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (30ms)
-			SetupLoadedEditorAssemblies (238ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (3ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (60ms)
-				ProcessInitializeOnLoadAttributes (163ms)
-				ProcessInitializeOnLoadMethodAttributes (6ms)
-				AfterProcessingInitializeOnLoad (4ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (9ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.30 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4836 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 193.3 MB.
-System memory in use after: 193.5 MB.
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 5421.
-Total: 3.693900 ms (FindLiveObjects: 0.392400 ms CreateObjectMapping: 0.213100 ms MarkObjects: 2.932300 ms  DeleteObjects: 0.154000 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 1955.368022 seconds.
-  path: Assets/Scripts/TalkManager.cs
-  artifactKey: Guid(294f6b63f182f9a429f0c4c73b57f759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TalkManager.cs using Guid(294f6b63f182f9a429f0c4c73b57f759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4849cae10bab1fd6387b6d339021604b') in 0.005896 seconds 
-  Import took 0.012360 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000962 seconds.
-  path: Assets/Scripts/TalkManager.cs
-  artifactKey: Guid(294f6b63f182f9a429f0c4c73b57f759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TalkManager.cs using Guid(294f6b63f182f9a429f0c4c73b57f759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4849cae10bab1fd6387b6d339021604b') in 0.003632 seconds 
-  Import took 0.009447 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007598 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file data-000001BC142AE840 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0E184C00 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC52E34510 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DCA6020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC128AF040 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC13CA2D10 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC1969C010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC18EDF010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC44739430 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC460C8050 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC13CA2D10 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC168214E0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC44AD9010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC4CB78960 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F85E050 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC54257870 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC14BF3010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC43BF8010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC169F4D20 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.InputSystem.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC44E65020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC53B31990 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC15526010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC16C251C0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC09243270 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC16656F70 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC434E9010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC1515B940 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Services.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC15FCF010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Cinemachine.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC13B13080 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F914020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC1422E7E0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC52E38110 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC53B374A0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC50328480 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0F293020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC4266D010 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC0DC52020 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001BC1653B3E0 doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\ScriptAssemblies\Unity.VisualScripting.State.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\Yudain\Documents\GitHub\ReZeroDream\ReZeroDream\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.88 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.876 seconds
-Domain Reload Profiling:
-	ReloadAssembly (877ms)
-		BeginReloadAssembly (96ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (3ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (33ms)
-		EndReloadAssembly (741ms)
-			LoadAssemblies (74ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (243ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (37ms)
-			SetupLoadedEditorAssemblies (283ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (3ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (50ms)
-				ProcessInitializeOnLoadAttributes (207ms)
-				ProcessInitializeOnLoadMethodAttributes (15ms)
-				AfterProcessingInitializeOnLoad (7ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (15ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.67 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4836 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 193.5 MB.
-System memory in use after: 193.7 MB.
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 5424.
-Total: 4.205500 ms (FindLiveObjects: 0.309800 ms CreateObjectMapping: 0.158800 ms MarkObjects: 3.593300 ms  DeleteObjects: 0.142300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 379.158527 seconds.
-  path: Assets/Scripts/TalkManager.cs
-  artifactKey: Guid(294f6b63f182f9a429f0c4c73b57f759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/TalkManager.cs using Guid(294f6b63f182f9a429f0c4c73b57f759) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '316eccecb738f7646a4b5b1248acc8c1') in 0.006650 seconds 
-  Import took 0.012577 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 29.619267 seconds.
-  path: Assets/Scripts/QuestManager.cs
-  artifactKey: Guid(cb2b5996eb04d864cabedb9f5ec94a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/QuestManager.cs using Guid(cb2b5996eb04d864cabedb9f5ec94a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e53dc73caa0b2a9b699ad3d028feaa8d') in 0.001708 seconds 
-  Import took 0.007491 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000462 seconds.
-  path: Assets/Scripts/QuestManager.cs
-  artifactKey: Guid(cb2b5996eb04d864cabedb9f5ec94a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/QuestManager.cs using Guid(cb2b5996eb04d864cabedb9f5ec94a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e53dc73caa0b2a9b699ad3d028feaa8d') in 0.001548 seconds 
-  Import took 0.006991 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 43.385702 seconds.
-  path: Assets/Videos/BadEnding.mp4
-  artifactKey: Guid(07b3aab8f9c4b3e459eb0560b2c00b75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Videos/BadEnding.mp4 using Guid(07b3aab8f9c4b3e459eb0560b2c00b75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fca2182e79c49c0745a92b9dbbbf6e71') in 0.031723 seconds 
-  Import took 0.037796 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000362 seconds.
-  path: Assets/Videos/cinematicPlay.renderTexture
-  artifactKey: Guid(940c374c0eae79f41a85304e0fae3871) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Videos/cinematicPlay.renderTexture using Guid(940c374c0eae79f41a85304e0fae3871) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '522b1571f272d57328a1166e1e7f5184') in 0.043734 seconds 
-  Import took 0.049537 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000235 seconds.
-  path: Assets/Videos/HappyEnding.mp4
-  artifactKey: Guid(1ba85aad249ca4741bf7b4c0ac6d4c4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Videos/HappyEnding.mp4 using Guid(1ba85aad249ca4741bf7b4c0ac6d4c4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd06774b6f40e391eae0907027430bf84') in 0.002115 seconds 
-  Import took 0.007658 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000318 seconds.
-  path: Assets/Videos/Hamburger_Scene.mp4
-  artifactKey: Guid(c4a89ea334dda1b46bd4226b6bbfa9b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Videos/Hamburger_Scene.mp4 using Guid(c4a89ea334dda1b46bd4226b6bbfa9b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b366bb462081bf2ad812da4d7958dc2') in 0.002529 seconds 
-  Import took 0.008670 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000157 seconds.
-  path: Assets/Videos/NomalEnding.mp4
-  artifactKey: Guid(efecd575ef337c74e913a74c9388cee0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Videos/NomalEnding.mp4 using Guid(efecd575ef337c74e913a74c9388cee0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c9733b095f3359f065b2e8bfc3cfd34') in 0.002748 seconds 
-  Import took 0.009287 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.002906 seconds.
-  path: Assets/Videos/NomalEnding.mp4
-  artifactKey: Guid(efecd575ef337c74e913a74c9388cee0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Videos/NomalEnding.mp4 using Guid(efecd575ef337c74e913a74c9388cee0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c9733b095f3359f065b2e8bfc3cfd34') in 0.002535 seconds 
-  Import took 0.008929 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.709377 seconds.
-  path: Assets/Sprites/Caution.png
-  artifactKey: Guid(509284a570837094cbce766f34e3608a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Caution.png using Guid(509284a570837094cbce766f34e3608a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df4578edb057bef7f29b32e93da69db5') in 0.029949 seconds 
-  Import took 0.036089 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000430 seconds.
-  path: Assets/Sprites/EnZo.png
-  artifactKey: Guid(498c080c1e2bccb4686eaac2abd072cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/EnZo.png using Guid(498c080c1e2bccb4686eaac2abd072cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36537b4fda93d652f85f43eac3ebb6d4') in 0.030913 seconds 
-  Import took 0.036146 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000219 seconds.
-  path: Assets/Sprites/NotepadImg.png
-  artifactKey: Guid(d432e851d024093459b63a936e42a7fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/NotepadImg.png using Guid(d432e851d024093459b63a936e42a7fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98b6e63265a990d9a453317f07884a03') in 0.031813 seconds 
-  Import took 0.037157 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000390 seconds.
-  path: Assets/Sprites/zeroFlower.png
-  artifactKey: Guid(d5a6c65bf3f1f5649b2105a6b7322050) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/zeroFlower.png using Guid(d5a6c65bf3f1f5649b2105a6b7322050) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50e342d2c9108709babfbbe59d14e23e') in 0.025455 seconds 
-  Import took 0.030596 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000267 seconds.
-  path: Assets/Sprites/zeroFamily.png
-  artifactKey: Guid(5740851c54d0a904a97e4dc33c98f75c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/zeroFamily.png using Guid(5740851c54d0a904a97e4dc33c98f75c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd16bd1aa57eb9c81c26c662983843412') in 0.035429 seconds 
-  Import took 0.040787 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000168 seconds.
-  path: Assets/Sprites/zeroCat.png
-  artifactKey: Guid(7a6e3f40ad936724ba4c01f4aaec9617) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/zeroCat.png using Guid(7a6e3f40ad936724ba4c01f4aaec9617) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '729cc7d9bb420be138ac6815d13becf3') in 0.024933 seconds 
-  Import took 0.030285 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000165 seconds.
-  path: Assets/Sprites/zeroBurger.png
-  artifactKey: Guid(65e6bdab7c8ad9449abf0c30e1406f80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/zeroBurger.png using Guid(65e6bdab7c8ad9449abf0c30e1406f80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0d98e7c577469fed268e48b4e8340da') in 0.022195 seconds 
-  Import took 0.027740 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000274 seconds.
-  path: Assets/Sprites/zeroTravel.png
-  artifactKey: Guid(5b30448a6a7694d4b97760d0bbc11f22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/zeroTravel.png using Guid(5b30448a6a7694d4b97760d0bbc11f22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4d9a802e9ad740808eb3b745de412fa') in 0.026023 seconds 
-  Import took 0.031420 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.770064 seconds.
-  path: Assets/Sprites/제로 가족사진.png
-  artifactKey: Guid(7417c928f2afa624b85e0dc8818e9723) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/제로 가족사진.png using Guid(7417c928f2afa624b85e0dc8818e9723) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f1100f1fdae176c010a66c52c6304a4') in 0.007986 seconds 
-  Import took 0.014413 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001213 seconds.
-  path: Assets/Sprites/제로 가족사진.png
-  artifactKey: Guid(7417c928f2afa624b85e0dc8818e9723) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/제로 가족사진.png using Guid(7417c928f2afa624b85e0dc8818e9723) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f1100f1fdae176c010a66c52c6304a4') in 0.009156 seconds 
-  Import took 0.015497 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.749709 seconds.
-  path: Assets/Sprites/제로 가족사진.png
-  artifactKey: Guid(7417c928f2afa624b85e0dc8818e9723) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/제로 가족사진.png using Guid(7417c928f2afa624b85e0dc8818e9723) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a867a9c43a61738c21fbfe4dd7e1429') in 0.015515 seconds 
-  Import took 0.022012 seconds .
-
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

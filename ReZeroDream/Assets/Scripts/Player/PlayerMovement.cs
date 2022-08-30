@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if (GameManager.instance.IsStoryStateWant())
         {
             print("속도 꼭 바꾸기");
-            moveSpeed = 10.0f;
+            moveSpeed = 3.0f;
             runSpeed = 3.0f;
             jumpSpeed = 0.0f;
             animSpeed = 1.0f;

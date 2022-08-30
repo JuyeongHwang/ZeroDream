@@ -144,21 +144,21 @@ public class QuestImplementation : MonoBehaviour
         {
             memrySlider.gameObject.SetActive(false);
             GameManager.instance.MemoryPercent = memrySlider.value;
-            for (int i = 0; i < zeroFamily.Count; i++)
-            {
-                if (zeroFamily[i] == true)
-                {
-                    GameManager.instance.FamilyPercent += 33.3f;
-                }
-            }
+            //for (int i = 0; i < zeroFamily.Count; i++)
+            //{
+            //    if (zeroFamily[i] == true)
+            //    {
+            //        GameManager.instance.FamilyPercent += 33.3f;
+            //    }
+            //}
 
 
-            if (GameManager.instance.findCar && GameManager.instance.MemoryPercent >= 80.0f && GameManager.instance.FamilyPercent >= 80.0f)
+            if (GameManager.instance.findCar && GameManager.instance.MemoryPercent >= 80.0f)// && GameManager.instance.FamilyPercent >= 80.0f)
             {
                 video.clip = Happy;
                 Debug.Log("Happy Ending");
             }
-            else if (GameManager.instance.findCar && GameManager.instance.MemoryPercent >= 60.0f && GameManager.instance.FamilyPercent >= 60.0f)
+            else if (GameManager.instance.findCar && GameManager.instance.MemoryPercent >= 60.0f)//&& GameManager.instance.FamilyPercent >= 60.0f)
             {
                 video.clip = Normal;
                 Debug.Log("Normal Ending");
@@ -423,7 +423,7 @@ public class QuestImplementation : MonoBehaviour
                 crowdMovement.enabled = true;
 
                 GameManager.instance.spawnMemories[2].SetActive(false);
-                UIManager.instance.OnOffEnzoNote(true);
+                UIManager.instance.OnOffWantNote(true);
             }
 
             if (GameManager.instance.IsGameStatePlay() && getWantMemory)
@@ -536,10 +536,10 @@ public class QuestImplementation : MonoBehaviour
                         
                 }
                 //===========
-                //if(obj.id == 5000 && !zeroFamily[0])
+                //if (obj.id == 5000 && !zeroFamily[0])
                 //{
                 //    questManager.questId = 100;
-                //    questManager.questAcitonIndex = 1;
+                //    questManager.questAcitonIndex = 0;
                 //    if (GameManager.instance.IsGameStateDialogue())
                 //    {
                 //        zeroFamily[0] = true;
@@ -555,7 +555,7 @@ public class QuestImplementation : MonoBehaviour
                 //else if (obj.id == 6000 && !zeroFamily[1])
                 //{
                 //    questManager.questId = 100;
-                //    questManager.questAcitonIndex = 2;
+                //    questManager.questAcitonIndex = 0;
                 //    if (GameManager.instance.IsGameStateDialogue())
                 //    {
                 //        zeroFamily[1] = true;
@@ -570,7 +570,7 @@ public class QuestImplementation : MonoBehaviour
                 //else if (obj.id == 7000 && !zeroFamily[2])
                 //{
                 //    questManager.questId = 100;
-                //    questManager.questAcitonIndex = 3;
+                //    questManager.questAcitonIndex = 0;
                 //    if (GameManager.instance.IsGameStateDialogue())
                 //    {
                 //        zeroFamily[1] = true;
