@@ -393,7 +393,7 @@ public class QuestImplementation : MonoBehaviour
                     for(int i = 0; i< wantMats.Length; i++)
                     {
                         wantMats[i].SetFloat("_blend", 1);
-                        wantMats[i].SetColor("_Color", Color.HSVToRGB(193,193,193));
+                        //wantMats[i].SetColor("_Color", Color.HSVToRGB(193,193,193));
                     }
                     //questManager.questId = 90;
                     //questManager.questAcitonIndex = 0;
