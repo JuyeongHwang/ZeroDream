@@ -152,16 +152,19 @@ public class QuestImplementation : MonoBehaviour
             //    }
             //}
 
+            if (GameManager.instance.findCar)//&& GameManager.instance.FamilyPercent >= 60.0f)
+            {
+                if(GameManager.instance.MemoryPercent >= 60.0f && GameManager.instance.MemoryPercent < 80.0f)
+                {
 
-            if (GameManager.instance.findCar && GameManager.instance.MemoryPercent >= 80.0f)// && GameManager.instance.FamilyPercent >= 80.0f)
-            {
-                video.clip = Happy;
-                Debug.Log("Happy Ending");
-            }
-            else if (GameManager.instance.findCar && GameManager.instance.MemoryPercent >= 60.0f)//&& GameManager.instance.FamilyPercent >= 60.0f)
-            {
-                video.clip = Normal;
-                Debug.Log("Normal Ending");
+                    video.clip = Normal;
+                    Debug.Log("Normal Ending");
+                }
+                else if(GameManager.instance.MemoryPercent >= 80.0f)
+                {
+                    video.clip = Happy;
+                    Debug.Log("Happy Ending");
+                }
             }
             else
             {
@@ -188,8 +191,6 @@ public class QuestImplementation : MonoBehaviour
                     videoEnd = true;
                 }
             }
-
-            //1. happy
 
             return;
         }
@@ -536,52 +537,53 @@ public class QuestImplementation : MonoBehaviour
                         
                 }
                 //===========
-                //if (obj.id == 5000 && !zeroFamily[0])
-                //{
-                //    questManager.questId = 100;
-                //    questManager.questAcitonIndex = 0;
-                //    if (GameManager.instance.IsGameStateDialogue())
-                //    {
-                //        zeroFamily[0] = true;
-                //        memrySlider.value -= 0.35f;
-                //        GameManager.instance.FamilyPercent += 0.35f;
-                //        for (int i = 0; i < wantMats.Length; i++)
-                //        {
-                //            wantMats[i].SetFloat("_blend", memrySlider.value + 0.35f);
-                //        }
-                //    }
+                if (obj.id == 5000 && !zeroFamily[0])
+                {
 
-                //}
-                //else if (obj.id == 6000 && !zeroFamily[1])
-                //{
-                //    questManager.questId = 100;
-                //    questManager.questAcitonIndex = 0;
-                //    if (GameManager.instance.IsGameStateDialogue())
-                //    {
-                //        zeroFamily[1] = true;
-                //        memrySlider.value -= 0.35f;
-                //        GameManager.instance.FamilyPercent += 0.35f;
-                //        for (int i = 0; i < wantMats.Length; i++)
-                //        {
-                //            wantMats[i].SetFloat("_blend", memrySlider.value + 0.35f);
-                //        }
-                //    }
-                //}
-                //else if (obj.id == 7000 && !zeroFamily[2])
-                //{
-                //    questManager.questId = 100;
-                //    questManager.questAcitonIndex = 0;
-                //    if (GameManager.instance.IsGameStateDialogue())
-                //    {
-                //        zeroFamily[1] = true;
-                //        memrySlider.value -= 0.35f;
-                //        GameManager.instance.FamilyPercent += 0.35f;
-                //        for (int i = 0; i < wantMats.Length; i++)
-                //        {
-                //            wantMats[i].SetFloat("_blend", memrySlider.value + 0.35f);
-                //        }
-                //    }
-                //}
+                    questManager.questId = 90;
+                    questManager.questAcitonIndex = 0;
+                    if (GameManager.instance.IsGameStateDialogue())
+                    {
+                        zeroFamily[0] = true;
+                        memrySlider.value -= 0.35f;
+                        GameManager.instance.FamilyPercent += 0.35f;
+                        for (int i = 0; i < wantMats.Length; i++)
+                        {
+                            wantMats[i].SetFloat("_blend", memrySlider.value + 0.35f);
+                        }
+                    }
+
+                }
+                else if (obj.id == 6000 && !zeroFamily[1])
+                {
+                    questManager.questId = 90;
+                    questManager.questAcitonIndex = 0;
+                    if (GameManager.instance.IsGameStateDialogue())
+                    {
+                        zeroFamily[1] = true;
+                        memrySlider.value -= 0.35f;
+                        GameManager.instance.FamilyPercent += 0.35f;
+                        for (int i = 0; i < wantMats.Length; i++)
+                        {
+                            wantMats[i].SetFloat("_blend", memrySlider.value + 0.35f);
+                        }
+                    }
+                }
+                else if (obj.id == 7000 && !zeroFamily[2])
+                {
+                    questManager.questId = 90;
+                    questManager.questAcitonIndex = 0;
+                    if (GameManager.instance.IsGameStateDialogue())
+                    {
+                        zeroFamily[1] = true;
+                        memrySlider.value -= 0.35f;
+                        GameManager.instance.FamilyPercent += 0.35f;
+                        for (int i = 0; i < wantMats.Length; i++)
+                        {
+                            wantMats[i].SetFloat("_blend", memrySlider.value + 0.35f);
+                        }
+                    }
+                }
             }
 
             //questId == 100 && questActionIndex == 1 일때 가족들이 활성화되면 되구, 대사를 퀘스트 안이 아니라 밖(기본 대사)로 빼서 대화 순서 상관없이 진행할 수 있습니다! npcId는 엄마가 5000, 아빠가 6000, 누나가 7000입니다.
