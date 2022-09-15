@@ -71,6 +71,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIView HuiFlowerText;
     [SerializeField] private UIView EnjoyNote;
     [SerializeField] private UIView EnjoyCarText;
+    [SerializeField] private UIView EnjoyCarImage;
     [SerializeField] private UIView EnjoyBurgerText;
     [SerializeField] private UIView WantNote;
     [Header("Caution")]
@@ -239,9 +240,10 @@ public class UIManager : MonoBehaviour
         HuiFlowerText.UpdateTextMeshProUGUI("민들레");
     }
 
-    public void UpdateEnjoyCarText()
+    public void UpdateEnjoyCar(Sprite EnjoyFamilyImage)
     {
         EnjoyCarText.UpdateTextMeshProUGUI("가족과의\n놀이공원");
+        EnjoyCarImage.UpdateImage(EnjoyFamilyImage);
     }
     public void UpdateEnjoyBurgerText()
     {

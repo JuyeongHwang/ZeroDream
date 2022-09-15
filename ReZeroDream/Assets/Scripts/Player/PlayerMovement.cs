@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = 2.5f;
             runSpeed = 5.0f;
-            jumpSpeed =8.0f;
+            jumpSpeed =12.0f;
         }
         if (GameManager.instance.IsStoryStateWant())
         {

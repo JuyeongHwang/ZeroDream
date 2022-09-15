@@ -14,7 +14,7 @@ public class QuestImplementation : MonoBehaviour
         WANT
     };
 
-    public GameObject EmotionPrefabs;
+    public Sprite enjoyFamilyImg;
     private DialogueManager dialogueManager;
     private QuestManager questManager;
     private PlayerState playerState;
@@ -29,6 +29,7 @@ public class QuestImplementation : MonoBehaviour
     public Material[] flowerMats;
     public Material[] HuiMats;
     public ControlLand[] ControlLands;
+
 
     public GameObject[] MonsterTraps;
     public Transform[] Monsters;
@@ -372,6 +373,11 @@ public class QuestImplementation : MonoBehaviour
                     findFamilyCar = true;
                     GameManager.instance.findCar = true;
                 }
+            }
+            if (findFamilyCar && questManager.questId == 70 && questManager.questAcitonIndex == 0 && dialogueManager.talkIndex == 0)
+            {
+                UIManager.instance.UpdateEnjoyCar(enjoyFamilyImg);
+                Debug.Log("사진업데이트왜안해ㅠㅠ");
             }
 
 
