@@ -88,7 +88,7 @@ public class QuestImplementation : MonoBehaviour
     //bool sixthMem = false;
     public Slider memrySlider;
     public List<bool> zeroMemories = new List<bool>();
-    List<bool> zeroFamily = new List<bool>();
+    public List<bool> zeroFamily = new List<bool>();
     public Material[] wantMats;
     private void Start()
     {
@@ -136,7 +136,8 @@ public class QuestImplementation : MonoBehaviour
         Zero = FindObjectOfType<PlayerInput>().gameObject;
     }
 
-    
+    public bool family = false;
+    public bool memory = false;
 
     void Update()
     {
@@ -144,23 +145,39 @@ public class QuestImplementation : MonoBehaviour
         {
             memrySlider.gameObject.SetActive(false);
             GameManager.instance.MemoryPercent = memrySlider.value;
-            //for (int i = 0; i < zeroFamily.Count; i++)
-            //{
-            //    if (zeroFamily[i] == true)
-            //    {
-            //        GameManager.instance.FamilyPercent += 33.3f;
-            //    }
-            //}
-
+            for (int i = 0; i < zeroFamily.Count; i++)
+            {
+                if (zeroFamily[i] == true)
+                {
+                    family = true;
+                }
+                else
+                {
+                    family = false;
+                    break;
+                }
+            }
+            for (int i = 0; i < zeroMemories.Count; i++)
+            {
+                if (zeroMemories[i] == true)
+                {
+                    memory = true;
+                }
+                else
+                {
+                    memory = false;
+                    break;
+                }
+            }
             if (GameManager.instance.findCar)//&& GameManager.instance.FamilyPercent >= 60.0f)
             {
-                if(GameManager.instance.MemoryPercent >= 60.0f && GameManager.instance.MemoryPercent < 80.0f)
+                if(memory)
                 {
 
                     video.clip = Normal;
                     Debug.Log("Normal Ending");
                 }
-                else if(GameManager.instance.MemoryPercent >= 80.0f)
+                else if(memory && family)
                 {
                     video.clip = Happy;
                     Debug.Log("Happy Ending");
