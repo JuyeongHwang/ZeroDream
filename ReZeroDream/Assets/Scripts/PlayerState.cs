@@ -22,16 +22,22 @@ public class PlayerState : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Fall" && GameManager.instance.IsStoryStateHui())
+        if (other.gameObject.tag == "Fall" )
         {
-            print("Reset");
+            if (GameManager.instance.IsStoryStateHui())
+            {
 
+                gameObject.transform.position = new Vector3(-2, 4, 2);
+            }
+            else if (GameManager.instance.IsStoryStateEnjoy())
+            {
+                gameObject.transform.position = new Vector3(-2, -74, 0.5f);
+            }
             transform.eulerAngles = new Vector3(0, 0, 0);
             FindObjectOfType<PlayerMovement>().moveState = PlayerMovement.MoveState.IDLE;
             Physics2D.gravity = new Vector3(0, -9.8f, 0);
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             Camera.main.transform.position = new Vector3(-2, 10, 2);
-            gameObject.transform.position = new Vector3(-2, 4, 2);
 
         }
 
