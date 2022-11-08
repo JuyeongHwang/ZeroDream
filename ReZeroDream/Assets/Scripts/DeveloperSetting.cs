@@ -16,6 +16,7 @@ public class DeveloperSetting : MonoBehaviour
     Transform player;
     private void Start()
     {
+        
         player = FindObjectOfType<PlayerInput>().transform;
         quest = FindObjectOfType<QuestManager>();
         if (state == StoryState.HUI)
