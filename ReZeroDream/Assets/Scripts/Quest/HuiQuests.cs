@@ -117,7 +117,7 @@ public class HuiQuests : MonoBehaviour
 
                 if (dialogueManager.talkIndex == 0)
                 {
-                    print("0");
+                    //print("0");
                     ObjData objData = Hui.GetComponent<ObjData>();
                     if (objData._name != "Á¦·Î")
                     {
