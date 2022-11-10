@@ -44,4 +44,5 @@
 
 > 조작키  
 
-![image](https://user-images.githubusercontent.com/79504024/201104614-5479f9ca-f34a-41aa-a07b-6dd4e9c60dd4.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/79504024/201104614-5479f9ca-f34a-41aa-a07b-6dd4e9c60dd4.png" width="600" height="350"/></p>
+
