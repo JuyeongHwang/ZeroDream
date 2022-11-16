@@ -193,6 +193,7 @@ public class QuestImplementation : MonoBehaviour
             getEnzoMemory = GameManager.instance.belongEmotions[1];
             if (getEnzoMemory && GameManager.instance.spawnMemories[1].activeSelf)
             {
+                print("Why");
                 questManager.questId = 40;
                 questManager.questAcitonIndex = 2;
                 dialogueManager.zeroTalk = true;
@@ -534,6 +535,7 @@ public class QuestImplementation : MonoBehaviour
     {
         if (spawnEnzoMemory) return;
         GameManager.instance.spawnMemories[1].SetActive(true);
+        spawnEnzoMemory = true;
         //spawnHuiMemory = true;
 
     }

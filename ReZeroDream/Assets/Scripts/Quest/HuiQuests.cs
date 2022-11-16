@@ -55,12 +55,6 @@ public class HuiQuests : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if not in hui state
-        if (!GameManager.instance.IsStoryStateHui())
-        {
-            this.gameObject.SetActive(false);
-            return;
-        }
 
         if (GameManager.instance.IsStoryStateHui())
         {
@@ -351,6 +345,7 @@ public class HuiQuests : MonoBehaviour
         cameraMovement.cameraOffset = new Vector3(-20, 10, 10);
 
         print("Èñ ³¡");
+        
 
     }
 
