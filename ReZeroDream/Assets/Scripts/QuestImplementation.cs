@@ -147,16 +147,18 @@ public class QuestImplementation : MonoBehaviour
             }
             if (GameManager.instance.findCar)//&& GameManager.instance.FamilyPercent >= 60.0f)
             {
-                if(memory)
+                if (memory)
                 {
-
-                    video.clip = Normal;
-                    Debug.Log("Normal Ending");
-                }
-                else if(memory && family)
-                {
-                    video.clip = Happy;
-                    Debug.Log("Happy Ending");
+                    if (family)
+                    {
+                        video.clip = Happy;
+                        Debug.Log("Happy Ending");
+                    }
+                    else
+                    {
+                        video.clip = Normal;
+                        Debug.Log("Normal Ending");
+                    }
                 }
             }
             else
@@ -215,10 +217,6 @@ public class QuestImplementation : MonoBehaviour
 
             //몬스터 발견 -> 제로 혼잣말 -> 주의사항 온
 
-            if (getEnzoMemory)
-            {
-                //checkInCameraMonster();
-            }
             if(questManager.questId == 60 && questManager.questAcitonIndex == 0)
             {
                 if (findMonsters && !zeroEnzoTalk)
@@ -236,7 +234,7 @@ public class QuestImplementation : MonoBehaviour
 
 
             //first find store
-            if ( !findStore && findMonsters)
+            if ( !findStore)
             {
                 float distance = (Store.position - Zero.transform.position).magnitude;
                 if(distance < 3.0f)
@@ -251,7 +249,7 @@ public class QuestImplementation : MonoBehaviour
             }
             //60 + 14000
             //find family car
-            if (Zero.GetComponent<PlayerInput>().scanObject && !findFamilyCar)
+            if (Zero.GetComponent<PlayerInput>().scanObject && !findFamilyCar && !findStore)
             {
                 ObjData obj = Zero.GetComponent<PlayerInput>().scanObject.GetComponent<ObjData>();
                 questManager.questId = 60; questManager.questAcitonIndex = 0;
@@ -264,7 +262,6 @@ public class QuestImplementation : MonoBehaviour
             if (findFamilyCar && questManager.questId == 70 && questManager.questAcitonIndex == 0 && dialogueManager.talkIndex == 0)
             {
                 UIManager.instance.UpdateEnjoyCar(enjoyFamilyImg);
-                //Debug.Log("사진업데이트왜안해ㅠㅠ");
             }
 
 
@@ -346,7 +343,6 @@ public class QuestImplementation : MonoBehaviour
             }
 
             //16000~21000
-
 
             if (Zero.GetComponent<PlayerInput>().scanObject)
             {
@@ -455,11 +451,11 @@ public class QuestImplementation : MonoBehaviour
                     if (GameManager.instance.IsGameStateDialogue())
                     {
                         zeroFamily[0] = true;
-                        memrySlider.value -= 0.35f;
+                        memrySlider.value += 0.35f;
                         GameManager.instance.FamilyPercent += 0.35f;
                         for (int i = 0; i < wantMats.Length; i++)
                         {
-                            wantMats[i].SetFloat("_blend", memrySlider.value + 0.35f);
+                            wantMats[i].SetFloat("_blend", memrySlider.value);
                         }
                     }
 
@@ -471,11 +467,11 @@ public class QuestImplementation : MonoBehaviour
                     if (GameManager.instance.IsGameStateDialogue())
                     {
                         zeroFamily[1] = true;
-                        memrySlider.value -= 0.35f;
+                        memrySlider.value += 0.35f;
                         GameManager.instance.FamilyPercent += 0.35f;
                         for (int i = 0; i < wantMats.Length; i++)
                         {
-                            wantMats[i].SetFloat("_blend", memrySlider.value + 0.35f);
+                            wantMats[i].SetFloat("_blend", memrySlider.value);
                         }
                     }
                 }
@@ -485,19 +481,19 @@ public class QuestImplementation : MonoBehaviour
                     questManager.questAcitonIndex = 0;
                     if (GameManager.instance.IsGameStateDialogue())
                     {
-                        zeroFamily[1] = true;
-                        memrySlider.value -= 0.35f;
+                        zeroFamily[2] = true;
+                        memrySlider.value += 0.35f;
                         GameManager.instance.FamilyPercent += 0.35f;
                         for (int i = 0; i < wantMats.Length; i++)
                         {
-                            wantMats[i].SetFloat("_blend", memrySlider.value + 0.35f);
+                            wantMats[i].SetFloat("_blend", memrySlider.value);
                         }
                     }
                 }
             }
 
             //questId == 100 && questActionIndex == 1 일때 가족들이 활성화되면 되구, 대사를 퀘스트 안이 아니라 밖(기본 대사)로 빼서 대화 순서 상관없이 진행할 수 있습니다! npcId는 엄마가 5000, 아빠가 6000, 누나가 7000입니다.
-            if (GameManager.instance.MemoryPercent > 0.9f && !familyMovement.enabled && GameManager.instance.findCar)
+            if (GameManager.instance.MemoryPercent > 1.0f && !familyMovement.enabled && GameManager.instance.findCar)
             {
                 familyMovement.gameObject.SetActive(true);
                 familyMovement.enabled = true;
