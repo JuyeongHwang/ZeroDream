@@ -31,7 +31,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-
+        Tab();
         Click();
         Lift();
 
@@ -39,6 +39,17 @@ public class PlayerInteraction : MonoBehaviour
         {
             throwItem.transform.position = throwItemPos.position;
             //throwItem.transform.SetParent(throwItemPos, true);
+        }
+    }
+
+
+    
+    void Tab()
+    {
+        if (playerInput.tab)
+        {
+            print("soyeon ...");
+            UIManager.instance.ShowAndHideNotePad();
         }
     }
 

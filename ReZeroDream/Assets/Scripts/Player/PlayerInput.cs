@@ -14,6 +14,7 @@ public class PlayerInput : MonoBehaviour
     public bool lift { get; private set; }
     public bool Lclick { get; private set; }
     public bool enter { get; private set; }
+    public bool tab { get; private set; }
     public bool throwing { get; private set; }
     public GameObject scanObject { get; private set; } 
 
@@ -37,6 +38,7 @@ public class PlayerInput : MonoBehaviour
         run = Input.GetButton("Run");
         jump = Input.GetButtonDown("Jump");
         lift = Input.GetButtonDown("Lift");
+        tab = Input.GetKeyDown(KeyCode.Tab);
         Lclick = (Input.GetMouseButtonDown(0) && !GameManager.instance.IsGameStateSetting() && !GameManager.instance.IsGameStateStory());
         enter =  Input.GetButtonDown("Enter");
         scanObject = Ray();

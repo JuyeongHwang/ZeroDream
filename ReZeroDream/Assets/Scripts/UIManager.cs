@@ -81,6 +81,24 @@ public class UIManager : MonoBehaviour
     [HideInInspector] public bool activateCaution = false;
     private QuestManager questManager;
 
+
+    private bool ActiveNote = true; //note가 활성화 되었는지
+    public void ShowAndHideNotePad()
+    {
+        //만약 노트가 활성화 되어있다면,
+        if (ActiveNote)
+        {
+            //숨기기
+            ActiveNote = false;
+        }
+        else //숨겨져있다면
+        {
+            //꺼내기
+            ActiveNote = true;
+        }
+
+
+    }
     public void HideAllCanvasNoFade()
     {
         Canvas.Hide();
