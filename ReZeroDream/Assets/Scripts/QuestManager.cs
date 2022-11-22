@@ -27,6 +27,7 @@ public class QuestManager : MonoBehaviour
     public GameObject huiMemoryQuestImg;
     public GameObject catQuestImg;
     public GameObject flowerQuestImg;
+    public GameObject flowerQuestImg2;
     //public GameObject[] carQuestImg;
     //public GameObject[] wantQuestImg;
 
@@ -60,10 +61,12 @@ public class QuestManager : MonoBehaviour
         {
             huiQuestSprite.sprite = questImgArr[1];
             flowerQuestImg.SetActive(true);
+            flowerQuestImg2.SetActive(true);
         }
         else if (questId == 30 && questAcitonIndex == 2)
         {
             flowerQuestImg.SetActive(false);
+            flowerQuestImg2.SetActive(false);
         }
         else if (questId == 30 && questAcitonIndex == 3)
         {
