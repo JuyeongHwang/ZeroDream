@@ -11,12 +11,13 @@ public class SettingUI : MonoBehaviour
     [SerializeField] private UIView helpGuideObj;
     public void OnSettings()
     {
+        if (!GameManager.instance.IsGameStateSetting())
+        {
+            return;
+        }
         settingObj.Show();
         GameManager.instance.SetGameStateToSetting();
-        if (GameManager.instance.IsGameStateSetting())
-        {
 
-        }
     }
     public void OffSettings()
     {
@@ -28,17 +29,20 @@ public class SettingUI : MonoBehaviour
         }
     }
 
+    bool isActivateHelpGuide = false;
     public void OnHelpGuide()
     {
-        helpGuideObj.Show();
-        if (GameManager.instance.IsGameStateSetting())
+        if (!GameManager.instance.IsGameStateSetting())
         {
-
+            return;
         }
+        helpGuideObj.Show();
+        GameManager.instance.SetGameStateToSetting();
     }
     public void OffHelpGuide()
     {
         helpGuideObj.Hide();
+        GameManager.instance.SetGameStateToPlay();
         if (!GameManager.instance.IsGameStateSetting())
         {
 
@@ -47,6 +51,10 @@ public class SettingUI : MonoBehaviour
 
     public void OnQuit()
     {
+        if (!GameManager.instance.IsGameStateSetting())
+        {
+            return;
+        }
         quitObj.Show();
     }
     public void OffQuit()

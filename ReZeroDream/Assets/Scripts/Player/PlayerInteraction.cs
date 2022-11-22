@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
 
+    private PlayerMovement playermovement;
     private PlayerState playerState; //허락받는 부분
     private Animator playerAnimator;
     private PlayerInput playerInput;
@@ -18,6 +19,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject throwItem { get; private set; }
     void Start()
     {
+        playermovement = GetComponent<PlayerMovement>();
         playerState = GetComponent<PlayerState>();
         playerInput = GetComponent<PlayerInput>();
         dialogueManager = FindObjectOfType<DialogueManager>();
@@ -125,6 +127,18 @@ public class PlayerInteraction : MonoBehaviour
     bool canThrow = false;
     private void OnTriggerEnter(Collider other)
     {
+        
+        if(other.tag == "Ground")
+        {
+            if(playermovement.groundState != PlayerMovement.GroundState.Ground)
+            {
+                playermovement.groundState = PlayerMovement.GroundState.Ground;
+                Physics.gravity = new Vector3(0, -9.8f, 0);
+                transform.Rotate(Vector3.right * 90, Space.Self);
+                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            }
+        }
+
         if (other.tag == "Item")
         {
             canLift = true;

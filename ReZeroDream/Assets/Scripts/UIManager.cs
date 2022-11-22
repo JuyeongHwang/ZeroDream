@@ -271,6 +271,10 @@ public class UIManager : MonoBehaviour
 
     public void OnQuestMaxOffQuestMinWindow()
     {
+        if (!GameManager.instance.IsGameStateSetting())
+        {
+            return;
+        }
         questMinWindow.Hide();
         questMaxWindow.Show();
         questMinButton.Show();
@@ -280,6 +284,10 @@ public class UIManager : MonoBehaviour
 
     public void OffQuestMaxOnQuestMinWindow()
     {
+        if (!GameManager.instance.IsGameStateSetting())
+        {
+            return;
+        }
         questAnimator.SetTrigger("Min");
         Invoke("InvokeOffQuestMaxOnQuestMinWindow", 0.3f);
     }

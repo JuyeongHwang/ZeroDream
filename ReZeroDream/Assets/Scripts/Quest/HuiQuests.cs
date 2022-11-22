@@ -317,7 +317,6 @@ public class HuiQuests : MonoBehaviour
         UIManager.instance.HideAllCanvas(2.0f);
         val += Time.deltaTime * 0.2f;
         GameManager.instance.SetCamStateToFocus();
-
         cameraMovement.cameraOffset = new Vector3(0, 20, -14);
         cameraMovement.moveSmoothSpeed = 1.0f;
         for (int i = 0; i < HuiMats.Length; i++)

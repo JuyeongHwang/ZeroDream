@@ -22,10 +22,11 @@ public class QuestImplementation : MonoBehaviour
 
     public ControlLand[] ControlLands;
 
+    //public GameObject[] MonsterTraps;
+    //public Transform[] Monsters;
+    //public GameObject[] Booms;
 
-    public GameObject[] MonsterTraps;
-    public Transform[] Monsters;
-    public GameObject[] Booms;
+
     public Transform Store;
     public Transform EnzoPos;
     public GameObject BurgerBarrier;
@@ -85,18 +86,18 @@ public class QuestImplementation : MonoBehaviour
         familyMovement = FindObjectOfType<FamilyMovement>();
 
 
-        for (int i = 0; i < Monsters.Length; i++)
-        {
-            Monsters[i].gameObject.SetActive(false);
-        }
-        for (int i = 0; i < MonsterTraps.Length; i++)
-        {
-            MonsterTraps[i].SetActive(false);
-        }
-        for (int i = 0; i < Booms.Length; i++)
-        {
-            Booms[i].SetActive(false);
-        }
+        //for (int i = 0; i < Monsters.Length; i++)
+        //{
+        //    Monsters[i].gameObject.SetActive(false);
+        //}
+        //for (int i = 0; i < MonsterTraps.Length; i++)
+        //{
+        //    MonsterTraps[i].SetActive(false);
+        //}
+        //for (int i = 0; i < Booms.Length; i++)
+        //{
+        //    Booms[i].SetActive(false);
+        //}
         for(int i = 0; i<6; i++)
         {
             zeroMemories.Add(false);
@@ -193,21 +194,20 @@ public class QuestImplementation : MonoBehaviour
             getEnzoMemory = GameManager.instance.belongEmotions[1];
             if (getEnzoMemory && GameManager.instance.spawnMemories[1].activeSelf)
             {
-                print("Why");
                 questManager.questId = 40;
                 questManager.questAcitonIndex = 2;
                 dialogueManager.zeroTalk = true;
                 dialogueManager.Action(Zero);
                 BurgerBarrier.SetActive(false);
 
-                for (int i = 0; i < MonsterTraps.Length; i++)
-                {
-                    MonsterTraps[i].SetActive(true);
-                }
-                for (int i = 0; i < Monsters.Length; i++)
-                {
-                    Monsters[i].gameObject.SetActive(true);
-                }
+                //for (int i = 0; i < MonsterTraps.Length; i++)
+                //{
+                //    MonsterTraps[i].SetActive(true);
+                //}
+                //for (int i = 0; i < Monsters.Length; i++)
+                //{
+                //    Monsters[i].gameObject.SetActive(true);
+                //}
 
                 GameManager.instance.spawnMemories[1].SetActive(false);
                 UIManager.instance.OnOffEnzoNote(true);
@@ -217,21 +217,20 @@ public class QuestImplementation : MonoBehaviour
 
             if (getEnzoMemory)
             {
-                checkInCameraMonster();
+                //checkInCameraMonster();
             }
             if(questManager.questId == 60 && questManager.questAcitonIndex == 0)
             {
-                print("몬스터 주의사항 안뜨면 여기 보기");
                 if (findMonsters && !zeroEnzoTalk)
                 {
                     zeroEnzoTalk = true;
                     UIManager.instance.ShowAndHideCautionWindow(true);
-                    UIManager.instance.UpdateCautionText("몬스터가 지나다니는 길에 있는 발판은\n이 지역을 움직이게 할 수 있습니다.\n도시를 움직여 원하는 목표를 달성하세요.");
+                    UIManager.instance.UpdateCautionText("놀이공원을 즐겨봐");
 
-                    for(int i = 0; i<Booms.Length; i++)
-                    {
-                        Booms[i].SetActive(true);
-                    }
+                    //for(int i = 0; i<Booms.Length; i++)
+                    //{
+                    //    Booms[i].SetActive(true);
+                    //}
                 }
             }
 
@@ -543,51 +542,51 @@ public class QuestImplementation : MonoBehaviour
     #endregion
 
 
-    #region Monster
+    //#region Monster
 
 
-    public void checkInCameraMonster()
-    {
-        if (findMonsters) return;
+    //public void checkInCameraMonster()
+    //{
+    //    if (findMonsters) return;
 
-        for(int i= 0; i<Monsters.Length; i++)
-        {
-            Vector3 viewPos = Camera.main.WorldToViewportPoint(Monsters[i].position);
-            float distance = (Zero.transform.position - Monsters[i].transform.position).magnitude;
-            if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
-            {
-                if (distance <= 30.0f)
-                {
-                    findMonsters = true;
+    //    for(int i= 0; i<Monsters.Length; i++)
+    //    {
+    //        Vector3 viewPos = Camera.main.WorldToViewportPoint(Monsters[i].position);
+    //        float distance = (Zero.transform.position - Monsters[i].transform.position).magnitude;
+    //        if (viewPos.x >= 0 && viewPos.x <= 1 && viewPos.y >= 0 && viewPos.y <= 1 && viewPos.z > 0)
+    //        {
+    //            if (distance <= 30.0f)
+    //            {
+    //                findMonsters = true;
 
-                    cameraMovement.SetCameraSetting(Monsters[i], 0.1f, new Vector3(10, 3, -10));
+    //                cameraMovement.SetCameraSetting(Monsters[i], 0.1f, new Vector3(10, 3, -10));
 
-                    GameManager.instance.SetCamStateToFocus();
-                    GameManager.instance.SetGameStateToStory();
+    //                GameManager.instance.SetCamStateToFocus();
+    //                GameManager.instance.SetGameStateToStory();
 
-                    StartCoroutine(endFocusingMonster());
-                }
-            }
-        }
+    //                StartCoroutine(endFocusingMonster());
+    //            }
+    //        }
+    //    }
 
-    }
+    //}
 
-    IEnumerator endFocusingMonster()
-    {
-        yield return new WaitForSeconds(3.0f);
+    //IEnumerator endFocusingMonster()
+    //{
+    //    yield return new WaitForSeconds(3.0f);
 
-        cameraMovement.SetCameraSetting(Zero.transform, 3.0f, new Vector3(0, 5, -7));
-        GameManager.instance.SetCamStateToFollow();
+    //    cameraMovement.SetCameraSetting(Zero.transform, 3.0f, new Vector3(0, 5, -7));
+    //    GameManager.instance.SetCamStateToFollow();
 
-        questManager.questId = 50;
-        questManager.questAcitonIndex = 0;
-        dialogueManager.zeroTalk = true;
-        dialogueManager.Action(Zero);
-    }
+    //    questManager.questId = 50;
+    //    questManager.questAcitonIndex = 0;
+    //    dialogueManager.zeroTalk = true;
+    //    dialogueManager.Action(Zero);
+    //}
 
 
 
-    #endregion
+    //#endregion
 
 }
 

@@ -6,11 +6,8 @@ public class MouseEvent : MonoBehaviour
 {
     public void OnMousePointEnter()
     {
+        if(GameManager.instance.IsGameStateDialogue() || GameManager.instance.IsGameStateStory()) { return; }
         GameManager.instance.SetGameStateToSetting();
-        if (GameManager.instance.IsGameStatePlay())
-        {
-
-        }
     }
 
     public void OnMousePointExit()

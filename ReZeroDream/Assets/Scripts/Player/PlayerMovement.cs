@@ -30,8 +30,8 @@ public class PlayerMovement : MonoBehaviour
 
     public enum MoveState { IDLE, WALK, RUN, JUMPSTART, JUMPEND };
     public MoveState moveState = MoveState.IDLE;
-    enum GroundState { Ground, Wall};
-    [SerializeField] GroundState groundState = GroundState.Ground;
+    public enum GroundState { Ground, Wall};
+    public GroundState groundState = GroundState.Ground;
 
     private void Start()
     {
