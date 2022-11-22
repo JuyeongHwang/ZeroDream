@@ -264,7 +264,7 @@ public class QuestImplementation : MonoBehaviour
             if (findFamilyCar && questManager.questId == 70 && questManager.questAcitonIndex == 0 && dialogueManager.talkIndex == 0)
             {
                 UIManager.instance.UpdateEnjoyCar(enjoyFamilyImg);
-                Debug.Log("사진업데이트왜안해ㅠㅠ");
+                //Debug.Log("사진업데이트왜안해ㅠㅠ");
             }
 
 

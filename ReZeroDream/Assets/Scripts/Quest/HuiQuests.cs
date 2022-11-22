@@ -343,7 +343,7 @@ public class HuiQuests : MonoBehaviour
         }
         cameraMovement.cameraOffset = new Vector3(-20, 10, 10);
 
-        print("Èñ ³¡");
+        //print("Èñ ³¡");
         
 
     }
