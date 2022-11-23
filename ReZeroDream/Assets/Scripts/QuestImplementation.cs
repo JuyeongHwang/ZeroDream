@@ -59,6 +59,7 @@ public class QuestImplementation : MonoBehaviour
     [SerializeField] bool videoEnd = false;
 
     //원트
+    bool spawnFamily = false;
     bool zeroWantTalk = false;
     bool spawnWantMemory = false;
     bool getWantMemory = false;
@@ -106,9 +107,13 @@ public class QuestImplementation : MonoBehaviour
         {
             zeroFamily.Add(false);
         }
+        for (int i = 0; i < 3; i++) {
+            familyMovement.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
         crowdMovement.enabled = false;
-        familyMovement.gameObject.SetActive(false);
-        familyMovement.enabled = false;
+       // familyMovement.gameObject.SetActive(false);
+        //familyMovement.enabled = false;
         Zero = FindObjectOfType<PlayerInput>().gameObject;
     }
 
@@ -493,10 +498,13 @@ public class QuestImplementation : MonoBehaviour
             }
 
             //questId == 100 && questActionIndex == 1 일때 가족들이 활성화되면 되구, 대사를 퀘스트 안이 아니라 밖(기본 대사)로 빼서 대화 순서 상관없이 진행할 수 있습니다! npcId는 엄마가 5000, 아빠가 6000, 누나가 7000입니다.
-            if (GameManager.instance.MemoryPercent > 1.0f && !familyMovement.enabled && GameManager.instance.findCar)
+            if (GameManager.instance.MemoryPercent > 1.0f && !spawnFamily && GameManager.instance.findCar)
             {
-                familyMovement.gameObject.SetActive(true);
-                familyMovement.enabled = true;
+                spawnFamily = true;
+                for (int i = 0; i < 3; i++)
+                {
+                    familyMovement.transform.GetChild(i).gameObject.SetActive(true);
+                }
             }
 
 
