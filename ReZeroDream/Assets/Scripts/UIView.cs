@@ -8,12 +8,14 @@ public class UIView : MonoBehaviour
 
     bool active = false;
     [HideInInspector] public Animator Dialogue;
+    public Animator NotePad;
 
     // ****** view hide show **********
     public void Show()
     {
         gameObject.SetActive(true);
         active = true;
+        print("¸Ï¿Ë");
 
     }
 

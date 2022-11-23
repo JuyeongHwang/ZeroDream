@@ -74,6 +74,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private UIView EnjoyCarImage;
     [SerializeField] private UIView EnjoyBurgerText;
     [SerializeField] private UIView WantNote;
+    [SerializeField] private Animator NotePadAnimator;
+
     [Header("Caution")]
     [SerializeField] private UIView CautionWindow;
     [SerializeField] private UIView CautionText;
@@ -90,15 +92,23 @@ public class UIManager : MonoBehaviour
         {
             //¼û±â±â
             ActiveNote = false;
+            NotePadAnimator.SetTrigger("Hide");
+            Invoke("NotePadHide", 0.35f);
         }
         else //¼û°ÜÁ®ÀÖ´Ù¸é
         {
             //²¨³»±â
             ActiveNote = true;
+            NotePadWindow.Show();
+            NotePadAnimator.SetTrigger("Show");
         }
-
+    }
+    public void NotePadHide()
+    {
+        NotePadWindow.Hide();
 
     }
+
     public void HideAllCanvasNoFade()
     {
         Canvas.Hide();
