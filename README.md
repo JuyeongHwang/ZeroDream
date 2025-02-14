@@ -1,6 +1,4 @@
-![image](https://github.com/user-attachments/assets/f4bea582-6a7c-4219-9dcd-0353fd8a0e8b)# ZeroDream
-
-## 🎮Demo
+## 🎮트레일러
 [https://www.youtube.com/watch?v=qqjKbXYRbc8](https://www.youtube.com/watch?v=qqjKbXYRbc8)
 
 
