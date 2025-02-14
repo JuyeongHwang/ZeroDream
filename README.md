@@ -25,16 +25,20 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/79504024/201116810-90802068-3440-4888-8491-1bbb95ac65df.png" width="430" height="200"/></p>
 
 
+## 스테이지 별 대표 사진
 
 > `Happy` Stage
+- 제로가 행복했을 때의 기억들을 다양한 기법을 통해 보여준다.
 ![image](https://github.com/user-attachments/assets/8c524407-f30f-425b-a3f2-8afb39034b7c)
 
 
 > `Enjoy` Stage
+- 제로가 현실에서 즐겼던 것들을 기억해내는 과정이다.
 ![image](https://github.com/user-attachments/assets/041f27da-0433-42d1-954a-444beb8c87a2)
 
 
 > `Want` Stage
+- 제로가 간절히 바랬던 것을 은유적으로 표현했다.
 ![image](https://github.com/user-attachments/assets/df6c30ed-1376-4337-9f37-b4bfe6b3b0ee)
 
 
