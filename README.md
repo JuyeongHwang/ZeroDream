@@ -18,8 +18,8 @@
 
 
 ## 개발 내용
-> 중력의 변화, 평소와 다른 물체 크기, 이상한 사람들의 행동 패턴 등을 통해 **꿈**이라는 테마를 전달하고자 노력했다.
-> SW 구조는 아래와 같다.
+- 중력의 변화, 평소와 다른 물체 크기, 이상한 사람들의 행동 패턴 등을 통해 **꿈**이라는 테마를 전달하고자 노력했다.
+- SW 구조는 아래와 같다.
 <p align="center"><img src="https://user-images.githubusercontent.com/79504024/201117759-33d532a9-b185-4316-8aaf-08596abaae5f.png" width="400" height="200"/></p>
 
 <p align="center"><img src="https://user-images.githubusercontent.com/79504024/201116810-90802068-3440-4888-8491-1bbb95ac65df.png" width="430" height="200"/></p>
